@@ -1,0 +1,6 @@
+﻿  8bitoscompiler.cpp
+c:\users\owner\source\repos\8bitoscompiler\8bitoscompiler\8bitoscompiler.cpp(16): warning C4838: conversion from 'int' to 'const uint8_t' requires a narrowing conversion
+c:\users\owner\source\repos\8bitoscompiler\8bitoscompiler\8bitoscompiler.cpp(16): warning C4305: 'initializing': truncation from 'int' to 'const uint8_t'
+c:\users\owner\source\repos\8bitoscompiler\8bitoscompiler\8bitoscompiler.cpp(16): warning C4309: 'initializing': truncation of constant value
+c:\users\owner\source\repos\8bitoscompiler\8bitoscompiler\8bitoscompiler.cpp(61): warning C4715: 'readline': not all control paths return a value
+  8bitoscompiler.vcxproj -> C:\Users\Owner\source\repos\8bitoscompiler\Debug\8bitoscompiler.exe
