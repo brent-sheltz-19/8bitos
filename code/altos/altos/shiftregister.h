@@ -10,11 +10,16 @@
 #define __SHIFTREGISTER_H__
 
 #include <avr/io.h>
-
+#include "portcontroller.h"
+			#include <util/atomic.h>
+			#include <avr/io.h>
+			#include <avr/eeprom.h>
 class shiftregister
 {
 //variables
-public:	uint8_t datapin;uint8_t clkpin;uint8_t dataclkpin;
+public:	uint8_t datapin;/*data*/  
+	uint8_t clkpin;/*clock*/  
+	uint8_t dataclkpin;//latch
 	char data[8];
 protected:
 private:
@@ -23,7 +28,7 @@ private:
 public:
 	shiftregister();
 	shiftregister(unsigned char datapin, unsigned char clkpin, unsigned char dataclkpin);
-	void out(char data[8]) ;
+	 void out(char data) ;
 	void reset() ;
 	~shiftregister();
 	

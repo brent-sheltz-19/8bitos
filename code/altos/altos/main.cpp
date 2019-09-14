@@ -6,92 +6,46 @@
 */
 #define HIGH 1
 #define LOW 0
-#define gpio PINB
 #include <util/atomic.h>
 #include <avr/io.h>
 #include <avr/eeprom.h>
- 
+#include "portcontroller.h"
 #include "shiftregister.h"
-static volatile char code[2048];
-void portAdigitialwrite(uint8_t pin,uint8_t value)
-{
-	if(pin== 0||pin == 24)
-	{
-		if (value==HIGH)
-		{
-			PORTA |= 0b0001;
-		}
-		else if (value==LOW)
-		{
-			PORTA &= 0b11111110;
-		}
 
-	}
-	else if (pin == 1|| pin ==25)
+static char code[2048];
+portcontroller Port =  portcontroller();
+class exe 
+{
+	exe::exe()
 	{
-		if (value==HIGH)
-		{
-			PORTA |= 0b0010;
-		}
-		else if (value==LOW)
-		{
-			PORTA &= 0b11111101;
-			
-		}
-	}
-	else if (pin == 2|| pin ==26)
-	{
-		if (value==HIGH)
-		{
-			PORTA |= 0b0100;
-		}
-		else if (value==LOW)
-		{
-			PORTA &= 0b11111011;
-			
-		}
-	}
-	else if (pin == 3|| pin ==27)
-	{
-		if (value==HIGH)
-		{
-			PORTA |= 0b00001000;
-		}
-		else if (value==LOW)
-		{
-			PORTA &= 0b11110111;
-			
-		}
+		
 	}
 	
 	
-	
-}
-void shiftoutportA(uint8_t pin, uint8_t clk, int value)
+};
+void shiftregister::out(char data)
 {
-}
-int getPortd()
-{
-	return PORTD;
-}
-int getPortb()
-{
-	return gpio;
-}
-void setPortb(char value=0)
-{
-	gpio=value;
+	Port.shiftoutportA(datapin,clkpin,data);  	
 }
 void loadProgram( int prognum,shiftregister A)
 {
-	char c[]=	 {1,1,1,1,0,0,0,0} ;
-	A.out(c);
-	
-	
-}
-void saveProgram( int prognum)
-{
-	
+//	int c=	 0b11110000 ;
+//	A.out(c);	  
+	Port.setporta(prognum);
+	for (int i = 0 ; i<2048;i++)
+	{
+		if (PINB7==0)
+		{
+			i--;
+		}
+		else
+		{
+			while(PINB7==1)
+			{
+				code[i]=Port.getPortd();
+			}
+		}
+	}
 	
 	
 }
@@ -100,30 +54,31 @@ action 1 = program load
 */
 int main(void)
 {
-	uint8_t a=24;
-	uint8_t b=25;
-	uint8_t c=26;
-	shiftregister eepromcontrollerregister =  shiftregister(a,b,c);	  
-
+	uint8_t a=40;
+	uint8_t b=39;
+	uint8_t c=38;
+	shiftregister eepromcontrollerregister =  shiftregister(a,b,c);	   
+	shiftregister dataReg = shiftregister(37,36,35);
 	/* Replace with your application code */
+	loadProgram(0,eepromcontrollerregister);
 	while (1)
 	{
 		
-		int a = getPortb()	;
-		if(a==0)
-		{
-			
-		}
-		else
-		{
-			if (a==1)	 //load program
+		int a;
+		a = PINB;
+			 if (a==0)
+			 {
+				 Port.shiftoutportA(0,1,10);
+			 }
+			 
+			else if (a==1)	 //load program
 			{
 				int b;
-				do
+				do 
 				{
 					
 					
-					b=getPortb();
+					b=Port.getPortb();
 					/************************************************************************/
 					/*  1 = calculator
 					2 = terminal
@@ -152,8 +107,8 @@ int main(void)
 							{
 								if (b==4)
 								{
-									int c = getPortb();
-									while (c!=255)
+									int c = Port.getPortb();
+									while (c!=255 || c==0)
 									{
 										loadProgram(c,eepromcontrollerregister);	
 									
@@ -163,15 +118,10 @@ int main(void)
 						}
 					}
 					
-				}while(b!=5);
+				} while(b!=5);
 			 }
-			else if(a==2) //write program
-			{
-				
-				
-			}	
+			 	
 			
-		}
 	}
-			
 }
+			
