@@ -66,6 +66,8 @@ public:
     string findError(string in);
     int compilecommand(string command);
     string compile(string filename);
+private:
+    string convertFileToString(string filename);
 };
 
 clikecode::clikecode()
@@ -100,12 +102,12 @@ int clikecode::compilecommand(string command)
 }
 string clikecode::compile(string filename)
 {
-
+   
     ifstream file;
     file.open(filename);
     static string cwords;
-    int index = 0;
-    for (string line; getline(file, line);)
+    int index = 0;string line;
+    while ( getline(file, line))
     {
         string word="";
         int i = 0;
@@ -133,4 +135,16 @@ string clikecode::compile(string filename)
 
     }    
     return cwords;
+}
+
+inline string clikecode::convertFileToString(string filename)
+{
+    ifstream file;
+    file.open(filename);
+    string line;
+    while (getline(file, line))
+    {
+        
+    }
+    return string();
 }
