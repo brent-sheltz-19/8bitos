@@ -54,7 +54,7 @@ class clikecode
     {
         string dividebyzero = "divide by zero";
         string invalid;
-
+        string openfilerror = " file not open or found";`
     };
 
 public:
@@ -106,34 +106,42 @@ string clikecode::compile(string filename)
     ifstream file;
     file.open(filename);
     static string cwords;
-    int index = 0;string line;
-    while ( getline(file, line))
+    int index = 0;
+    string line;
+    if (&file != NULL)
     {
-        string word="";
-        int i = 0;
-        while (i < line.length())
+
+        while (getline(file, line))
         {
-             char a = line.at(i);
-            
-             if (a == *" ")
-             {
-                 if (word == "")
-                 {
-                     continue;
-                 }
-                 else
-                 {
-                     cwords += word;
-                 }
-             }
-             else
-             {
-                 word+=a;
-             }
+            string word = "";
+            int i = 0;
+            while (i < line.length())
+            {
+                char a = line.at(i);
 
+                if (a == *" ")
+                {
+                    if (word == "")
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        cwords += word;
+                    }
+                }
+                else
+                {
+                    word += a;
+                }
+
+            }
         }
-
     }    
+    else
+    {
+        cwords = error.openfilerror;
+    }
     return cwords;
 }
 

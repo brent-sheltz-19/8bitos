@@ -1,5 +1,2 @@
 ﻿  Main.cpp
-D:\codeing projects\8bitos\code\8bitoscompiler\8bitoscompiler\clikecode.h(144,5): error C2065: 'sstring': undeclared identifier
-D:\codeing projects\8bitos\code\8bitoscompiler\8bitoscompiler\clikecode.h(144,13): error C2146: syntax error: missing ';' before identifier 'line'
-D:\codeing projects\8bitos\code\8bitoscompiler\8bitoscompiler\clikecode.h(144,13): error C2065: 'line': undeclared identifier
-D:\codeing projects\8bitos\code\8bitoscompiler\8bitoscompiler\clikecode.h(145,26): error C2065: 'line': undeclared identifier
+  8bitoscompiler.vcxproj -> C:\Users\Brent\Documents\GitHub\8bitos\code\8bitoscompiler\x64\Debug\8bitoscompiler.exe
