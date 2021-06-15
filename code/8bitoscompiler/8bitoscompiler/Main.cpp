@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
 	//system("cd -c D:\codeing projects\8bitos\code\8bitoscompiler\8bitoscompiler");
 	
 	string asmcodes = c.compile("8bitosc.txt");
-
+	cout << asmcodes << endl;
 
 	return  0;
 }

@@ -1,5 +1,6 @@
 
 #include <fstream>
+#include <iostream>
 #include <string>
 #include <vector>
 using namespace std;
@@ -54,7 +55,7 @@ class clikecode
     {
         string dividebyzero = "divide by zero";
         string invalid;
-        string openfilerror = " file not open or found";`
+        string openfilerror = " file not open or found";
     };
 
 public:
@@ -102,38 +103,47 @@ int clikecode::compilecommand(string command)
 }
 string clikecode::compile(string filename)
 {
-   
-    ifstream file;
-    file.open(filename);
     static string cwords;
-    int index = 0;
-    string line;
-    if (&file != NULL)
-    {
+    ifstream file(filename);
 
+   
+    int index = 0;
+   
+    if (file.is_open())
+    { 
+       
+        string line="";
         while (getline(file, line))
         {
+            if (line == "")
+            {
+                continue;
+            }
             string word = "";
             int i = 0;
             while (i < line.length())
             {
                 char a = line.at(i);
-
-                if (a == *" ")
+                if (a == '{' || a == '}')
                 {
-                    if (word == "")
-                    {
-                        continue;
-                    }
-                    else
-                    {
-                        cwords += word;
-                    }
+                    break;
                 }
-                else
+                if (a == ' '||a == '\n')
                 {
-                    word += a;
+                    
+                        cwords += word+';';
+                        word = "";
+                    
                 }
+                else if (a == '\0')
+                {
+                    break;
+                }
+                i++;
+            }
+            if (word != "")
+            {
+                cwords += word+';';
 
             }
         }

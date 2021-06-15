@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ASMmodule.h" />
     <ClInclude Include="clikecode.h" />
   </ItemGroup>
   <ItemGroup>
