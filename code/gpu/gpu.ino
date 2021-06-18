@@ -6,12 +6,25 @@ uint8_t rspin = 8;
 uint8_t rwpin = 9;
 uint8_t incommingmessage=10;
 const PROGMEM uint8_t pins[11]={0,1,2,3,4,5,6,7,8,9,10};
-LiquidCrystal_74HC595 disp1 = LiquidCrystal_74HC595(3,4,5,1, 3, 4, 5, 6, 7);
-LiquidCrystal_74HC595 disp2 = LiquidCrystal_74HC595(3,4,6,1, 3, 4, 5, 6, 7);
-LiquidCrystal_74HC595 disp3 = LiquidCrystal_74HC595(3,4,7,1, 3, 4, 5, 6, 7);
-LiquidCrystal_74HC595 disp4 = LiquidCrystal_74HC595(3,4,8,1, 3, 4, 5, 6, 7);
+// first 3 params are shift register
+LiquidCrystal_74HC595 disp1 = LiquidCrystal_74HC595(3,4,5, 1, 3, 4, 5, 6, 7);
+LiquidCrystal_74HC595 disp2 = LiquidCrystal_74HC595(3,4,6, 1, 3, 4, 5, 6, 7);
+LiquidCrystal_74HC595 disp3 = LiquidCrystal_74HC595(3,4,7, 1, 3, 4, 5, 6, 7);
+LiquidCrystal_74HC595 disp4 = LiquidCrystal_74HC595(3,4,8, 1, 3, 4, 5, 6, 7);
 LiquidCrystal_74HC595* disparry[4]={&disp1,&disp2,&disp3,&disp4};
+class shiftregister_74hc595
+{
+  uint8_t ds,clock,latch;
 
+}
+struct addresses 
+{
+  const uint8_t datatoScreen=0x00;
+  uint8_t dataoffset=0;
+  const uint16_t instructionaddr=0x0100;
+  const uint16_t instructionparameteraddr=0x0101;
+  const uint16_t customCharbase = 0x0120;
+}
 char customchar[8]
 {
 
@@ -80,9 +93,9 @@ void writedisp(String out)
 void readMessage(message alt)
 {
   alt.instruction = shiftIn(0,0,MSBFIRST);
+  
   alt.lengthofstr = shiftIn(0,0,MSBFIRST);
-  int i =0;
-  while(i<alt.lengthofstr)
+  for(int i =0; i<alt.lengthofstr;i++)
   {
     alt.messagestr.concat(shiftIn(0,0,MSBFIRST));
   }
@@ -107,9 +120,17 @@ void loop()
 
   if(digitalRead(incommingmessage)==HIGH)
   {
-    
+    readMessage(mess);
   }
+  if(mess.instruction==0)
+  {
+    //idle
+  }
+  else if (mess.instruction ==1)
+  {
+    //draw
 
+  }
 
 
 }

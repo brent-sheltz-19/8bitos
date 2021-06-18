@@ -15,15 +15,26 @@ class interpreter
 //variables
 public:
 protected:
+
+private:
+	uint64_t* baseprogram;
+	uint64_t* extendedprogram;
+	uint64_t* dataram;
+	uint8_t baseoffset=0;
+	uint8_t extendedprogoffset=0;
+	uint8_t dataramoffset=0;
 	char aculmerator;
 	char register1;
 	char register2;
-	
-private:
 
+
+
+	
+	
 //functions
 public:
 	interpreter();
+	
 	~interpreter();
 protected:
 private:
@@ -48,5 +59,6 @@ interpreter::interpreter()
 // default destructor
 interpreter::~interpreter()
 {
+	
 } //~interpreter
 #endif //__INTERPRETER_H__
