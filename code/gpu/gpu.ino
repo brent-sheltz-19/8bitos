@@ -1,7 +1,17 @@
 #include <LiquidCrystal_74HC595.h>
 
 // LiquidCrystal_74HC595(uint8_t ds, uint8_t shcp, uint8_t stcp,
-
+uint8_t rspin = 8;
+uint8_t rwpin = 9;
+uint8_t incommingmessage=10;
+const PROGMEM uint8_t pins[11]={0,1,2,3,4,5,6,7,8,9,10};
+// first 3 params are shift register
+LiquidCrystal_74HC595 disp1 = LiquidCrystal_74HC595(3,4,5, 1, 3, 4, 5, 6, 7);
+LiquidCrystal_74HC595 disp2 = LiquidCrystal_74HC595(3,4,6, 1, 3, 4, 5, 6, 7);
+LiquidCrystal_74HC595 disp3 = LiquidCrystal_74HC595(3,4,7, 1, 3, 4, 5, 6, 7);
+LiquidCrystal_74HC595 disp4 = LiquidCrystal_74HC595(3,4,8, 1, 3, 4, 5, 6, 7);
+LiquidCrystal_74HC595* disparry[4]={&disp1,&disp2,&disp3,&disp4};
+int row, colum;
 class shiftregister_74hc595
 {
   uint8_t ds,clock,latch;
@@ -26,17 +36,41 @@ class shiftregister_74hc595
 
     }
 };
+shiftregister_74hc595 addresreg = shiftregister_74hc595(1,2,9);
 struct addresses 
 {
-  const uint8_t datatoScreen=0x00;
   uint8_t dataoffset=0;
-  const uint16_t instructionaddr=0x0100;
+  uint8_t instructionoffset=0;
+  uint8_t instructionparamoffset=0;
+  const uint8_t datatoScreen=0x00;// 0X0000-0X0050
+  const uint16_t instructionaddr=0x0100; 
   const uint16_t instructionparameteraddr=0x0101;
   const uint16_t customCharbase = 0x0120;
-};
-char customchar[8]
-{
 
+  void incdataoffset()
+  {
+    dataoffset++;
+  }
+  void decdataoffset()
+  {
+    dataoffset--;
+  }
+  void incinstructionoffset()
+  {
+    dataoffset++;
+  }
+  void decinstructionoffset()
+  {
+    dataoffset--;
+  }
+  void incinstructionparamoffset()
+  {
+    dataoffset++;
+  }
+  void decinstructionparamoffset()
+  {
+    dataoffset--;
+  }
 };
 
 
@@ -98,18 +132,8 @@ void readRamInstruction(char* array)
 }
 
 
-uint8_t rspin = 8;
-uint8_t rwpin = 9;
-uint8_t incommingmessage=10;
-const PROGMEM uint8_t pins[11]={0,1,2,3,4,5,6,7,8,9,10};
-// first 3 params are shift register
-LiquidCrystal_74HC595 disp1 = LiquidCrystal_74HC595(3,4,5, 1, 3, 4, 5, 6, 7);
-LiquidCrystal_74HC595 disp2 = LiquidCrystal_74HC595(3,4,6, 1, 3, 4, 5, 6, 7);
-LiquidCrystal_74HC595 disp3 = LiquidCrystal_74HC595(3,4,7, 1, 3, 4, 5, 6, 7);
-LiquidCrystal_74HC595 disp4 = LiquidCrystal_74HC595(3,4,8, 1, 3, 4, 5, 6, 7);
-LiquidCrystal_74HC595* disparry[4]={&disp1,&disp2,&disp3,&disp4};
-int row, colum;
-shiftregister_74hc595 addresreg = shiftregister_74hc595(1,2,9);
+
+
 void setup() {
   row, colum = 0;
   for (uint8_t val:pins)
