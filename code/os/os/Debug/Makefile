@@ -56,6 +56,7 @@ C_SRCS +=  \
 ../drivers/mem/eeprom.cpp \
 ../drivers/mem/rom.cpp \
 ../drivers/mem/volatile/ram.cpp \
+../drivers/mem/volatile/Vram.cpp \
 ../main.cpp
 
 
@@ -74,6 +75,7 @@ drivers/io/shift\ register/shiftreg.o \
 drivers/mem/eeprom.o \
 drivers/mem/rom.o \
 drivers/mem/volatile/ram.o \
+drivers/mem/volatile/Vram.o \
 main.o
 
 OBJS_AS_ARGS +=  \
@@ -85,6 +87,7 @@ drivers/io/lcd/lcd.o \
 drivers/mem/eeprom.o \
 drivers/mem/rom.o \
 drivers/mem/volatile/ram.o \
+drivers/mem/volatile/Vram.o \
 main.o
 
 C_DEPS +=  \
@@ -96,6 +99,7 @@ drivers/io/shift\ register/shiftreg.d \
 drivers/mem/eeprom.d \
 drivers/mem/rom.d \
 drivers/mem/volatile/ram.d \
+drivers/mem/volatile/Vram.d \
 main.d
 
 C_DEPS_AS_ARGS +=  \
@@ -107,6 +111,7 @@ drivers/io/lcd/lcd.d \
 drivers/mem/eeprom.d \
 drivers/mem/rom.d \
 drivers/mem/volatile/ram.d \
+drivers/mem/volatile/Vram.d \
 main.d
 
 OUTPUT_FILE_PATH +=os.elf
@@ -173,6 +178,13 @@ drivers/mem/rom.o: ../drivers/mem/rom.cpp
 	
 
 drivers/mem/volatile/ram.o: ../drivers/mem/volatile/ram.cpp
+	@echo Building file: $<
+	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega644p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega644p" -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+drivers/mem/volatile/Vram.o: ../drivers/mem/volatile/Vram.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega644p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega644p" -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

@@ -20,12 +20,13 @@ public:
 	
 protected:
 	char offset;
-private:
 	uint8_t wepin;
 	portcontroller* portptr;
 	shiftreg* addrptr;
 	shiftreg* dataptr;
 	uint64_t addressbase;
+private:
+
 //functions
 public:
 	ram();

@@ -5,6 +5,11 @@
 * Author: Brent
 */
 
+#include <avr/io.h>
+#include <avr/pgmspace.h>
+#include <avr/cpufunc.h>
+#include <avr/interrupt.h>
+#include <stdio.h>
 
 #ifndef __INTERPRETER_H__
 #define __INTERPRETER_H__

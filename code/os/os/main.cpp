@@ -15,6 +15,7 @@
 #include "drivers/io/lcd/lcd.h"
 #include "drivers/io/shift register/shiftreg.h"
 #include "drivers/mem/volatile/ram.h"
+#include "drivers/mem/volatile/Vram.h"
 #include "drivers/mem/rom.h"
 #include "drivers/mem/eeprom.h"
 #include "cpu/interrupts/interrupts.h"
@@ -24,9 +25,9 @@ static shiftreg addreg=shiftreg(40,39,38,&port);
 static shiftreg datareg=shiftreg(37,36,35,&port);
 static ram bank0 = ram(&port,&addreg,&datareg,34,0u);	// os ram 
 static ram bank1 = ram(&port,&addreg,&datareg,34,0x4000u);//main prog ram
-static ram bank2 = ram(&port,&addreg,&datareg,34,0x8000);// second prog ram or extended main program ram
-static ram bank3 = ram(&port,&addreg,&datareg,34,0xC000);// third program
-static ram bank4 = ram(&port,&addreg,&datareg,34,0x10000);// video ram
+static ram bank2 = ram(&port,&addreg,&datareg,34,0x8000u);// second prog ram or extended main program ram
+static ram bank3 = ram(&port,&addreg,&datareg,34,0xC000);// third program or prog data ram
+static ram bank4 = Vram(&port,&addreg,&datareg,34,0x10000);// video ram
 
 static rom bios = rom(&port,&addreg,0x14000);
 static rom settings = rom(&port,&addreg,0x018000);

@@ -27,6 +27,7 @@ main.d main.o: .././main.cpp \
  .././drivers/mem/volatile/ram.h \
  .././drivers/mem/volatile/../../io/port\ controller/portcontroller.h \
  .././drivers/mem/volatile/../../io/shift\ register/shiftreg.h \
+ .././drivers/mem/volatile/Vram.h .././drivers/mem/volatile/ram.h \
  .././drivers/mem/rom.h \
  .././drivers/mem/../io/port\ controller/portcontroller.h \
  .././drivers/mem/../io/shift\ register/shiftreg.h \
@@ -87,6 +88,10 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././drivers/mem/volatile/../../io/port\ controller/portcontroller.h:
 
 .././drivers/mem/volatile/../../io/shift\ register/shiftreg.h:
+
+.././drivers/mem/volatile/Vram.h:
+
+.././drivers/mem/volatile/ram.h:
 
 .././drivers/mem/rom.h:
 

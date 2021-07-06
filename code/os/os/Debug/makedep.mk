@@ -18,5 +18,7 @@ drivers\mem\rom.cpp
 
 drivers\mem\volatile\ram.cpp
 
+drivers\mem\volatile\Vram.cpp
+
 main.cpp
 

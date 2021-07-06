@@ -217,6 +217,12 @@
     <Compile Include="drivers\mem\volatile\ram.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="drivers\mem\volatile\Vram.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\mem\volatile\Vram.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.cpp">
       <SubType>compile</SubType>
     </Compile>
