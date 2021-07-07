@@ -28,6 +28,7 @@ private:
 	uint8_t baseoffset=0;
 	uint8_t extendedprogoffset=0;
 	uint8_t dataramoffset=0;
+	
 	char aculmerator;
 	char register1;
 	char register2;
@@ -39,7 +40,7 @@ private:
 //functions
 public:
 	interpreter();
-	
+	public void run();
 	~interpreter();
 protected:
 private:
@@ -51,7 +52,11 @@ private:
 interpreter::interpreter()
 {
 } //interpreter
-
+void interpreter::run()
+{
+	
+	
+}
 
 
 

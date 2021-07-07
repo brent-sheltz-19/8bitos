@@ -67,8 +67,9 @@ public:
     string findError(string in);
     int compilecommand(string command);
     string compile(string filename);
+    string getFirstLine(string filename);
 private:
-    string convertFileToString(string filename);
+    //string convertFileToString(string filename);
 };
 
 clikecode::clikecode()
@@ -128,7 +129,7 @@ string clikecode::compile(string filename)
                 {
                     break;
                 }
-                if (a == ' '||a == '\n')
+                else if (a == ' '||a == '\n')
                 {
                     
                         cwords += word+';';
@@ -138,6 +139,10 @@ string clikecode::compile(string filename)
                 else if (a == '\0')
                 {
                     break;
+                }
+                else
+                {
+                    word += a;
                 }
                 i++;
             }
@@ -154,15 +159,24 @@ string clikecode::compile(string filename)
     }
     return cwords;
 }
-
-inline string clikecode::convertFileToString(string filename)
+string clikecode::getFirstLine(string filename)
 {
-    ifstream file;
-    file.open(filename);
-    string line;
-    while (getline(file, line))
+    ifstream file(filename);
+    if (file.is_open())
     {
-        
+
+        string line = "";
+        while (getline(file, line))
+        {
+            if (line == "")
+            {
+                continue;
+            }
+            else
+            {
+                return line;
+            }
+        }
     }
-    return string();
 }
+

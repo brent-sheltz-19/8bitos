@@ -1,11 +1,11 @@
-
+#c
 
 
 
 
 byte main()
 {
-	byte a = 0;
+	char a = 0;
 	a= read();
 	out(a);
 	a++
