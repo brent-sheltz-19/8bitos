@@ -5,10 +5,14 @@
 
 byte main()
 {
+
 	char a = 0;
 	a= read();
-	out(a);
+	display.draw(a);
 	a++
+	display.decrement();
+	display.clear()
+
 }
 
 

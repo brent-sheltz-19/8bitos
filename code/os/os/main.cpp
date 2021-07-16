@@ -19,7 +19,7 @@
 #include "drivers/mem/rom.h"
 #include "drivers/mem/eeprom.h"
 #include "cpu/interrupts/interrupts.h"
-
+#include "cpu/interpreter/interpreter.h"
 static portcontroller port=portcontroller();
 static shiftreg addreg=shiftreg(40,39,38,&port);
 static shiftreg datareg=shiftreg(37,36,35,&port);
@@ -44,7 +44,7 @@ static eeprom storage3 =eeprom(&port,&addreg,&datareg,34,0x0003C000);
 
 
 static interrupts irqhandler= interrupts();
-
+static interpreter interpret= interpreter();
 
 static lcd disp1=lcd();
 

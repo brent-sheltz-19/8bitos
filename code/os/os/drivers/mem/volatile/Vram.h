@@ -24,17 +24,21 @@ public:
 protected:
 private:
 	PROGMEM static const uint16_t char_memory_base=0x00;
+	uint8_t char_memory_offset;
 	PROGMEM static const uint16_t instruction_memory_base=0x0100;
+	uint8_t instruction_memory_offset;
 	PROGMEM static const uint16_t custom_char_memory_base=0x0120;
-	
+	uint8_t custom_char_memory_offset;
 	
 
 //functions
 public:
 	Vram(portcontroller* portptr,shiftreg* addrptr,shiftreg* datarptr,uint8_t wepin,uint64_t addressbase);
 	void writeData();
+	void cleardata();
 	void writeInstruction();
-	void writecustomchar ();
+	void writecustomchar (uint8_t[] );
+	//void writecustomchar (uint8_t[] );
 	~Vram();
 protected:
 private:
