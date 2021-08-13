@@ -169,16 +169,22 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="cpu\communication\serial.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="cpu\communication\serial.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="cpu\interpreter\interpreter.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="cpu\interpreter\interpreter.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="cpu\interrupts\interrupts.cpp">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="cpu\interrupts\interrupts.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="cpu\NewFolder1\interpreter.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="cpu\NewFolder1\interpreter.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="drivers\io\lcd\lcd.cpp">
@@ -228,10 +234,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="cpu\interrupts" />
-    <Folder Include="cpu\NewFolder1\" />
+    <Folder Include="cpu\interrupts\" />
     <Folder Include="cpu\communication" />
     <Folder Include="cpu" />
+    <Folder Include="cpu\interpreter" />
     <Folder Include="drivers\" />
     <Folder Include="drivers\io\" />
     <Folder Include="drivers\io\lcd\" />

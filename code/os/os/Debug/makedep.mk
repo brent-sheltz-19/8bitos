@@ -2,9 +2,11 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-cpu\interrupts\interrupts.cpp
+cpu\communication\serial.cpp
 
-cpu\NewFolder1\interpreter.cpp
+cpu\interpreter\interpreter.cpp
+
+cpu\interrupts\interrupts.cpp
 
 drivers\io\lcd\lcd.cpp
 

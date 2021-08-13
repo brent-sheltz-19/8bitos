@@ -33,10 +33,10 @@ LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
-../cpu/interrupts \
-../cpu/NewFolder1/ \
+../cpu/interrupts/ \
 ../cpu/communication \
 ../cpu \
+../cpu/interpreter \
 ../drivers/ \
 ../drivers/io/ \
 ../drivers/io/lcd/ \
@@ -48,8 +48,9 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../cpu/communication/serial.cpp \
+../cpu/interpreter/interpreter.cpp \
 ../cpu/interrupts/interrupts.cpp \
-../cpu/NewFolder1/interpreter.cpp \
 ../drivers/io/lcd/lcd.cpp \
 ../drivers/io/port\ controller/portcontroller.cpp \
 ../drivers/io/shift\ register/shiftreg.cpp \
@@ -67,8 +68,9 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+cpu/communication/serial.o \
+cpu/interpreter/interpreter.o \
 cpu/interrupts/interrupts.o \
-cpu/NewFolder1/interpreter.o \
 drivers/io/lcd/lcd.o \
 drivers/io/port\ controller/portcontroller.o \
 drivers/io/shift\ register/shiftreg.o \
@@ -79,8 +81,9 @@ drivers/mem/volatile/Vram.o \
 main.o
 
 OBJS_AS_ARGS +=  \
+cpu/communication/serial.o \
+cpu/interpreter/interpreter.o \
 cpu/interrupts/interrupts.o \
-cpu/NewFolder1/interpreter.o \
 drivers/io/lcd/lcd.o \
 "drivers/io/port controller/portcontroller.o" \
 "drivers/io/shift register/shiftreg.o" \
@@ -91,8 +94,9 @@ drivers/mem/volatile/Vram.o \
 main.o
 
 C_DEPS +=  \
+cpu/communication/serial.d \
+cpu/interpreter/interpreter.d \
 cpu/interrupts/interrupts.d \
-cpu/NewFolder1/interpreter.d \
 drivers/io/lcd/lcd.d \
 drivers/io/port\ controller/portcontroller.d \
 drivers/io/shift\ register/shiftreg.d \
@@ -103,8 +107,9 @@ drivers/mem/volatile/Vram.d \
 main.d
 
 C_DEPS_AS_ARGS +=  \
+cpu/communication/serial.d \
+cpu/interpreter/interpreter.d \
 cpu/interrupts/interrupts.d \
-cpu/NewFolder1/interpreter.d \
 drivers/io/lcd/lcd.d \
 "drivers/io/port controller/portcontroller.d" \
 "drivers/io/shift register/shiftreg.d" \
@@ -128,14 +133,21 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
-cpu/interrupts/interrupts.o: ../cpu/interrupts/interrupts.cpp
+cpu/communication/serial.o: ../cpu/communication/serial.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega644p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega644p" -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-cpu/NewFolder1/interpreter.o: ../cpu/NewFolder1/interpreter.cpp
+cpu/interpreter/interpreter.o: ../cpu/interpreter/interpreter.cpp
+	@echo Building file: $<
+	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega644p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega644p" -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+cpu/interrupts/interrupts.o: ../cpu/interrupts/interrupts.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega644p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega644p" -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

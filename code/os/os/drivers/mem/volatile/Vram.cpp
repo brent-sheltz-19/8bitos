@@ -29,11 +29,11 @@ void Vram::writeInstruction()
 
 }
 
-void Vram::writecustomchar(uint8_t [] customchar)
+void Vram::writecustomchar(uint8_t  customchar[])
 {
 	for (int i =0; i<8 ; i++)
 	{
-		write(uint64_t()this->custom_char_memory_base+i,customchar[i]);	
+		write(this->custom_char_memory_base+i,customchar[i]);	
 	}
 }
 

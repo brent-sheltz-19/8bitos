@@ -31,7 +31,16 @@ main.d main.o: .././main.cpp \
  .././drivers/mem/rom.h \
  .././drivers/mem/../io/port\ controller/portcontroller.h \
  .././drivers/mem/../io/shift\ register/shiftreg.h \
- .././drivers/mem/eeprom.h .././cpu/interrupts/interrupts.h
+ .././drivers/mem/eeprom.h .././cpu/interrupts/interrupts.h \
+ .././cpu/interpreter/interpreter.h \
+ .././cpu/interpreter/../../drivers/mem/rom.h \
+ .././cpu/interpreter/../../drivers/mem/../io/port\ controller/portcontroller.h \
+ .././cpu/interpreter/../../drivers/mem/../io/shift\ register/shiftreg.h \
+ .././cpu/interpreter/../../drivers/mem/volatile/ram.h \
+ .././cpu/interpreter/../../drivers/mem/volatile/../../io/port\ controller/portcontroller.h \
+ .././cpu/interpreter/../../drivers/mem/volatile/../../io/shift\ register/shiftreg.h \
+ .././cpu/interpreter/../../drivers/mem/volatile/Vram.h \
+ .././cpu/interpreter/../../drivers/mem/volatile/ram.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -102,3 +111,21 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././drivers/mem/eeprom.h:
 
 .././cpu/interrupts/interrupts.h:
+
+.././cpu/interpreter/interpreter.h:
+
+.././cpu/interpreter/../../drivers/mem/rom.h:
+
+.././cpu/interpreter/../../drivers/mem/../io/port\ controller/portcontroller.h:
+
+.././cpu/interpreter/../../drivers/mem/../io/shift\ register/shiftreg.h:
+
+.././cpu/interpreter/../../drivers/mem/volatile/ram.h:
+
+.././cpu/interpreter/../../drivers/mem/volatile/../../io/port\ controller/portcontroller.h:
+
+.././cpu/interpreter/../../drivers/mem/volatile/../../io/shift\ register/shiftreg.h:
+
+.././cpu/interpreter/../../drivers/mem/volatile/Vram.h:
+
+.././cpu/interpreter/../../drivers/mem/volatile/ram.h:
