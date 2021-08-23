@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClInclude Include="ASMmodule.h" />
     <ClInclude Include="clikecode.h" />
+    <ClInclude Include="File.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />

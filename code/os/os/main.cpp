@@ -95,10 +95,14 @@ int main(void)
 	port.writeddra(0xff);
 	port.writeddrc(0xff);
 	interpret.nop();
+	
 	//bank1.setaddress(0);
     /* Replace with your application code */
     while (1) 
     {
+		
+		interpret.inc((char)9);
+
 		if (PINB>0)
 		{
 			if (PINB)

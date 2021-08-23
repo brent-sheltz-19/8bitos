@@ -1,3 +1,4 @@
 ﻿  Main.cpp
-D:\codeing projects\8bitos\code\8bitoscompiler\8bitoscompiler\clikecode.h(178): warning C4715: 'clikecode::getFirstLine': not all control paths return a value
-  8bitoscompiler.vcxproj -> D:\codeing projects\8bitos\code\8bitoscompiler\x64\Debug\8bitoscompiler.exe
+C:\Users\Brent\Documents\GitHub\8bitos\code\8bitoscompiler\8bitoscompiler\clikecode.h(181): warning C4715: 'clikecode::getFirstLine': not all control paths return a value
+  LINK : C:\Users\Brent\Documents\GitHub\8bitos\code\8bitoscompiler\x64\Debug\8bitoscompiler.exe not found or not built by the last incremental link; performing full link
+  8bitoscompiler.vcxproj -> C:\Users\Brent\Documents\GitHub\8bitos\code\8bitoscompiler\x64\Debug\8bitoscompiler.exe

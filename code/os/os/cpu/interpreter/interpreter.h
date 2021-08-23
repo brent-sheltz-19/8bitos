@@ -45,9 +45,7 @@ protected:
 
 private:
 	rom* baseprogram;
-	rom* extendedprogram;
 	ram* dataram;
-	ram* dataextendedram;
 	Vram* videoram;
 	uint8_t baseoffset=0;
 	uint8_t extendedprogoffset=0;
@@ -55,6 +53,8 @@ private:
 	
 	char registers[255];
 	char stackptr = 255;
+	
+	uint16_t addressptr;
 	
 	indexreg registerx;
 	indexreg registery;
@@ -67,9 +67,9 @@ private:
 //functions
 public:
 	interpreter();
-	void loadprogram()
 	interpreter( const interpreter &c );
 	void run();
+	void nop();
 	void inc(char reg);
 	void inc(uint16_t memptr);
 	void dec(char reg);
@@ -77,10 +77,10 @@ public:
 	void mov(char regto, char regfrom);
 	void ld(char regto, uint16_t memptr);//movi
 	void ldi(char regto,char val);//movi
-	void st(uint16_t memptr, char register);
-	void sti();
-	void nop();
-	
+	void st(uint16_t memptr, char regfrom);
+	void stv(uint16_t memptr, char regfrom);
+	void jmp (uint16_t memptr);
+	void syscall();
 	
 	
 	void pop(char reg);
