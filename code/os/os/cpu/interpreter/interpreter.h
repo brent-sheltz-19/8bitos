@@ -1,4 +1,4 @@
-/* 
+1/* 
 * interpreter.h
 *
 * Created: 5/8/2021 1:50:50 AM
@@ -36,6 +36,16 @@ class interpreter
 		{
 			low=l;
 			high=h;
+		}
+		
+	};
+	struct cpuflags
+	{
+		char flag=0;
+		char getflag(char k )
+		{
+			
+			return (flag>>k);
 		}
 		
 	};
@@ -79,12 +89,11 @@ public:
 	void ldi(char regto,char val);//movi
 	void st(uint16_t memptr, char regfrom);
 	void stv(uint16_t memptr, char regfrom);
-	void jmp (uint16_t memptr);
 	void syscall();
-	
-	
 	void pop(char reg);
+	void push(char reg);
 	
+	uint16_t jmp (uint16_t memptr);
 	~interpreter();
 protected:
 private:
