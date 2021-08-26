@@ -8,6 +8,8 @@ cpu\interpreter\interpreter.cpp
 
 cpu\interrupts\interrupts.cpp
 
+drivers\io\GPU\GPU.cpp
+
 drivers\io\lcd\lcd.cpp
 
 drivers\io\port controller\portcontroller.cpp

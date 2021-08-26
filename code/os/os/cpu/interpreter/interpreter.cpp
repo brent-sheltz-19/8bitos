@@ -62,12 +62,23 @@ void interpreter::run()
 		else if (command==2)
 		{
 			uint16_t addresstoinc = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
-
 			inc(addresstoinc);
 			addressptr+=2;
 			continue;
 		}	
 		else if (command==3)
+		{
+			
+		}
+		else if (command==4)
+		{
+			
+		}
+		else if (command==5)
+		{
+			
+		}
+		else if (command==6)
 		{
 			
 		}
@@ -101,6 +112,14 @@ void interpreter::stv(uint16_t memptr, char regfrom)
 	videoram->write(memptr,regfrom);
 }
 
+void interpreter::cmp(char reg1 ,char reg2)
+{
+	if (reg1==reg2)
+	{
+		
+	}
+}
+
 void interpreter::nop()
 {
 	asm volatile("nop");
@@ -109,6 +128,22 @@ void interpreter::nop()
 
 void interpreter::syscall()
 {
+	//r0 is command
+	// rn >r0 is data
+	/*
+		0-  sleep 1 ms
+		
+		
+		
+		
+	
+	*/
+	if (registers[0]==0)
+	{
+		_delay_ms(1);
+	}
+	
+	
 
 }
 
