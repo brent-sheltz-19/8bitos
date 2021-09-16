@@ -116,8 +116,38 @@ void interpreter::cmp(char reg1 ,char reg2)
 {
 	if (reg1==reg2)
 	{
+		flag.setflag(cpuflags::equals);
+	}
+	else if(reg1>reg2)
+	{
+		flag.setflag(cpuflags::greater)
 		
 	}
+	else if(reg1<reg2)
+	{
+		flag.setflag(cpuflags::less);
+		
+	}
+	
+}
+
+void interpreter::cpi(char reg1 ,char val)
+{
+	if (reg1==val)
+	{
+		flag.setflag(cpuflags::equals);
+	}
+	else if(reg1>val)
+	{
+		flag.setflag(cpuflags::greater)
+		
+	}
+	else if(reg1<val)
+	{
+		flag.setflag(cpuflags::less);
+		
+	}
+	
 }
 
 void interpreter::nop()

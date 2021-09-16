@@ -42,7 +42,7 @@ class interpreter
 	
 	struct cpuflags
 	{
-		enum bitflags {zero, greater,less,carry,sign,overflow};
+		enum bitflags {zero, greater,less,equals,carry,sign,overflow};
 		char flag=0;
 		char getflag(bitflags k )
 		{
@@ -153,9 +153,12 @@ public:
 	void st(uint16_t memptr, char regfrom);
 	void stv(uint16_t memptr, char regfrom);
 	void cmp(char reg1 ,char reg2);
-	void cmpi(char reg1,char val);
-//	void sp();
-
+	void cpi(char reg1,char val);
+	void txp();
+	void typ();
+	void tzp();
+	
+	
 	void syscall();
 	void pop(char reg);
 	void push(char reg);

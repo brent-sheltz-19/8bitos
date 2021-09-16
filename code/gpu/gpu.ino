@@ -18,7 +18,9 @@ class shiftregister_74hc595
   public: 
     shiftregister_74hc595(uint8_t d,uint8_t c, uint8_t l)
     {
-
+      ds=d;
+      clock=c;
+      latch=l;
     }
     void shiftout8bit(uint8_t data)
     {
