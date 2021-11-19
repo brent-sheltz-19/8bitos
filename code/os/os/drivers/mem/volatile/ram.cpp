@@ -9,7 +9,7 @@
 #include "ram.h"
 
 // constructor
- ram::ram(portcontroller* portptr2,shiftreg* addrptr2,shiftreg* dataptr2,uint8_t wepin2,uint64_t addressbase2)
+ ram::ram(portcontroller* portptr2,shiftreg* addrptr2,shiftreg* dataptr2,uint8_t wepin2,uint32_t addressbase2)
  {
 	 this->portptr=portptr2;
 	 this->addrptr=addrptr2;

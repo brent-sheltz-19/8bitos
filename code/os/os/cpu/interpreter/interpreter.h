@@ -38,8 +38,7 @@ class interpreter
 			high=h;
 		}
 		
-	};
-	
+	};	
 	struct cpuflags
 	{
 		enum bitflags {zero, greater,less,equals,carry,sign,overflow};
@@ -47,6 +46,7 @@ class interpreter
 		char getflag(bitflags k )
 		{
 			return (flag>>k);
+			
 		}
 		void setflag(bitflags flag, bool on)
 		{
@@ -120,15 +120,19 @@ public:
 protected:
 
 private:
+	bool progexit;
+
 	rom* baseprogram;
 	ram* dataram;
+	ram* stackram;
+	
 	Vram* videoram;
 	uint8_t baseoffset=0;
 	uint8_t extendedprogoffset=0;
 	uint8_t dataramoffset=0;
 	
 	char registers[255];
-	char stackptr = 255;
+	uint16_t stackptr = 0x1fff;
 	
 	uint16_t addressptr;
 	
@@ -154,6 +158,8 @@ public:
 	void stv(uint16_t memptr, char regfrom);
 	void cmp(char reg1 ,char reg2);
 	void cpi(char reg1,char val);
+	void ror(char reg1);
+	void rol(char reg1);
 	void txp();
 	void typ();
 	void tzp();

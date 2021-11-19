@@ -24,7 +24,8 @@ protected:
 	portcontroller* portptr;
 	shiftreg* addrptr;
 	shiftreg* dataptr;
-	uint64_t addressbase;
+	// min address
+	uint32_t addressbase;
 private:
 
 //functions

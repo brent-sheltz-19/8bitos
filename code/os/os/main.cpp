@@ -28,24 +28,26 @@
 	
 */
 static const int address_max_hex=0x1fff;
+
 static portcontroller port=portcontroller();
 static shiftreg addreg=shiftreg(40,39,38,&port);
 static shiftreg datareg=shiftreg(37,36,35,&port);
+
 static ram bank0 = ram(&port,&addreg,&datareg,34,0x0u);	// os ram 
-static ram bank1 = ram(&port,&addreg,&datareg,34,0x4000u);//main prog ram
-static ram bank2 = ram(&port,&addreg,&datareg,34,0x8000u);// second prog ram or extended main program ram
-static ram bank3 = ram(&port,&addreg,&datareg,34,0xC000);// third program or prog data ram
-static ram bank4 = Vram(&port,&addreg,&datareg,34,0x10000);// video ram
+static ram bank1 = ram(&port,&addreg,&datareg,34,0x2000u);//main prog ram
+static ram bank2 = ram(&port,&addreg,&datareg,34,0x4000u);// second prog ram or extended main program ram
+static ram bank3 = ram(&port,&addreg,&datareg,34,0x5000u);// third program or prog data ram
+static ram bank4 = Vram(&port,&addreg,&datareg,34,0x6000u);// video ram
 
 static ram rambanklist[] = {bank0,bank1,bank2,bank3,bank4};
 
 
-static rom bios = rom(&port,&addreg,0x14000);
-static rom settings = rom(&port,&addreg,0x018000);
-static rom program0 = rom(&port,&addreg,0x1C0000);
-static rom program1 = rom(&port,&addreg,0x020000);
-static rom program2 = rom(&port,&addreg,0x024000);
-static rom program3 = rom(&port,&addreg,0x028000);
+static rom bios = rom(&port,&addreg,0x7000);
+static rom settings = rom(&port,&addreg,0x8000);
+static rom program0 = rom(&port,&addreg,0x9000);
+static rom program1 = rom(&port,&addreg,0xA000);
+static rom program2 = rom(&port,&addreg,0xB000);
+static rom program3 = rom(&port,&addreg,0xC000);
 
 static eeprom fattable =eeprom(&port,&addreg,&datareg,34,0x0002C000);
 static eeprom storage0 =eeprom(&port,&addreg,&datareg,34,0x00030000);
@@ -102,14 +104,15 @@ int main(void)
     {
 		
 		interpret.inc((char)9);
-
+		interpret.ldi(5,10);
+		interpret.cmp(9,5);
 		if (PINB>0)
 		{
 			if (PINB)
 			{
 				
 			}
-		}
 		storememory(0x0000,0xff);
 	}
+		}
 }
