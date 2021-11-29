@@ -106,6 +106,7 @@ int main(void)
 		interpret.inc((char)9);
 		interpret.ldi(5,10);
 		interpret.cmp(9,5);
+		interpret.ldi(254,65);
 		if (PINB>0)
 		{
 			if (PINB)
@@ -113,6 +114,6 @@ int main(void)
 				
 			}
 		storememory(0x0000,0xff);
-	}
 		}
+	}
 }

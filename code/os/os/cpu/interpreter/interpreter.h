@@ -37,7 +37,10 @@ class interpreter
 			low=l;
 			high=h;
 		}
-		
+		uint16_t getVal()
+		{
+			retun  (high <<8)|low;
+		}
 	};	
 	struct cpuflags
 	{
@@ -154,21 +157,36 @@ public:
 	void mov(char regto, char regfrom);
 	void ld(char regto, uint16_t memptr);//movi
 	void ldi(char regto,char val);//movi
-	void st(uint16_t memptr, char regfrom);
+	void stx(char regfrom);
+	void sty(char regfrom);
+	void stz(char regfrom);
+	
+	void std(uint16_t memptr, char regfrom);
+	
+	
 	void stv(uint16_t memptr, char regfrom);
 	void cmp(char reg1 ,char reg2);
 	void cpi(char reg1,char val);
 	void ror(char reg1);
 	void rol(char reg1);
-	void txp();
-	void typ();
-	void tzp();
+	void txs();
+	void txy();
+	void txz();
+
+	void tys();
+	void tyx();
+	void tyz();
 	
+	void tzs();
+	void tzx();
+	void tzy();
+	
+	void call();
 	
 	void syscall();
 	void pop(char reg);
 	void push(char reg);
-	//uint16_t jmp (uint16_t memptr);
+	uint16_t jmp (uint16_t memptr);
 	~interpreter();
 protected:
 private:

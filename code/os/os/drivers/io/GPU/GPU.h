@@ -5,7 +5,7 @@
 * Author: Brent
 */
 
-#include "$/mem/volatile/Vram.h"
+#include "../mem/volatile/Vram.h"
 
 
 #ifndef __GPU_H__

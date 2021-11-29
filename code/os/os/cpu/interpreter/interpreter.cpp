@@ -1,4 +1,4 @@
-/* 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              /* 
 * interpreter.cpp
 *
 * Created: 5/8/2021 1:50:49 AM
@@ -51,32 +51,45 @@ void interpreter::run()
 		char command = baseprogram->read(addressptr);
 		if (command==0)
 		{
+			// nop
 			nop();
 		}
 		else if (command==1)
 		{
+			//inc register
 			addressptr+=1;
 			char  regtoinc = baseprogram->read(addressptr);
 			inc(regtoinc);
 		}
 		else if (command==2)
 		{
+			//inc memory
 			uint16_t addresstoinc = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
 			inc(addresstoinc);
 			addressptr+=2;
-			continue;
 		}	
 		else if (command==3)
 		{
+			//dec reg
+			addressptr+=1;
+			char  regtodec = baseprogram->read(addressptr);
+			dec(regtodec);
+			addressptr++;
 			
 		}
 		else if (command==4)
 		{
-			
+			//dec mem
+			uint16_t addresstodec = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+			inc(addresstodec);
+			addressptr+=2;
 		}
 		else if (command==5)
 		{
-			
+			//mov
+			uint8_t regto = baseprogram->read(addressptr+1);
+			uint8_t regfrom = baseprogram->read(addressptr+2);
+			mov(regto,regfrom);			
 		}
 		else if (command==6)
 		{
@@ -101,12 +114,27 @@ void interpreter::ldi(char regto,char val)
 {
 	registers[regto]=val;
 }
-
+/*
 void interpreter::st(uint16_t memptr, char regfrom)
 {
 	dataram->write(memptr,regfrom);
 }
+*/
+void interpreter::stx(char regfrom)
+{
+	dataram->write(x,regfrom);
+void interpreter::sty(uint16_t memptr, char regfrom)
+{
+	dataram->write(y,regfrom);
+}
+void interpreter::stz(char regfrom)
+{
+	dataram->write(Z,regfrom);
 
+void interpreter::std(uint16_t memptr, char regfrom)
+{
+	dataram->write(memptr,regfrom);
+}
 void interpreter::stv(uint16_t memptr, char regfrom)
 {
 	videoram->write(memptr,regfrom);
@@ -116,16 +144,16 @@ void interpreter::cmp(char reg1 ,char reg2)
 {
 	if (reg1==reg2)
 	{
-		flag.setflag(cpuflags::equals);
+		flag.setflag(cpuflags::equals,true);
 	}
 	else if(reg1>reg2)
 	{
-		flag.setflag(cpuflags::greater)
+		flag.setflag(cpuflags::greater,true);
 		
 	}
 	else if(reg1<reg2)
 	{
-		flag.setflag(cpuflags::less);
+		flag.setflag(cpuflags::less,true);
 		
 	}
 	
@@ -135,16 +163,16 @@ void interpreter::cpi(char reg1 ,char val)
 {
 	if (reg1==val)
 	{
-		flag.setflag(cpuflags::equals);
+		flag.setflag(cpuflags::equals,true);
 	}
 	else if(reg1>val)
 	{
-		flag.setflag(cpuflags::greater)
+		flag.setflag(cpuflags::greater,true);
 		
 	}
 	else if(reg1<val)
 	{
-		flag.setflag(cpuflags::less);
+		flag.setflag(cpuflags::less,true);
 		
 	}
 	
@@ -181,4 +209,4 @@ void interpreter::syscall()
 interpreter::~interpreter()
 {
 	
-} //~interpreter
+} //~interpreter 
