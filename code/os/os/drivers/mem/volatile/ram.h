@@ -32,8 +32,8 @@ private:
 public:
 	ram();
 	//ram(portcontroller* portptr,shiftreg* addrptr,uint8_t wepin,int offset);
-	ram(portcontroller* portptr,shiftreg* addrptr,uint8_t wepin,uint64_t addressbase);
-	ram(portcontroller* portptr,shiftreg* addrptr,shiftreg* datarptr,uint8_t wepin,uint64_t addressbase);
+	ram(portcontroller* portptr,shiftreg* addrptr,uint8_t wepin,uint32_t addressbase);
+	//ram(portcontroller* portptr,shiftreg* addrptr,shiftreg* datarptr,uint8_t wepin,uint64_t addressbase);
 	
 	char read();
 	char read(int addr);

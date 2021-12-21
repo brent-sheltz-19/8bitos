@@ -9,12 +9,28 @@
 #include "Vram.h"
 
 // default constructor
-Vram::Vram(portcontroller* portptr,shiftreg* addrptr,shiftreg* datarptr,uint8_t wepin,uint64_t addressbase):ram( portptr,addrptr,datarptr,wepin, addressbase)
+Vram::Vram(portcontroller* portptr,shiftreg* addrptr,uint8_t wepin,uint8_t mempin,uint64_t addressbase):ram( portptr,addrptr,wepin, addressbase)
 {
+	this->mempin=mempin;
 	
 } //Vram
-void Vram::writeData()
+void Vram::writeData(uint16_t address,char value)
 {
+	portptr->digitalwrite(mempin,true);
+	write(address,value);
+	portptr->digitalwrite(mempin,false);
+	
+
+}
+void Vram::writeData(uint16_t address,char* value,unsigned int size)
+{
+	portptr->digitalwrite(mempin,true);
+	for(int i =0;i<size;i++)
+	{
+		write(address,*(value+i));
+	}
+	portptr->digitalwrite(mempin,false);
+	
 
 }
 

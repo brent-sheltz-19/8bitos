@@ -29,7 +29,7 @@ private:
 //functions
 public:
 	eeprom();
-	eeprom(portcontroller* portptr,shiftreg* addrptr,shiftreg* dataptr,uint8_t wepin,uint64_t address2);
+	eeprom(portcontroller* portptr,shiftreg* addrptr,uint8_t wepin,uint64_t address2);
 	char read();
 	char read(int addr);
 	void write(char data);

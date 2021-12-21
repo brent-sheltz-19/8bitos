@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-cpu\communication\serial.cpp
+cpu\communication\Serial.cpp
 
 cpu\interpreter\interpreter.cpp
 

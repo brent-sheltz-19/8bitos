@@ -13,11 +13,10 @@ eeprom::eeprom()
 {
 } //eeprom
 
- eeprom::eeprom(portcontroller* portptr,shiftreg* addrptr,shiftreg* dataregister,uint8_t wepin,uint64_t address2)
+ eeprom::eeprom(portcontroller* portptr,shiftreg* addrptr,uint8_t wepin,uint64_t address2)
  {
 	 	this->portptr=portptr;
 	 	this->addrptr=addrptr;
-		this->dataptr=dataregister;
 	 	this->wepin=wepin;
 		this->address= address2;
 		this->offset = 0;

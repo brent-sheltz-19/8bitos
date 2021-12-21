@@ -13,20 +13,26 @@ interpreter::interpreter()
 	registerz= indexreg(&registers[253],&registers[254]);
 	registery= indexreg(&registers[251],&registers[252]);
 	registerx= indexreg(&registers[249],&registers[250]);
-	
-	
 } //interpreter
+
+
+/*
+	increments register
+*/
 void interpreter::inc(char reg)
 {
 	registers[reg]=registers[reg]+1;
 }
 
-
+/*
+	increments memory cell value
+	parameter - unsigned 16 bit value 
+*/
 void interpreter::inc(uint16_t memptr)
 {
-	char val=dataram->read(memptr);
+	char val=Dataram()->read(memptr);
 	val++;
-	dataram->write(memptr,val);
+	Dataram()->write(memptr,val);
 }
 
 void interpreter::dec(char reg)
@@ -36,19 +42,20 @@ void interpreter::dec(char reg)
 
 void interpreter::dec(uint16_t memptr)
 {
-	char val=dataram->read(memptr);
+	char val=Dataram()->read(memptr);
 	val--;
-	dataram->write(memptr,val);
+	Dataram()->write(memptr,val);
 
 }
 
 void interpreter::run()
 {
+	nop();
 	bool exitcode=false;
 	addressptr=0;
 	while(!exitcode)
 	{
-		char command = baseprogram->read(addressptr);
+		char command = Baseprogram()->read(addressptr);
 		if (command==0)
 		{
 			// nop
@@ -58,13 +65,13 @@ void interpreter::run()
 		{
 			//inc register
 			addressptr+=1;
-			char  regtoinc = baseprogram->read(addressptr);
+			char  regtoinc = Baseprogram()->read(addressptr);
 			inc(regtoinc);
 		}
 		else if (command==2)
 		{
 			//inc memory
-			uint16_t addresstoinc = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+			uint16_t addresstoinc = Baseprogram()->read(addressptr+1)<<8|Baseprogram()->read(addressptr+2);
 			inc(addresstoinc);
 			addressptr+=2;
 		}	
@@ -72,7 +79,7 @@ void interpreter::run()
 		{
 			//dec reg
 			addressptr+=1;
-			char  regtodec = baseprogram->read(addressptr);
+			char  regtodec = Baseprogram()->read(addressptr);
 			dec(regtodec);
 			addressptr++;
 			
@@ -80,22 +87,21 @@ void interpreter::run()
 		else if (command==4)
 		{
 			//dec mem
-			uint16_t addresstodec = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
-			inc(addresstodec);
+			uint16_t addresstodec = Baseprogram()->read(addressptr+1)<<8|Baseprogram()->read(addressptr+2);
+			dec(addresstodec);
 			addressptr+=2;
 		}
 		else if (command==5)
 		{
 			//mov
-			uint8_t regto = baseprogram->read(addressptr+1);
-			uint8_t regfrom = baseprogram->read(addressptr+2);
+			uint8_t regto = Baseprogram()->read(addressptr+1);
+			uint8_t regfrom = Baseprogram()->read(addressptr+2);
 			mov(regto,regfrom);			
 		}
 		else if (command==6)
 		{
 			
 		}
-		
 		
 		addressptr++;
 	}
@@ -107,13 +113,14 @@ void interpreter::mov(char regto, char regfrom)
 }
 void interpreter::ld(char regto, uint16_t memptr)
 {
-	registers[regto]=dataram->read(memptr);
+	registers[regto]=Dataram()->read(memptr);
 }
 
 void interpreter::ldi(char regto,char val)
 {
 	registers[regto]=val;
 }
+
 /*
 void interpreter::st(uint16_t memptr, char regfrom)
 {
@@ -122,22 +129,36 @@ void interpreter::st(uint16_t memptr, char regfrom)
 */
 void interpreter::stx(char regfrom)
 {
-	dataram->write(x,regfrom);
-void interpreter::sty(uint16_t memptr, char regfrom)
+	Dataram()->write((uint16_t)*registerx.high<<8|*registerx.low,registers[regfrom]);
+}
+void interpreter::sty(char regfrom)
 {
-	dataram->write(y,regfrom);
+	Dataram()->write((uint16_t)*registery.high<<8|*registery.low,registers[regfrom]);
 }
 void interpreter::stz(char regfrom)
 {
-	dataram->write(Z,regfrom);
-
+	Dataram()->write((uint16_t)*registerz.high<<8|*registerz.low,registers[regfrom]);
+}
 void interpreter::std(uint16_t memptr, char regfrom)
 {
-	dataram->write(memptr,regfrom);
+	Dataram()->write(memptr,regfrom);
 }
-void interpreter::stv(uint16_t memptr, char regfrom)
+
+void interpreter::svd(uint16_t memptr, char regfrom)
 {
-	videoram->write(memptr,regfrom);
+	Videoram()->write(memptr,regfrom);
+}
+void interpreter::svx(char regfrom)
+{
+	Videoram()->write(registerx.getVal(),regfrom);
+}
+void interpreter::svy(char regfrom)
+{
+	Videoram()->write(registery.getVal(),regfrom);
+}
+void interpreter::svz(char regfrom)
+{
+	Videoram()->write(registerz.getVal(),regfrom);
 }
 
 void interpreter::cmp(char reg1 ,char reg2)
@@ -148,17 +169,14 @@ void interpreter::cmp(char reg1 ,char reg2)
 	}
 	else if(reg1>reg2)
 	{
-		flag.setflag(cpuflags::greater,true);
-		
+		flag.setflag(cpuflags::greater,true);		
 	}
 	else if(reg1<reg2)
 	{
 		flag.setflag(cpuflags::less,true);
-		
 	}
 	
 }
-
 void interpreter::cpi(char reg1 ,char val)
 {
 	if (reg1==val)
@@ -173,7 +191,6 @@ void interpreter::cpi(char reg1 ,char val)
 	else if(reg1<val)
 	{
 		flag.setflag(cpuflags::less,true);
-		
 	}
 	
 }
@@ -182,7 +199,21 @@ void interpreter::nop()
 {
 	asm volatile("nop");
 }
-
+void interpreter::jmp(uint16_t address)
+{
+	
+}
+void interpreter::push(char reg)
+{
+	stackram->write(stackptr,registers[reg]);
+	stackptr--;
+}
+void interpreter::pop(char reg)
+{
+	
+	stackram->read(stackptr);
+	stackptr++;
+}
 
 void interpreter::syscall()
 {
@@ -191,18 +222,52 @@ void interpreter::syscall()
 	/*
 		0-  sleep 1 ms
 		
-		
-		
-		
-	
 	*/
 	if (registers[0]==0)
 	{
-		_delay_ms(1);
+		int i = registers[1];
+		do 
+		{
+			_delay_ms(1);
+			i--;	
+		} while (i>0);	
+	}
+	/*
+		
+	*/
+	else if (registers[0]==1)
+	{
+		//multiply 
+		if (registers[1]==0||registers[2]==0)
+		{
+			registers[3]=1;
+		}
+		else
+		{
+			registers[3]=registers[1]*registers[2];
+		}
+	}
+	else if (registers[0]==2)
+	{
+		//int divide
+		// reg 1 neumerator
+		//reg 2 denemonator
+		if(registers[2]==0)
+		{
+			registers[3]=0;
+			registers[4]=1;
+		}
+		else
+		{
+			registers[3]=registers[1]/registers[2];
+			registers[4]=0;
+		}
+		
 	}
 	
-	
 
+	
+	
 }
 
 // default destructor

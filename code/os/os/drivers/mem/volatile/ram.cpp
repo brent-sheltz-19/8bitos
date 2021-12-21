@@ -9,6 +9,16 @@
 #include "ram.h"
 
 // constructor
+ ram::ram(portcontroller* portptr2,shiftreg* addrptr2,uint8_t wepin2,uint32_t addressbase2)
+ {
+	 this->portptr=portptr2;
+	 this->addrptr=addrptr2;
+	 this->wepin=wepin2;
+	 this->addressbase=addressbase2;
+	 this->offset = 0;
+	 portptr->digitalwrite(wepin,true);
+ }
+ /*
  ram::ram(portcontroller* portptr2,shiftreg* addrptr2,shiftreg* dataptr2,uint8_t wepin2,uint32_t addressbase2)
  {
 	 this->portptr=portptr2;
@@ -18,7 +28,7 @@
 	 this->addressbase=addressbase2;
 	 this->offset = 0;
 	 portptr->digitalwrite(wepin,true);
- }
+ }*/
   /*
 char ram::read()
 {

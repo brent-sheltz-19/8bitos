@@ -1,7 +1,9 @@
 Archive member included to satisfy reference by file (symbol)
 
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodqi4.o)
+                              cpu/interpreter/interpreter.o (__udivmodqi4)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                              C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644p/avr5/crtatmega644p.o (exit)
+                              C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644pa/avr5/crtatmega644pa.o (exit)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
                               main.o (__do_clear_bss)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_ctors.o)
@@ -17,24 +19,11 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
 
 Discarded input sections
 
- .data          0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644p/avr5/crtatmega644p.o
- .bss           0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644p/avr5/crtatmega644p.o
- .text          0x00000000        0x0 cpu/communication/serial.o
- .data          0x00000000        0x0 cpu/communication/serial.o
- .bss           0x00000000        0x0 cpu/communication/serial.o
- .text._ZN6serialC2Ev
-                0x00000000        0x2 cpu/communication/serial.o
- .text._ZN6serialD2Ev
-                0x00000000        0x2 cpu/communication/serial.o
- .debug_info    0x00000000      0x173 cpu/communication/serial.o
- .debug_abbrev  0x00000000       0xf0 cpu/communication/serial.o
- .debug_aranges
-                0x00000000       0x28 cpu/communication/serial.o
- .debug_ranges  0x00000000       0x18 cpu/communication/serial.o
- .debug_line    0x00000000       0x69 cpu/communication/serial.o
- .debug_str     0x00000000      0x1bc cpu/communication/serial.o
- .comment       0x00000000       0x31 cpu/communication/serial.o
- .debug_frame   0x00000000       0x34 cpu/communication/serial.o
+ .data          0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644pa/avr5/crtatmega644pa.o
+ .bss           0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644pa/avr5/crtatmega644pa.o
+ .text          0x00000000        0x0 cpu/communication/Serial.o
+ .data          0x00000000        0x0 cpu/communication/Serial.o
+ .bss           0x00000000        0x0 cpu/communication/Serial.o
  .text          0x00000000        0x0 cpu/interpreter/interpreter.o
  .data          0x00000000        0x0 cpu/interpreter/interpreter.o
  .bss           0x00000000        0x0 cpu/interpreter/interpreter.o
@@ -45,26 +34,56 @@ Discarded input sections
  .text._ZN11interpreter3decEj
                 0x00000000       0x2c cpu/interpreter/interpreter.o
  .text._ZN11interpreter3runEv
-                0x00000000       0x9e cpu/interpreter/interpreter.o
+                0x00000000      0x152 cpu/interpreter/interpreter.o
  .text._ZN11interpreter3movEcc
                 0x00000000       0x12 cpu/interpreter/interpreter.o
  .text._ZN11interpreter2ldEcj
                 0x00000000       0x22 cpu/interpreter/interpreter.o
- .text._ZN11interpreter3ldiEcc
-                0x00000000        0xa cpu/interpreter/interpreter.o
- .text._ZN11interpreter2stEjc
+ .text._ZN11interpreter3stxEc
+                0x00000000       0x38 cpu/interpreter/interpreter.o
+ .text._ZN11interpreter3styEc
+                0x00000000       0x38 cpu/interpreter/interpreter.o
+ .text._ZN11interpreter3stzEc
+                0x00000000       0x38 cpu/interpreter/interpreter.o
+ .text._ZN11interpreter3stdEjc
                 0x00000000        0xc cpu/interpreter/interpreter.o
- .text._ZN11interpreter3stvEjc
+ .text._ZN11interpreter3svdEjc
                 0x00000000        0xc cpu/interpreter/interpreter.o
- .text._ZN11interpreter3cmpEcc
+ .text._ZN11interpreter3svxEc
+                0x00000000       0x2c cpu/interpreter/interpreter.o
+ .text._ZN11interpreter3svyEc
+                0x00000000       0x2c cpu/interpreter/interpreter.o
+ .text._ZN11interpreter3svzEc
+                0x00000000       0x2c cpu/interpreter/interpreter.o
+ .text._ZN11interpreter3cpiEcc
+                0x00000000       0x36 cpu/interpreter/interpreter.o
+ .text._ZN11interpreter3jmpEj
                 0x00000000        0x2 cpu/interpreter/interpreter.o
+ .text._ZN11interpreter3popEc
+                0x00000000       0x28 cpu/interpreter/interpreter.o
  .text._ZN11interpreter7syscallEv
-                0x00000000        0x2 cpu/interpreter/interpreter.o
+                0x00000000       0x60 cpu/interpreter/interpreter.o
  .text          0x00000000        0x0 cpu/interrupts/interrupts.o
  .data          0x00000000        0x0 cpu/interrupts/interrupts.o
  .bss           0x00000000        0x0 cpu/interrupts/interrupts.o
  .text._ZN10interrupts15handleinterruptEv
                 0x00000000        0x2 cpu/interrupts/interrupts.o
+ .text          0x00000000        0x0 drivers/io/GPU/GPU.o
+ .data          0x00000000        0x0 drivers/io/GPU/GPU.o
+ .bss           0x00000000        0x0 drivers/io/GPU/GPU.o
+ .text._ZN3GPUC2Ev
+                0x00000000        0x2 drivers/io/GPU/GPU.o
+ .text._ZN3GPUD2Ev
+                0x00000000        0x2 drivers/io/GPU/GPU.o
+ .debug_info    0x00000000      0x1b2 drivers/io/GPU/GPU.o
+ .debug_abbrev  0x00000000      0x111 drivers/io/GPU/GPU.o
+ .debug_aranges
+                0x00000000       0x28 drivers/io/GPU/GPU.o
+ .debug_ranges  0x00000000       0x18 drivers/io/GPU/GPU.o
+ .debug_line    0x00000000       0x60 drivers/io/GPU/GPU.o
+ .debug_str     0x00000000      0x20b drivers/io/GPU/GPU.o
+ .comment       0x00000000       0x31 drivers/io/GPU/GPU.o
+ .debug_frame   0x00000000       0x34 drivers/io/GPU/GPU.o
  .text          0x00000000        0x0 drivers/io/lcd/lcd.o
  .data          0x00000000        0x0 drivers/io/lcd/lcd.o
  .bss           0x00000000        0x0 drivers/io/lcd/lcd.o
@@ -110,8 +129,6 @@ Discarded input sections
  .bss           0x00000000        0x0 drivers/io/shift register/shiftreg.o
  .text._ZN8shiftregC2Ev
                 0x00000000        0x2 drivers/io/shift register/shiftreg.o
- .text._ZN8shiftreg10shiftout16Ej
-                0x00000000       0xe0 drivers/io/shift register/shiftreg.o
  .text._ZN8shiftreg8shiftoutEv
                 0x00000000        0xc drivers/io/shift register/shiftreg.o
  .text._ZN8shiftreg10shiftout32Em
@@ -141,13 +158,13 @@ Discarded input sections
                 0x00000000       0x1c drivers/mem/volatile/ram.o
  .text._ZN3ram5writeEhc
                 0x00000000       0x64 drivers/mem/volatile/ram.o
- .text._ZN3ram5writeEjc
-                0x00000000       0x58 drivers/mem/volatile/ram.o
  .text          0x00000000        0x0 drivers/mem/volatile/Vram.o
  .data          0x00000000        0x0 drivers/mem/volatile/Vram.o
  .bss           0x00000000        0x0 drivers/mem/volatile/Vram.o
- .text._ZN4Vram9writeDataEv
-                0x00000000        0x2 drivers/mem/volatile/Vram.o
+ .text._ZN4Vram9writeDataEjc
+                0x00000000       0x3e drivers/mem/volatile/Vram.o
+ .text._ZN4Vram9writeDataEjPcj
+                0x00000000       0x6a drivers/mem/volatile/Vram.o
  .text._ZN4Vram9cleardataEv
                 0x00000000        0x2 drivers/mem/volatile/Vram.o
  .text._ZN4Vram16writeInstructionEv
@@ -161,6 +178,22 @@ Discarded input sections
                 0x00000000        0x2 main.o
  .bss.gpvariables
                 0x00000000        0x8 main.o
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodqi4.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodqi4.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodqi4.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodqi4.o)
+ .text.libgcc.div
+                0x00000000       0x18 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodqi4.o)
+ .text.libgcc   0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodqi4.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodqi4.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodqi4.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodqi4.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodqi4.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
@@ -285,10 +318,11 @@ user_signatures  0x00850000         0x00000400         rw !x
 Linker script and memory map
 
 Address of section .data set to 0x800100
-LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644p/avr5/crtatmega644p.o
-LOAD cpu/communication/serial.o
+LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644pa/avr5/crtatmega644pa.o
+LOAD cpu/communication/Serial.o
 LOAD cpu/interpreter/interpreter.o
 LOAD cpu/interrupts/interrupts.o
+LOAD drivers/io/GPU/GPU.o
 LOAD drivers/io/lcd/lcd.o
 LOAD drivers/io/port controller/portcontroller.o
 LOAD drivers/io/shift register/shiftreg.o
@@ -306,7 +340,7 @@ START GROUP
 LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a
 LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a
 LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a
-LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644p/avr5\libatmega644p.a
+LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644pa/avr5\libatmega644pa.a
 END GROUP
                 0x00000000                __TEXT_REGION_ORIGIN__ = DEFINED (__TEXT_REGION_ORIGIN__)?__TEXT_REGION_ORIGIN__:0x0
                 0x00800060                __DATA_REGION_ORIGIN__ = DEFINED (__DATA_REGION_ORIGIN__)?__DATA_REGION_ORIGIN__:0x800060
@@ -408,9 +442,9 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xb2a
+.text           0x00000000      0xd26
  *(.vectors)
- .vectors       0x00000000       0x7c C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644p/avr5/crtatmega644p.o
+ .vectors       0x00000000       0x7c C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644pa/avr5/crtatmega644pa.o
                 0x00000000                __vector_default
                 0x00000000                __vectors
  *(.vectors)
@@ -440,13 +474,13 @@ END GROUP
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x00000080        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644p/avr5/crtatmega644p.o
+ .init0         0x00000080        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644pa/avr5/crtatmega644pa.o
                 0x00000080                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x00000080        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644p/avr5/crtatmega644p.o
+ .init2         0x00000080        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644pa/avr5/crtatmega644pa.o
  *(.init2)
  *(.init3)
  *(.init3)
@@ -465,10 +499,10 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x000000b2        0x8 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644p/avr5/crtatmega644p.o
+ .init9         0x000000b2        0x8 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644pa/avr5/crtatmega644pa.o
  *(.init9)
  *(.text)
- .text          0x000000ba        0x4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644p/avr5/crtatmega644p.o
+ .text          0x000000ba        0x4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644pa/avr5/crtatmega644pa.o
                 0x000000ba                __vector_22
                 0x000000ba                __vector_28
                 0x000000ba                __vector_1
@@ -502,138 +536,161 @@ END GROUP
                 0x000000ba                __vector_20
                 0x000000be                . = ALIGN (0x2)
  *(.text.*)
+ .text._ZN6SerialC2Ev
+                0x000000be        0x2 cpu/communication/Serial.o
+                0x000000be                _ZN6SerialC1Ev
+                0x000000be                _ZN6SerialC2Ev
+ .text._ZN6SerialD2Ev
+                0x000000c0        0x2 cpu/communication/Serial.o
+                0x000000c0                _ZN6SerialD1Ev
+                0x000000c0                _ZN6SerialD2Ev
  .text._ZN11interpreterC2Ev
-                0x000000be       0x58 cpu/interpreter/interpreter.o
-                0x000000be                _ZN11interpreterC1Ev
-                0x000000be                _ZN11interpreterC2Ev
+                0x000000c2       0x5e cpu/interpreter/interpreter.o
+                0x000000c2                _ZN11interpreterC1Ev
+                0x000000c2                _ZN11interpreterC2Ev
  .text._ZN11interpreter3incEc
-                0x00000116        0xe cpu/interpreter/interpreter.o
-                0x00000116                _ZN11interpreter3incEc
+                0x00000120        0xe cpu/interpreter/interpreter.o
+                0x00000120                _ZN11interpreter3incEc
+ .text._ZN11interpreter3ldiEcc
+                0x0000012e        0xa cpu/interpreter/interpreter.o
+                0x0000012e                _ZN11interpreter3ldiEcc
+ .text._ZN11interpreter3cmpEcc
+                0x00000138       0x36 cpu/interpreter/interpreter.o
+                0x00000138                _ZN11interpreter3cmpEcc
  .text._ZN11interpreter3nopEv
-                0x00000124        0x4 cpu/interpreter/interpreter.o
-                0x00000124                _ZN11interpreter3nopEv
+                0x0000016e        0x4 cpu/interpreter/interpreter.o
+                0x0000016e                _ZN11interpreter3nopEv
+ .text._ZN11interpreter4pushEc
+                0x00000172       0x30 cpu/interpreter/interpreter.o
+                0x00000172                _ZN11interpreter4pushEc
  .text._ZN11interpreterD2Ev
-                0x00000128        0x2 cpu/interpreter/interpreter.o
-                0x00000128                _ZN11interpreterD2Ev
-                0x00000128                _ZN11interpreterD1Ev
+                0x000001a2        0x2 cpu/interpreter/interpreter.o
+                0x000001a2                _ZN11interpreterD2Ev
+                0x000001a2                _ZN11interpreterD1Ev
  .text._ZN10interruptsC2Ev
-                0x0000012a        0x2 cpu/interrupts/interrupts.o
-                0x0000012a                _ZN10interruptsC2Ev
-                0x0000012a                _ZN10interruptsC1Ev
+                0x000001a4        0x2 cpu/interrupts/interrupts.o
+                0x000001a4                _ZN10interruptsC2Ev
+                0x000001a4                _ZN10interruptsC1Ev
  .text._ZN10interruptsD2Ev
-                0x0000012c        0x2 cpu/interrupts/interrupts.o
-                0x0000012c                _ZN10interruptsD2Ev
-                0x0000012c                _ZN10interruptsD1Ev
+                0x000001a6        0x2 cpu/interrupts/interrupts.o
+                0x000001a6                _ZN10interruptsD2Ev
+                0x000001a6                _ZN10interruptsD1Ev
  .text._ZN3lcdC2Ev
-                0x0000012e        0x2 drivers/io/lcd/lcd.o
-                0x0000012e                _ZN3lcdC1Ev
-                0x0000012e                _ZN3lcdC2Ev
+                0x000001a8        0x2 drivers/io/lcd/lcd.o
+                0x000001a8                _ZN3lcdC1Ev
+                0x000001a8                _ZN3lcdC2Ev
  .text._ZN3lcdD2Ev
-                0x00000130        0x2 drivers/io/lcd/lcd.o
-                0x00000130                _ZN3lcdD2Ev
-                0x00000130                _ZN3lcdD1Ev
+                0x000001aa        0x2 drivers/io/lcd/lcd.o
+                0x000001aa                _ZN3lcdD2Ev
+                0x000001aa                _ZN3lcdD1Ev
  .text._ZN14portcontrollerC2Ev
-                0x00000132        0x2 drivers/io/port controller/portcontroller.o
-                0x00000132                _ZN14portcontrollerC1Ev
-                0x00000132                _ZN14portcontrollerC2Ev
+                0x000001ac        0x2 drivers/io/port controller/portcontroller.o
+                0x000001ac                _ZN14portcontrollerC1Ev
+                0x000001ac                _ZN14portcontrollerC2Ev
  .text._ZN14portcontroller10writeportcEc
-                0x00000134        0x4 drivers/io/port controller/portcontroller.o
-                0x00000134                _ZN14portcontroller10writeportcEc
+                0x000001ae        0x4 drivers/io/port controller/portcontroller.o
+                0x000001ae                _ZN14portcontroller10writeportcEc
  .text._ZN14portcontroller9writeddraEc
-                0x00000138        0x4 drivers/io/port controller/portcontroller.o
-                0x00000138                _ZN14portcontroller9writeddraEc
+                0x000001b2        0x4 drivers/io/port controller/portcontroller.o
+                0x000001b2                _ZN14portcontroller9writeddraEc
  .text._ZN14portcontroller9writeddrcEc
-                0x0000013c        0x4 drivers/io/port controller/portcontroller.o
-                0x0000013c                _ZN14portcontroller9writeddrcEc
+                0x000001b6        0x4 drivers/io/port controller/portcontroller.o
+                0x000001b6                _ZN14portcontroller9writeddrcEc
  .text._ZN14portcontroller13digitalwriteaEhb
-                0x00000140       0x80 drivers/io/port controller/portcontroller.o
-                0x00000140                _ZN14portcontroller13digitalwriteaEhb
+                0x000001ba       0x80 drivers/io/port controller/portcontroller.o
+                0x000001ba                _ZN14portcontroller13digitalwriteaEhb
  .text._ZN14portcontroller12digitalwriteEhb
-                0x000001c0       0x4a drivers/io/port controller/portcontroller.o
-                0x000001c0                _ZN14portcontroller12digitalwriteEhb
+                0x0000023a       0x4a drivers/io/port controller/portcontroller.o
+                0x0000023a                _ZN14portcontroller12digitalwriteEhb
  .text._ZN14portcontrollerD2Ev
-                0x0000020a        0x2 drivers/io/port controller/portcontroller.o
-                0x0000020a                _ZN14portcontrollerD1Ev
-                0x0000020a                _ZN14portcontrollerD2Ev
+                0x00000284        0x2 drivers/io/port controller/portcontroller.o
+                0x00000284                _ZN14portcontrollerD1Ev
+                0x00000284                _ZN14portcontrollerD2Ev
  .text._ZN8shiftregC2EhhhP14portcontroller
-                0x0000020c       0x26 drivers/io/shift register/shiftreg.o
-                0x0000020c                _ZN8shiftregC1EhhhP14portcontroller
-                0x0000020c                _ZN8shiftregC2EhhhP14portcontroller
+                0x00000286       0x26 drivers/io/shift register/shiftreg.o
+                0x00000286                _ZN8shiftregC1EhhhP14portcontroller
+                0x00000286                _ZN8shiftregC2EhhhP14portcontroller
  .text._ZN8shiftreg9shiftout8Eh
-                0x00000232       0x86 drivers/io/shift register/shiftreg.o
-                0x00000232                _ZN8shiftreg9shiftout8Eh
+                0x000002ac       0x86 drivers/io/shift register/shiftreg.o
+                0x000002ac                _ZN8shiftreg9shiftout8Eh
+ .text._ZN8shiftreg10shiftout16Ej
+                0x00000332       0xe0 drivers/io/shift register/shiftreg.o
+                0x00000332                _ZN8shiftreg10shiftout16Ej
  .text._ZN8shiftreg10shiftout64Ey
-                0x000002b8       0xbe drivers/io/shift register/shiftreg.o
-                0x000002b8                _ZN8shiftreg10shiftout64Ey
+                0x00000412       0xbe drivers/io/shift register/shiftreg.o
+                0x00000412                _ZN8shiftreg10shiftout64Ey
  .text._ZN8shiftregD2Ev
-                0x00000376        0x2 drivers/io/shift register/shiftreg.o
-                0x00000376                _ZN8shiftregD1Ev
-                0x00000376                _ZN8shiftregD2Ev
- .text._ZN6eepromC2EP14portcontrollerP8shiftregS3_hy
-                0x00000378       0x60 drivers/mem/eeprom.o
-                0x00000378                _ZN6eepromC1EP14portcontrollerP8shiftregS3_hy
-                0x00000378                _ZN6eepromC2EP14portcontrollerP8shiftregS3_hy
+                0x000004d0        0x2 drivers/io/shift register/shiftreg.o
+                0x000004d0                _ZN8shiftregD1Ev
+                0x000004d0                _ZN8shiftregD2Ev
+ .text._ZN6eepromC2EP14portcontrollerP8shiftreghy
+                0x000004d2       0x4c drivers/mem/eeprom.o
+                0x000004d2                _ZN6eepromC2EP14portcontrollerP8shiftreghy
+                0x000004d2                _ZN6eepromC1EP14portcontrollerP8shiftreghy
  .text._ZN6eepromD2Ev
-                0x000003d8        0x2 drivers/mem/eeprom.o
-                0x000003d8                _ZN6eepromD1Ev
-                0x000003d8                _ZN6eepromD2Ev
+                0x0000051e        0x2 drivers/mem/eeprom.o
+                0x0000051e                _ZN6eepromD1Ev
+                0x0000051e                _ZN6eepromD2Ev
  .text._ZN3romC2EP14portcontrollerP8shiftregy
-                0x000003da       0x44 drivers/mem/rom.o
-                0x000003da                _ZN3romC1EP14portcontrollerP8shiftregy
-                0x000003da                _ZN3romC2EP14portcontrollerP8shiftregy
+                0x00000520       0x44 drivers/mem/rom.o
+                0x00000520                _ZN3romC1EP14portcontrollerP8shiftregy
+                0x00000520                _ZN3romC2EP14portcontrollerP8shiftregy
  .text._ZN3romD2Ev
-                0x0000041e        0x2 drivers/mem/rom.o
-                0x0000041e                _ZN3romD2Ev
-                0x0000041e                _ZN3romD1Ev
- .text._ZN3ramC2EP14portcontrollerP8shiftregS3_hy
-                0x00000420       0x5e drivers/mem/volatile/ram.o
-                0x00000420                _ZN3ramC2EP14portcontrollerP8shiftregS3_hy
-                0x00000420                _ZN3ramC1EP14portcontrollerP8shiftregS3_hy
+                0x00000564        0x2 drivers/mem/rom.o
+                0x00000564                _ZN3romD2Ev
+                0x00000564                _ZN3romD1Ev
+ .text._ZN3ramC2EP14portcontrollerP8shiftreghm
+                0x00000566       0x32 drivers/mem/volatile/ram.o
+                0x00000566                _ZN3ramC2EP14portcontrollerP8shiftreghm
+                0x00000566                _ZN3ramC1EP14portcontrollerP8shiftreghm
+ .text._ZN3ram5writeEjc
+                0x00000598       0x58 drivers/mem/volatile/ram.o
+                0x00000598                _ZN3ram5writeEjc
  .text._ZN3ram5writeEyc
-                0x0000047e       0x5e drivers/mem/volatile/ram.o
-                0x0000047e                _ZN3ram5writeEyc
+                0x000005f0       0x5e drivers/mem/volatile/ram.o
+                0x000005f0                _ZN3ram5writeEyc
  .text._ZN3ramD2Ev
-                0x000004dc        0x2 drivers/mem/volatile/ram.o
-                0x000004dc                _ZN3ramD1Ev
-                0x000004dc                _ZN3ramD2Ev
- .text._ZN4VramC2EP14portcontrollerP8shiftregS3_hy
-                0x000004de       0x36 drivers/mem/volatile/Vram.o
-                0x000004de                _ZN4VramC1EP14portcontrollerP8shiftregS3_hy
-                0x000004de                _ZN4VramC2EP14portcontrollerP8shiftregS3_hy
+                0x0000064e        0x2 drivers/mem/volatile/ram.o
+                0x0000064e                _ZN3ramD1Ev
+                0x0000064e                _ZN3ramD2Ev
+ .text._ZN4VramC2EP14portcontrollerP8shiftreghhy
+                0x00000650       0x4e drivers/mem/volatile/Vram.o
+                0x00000650                _ZN4VramC2EP14portcontrollerP8shiftreghhy
+                0x00000650                _ZN4VramC1EP14portcontrollerP8shiftreghhy
  .text._ZN4VramD2Ev
-                0x00000514        0x6 drivers/mem/volatile/Vram.o
-                0x00000514                _ZN4VramD1Ev
-                0x00000514                _ZN4VramD2Ev
+                0x0000069e        0x6 drivers/mem/volatile/Vram.o
+                0x0000069e                _ZN4VramD1Ev
+                0x0000069e                _ZN4VramD2Ev
  .text._Z11storememoryyc
-                0x0000051a      0x1b4 main.o
-                0x0000051a                _Z11storememoryyc
- .text.main     0x000006ce       0x44 main.o
-                0x000006ce                main
+                0x000006a4      0x1b4 main.o
+                0x000006a4                _Z11storememoryyc
+ .text.main     0x00000858       0x8c main.o
+                0x00000858                main
  .text._GLOBAL__sub_I_gpvariables
-                0x00000712      0x2d0 main.o
+                0x000008e4      0x2da main.o
  .text._GLOBAL__sub_D_gpvariables
-                0x000009e2       0xce main.o
+                0x00000bbe       0xee main.o
  .text.libgcc.builtins
-                0x00000ab0       0x3c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_ashrdi3.o)
-                0x00000ab0                __ashrdi3
-                0x00000ab4                __lshrdi3
- .text.libgcc   0x00000aec       0x18 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_cmpdi2_s8.o)
-                0x00000aec                __cmpdi2_s8
- .text.libgcc   0x00000b04        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
-                0x00000b04                __tablejump2__
-                0x00000b10                . = ALIGN (0x2)
+                0x00000cac       0x3c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_ashrdi3.o)
+                0x00000cac                __ashrdi3
+                0x00000cb0                __lshrdi3
+ .text.libgcc   0x00000ce8       0x18 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_cmpdi2_s8.o)
+                0x00000ce8                __cmpdi2_s8
+ .text.libgcc   0x00000d00        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+                0x00000d00                __tablejump2__
+                0x00000d0c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000b10        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x00000b10                _exit
-                0x00000b10                exit
+ .fini9         0x00000d0c        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00000d0c                _exit
+                0x00000d0c                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
  *(.fini7)
  *(.fini7)
  *(.fini6)
- .fini6         0x00000b10       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_dtors.o)
-                0x00000b10                __do_global_dtors
+ .fini6         0x00000d0c       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_dtors.o)
+                0x00000d0c                __do_global_dtors
  *(.fini6)
  *(.fini5)
  *(.fini5)
@@ -646,11 +703,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000b26        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000d22        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000b2a                _etext = .
+                0x00000d26                _etext = .
 
-.data           0x00800100        0x0 load address 0x00000b2a
+.data           0x00800100        0x0 load address 0x00000d26
                 [!provide]                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -662,64 +719,72 @@ END GROUP
                 0x00800100                _edata = .
                 [!provide]                PROVIDE (__data_end, .)
 
-.bss            0x00800100      0x2a4
+.bss            0x00800100      0x2b5
                 0x00800100                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  .bss._ZL5disp1
                 0x00800100        0x2 main.o
  .bss._ZL9interpret
-                0x00800102      0x118 main.o
+                0x00800102      0x120 main.o
  .bss._ZL10irqhandler
-                0x0080021a        0x2 main.o
+                0x00800222        0x2 main.o
  .bss._ZL8storage3
-                0x0080021c       0x11 main.o
+                0x00800224       0x11 main.o
  .bss._ZL8storage2
-                0x0080022d       0x11 main.o
+                0x00800235       0x11 main.o
  .bss._ZL8storage1
-                0x0080023e       0x11 main.o
+                0x00800246       0x11 main.o
  .bss._ZL8storage0
-                0x0080024f       0x11 main.o
+                0x00800257       0x11 main.o
  .bss._ZL8fattable
-                0x00800260       0x11 main.o
+                0x00800268       0x11 main.o
  .bss._ZL8program3
-                0x00800271       0x14 main.o
+                0x00800279       0x14 main.o
  .bss._ZL8program2
-                0x00800285       0x14 main.o
+                0x0080028d       0x14 main.o
  .bss._ZL8program1
-                0x00800299       0x14 main.o
+                0x008002a1       0x14 main.o
  .bss._ZL8program0
-                0x008002ad       0x14 main.o
+                0x008002b5       0x14 main.o
  .bss._ZL8settings
-                0x008002c1       0x14 main.o
- .bss._ZL4bios  0x008002d5       0x14 main.o
+                0x008002c9       0x14 main.o
+ .bss._ZL4bios  0x008002dd       0x14 main.o
  .bss._ZL11rambanklist
-                0x008002e9       0x50 main.o
+                0x008002f1       0x3c main.o
+ .bss._ZL6vbank2
+                0x0080032d       0x10 main.o
+ .bss._ZL6vbank1
+                0x0080033d       0x10 main.o
+ .bss._ZL6vbank0
+                0x0080034d       0x10 main.o
  .bss._ZL5bank4
-                0x00800339       0x10 main.o
+                0x0080035d        0xc main.o
  .bss._ZL5bank3
-                0x00800349       0x10 main.o
+                0x00800369        0xc main.o
  .bss._ZL5bank2
-                0x00800359       0x10 main.o
+                0x00800375        0xc main.o
  .bss._ZL5bank1
-                0x00800369       0x10 main.o
+                0x00800381        0xc main.o
  .bss._ZL5bank0
-                0x00800379       0x10 main.o
- .bss._ZL7datareg
-                0x00800389        0xd main.o
+                0x0080038d        0xc main.o
+ .bss._ZL6serial
+                0x00800399        0x1 main.o
+ .bss._ZL5csreg
+                0x0080039a        0xd main.o
  .bss._ZL6addreg
-                0x00800396        0xd main.o
- .bss._ZL4port  0x008003a3        0x1 main.o
+                0x008003a7        0xd main.o
+ .bss._ZL4port  0x008003b4        0x1 main.o
  *(COMMON)
-                0x008003a4                PROVIDE (__bss_end, .)
-                0x00000b2a                __data_load_start = LOADADDR (.data)
-                0x00000b2a                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x008003b5                PROVIDE (__bss_end, .)
+                0x00000d26                __data_load_start = LOADADDR (.data)
+                0x00000d26                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008003a4        0x0
+.noinit         0x008003b5        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x008003a4                _end = .
+                0x008003b5                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -761,8 +826,9 @@ END GROUP
 
 .comment        0x00000000       0x30
  *(.comment)
- .comment       0x00000000       0x30 cpu/interpreter/interpreter.o
+ .comment       0x00000000       0x30 cpu/communication/Serial.o
                                  0x31 (size before relaxing)
+ .comment       0x00000030       0x31 cpu/interpreter/interpreter.o
  .comment       0x00000030       0x31 cpu/interrupts/interrupts.o
  .comment       0x00000030       0x31 drivers/io/lcd/lcd.o
  .comment       0x00000030       0x31 drivers/io/port controller/portcontroller.o
@@ -776,7 +842,7 @@ END GROUP
 .note.gnu.avr.deviceinfo
                 0x00000000       0x40
  .note.gnu.avr.deviceinfo
-                0x00000000       0x40 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644p/avr5/crtatmega644p.o
+                0x00000000       0x40 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644pa/avr5/crtatmega644pa.o
 
 .note.gnu.build-id
  *(.note.gnu.build-id)
@@ -793,121 +859,129 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x368
+.debug_aranges  0x00000000      0x3e8
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x90 cpu/interpreter/interpreter.o
+                0x00000000       0x28 cpu/communication/Serial.o
  .debug_aranges
-                0x00000090       0x30 cpu/interrupts/interrupts.o
+                0x00000028       0xe0 cpu/interpreter/interpreter.o
  .debug_aranges
-                0x000000c0       0x30 drivers/io/lcd/lcd.o
+                0x00000108       0x30 cpu/interrupts/interrupts.o
  .debug_aranges
-                0x000000f0       0xd0 drivers/io/port controller/portcontroller.o
+                0x00000138       0x30 drivers/io/lcd/lcd.o
  .debug_aranges
-                0x000001c0       0x58 drivers/io/shift register/shiftreg.o
+                0x00000168       0xd0 drivers/io/port controller/portcontroller.o
  .debug_aranges
-                0x00000218       0x30 drivers/mem/eeprom.o
+                0x00000238       0x58 drivers/io/shift register/shiftreg.o
  .debug_aranges
-                0x00000248       0x50 drivers/mem/rom.o
+                0x00000290       0x30 drivers/mem/eeprom.o
  .debug_aranges
-                0x00000298       0x48 drivers/mem/volatile/ram.o
+                0x000002c0       0x50 drivers/mem/rom.o
  .debug_aranges
-                0x000002e0       0x48 drivers/mem/volatile/Vram.o
+                0x00000310       0x48 drivers/mem/volatile/ram.o
  .debug_aranges
-                0x00000328       0x40 main.o
+                0x00000358       0x50 drivers/mem/volatile/Vram.o
+ .debug_aranges
+                0x000003a8       0x40 main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x8162
+.debug_info     0x00000000     0x9aeb
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0x6cc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644p/avr5/crtatmega644p.o
- .debug_info    0x000006cc     0x1629 cpu/interpreter/interpreter.o
- .debug_info    0x00001cf5      0x1ed cpu/interrupts/interrupts.o
- .debug_info    0x00001ee2      0x597 drivers/io/lcd/lcd.o
- .debug_info    0x00002479      0x949 drivers/io/port controller/portcontroller.o
- .debug_info    0x00002dc2      0xa5a drivers/io/shift register/shiftreg.o
- .debug_info    0x0000381c      0x8d1 drivers/mem/eeprom.o
- .debug_info    0x000040ed      0x927 drivers/mem/rom.o
- .debug_info    0x00004a14      0xc6f drivers/mem/volatile/ram.o
- .debug_info    0x00005683      0xbf2 drivers/mem/volatile/Vram.o
- .debug_info    0x00006275     0x1eed main.o
+ .debug_info    0x00000000      0x6cc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644pa/avr5/crtatmega644pa.o
+ .debug_info    0x000006cc      0x6ed cpu/communication/Serial.o
+ .debug_info    0x00000db9     0x20e7 cpu/interpreter/interpreter.o
+ .debug_info    0x00002ea0      0x1ed cpu/interrupts/interrupts.o
+ .debug_info    0x0000308d      0x597 drivers/io/lcd/lcd.o
+ .debug_info    0x00003624      0x949 drivers/io/port controller/portcontroller.o
+ .debug_info    0x00003f6d      0xa5a drivers/io/shift register/shiftreg.o
+ .debug_info    0x000049c7      0x8b9 drivers/mem/eeprom.o
+ .debug_info    0x00005280      0x927 drivers/mem/rom.o
+ .debug_info    0x00005ba7      0xc26 drivers/mem/volatile/ram.o
+ .debug_info    0x000067cd      0xcf6 drivers/mem/volatile/Vram.o
+ .debug_info    0x000074c3     0x2628 main.o
 
-.debug_abbrev   0x00000000     0x1c38
+.debug_abbrev   0x00000000     0x1e9e
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x66e C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644p/avr5/crtatmega644p.o
- .debug_abbrev  0x0000066e      0x371 cpu/interpreter/interpreter.o
- .debug_abbrev  0x000009df      0x135 cpu/interrupts/interrupts.o
- .debug_abbrev  0x00000b14      0x175 drivers/io/lcd/lcd.o
- .debug_abbrev  0x00000c89      0x1c1 drivers/io/port controller/portcontroller.o
- .debug_abbrev  0x00000e4a      0x214 drivers/io/shift register/shiftreg.o
- .debug_abbrev  0x0000105e      0x1ac drivers/mem/eeprom.o
- .debug_abbrev  0x0000120a      0x246 drivers/mem/rom.o
- .debug_abbrev  0x00001450      0x25f drivers/mem/volatile/ram.o
- .debug_abbrev  0x000016af      0x278 drivers/mem/volatile/Vram.o
- .debug_abbrev  0x00001927      0x311 main.o
+ .debug_abbrev  0x00000000      0x66e C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644pa/avr5/crtatmega644pa.o
+ .debug_abbrev  0x0000066e      0x152 cpu/communication/Serial.o
+ .debug_abbrev  0x000007c0      0x3f5 cpu/interpreter/interpreter.o
+ .debug_abbrev  0x00000bb5      0x135 cpu/interrupts/interrupts.o
+ .debug_abbrev  0x00000cea      0x175 drivers/io/lcd/lcd.o
+ .debug_abbrev  0x00000e5f      0x1c1 drivers/io/port controller/portcontroller.o
+ .debug_abbrev  0x00001020      0x214 drivers/io/shift register/shiftreg.o
+ .debug_abbrev  0x00001234      0x1ac drivers/mem/eeprom.o
+ .debug_abbrev  0x000013e0      0x246 drivers/mem/rom.o
+ .debug_abbrev  0x00001626      0x275 drivers/mem/volatile/ram.o
+ .debug_abbrev  0x0000189b      0x28e drivers/mem/volatile/Vram.o
+ .debug_abbrev  0x00001b29      0x375 main.o
 
-.debug_line     0x00000000     0x1ab9
+.debug_line     0x00000000     0x1fc6
  *(.debug_line .debug_line.* .debug_line_end)
- .debug_line    0x00000000      0x151 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644p/avr5/crtatmega644p.o
- .debug_line    0x00000151      0x384 cpu/interpreter/interpreter.o
- .debug_line    0x000004d5       0x7e cpu/interrupts/interrupts.o
- .debug_line    0x00000553      0x10b drivers/io/lcd/lcd.o
- .debug_line    0x0000065e      0x600 drivers/io/port controller/portcontroller.o
- .debug_line    0x00000c5e      0x2d6 drivers/io/shift register/shiftreg.o
- .debug_line    0x00000f34      0x176 drivers/mem/eeprom.o
- .debug_line    0x000010aa      0x1d4 drivers/mem/rom.o
- .debug_line    0x0000127e      0x2d7 drivers/mem/volatile/ram.o
- .debug_line    0x00001555      0x1ce drivers/mem/volatile/Vram.o
- .debug_line    0x00001723      0x396 main.o
+ .debug_line    0x00000000      0x151 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644pa/avr5/crtatmega644pa.o
+ .debug_line    0x00000151      0x16a cpu/communication/Serial.o
+ .debug_line    0x000002bb      0x662 cpu/interpreter/interpreter.o
+ .debug_line    0x0000091d       0x7e cpu/interrupts/interrupts.o
+ .debug_line    0x0000099b      0x10b drivers/io/lcd/lcd.o
+ .debug_line    0x00000aa6      0x600 drivers/io/port controller/portcontroller.o
+ .debug_line    0x000010a6      0x2d6 drivers/io/shift register/shiftreg.o
+ .debug_line    0x0000137c      0x170 drivers/mem/eeprom.o
+ .debug_line    0x000014ec      0x1d4 drivers/mem/rom.o
+ .debug_line    0x000016c0      0x2d2 drivers/mem/volatile/ram.o
+ .debug_line    0x00001992      0x228 drivers/mem/volatile/Vram.o
+ .debug_line    0x00001bba      0x40c main.o
 
-.debug_frame    0x00000000      0x8a8
+.debug_frame    0x00000000      0x9b0
  *(.debug_frame)
- .debug_frame   0x00000000      0x13c cpu/interpreter/interpreter.o
- .debug_frame   0x0000013c       0x44 cpu/interrupts/interrupts.o
- .debug_frame   0x00000180       0x44 drivers/io/lcd/lcd.o
- .debug_frame   0x000001c4      0x184 drivers/io/port controller/portcontroller.o
- .debug_frame   0x00000348      0x154 drivers/io/shift register/shiftreg.o
- .debug_frame   0x0000049c       0x80 drivers/mem/eeprom.o
- .debug_frame   0x0000051c       0xc8 drivers/mem/rom.o
- .debug_frame   0x000005e4       0xf8 drivers/mem/volatile/ram.o
- .debug_frame   0x000006dc       0xd0 drivers/mem/volatile/Vram.o
- .debug_frame   0x000007ac       0xfc main.o
+ .debug_frame   0x00000000       0x34 cpu/communication/Serial.o
+ .debug_frame   0x00000034      0x1f4 cpu/interpreter/interpreter.o
+ .debug_frame   0x00000228       0x44 cpu/interrupts/interrupts.o
+ .debug_frame   0x0000026c       0x44 drivers/io/lcd/lcd.o
+ .debug_frame   0x000002b0      0x184 drivers/io/port controller/portcontroller.o
+ .debug_frame   0x00000434      0x154 drivers/io/shift register/shiftreg.o
+ .debug_frame   0x00000588       0x6c drivers/mem/eeprom.o
+ .debug_frame   0x000005f4       0xc8 drivers/mem/rom.o
+ .debug_frame   0x000006bc       0xd0 drivers/mem/volatile/ram.o
+ .debug_frame   0x0000078c      0x138 drivers/mem/volatile/Vram.o
+ .debug_frame   0x000008c4       0xec main.o
 
-.debug_str      0x00000000     0x17f3
+.debug_str      0x00000000     0x1c88
  *(.debug_str)
- .debug_str     0x00000000      0x252 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644p/avr5/crtatmega644p.o
- .debug_str     0x00000252      0xe6f cpu/interpreter/interpreter.o
-                                0xf0f (size before relaxing)
- .debug_str     0x000010c1       0xf3 cpu/interrupts/interrupts.o
+ .debug_str     0x00000000      0x252 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644pa/avr5/crtatmega644pa.o
+ .debug_str     0x00000252      0x775 cpu/communication/Serial.o
+                                0x7cd (size before relaxing)
+ .debug_str     0x000009c7      0xbe9 cpu/interpreter/interpreter.o
+                               0x135d (size before relaxing)
+ .debug_str     0x000015b0       0xf3 cpu/interrupts/interrupts.o
                                 0x230 (size before relaxing)
- .debug_str     0x000011b4       0xc9 drivers/io/lcd/lcd.o
+ .debug_str     0x000016a3       0xc9 drivers/io/lcd/lcd.o
                                 0x66f (size before relaxing)
- .debug_str     0x0000127d       0x61 drivers/io/port controller/portcontroller.o
+ .debug_str     0x0000176c       0x61 drivers/io/port controller/portcontroller.o
                                 0x5f2 (size before relaxing)
- .debug_str     0x000012de       0x94 drivers/io/shift register/shiftreg.o
+ .debug_str     0x000017cd       0x94 drivers/io/shift register/shiftreg.o
                                 0x7b0 (size before relaxing)
- .debug_str     0x00001372      0x16d drivers/mem/eeprom.o
-                                0x8d6 (size before relaxing)
- .debug_str     0x000014df       0x56 drivers/mem/rom.o
+ .debug_str     0x00001861      0x15a drivers/mem/eeprom.o
+                                0x8c3 (size before relaxing)
+ .debug_str     0x000019bb       0x56 drivers/mem/rom.o
                                 0x85a (size before relaxing)
- .debug_str     0x00001535       0xc8 drivers/mem/volatile/ram.o
-                                0x960 (size before relaxing)
- .debug_str     0x000015fd       0x63 drivers/mem/volatile/Vram.o
-                                0xa79 (size before relaxing)
- .debug_str     0x00001660      0x193 main.o
-                               0x1209 (size before relaxing)
+ .debug_str     0x00001a11       0x7a drivers/mem/volatile/ram.o
+                                0x929 (size before relaxing)
+ .debug_str     0x00001a8b       0x5d drivers/mem/volatile/Vram.o
+                                0xa74 (size before relaxing)
+ .debug_str     0x00001ae8      0x1a0 main.o
+                               0x169c (size before relaxing)
 
-.debug_loc      0x00000000     0x1bbd
+.debug_loc      0x00000000     0x24c4
  *(.debug_loc)
- .debug_loc     0x00000000      0x483 cpu/interpreter/interpreter.o
- .debug_loc     0x00000483      0x2bf drivers/io/port controller/portcontroller.o
- .debug_loc     0x00000742      0x5ab drivers/io/shift register/shiftreg.o
- .debug_loc     0x00000ced      0x1cf drivers/mem/eeprom.o
- .debug_loc     0x00000ebc      0x1e4 drivers/mem/rom.o
- .debug_loc     0x000010a0      0x596 drivers/mem/volatile/ram.o
- .debug_loc     0x00001636      0x2c6 drivers/mem/volatile/Vram.o
- .debug_loc     0x000018fc      0x2c1 main.o
+ .debug_loc     0x00000000      0xbdb cpu/interpreter/interpreter.o
+ .debug_loc     0x00000bdb      0x2bf drivers/io/port controller/portcontroller.o
+ .debug_loc     0x00000e9a      0x5ab drivers/io/shift register/shiftreg.o
+ .debug_loc     0x00001445      0x176 drivers/mem/eeprom.o
+ .debug_loc     0x000015bb      0x1e4 drivers/mem/rom.o
+ .debug_loc     0x0000179f      0x4fb drivers/mem/volatile/ram.o
+ .debug_loc     0x00001c9a      0x59b drivers/mem/volatile/Vram.o
+ .debug_loc     0x00002235      0x28f main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -927,18 +1001,19 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x2c8
+.debug_ranges   0x00000000      0x380
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x80 cpu/interpreter/interpreter.o
- .debug_ranges  0x00000080       0x20 cpu/interrupts/interrupts.o
- .debug_ranges  0x000000a0       0x20 drivers/io/lcd/lcd.o
- .debug_ranges  0x000000c0       0xc0 drivers/io/port controller/portcontroller.o
- .debug_ranges  0x00000180       0x48 drivers/io/shift register/shiftreg.o
- .debug_ranges  0x000001c8       0x20 drivers/mem/eeprom.o
- .debug_ranges  0x000001e8       0x40 drivers/mem/rom.o
- .debug_ranges  0x00000228       0x38 drivers/mem/volatile/ram.o
- .debug_ranges  0x00000260       0x38 drivers/mem/volatile/Vram.o
- .debug_ranges  0x00000298       0x30 main.o
+ .debug_ranges  0x00000000       0x18 cpu/communication/Serial.o
+ .debug_ranges  0x00000018      0x118 cpu/interpreter/interpreter.o
+ .debug_ranges  0x00000130       0x20 cpu/interrupts/interrupts.o
+ .debug_ranges  0x00000150       0x20 drivers/io/lcd/lcd.o
+ .debug_ranges  0x00000170       0xc0 drivers/io/port controller/portcontroller.o
+ .debug_ranges  0x00000230       0x48 drivers/io/shift register/shiftreg.o
+ .debug_ranges  0x00000278       0x20 drivers/mem/eeprom.o
+ .debug_ranges  0x00000298       0x40 drivers/mem/rom.o
+ .debug_ranges  0x000002d8       0x38 drivers/mem/volatile/ram.o
+ .debug_ranges  0x00000310       0x40 drivers/mem/volatile/Vram.o
+ .debug_ranges  0x00000350       0x30 main.o
 
 .debug_macro
  *(.debug_macro)

@@ -142,8 +142,10 @@
     <ClInclude Include="ASMmodule.h" />
     <ClInclude Include="clikecode.h" />
     <ClInclude Include="File.h" />
+    <ClInclude Include="keyvaluepair.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="keyvaluepair.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

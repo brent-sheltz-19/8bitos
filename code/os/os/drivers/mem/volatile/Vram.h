@@ -22,28 +22,33 @@ class Vram:public ram
 public:
 
 protected:
+	uint8_t mempin;
 private:
 	PROGMEM static const uint16_t char_memory_base=0x00;
 	uint8_t char_memory_offset;
-	PROGMEM static const uint16_t instruction_memory_base=0x0100;
+	PROGMEM static const uint16_t instruction_memory_base=0x2000;
 	uint8_t instruction_memory_offset;
-	PROGMEM static const uint16_t custom_char_memory_base=0x0120;
+	PROGMEM static const uint16_t custom_char_memory_base=0x3000;
 	uint8_t custom_char_memory_offset;
 	
 
 //functions
 public:
-	Vram(portcontroller* portptr,shiftreg* addrptr,shiftreg* datarptr,uint8_t wepin,uint64_t addressbase);
-	void writeData();
+	Vram(portcontroller* portptr,shiftreg* addrptr,uint8_t wepin,uint8_t mempin,uint64_t addressbase);
+	//single value
+	void writeData(uint16_t address,char value);
+	//multiple values
+	void writeData(uint16_t address,char* value,unsigned int size);
 	void cleardata();
 	void writeInstruction();
-	void writecustomchar (uint8_t[] );
+	void writecustomchar (uint8_t* customchar );
 	//void writecustomchar (uint8_t[] );
+	Vram( const Vram &c );
+	Vram& operator=( const Vram &c );
 	~Vram();
 protected:
 private:
-	Vram( const Vram &c );
-	Vram& operator=( const Vram &c );
+	
 
 }; //Vram
 

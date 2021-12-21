@@ -39,7 +39,8 @@ class interpreter
 		}
 		uint16_t getVal()
 		{
-			retun  (high <<8)|low;
+
+			return  (*high <<8)|*low;
 		}
 	};	
 	struct cpuflags
@@ -51,68 +52,77 @@ class interpreter
 			return (flag>>k);
 			
 		}
-		void setflag(bitflags flag, bool on)
+		void setflag(bitflags bitflag, bool on)
 		{
-			switch (flag)
+			switch (bitflag)
 			{
 				case zero:
 					if (on)
 					{
-						flag|0b00000001;
+						flag|=0b00000001;
 					}
 					else
 					{
-						flag&0b00000001;
+						flag&=0b11111110;
 					}
 					break;
 				case greater:
 					if (on)
 					{
-						flag|0b00000010;
+						flag|=0b00000010;
 					}
 					else
 					{
-						flag&0b00000010;
+						flag&=!0b00000010;
 					}	
 					break;
 				case less:
 					if (on)
 					{
-						flag|0b00000100;
+						flag|=0b00000100;
 					}
 					else
 					{
-						flag&0b00000100;
+						flag&=!0b00000100;
 					}
 					break;
+				case equals:
+					if (on)
+					{
+						flag|=0b00001000;
+					}
+					else
+					{
+						flag&=!0b00001000;
+					}
 				case carry:
 					if (on)
 					{
-						flag|0b00001000;
+						flag|=0b00010000;
 					}
 					else
 					{
-						flag&0b00001000;
+						flag&=!0b00010000;
 					}
 					break;
 				case sign:	
 					if (on)
 					{
-						flag|0b00010000;
+						flag|=0b00100000;
 					}
 					else
 					{
-						flag&0b00010000;
+						flag&=!0b00100000;
 					}
 					break;
 				case overflow:
 					if (on)
 					{
-						flag|0b00100000;
+						flag|=0b01000000;
 					}
 					else
 					{
-						flag&0b00100000;
+						flag&=!0b01000000;
 					}
 					break;
 			}
@@ -120,6 +130,18 @@ class interpreter
 	};
 //variables
 public:
+	rom* Baseprogram() const { return baseprogram; }
+	void Baseprogram(rom* val) { baseprogram = val; }
+	ram* Dataram() const { return dataram; }
+	void Dataram(ram* val) { dataram = val; }
+	ram* Stackram() const { return stackram; }
+	void Stackram(ram* val) { stackram = val; }
+	Vram* Videoram() const { return videoram; }
+	void Videoram(Vram* val) { videoram = val; }
+	Vram* Videoinstructionram() const { return videoinstructionram; }
+	void Videoinstructionram(Vram* val) { videoinstructionram = val; }
+	Vram* Videocustomcharram() const { return videocustomcharram; }
+	void Videocustomcharram(Vram* val) { videocustomcharram = val; }
 protected:
 
 private:
@@ -130,6 +152,9 @@ private:
 	ram* stackram;
 	
 	Vram* videoram;
+	Vram* videoinstructionram;
+	Vram* videocustomcharram;
+	
 	uint8_t baseoffset=0;
 	uint8_t extendedprogoffset=0;
 	uint8_t dataramoffset=0;
@@ -148,6 +173,9 @@ private:
 public:
 	interpreter();
 	interpreter( const interpreter &c );
+	
+	
+	
 	void run();
 	void nop();
 	void inc(char reg);
@@ -157,6 +185,7 @@ public:
 	void mov(char regto, char regfrom);
 	void ld(char regto, uint16_t memptr);//movi
 	void ldi(char regto,char val);//movi
+	
 	void stx(char regfrom);
 	void sty(char regfrom);
 	void stz(char regfrom);
@@ -164,7 +193,14 @@ public:
 	void std(uint16_t memptr, char regfrom);
 	
 	
-	void stv(uint16_t memptr, char regfrom);
+	void svd(uint16_t memptr, char regfrom);
+	void svx( char regfrom);
+	void svy( char regfrom);
+	void svz( char regfrom);
+	
+	
+	
+	
 	void cmp(char reg1 ,char reg2);
 	void cpi(char reg1,char val);
 	void ror(char reg1);
@@ -186,7 +222,7 @@ public:
 	void syscall();
 	void pop(char reg);
 	void push(char reg);
-	uint16_t jmp (uint16_t memptr);
+	void jmp (uint16_t memptr);
 	~interpreter();
 protected:
 private:

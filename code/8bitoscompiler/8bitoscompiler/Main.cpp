@@ -1,12 +1,16 @@
 #include <iostream>
-#include "clikecode.h"							
+#include "clikecode.h"	
+#include "ASMmodule.h"
+#include <map>
 #if windows
 	#include <Windows.h>
 #endif
+//ofstream
 clikecode c;
-
+ASMmodule asmmod;
 int main(int argc, char* argv[])
 {
+
 	cout << argv[0];
 	//system("cd -c D:\codeing projects\8bitos\code\8bitoscompiler\8bitoscompiler");
 	if(c.getFirstLine("8bitosc.txt")=="#c")

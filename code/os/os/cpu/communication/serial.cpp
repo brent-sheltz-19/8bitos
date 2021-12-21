@@ -9,11 +9,11 @@
 #include "serial.h"
 
 // default constructor
-serial::serial()
+Serial::Serial()
 {
 } //serial
 
 // default destructor
-serial::~serial()
+Serial::~Serial()
 {
 } //~serial

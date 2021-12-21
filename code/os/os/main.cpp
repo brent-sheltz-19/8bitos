@@ -20,6 +20,10 @@
 #include "drivers/mem/eeprom.h"
 #include "cpu/interrupts/interrupts.h"
 #include "cpu/interpreter/interpreter.h"
+#include "cpu/communication/Serial.h"
+
+#define rwpin 1
+#define vmempin 2
 /*
 	address lines max hex 1fff
 	4 chips per bank
@@ -31,16 +35,21 @@ static const int address_max_hex=0x1fff;
 
 static portcontroller port=portcontroller();
 static shiftreg addreg=shiftreg(40,39,38,&port);
-static shiftreg datareg=shiftreg(37,36,35,&port);
+static shiftreg csreg=shiftreg(37,36,35,&port);
+static Serial serial =  Serial();
+static ram bank0 = ram(&port,&addreg,rwpin,0x0u);	// os ram 
+static ram bank1 = ram(&port,&addreg,rwpin,0x2000u);//os extended ram
+static ram bank2 = ram(&port,&addreg,rwpin,0x4000u);// main prog ram 
+static ram bank3 = ram(&port,&addreg,rwpin,0x5000u);// second prog ram or extended main program ram 
+static ram bank4 = ram(&port,&addreg,rwpin,0x6000u);// stack ram
+ 
+static Vram vbank0 = Vram(&port,&addreg,rwpin,vmempin,0x0u);	// video ram
+static Vram vbank1 = Vram(&port,&addreg,rwpin,vmempin,0x2000u);//instruction ram
+static Vram vbank2 = Vram(&port,&addreg,rwpin,vmempin,0x4000u);// custom char ram 
 
-static ram bank0 = ram(&port,&addreg,&datareg,34,0x0u);	// os ram 
-static ram bank1 = ram(&port,&addreg,&datareg,34,0x2000u);//main prog ram
-static ram bank2 = ram(&port,&addreg,&datareg,34,0x4000u);// second prog ram or extended main program ram
-static ram bank3 = ram(&port,&addreg,&datareg,34,0x5000u);// third program or prog data ram
-static ram bank4 = Vram(&port,&addreg,&datareg,34,0x6000u);// video ram
 
 static ram rambanklist[] = {bank0,bank1,bank2,bank3,bank4};
-
+static Vram vrambanklist[]={};
 
 static rom bios = rom(&port,&addreg,0x7000);
 static rom settings = rom(&port,&addreg,0x8000);
@@ -49,11 +58,11 @@ static rom program1 = rom(&port,&addreg,0xA000);
 static rom program2 = rom(&port,&addreg,0xB000);
 static rom program3 = rom(&port,&addreg,0xC000);
 
-static eeprom fattable =eeprom(&port,&addreg,&datareg,34,0x0002C000);
-static eeprom storage0 =eeprom(&port,&addreg,&datareg,34,0x00030000);
-static eeprom storage1 =eeprom(&port,&addreg,&datareg,34,0x00034000);
-static eeprom storage2 =eeprom(&port,&addreg,&datareg,34,0x00038000);
-static eeprom storage3 =eeprom(&port,&addreg,&datareg,34,0x0003C000);
+static eeprom fattable =eeprom(&port,&addreg,rwpin,0x0002C000);
+static eeprom storage0 =eeprom(&port,&addreg,rwpin,0x00030000);
+static eeprom storage1 =eeprom(&port,&addreg,rwpin,0x00034000);
+static eeprom storage2 =eeprom(&port,&addreg,rwpin,0x00038000);
+static eeprom storage3 =eeprom(&port,&addreg,rwpin,0x0003C000);
 
 
 static interrupts irqhandler= interrupts();
@@ -92,10 +101,12 @@ void storememory(uint64_t address, char out)
 	
 	
 }
+
 int main(void)
 {
 	port.writeddra(0xff);
 	port.writeddrc(0xff);
+	interpret.Dataram(&bank2);
 	interpret.nop();
 	
 	//bank1.setaddress(0);
@@ -107,6 +118,8 @@ int main(void)
 		interpret.ldi(5,10);
 		interpret.cmp(9,5);
 		interpret.ldi(254,65);
+		interpret.ldi(0,10);
+		interpret.push(0);
 		if (PINB>0)
 		{
 			if (PINB)

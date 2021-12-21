@@ -1,12 +1,9 @@
+#include <arduino.h>
 #include <stdint.h>
-
 #include <SoftwareSerial.h>
-
 #define tablechip chiparray[0];
-#define in 3
-#define enablepin 0
-#define recivepin 0
-
+#define recivepin 9;
+#define Enablepin 4;
 enum chipnums
 {
   eight=0b01111111,seven=0b10111111,  
@@ -76,64 +73,66 @@ class csshiftregister
 class AT93LC86
 { 
 
-  uint8_t dout,clk,org,pe;
-  struct opcode
-  { 
-    uint8_t write  = 0b01;
-    uint8_t read  = 0b10;
-    uint8_t erase  = 0b11;
-  };
-  static opcode opcodes;
-  csshiftregister* csreg;
-  uint16_t addr;
-  uint8_t data;
-  chipnums* cnum;
-  public:
-  AT93LC86()
-  {
-    
-  }
-  AT93LC86(uint8_t dout,uint8_t clk,uint8_t org,uint8_t pe)
-  {
-    this->dout=dout;
-    this->clk=clk;
-    this->org=org;
-    this->pe =pe;
-    
-  }
-  void setCnum(chipnums c )
-  {
-    cnum=&c;
-  }  
-  void write(uint16_t address, uint8_t data)
-  {
-    csreg->enqueDataQue(*cnum);
-    csreg->shiftout();
-    shiftOut(dout,clk,MSBFIRST,opcodes.write);
-    shiftOut(dout,clk,MSBFIRST,address>>8);
-    shiftOut(dout,clk,MSBFIRST,address);
-    shiftOut(dout,clk,MSBFIRST,data);
-  }
-  void write(uint16_t address, uint16_t data)
-  {
-    csreg->enqueDataQue(*cnum);
-    csreg->shiftout();
-    shiftOut(dout,clk,MSBFIRST,opcodes.write);
-    shiftOut(dout,clk,MSBFIRST,address>>8);
-    shiftOut(dout,clk,MSBFIRST,address);
-    shiftOut(dout,clk,MSBFIRST,data>>8);
-    shiftOut(dout,clk,MSBFIRST,data);
-  }
-  char read(uint16_t address)
-  {
-    csreg->enqueDataQue(*cnum);
-    csreg->shiftout();
-    shiftOut(dout,clk,MSBFIRST,opcodes.read);
-    shiftOut(dout,clk,MSBFIRST,address>>8);
-    shiftOut(dout,clk,MSBFIRST,address);
-    return 0;//shiftin();
+    uint8_t dout,clk,org,pe;
+    struct opcode
+    { 
+      uint8_t write  = 0b01;
+      uint8_t read  = 0b10;
+      uint8_t erase  = 0b11;
+    };
+    static opcode opcodes;
+    csshiftregister* csreg;
+    uint16_t addr;
+    uint8_t data;
+    chipnums* cnum;
+    public:
+    AT93LC86()
+    {
+      
     }
-};
+    AT93LC86(uint8_t dout,uint8_t clk,uint8_t org,uint8_t pe)
+    {
+      this->dout=dout;
+      this->clk=clk;
+      this->org=org;
+      this->pe =pe;
+      
+    }
+    void setCnum(chipnums c )
+    {
+      cnum=&c;
+    }  
+    void write(uint16_t address, uint8_t data)
+    {
+      csreg->enqueDataQue(*cnum);
+      csreg->shiftout();
+      shiftOut(dout,clk,MSBFIRST,opcodes.write);
+      shiftOut(dout,clk,MSBFIRST,address>>8);
+      shiftOut(dout,clk,MSBFIRST,address);
+      shiftOut(dout,clk,MSBFIRST,data);
+    }
+    void write(uint16_t address, uint16_t data)
+    {
+      csreg->enqueDataQue(*cnum);
+      csreg->shiftout();
+      shiftOut(dout,clk,MSBFIRST,opcodes.write);
+      shiftOut(dout,clk,MSBFIRST,address>>8);
+      shiftOut(dout,clk,MSBFIRST,address);
+      shiftOut(dout,clk,MSBFIRST,data>>8);
+      shiftOut(dout,clk,MSBFIRST,data);
+    }
+    char read(uint16_t address)
+    {
+      csreg->enqueDataQue(*cnum);
+      csreg->shiftout();
+      shiftOut(dout,clk,MSBFIRST,opcodes.read);
+      shiftOut(dout,clk,MSBFIRST,address>>8);
+      shiftOut(dout,clk,MSBFIRST,address);
+      return 0;//shiftin();
+      }
+  };
+
+
 
 static csshiftregister csreg(6,7,8);
 /*
@@ -186,11 +185,11 @@ bool checkEmpty(uint8_t chip)
   }
   return true ;
 }
-bool checkEmpty(char num)
+bool checkEmpty(char chipnum)
 {
   for(int i = 0;i<UINT16_MAX;i++)
   {
-    if(chiparray[num].read(i)>0)
+    if(chiparray[chipnum].read(i)>0)
     {
       return false;
     }
@@ -264,13 +263,13 @@ char format(char num,String action )
 }
 void setup() {
   // put your setup code here, to run once:
-  int size = sizeof(chiparray)/sizeof(chiparray[0]);
-  for(int a= 0; a<size;a++)
+  for(int a= 0; a<sizeof(chiparray)/sizeof(chiparray[0]);a++)
   {  
     chiparray[a].setCnum((chipnums)a);
   }
   
 }
+
 
 void loop() {
   // put your main code here, to run repeatedly:
