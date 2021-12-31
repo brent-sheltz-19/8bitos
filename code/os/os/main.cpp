@@ -11,6 +11,7 @@
 #include <avr/cpufunc.h>
 #include <avr/interrupt.h>
 #include <stdio.h>
+#include <string.h>
 #include "drivers/io/port controller/portcontroller.h"
 #include "drivers/io/lcd/lcd.h"
 #include "drivers/io/shift register/shiftreg.h"
@@ -56,6 +57,7 @@ static eeprom storage0 =eeprom(&port,&addreg,rwpin,0x18000u);
 static eeprom storage1 =eeprom(&port,&addreg,rwpin,0x1A000u);
 static eeprom storage2 =eeprom(&port,&addreg,rwpin,0x1C000u);
 static eeprom storage3 =eeprom(&port,&addreg,rwpin,0x1E000u);
+
  
 static Vram vbank0 = Vram(&port,&addreg,rwpin,vmempin,0x0u);	// video ram
 static Vram vbank1 = Vram(&port,&addreg,rwpin,vmempin,0x2000u);//instruction ram
@@ -141,10 +143,13 @@ char loadmainprogramfromrom(char prognum,bool mainprogram)
 	}
 	return 't';
 }
-
-
+void readKeyboard(char* buffer,int buffsize)
+{
+	
+} 
 int main(void)
 {
+	
 	port.writeddra(0xff);
 	port.writeddrc(0xff);
 	interpret.Dataram(&bank2);
