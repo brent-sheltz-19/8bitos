@@ -128,18 +128,18 @@ class interpreter
 			}
 		}
 	};
-//variables
-public:
-	rom* Baseprogram() const { return baseprogram; }
-	void Baseprogram(rom* val) { baseprogram = val; }
+//variablesctionram() const { return videoinstructionram; }
+	
+	public:
+	ram* Baseprogram() const { return baseprogram; }
+	void Baseprogram(ram* val) { baseprogram = val; }
 	ram* Dataram() const { return dataram; }
 	void Dataram(ram* val) { dataram = val; }
 	ram* Stackram() const { return stackram; }
 	void Stackram(ram* val) { stackram = val; }
 	Vram* Videoram() const { return videoram; }
 	void Videoram(Vram* val) { videoram = val; }
-	Vram* Videoinstructionram() const { return videoinstructionram; }
-	void Videoinstructionram(Vram* val) { videoinstructionram = val; }
+	Vram* VideoinstruVideoinstructionram(Vram* val) { videoinstructionram = val; }
 	Vram* Videocustomcharram() const { return videocustomcharram; }
 	void Videocustomcharram(Vram* val) { videocustomcharram = val; }
 protected:
@@ -147,7 +147,7 @@ protected:
 private:
 	bool progexit;
 
-	rom* baseprogram;
+	ram* baseprogram;
 	ram* dataram;
 	ram* stackram;
 	

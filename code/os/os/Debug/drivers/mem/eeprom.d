@@ -16,7 +16,8 @@ drivers/mem/eeprom.d drivers/mem/eeprom.o: ../drivers/mem/eeprom.cpp \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
  ../drivers/mem/../io/shift\ register/shiftreg.h \
- ../drivers/mem/../io/shift\ register/../port\ controller/portcontroller.h
+ ../drivers/mem/../io/shift\ register/../port\ controller/portcontroller.h \
+ ../drivers/mem/rom.h
 
 ../drivers/mem/eeprom.h:
 
@@ -53,3 +54,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../drivers/mem/../io/shift\ register/shiftreg.h:
 
 ../drivers/mem/../io/shift\ register/../port\ controller/portcontroller.h:
+
+../drivers/mem/rom.h:

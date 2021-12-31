@@ -23,7 +23,15 @@ eeprom::eeprom()
 	 	portptr->digitalwrite(wepin,true);
 
  }
-
+ void eeprom::write(char data)
+ {
+	 
+ }
+void eeprom::write(char data,uint16_t address)
+{
+	
+	
+}
 // default destructor
 eeprom::~eeprom()
 {

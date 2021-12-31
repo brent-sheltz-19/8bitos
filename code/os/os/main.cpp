@@ -23,6 +23,7 @@
 #include "cpu/communication/Serial.h"
 
 #define rwpin 1
+// 0 cpu ram 1 video ram
 #define vmempin 2
 /*
 	address lines max hex 1fff
@@ -32,16 +33,29 @@
 	
 */
 static const int address_max_hex=0x1fff;
-
 static portcontroller port=portcontroller();
 static shiftreg addreg=shiftreg(40,39,38,&port);
 static shiftreg csreg=shiftreg(37,36,35,&port);
-static Serial serial =  Serial();
+static Serial serial= Serial(&csreg,&port);
 static ram bank0 = ram(&port,&addreg,rwpin,0x0u);	// os ram 
-static ram bank1 = ram(&port,&addreg,rwpin,0x2000u);//os extended ram
+static ram bank1 = ram(&port,&addreg,rwpin,0x2000u);//main program 
 static ram bank2 = ram(&port,&addreg,rwpin,0x4000u);// main prog ram 
-static ram bank3 = ram(&port,&addreg,rwpin,0x5000u);// second prog ram or extended main program ram 
-static ram bank4 = ram(&port,&addreg,rwpin,0x6000u);// stack ram
+static ram bank3 = ram(&port,&addreg,rwpin,0x6000u);// second prog ram  
+static ram bank4 = ram(&port,&addreg,rwpin,0x8000u);// stack ram
+
+
+static rom bios = rom(&port,&addreg,0xA000u);
+static rom settings = rom(&port,&addreg,0xC000u);
+static rom program0 = rom(&port,&addreg,0xE000u);
+static rom program1 = rom(&port,&addreg,0x10000u);
+static rom program2 = rom(&port,&addreg,0x12000u);
+static rom program3 = rom(&port,&addreg,0x14000u);
+
+static eeprom fattable =eeprom(&port,&addreg,rwpin,0x16000u);
+static eeprom storage0 =eeprom(&port,&addreg,rwpin,0x18000u);
+static eeprom storage1 =eeprom(&port,&addreg,rwpin,0x1A000u);
+static eeprom storage2 =eeprom(&port,&addreg,rwpin,0x1C000u);
+static eeprom storage3 =eeprom(&port,&addreg,rwpin,0x1E000u);
  
 static Vram vbank0 = Vram(&port,&addreg,rwpin,vmempin,0x0u);	// video ram
 static Vram vbank1 = Vram(&port,&addreg,rwpin,vmempin,0x2000u);//instruction ram
@@ -51,26 +65,11 @@ static Vram vbank2 = Vram(&port,&addreg,rwpin,vmempin,0x4000u);// custom char ra
 static ram rambanklist[] = {bank0,bank1,bank2,bank3,bank4};
 static Vram vrambanklist[]={};
 
-static rom bios = rom(&port,&addreg,0x7000);
-static rom settings = rom(&port,&addreg,0x8000);
-static rom program0 = rom(&port,&addreg,0x9000);
-static rom program1 = rom(&port,&addreg,0xA000);
-static rom program2 = rom(&port,&addreg,0xB000);
-static rom program3 = rom(&port,&addreg,0xC000);
-
-static eeprom fattable =eeprom(&port,&addreg,rwpin,0x0002C000);
-static eeprom storage0 =eeprom(&port,&addreg,rwpin,0x00030000);
-static eeprom storage1 =eeprom(&port,&addreg,rwpin,0x00034000);
-static eeprom storage2 =eeprom(&port,&addreg,rwpin,0x00038000);
-static eeprom storage3 =eeprom(&port,&addreg,rwpin,0x0003C000);
 
 
 static interrupts irqhandler= interrupts();
 static interpreter interpret= interpreter();
 
-static lcd disp1=lcd();
-
-char gpvariables[8] = {0,0,0,0,0,0,0,0};
 void runprogram(int progstart)
 {
 	
@@ -78,38 +77,79 @@ void runprogram(int progstart)
 }
 void storememory(uint64_t address, char out)
 {
-	if (address>=0x0 && address<=0x3fff)
+	if (address>=0x0 && address<0x2000)
 	{
 		bank0.write(address,out);
 	}
-	else if (address>=0x4000 && address<=0x7fff)
+	else if (address>=0x2000 && address<0x4000)
 	{
-		bank1.write(address-0x4000,out);
+		bank1.write(address-0x2000,out);
 	} 
-	else if(address>=0x8000 && address<=0xbfff)
+	else if(address>=0x4000 && address<0x6000)
 	{
-		bank2.write(address-0x8000,out);
+		bank2.write(address-0x4000,out);
 	}
-	else if(address>=0xC000 && address<=0xffff)
+	else if(address>=0x6000 && address<0x8000)
 	{
-		bank3.write(address-0xC000,out);
+		bank3.write(address-0x6000,out);
 	}
-	else if(address>=0xffff && address<=0x10000)
+	else if(address>=0x6000 && address<0xA000)
 	{
-		bank4.write(address-0x10000,out);
+		bank4.write(address-0x8000,out);
 	}
 	
 	
 }
+char loadmainprogramfromrom(char prognum,bool mainprogram)
+{
+	ram* prog_ram;
+	if (mainprogram)
+	{
+		prog_ram=&bank1;
+	}
+	else
+	{
+		prog_ram=&bank3;
+	}
+	rom* prog;
+	if (prognum == 0)
+	{
+		prog=&program0;
+	} 
+	else if(prognum == 1)
+	{
+		prog=&program1;
+			
+	}
+	else if(prognum == 2)
+	{
+		prog=&program2;
+			
+	}
+	else if(prognum == 3)
+	{
+		prog=&program3;
+	}
+	else
+	{
+		return 'e';
+	}
+	for (uint16_t a = 0; a < 0x1fff ; a++)
+	{
+		prog_ram->write(a,prog->read(a));
+		
+	}
+	return 't';
+}
+
 
 int main(void)
 {
 	port.writeddra(0xff);
 	port.writeddrc(0xff);
 	interpret.Dataram(&bank2);
+	interpret.Stackram(&bank4);
 	interpret.nop();
-	
-	//bank1.setaddress(0);
     /* Replace with your application code */
     while (1) 
     {
@@ -117,16 +157,20 @@ int main(void)
 		interpret.inc((char)9);
 		interpret.ldi(5,10);
 		interpret.cmp(9,5);
-		interpret.ldi(254,65);
+		for(int i = 0;i<255;i++)
+		{
+		
+			interpret.ldi(i,65);
+			
+		}
 		interpret.ldi(0,10);
 		interpret.push(0);
-		if (PINB>0)
+		uint8_t pb = PINB;
+		pb&=0b11111100;
+		if ((pb>>2)==0b00000001)
 		{
-			if (PINB)
-			{
-				
-			}
-		storememory(0x0000,0xff);
+			
+					
 		}
 	}
 }

@@ -3,31 +3,31 @@ os.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .data         00000000  00800100  00800100  00000d9a  2**0
+  0 .data         00000000  00800100  00800100  00000a40  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  1 .text         00000d26  00000000  00000000  00000074  2**1
+  1 .text         000009cc  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          000002b5  00800100  00800100  00000d9a  2**0
+  2 .bss          00000253  00800100  00800100  00000a40  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  00000d9a  2**0
+  3 .comment      00000030  00000000  00000000  00000a40  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000dcc  2**2
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00000a70  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 000003e8  00000000  00000000  00000e0c  2**0
+  5 .debug_aranges 000003e8  00000000  00000000  00000ab0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00009aeb  00000000  00000000  000011f4  2**0
+  6 .debug_info   00009496  00000000  00000000  00000e98  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00001e9e  00000000  00000000  0000acdf  2**0
+  7 .debug_abbrev 00001e46  00000000  00000000  0000a32e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00001fc6  00000000  00000000  0000cb7d  2**0
+  8 .debug_line   00001fb1  00000000  00000000  0000c174  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000009b0  00000000  00000000  0000eb44  2**2
+  9 .debug_frame  00000a08  00000000  00000000  0000e128  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00001c88  00000000  00000000  0000f4f4  2**0
+ 10 .debug_str    00001c68  00000000  00000000  0000eb30  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000024c4  00000000  00000000  0001117c  2**0
+ 11 .debug_loc    000027ec  00000000  00000000  00010798  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000380  00000000  00000000  00013640  2**0
+ 12 .debug_ranges 000003a8  00000000  00000000  00012f84  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -66,10 +66,10 @@ Disassembly of section .text:
   78:	0c 94 5d 00 	jmp	0xba	; 0xba <__bad_interrupt>
 
 0000007c <__ctors_start>:
-  7c:	72 04       	cpc	r7, r2
+  7c:	f6 02       	muls	r31, r22
 
 0000007e <__ctors_end>:
-  7e:	df 05       	cpc	r29, r15
+  7e:	60 04       	cpc	r6, r0
 
 00000080 <__dtors_end>:
   80:	11 24       	eor	r1, r1
@@ -89,7 +89,7 @@ Disassembly of section .text:
   94:	1d 92       	st	X+, r1
 
 00000096 <.do_clear_bss_start>:
-  96:	a5 3b       	cpi	r26, 0xB5	; 181
+  96:	a3 35       	cpi	r26, 0x53	; 83
   98:	b2 07       	cpc	r27, r18
   9a:	e1 f7       	brne	.-8      	; 0x94 <.do_clear_bss_loop>
 
@@ -100,2035 +100,1502 @@ Disassembly of section .text:
   a2:	04 c0       	rjmp	.+8      	; 0xac <__do_global_ctors+0x10>
   a4:	21 97       	sbiw	r28, 0x01	; 1
   a6:	fe 01       	movw	r30, r28
-  a8:	0e 94 80 06 	call	0xd00	; 0xd00 <__tablejump2__>
+  a8:	0e 94 d3 04 	call	0x9a6	; 0x9a6 <__tablejump2__>
   ac:	ce 33       	cpi	r28, 0x3E	; 62
   ae:	d1 07       	cpc	r29, r17
   b0:	c9 f7       	brne	.-14     	; 0xa4 <__do_global_ctors+0x8>
-  b2:	0e 94 2c 04 	call	0x858	; 0x858 <main>
-  b6:	0c 94 86 06 	jmp	0xd0c	; 0xd0c <__do_global_dtors>
+  b2:	0e 94 b7 02 	call	0x56e	; 0x56e <main>
+  b6:	0c 94 d9 04 	jmp	0x9b2	; 0x9b2 <__do_global_dtors>
 
 000000ba <__bad_interrupt>:
   ba:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
-000000be <_ZN6SerialC1Ev>:
+000000be <_ZN6SerialC1EP8shiftregP14portcontroller>:
+	}
+	
+	
+	
+	
+}
+  be:	fc 01       	movw	r30, r24
+  c0:	73 83       	std	Z+3, r23	; 0x03
+  c2:	62 83       	std	Z+2, r22	; 0x02
+  c4:	51 83       	std	Z+1, r21	; 0x01
+  c6:	40 83       	st	Z, r20
+  c8:	08 95       	ret
 
-
-#include "serial.h"
-
-// default constructor
-Serial::Serial()
-  be:	08 95       	ret
-
-000000c0 <_ZN6SerialD1Ev>:
-{
-} //serial
-
+000000ca <_ZN6SerialD1Ev>:
 // default destructor
 Serial::~Serial()
-  c0:	08 95       	ret
+  ca:	08 95       	ret
 
-000000c2 <_ZN11interpreterC1Ev>:
+000000cc <_ZN11interpreterC1Ev>:
 			registers[4]=1;
 		}
 		else
 		{
 			registers[3]=registers[1]/registers[2];
 			registers[4]=0;
-  c2:	fc 01       	movw	r30, r24
-  c4:	15 86       	std	Z+13, r1	; 0x0d
-  c6:	16 86       	std	Z+14, r1	; 0x0e
-  c8:	17 86       	std	Z+15, r1	; 0x0f
-  ca:	dc 01       	movw	r26, r24
-  cc:	a1 5f       	subi	r26, 0xF1	; 241
-  ce:	be 4f       	sbci	r27, 0xFE	; 254
-  d0:	8f ef       	ldi	r24, 0xFF	; 255
-  d2:	9f e1       	ldi	r25, 0x1F	; 31
-  d4:	11 96       	adiw	r26, 0x01	; 1
-  d6:	9c 93       	st	X, r25
-  d8:	8e 93       	st	-X, r24
-  da:	50 96       	adiw	r26, 0x10	; 16
-  dc:	1c 92       	st	X, r1
-  de:	14 97       	sbiw	r26, 0x04	; 4
-  e0:	cf 01       	movw	r24, r30
-  e2:	83 5f       	subi	r24, 0xF3	; 243
-  e4:	9e 4f       	sbci	r25, 0xFE	; 254
-  e6:	11 96       	adiw	r26, 0x01	; 1
-  e8:	9c 93       	st	X, r25
-  ea:	8e 93       	st	-X, r24
-  ec:	12 96       	adiw	r26, 0x02	; 2
-  ee:	01 96       	adiw	r24, 0x01	; 1
+  cc:	fc 01       	movw	r30, r24
+  ce:	15 86       	std	Z+13, r1	; 0x0d
+  d0:	16 86       	std	Z+14, r1	; 0x0e
+  d2:	17 86       	std	Z+15, r1	; 0x0f
+  d4:	dc 01       	movw	r26, r24
+  d6:	a1 5f       	subi	r26, 0xF1	; 241
+  d8:	be 4f       	sbci	r27, 0xFE	; 254
+  da:	8f ef       	ldi	r24, 0xFF	; 255
+  dc:	9f e1       	ldi	r25, 0x1F	; 31
+  de:	11 96       	adiw	r26, 0x01	; 1
+  e0:	9c 93       	st	X, r25
+  e2:	8e 93       	st	-X, r24
+  e4:	50 96       	adiw	r26, 0x10	; 16
+  e6:	1c 92       	st	X, r1
+  e8:	14 97       	sbiw	r26, 0x04	; 4
+  ea:	cf 01       	movw	r24, r30
+  ec:	83 5f       	subi	r24, 0xF3	; 243
+  ee:	9e 4f       	sbci	r25, 0xFE	; 254
   f0:	11 96       	adiw	r26, 0x01	; 1
   f2:	9c 93       	st	X, r25
   f4:	8e 93       	st	-X, r24
-  f6:	16 97       	sbiw	r26, 0x06	; 6
-  f8:	03 97       	sbiw	r24, 0x03	; 3
+  f6:	12 96       	adiw	r26, 0x02	; 2
+  f8:	01 96       	adiw	r24, 0x01	; 1
   fa:	11 96       	adiw	r26, 0x01	; 1
   fc:	9c 93       	st	X, r25
   fe:	8e 93       	st	-X, r24
- 100:	12 96       	adiw	r26, 0x02	; 2
- 102:	01 96       	adiw	r24, 0x01	; 1
+ 100:	16 97       	sbiw	r26, 0x06	; 6
+ 102:	03 97       	sbiw	r24, 0x03	; 3
  104:	11 96       	adiw	r26, 0x01	; 1
  106:	9c 93       	st	X, r25
  108:	8e 93       	st	-X, r24
- 10a:	16 97       	sbiw	r26, 0x06	; 6
- 10c:	03 97       	sbiw	r24, 0x03	; 3
+ 10a:	12 96       	adiw	r26, 0x02	; 2
+ 10c:	01 96       	adiw	r24, 0x01	; 1
  10e:	11 96       	adiw	r26, 0x01	; 1
  110:	9c 93       	st	X, r25
  112:	8e 93       	st	-X, r24
- 114:	12 96       	adiw	r26, 0x02	; 2
- 116:	e6 5f       	subi	r30, 0xF6	; 246
- 118:	fe 4f       	sbci	r31, 0xFE	; 254
- 11a:	ed 93       	st	X+, r30
- 11c:	fc 93       	st	X, r31
- 11e:	08 95       	ret
+ 114:	16 97       	sbiw	r26, 0x06	; 6
+ 116:	03 97       	sbiw	r24, 0x03	; 3
+ 118:	11 96       	adiw	r26, 0x01	; 1
+ 11a:	9c 93       	st	X, r25
+ 11c:	8e 93       	st	-X, r24
+ 11e:	12 96       	adiw	r26, 0x02	; 2
+ 120:	e6 5f       	subi	r30, 0xF6	; 246
+ 122:	fe 4f       	sbci	r31, 0xFE	; 254
+ 124:	ed 93       	st	X+, r30
+ 126:	fc 93       	st	X, r31
+ 128:	08 95       	ret
 
-00000120 <_ZN11interpreter3incEc>:
- 120:	fc 01       	movw	r30, r24
- 122:	e6 0f       	add	r30, r22
- 124:	f1 1d       	adc	r31, r1
- 126:	90 89       	ldd	r25, Z+16	; 0x10
- 128:	9f 5f       	subi	r25, 0xFF	; 255
- 12a:	90 8b       	std	Z+16, r25	; 0x10
- 12c:	08 95       	ret
-
-0000012e <_ZN11interpreter3ldiEcc>:
- 12e:	86 0f       	add	r24, r22
- 130:	91 1d       	adc	r25, r1
- 132:	fc 01       	movw	r30, r24
- 134:	40 8b       	std	Z+16, r20	; 0x10
+0000012a <_ZN11interpreter3incEc>:
+ 12a:	fc 01       	movw	r30, r24
+ 12c:	e6 0f       	add	r30, r22
+ 12e:	f1 1d       	adc	r31, r1
+ 130:	90 89       	ldd	r25, Z+16	; 0x10
+ 132:	9f 5f       	subi	r25, 0xFF	; 255
+ 134:	90 8b       	std	Z+16, r25	; 0x10
  136:	08 95       	ret
 
-00000138 <_ZN11interpreter3cmpEcc>:
- 138:	64 13       	cpse	r22, r20
- 13a:	07 c0       	rjmp	.+14     	; 0x14a <_ZN11interpreter3cmpEcc+0x12>
+00000138 <_ZN11interpreter3ldiEcc>:
+ 138:	86 0f       	add	r24, r22
+ 13a:	91 1d       	adc	r25, r1
  13c:	fc 01       	movw	r30, r24
- 13e:	e1 5e       	subi	r30, 0xE1	; 225
- 140:	fe 4f       	sbci	r31, 0xFE	; 254
- 142:	80 81       	ld	r24, Z
- 144:	88 61       	ori	r24, 0x18	; 24
- 146:	80 83       	st	Z, r24
- 148:	08 95       	ret
- 14a:	46 17       	cp	r20, r22
- 14c:	38 f4       	brcc	.+14     	; 0x15c <_ZN11interpreter3cmpEcc+0x24>
- 14e:	fc 01       	movw	r30, r24
- 150:	e1 5e       	subi	r30, 0xE1	; 225
- 152:	fe 4f       	sbci	r31, 0xFE	; 254
- 154:	80 81       	ld	r24, Z
- 156:	82 60       	ori	r24, 0x02	; 2
- 158:	80 83       	st	Z, r24
- 15a:	08 95       	ret
- 15c:	64 17       	cp	r22, r20
- 15e:	30 f4       	brcc	.+12     	; 0x16c <_ZN11interpreter3cmpEcc+0x34>
- 160:	fc 01       	movw	r30, r24
- 162:	e1 5e       	subi	r30, 0xE1	; 225
- 164:	fe 4f       	sbci	r31, 0xFE	; 254
- 166:	80 81       	ld	r24, Z
- 168:	84 60       	ori	r24, 0x04	; 4
- 16a:	80 83       	st	Z, r24
- 16c:	08 95       	ret
+ 13e:	40 8b       	std	Z+16, r20	; 0x10
+ 140:	08 95       	ret
 
-0000016e <_ZN11interpreter3nopEv>:
- 16e:	00 00       	nop
- 170:	08 95       	ret
+00000142 <_ZN11interpreter3cmpEcc>:
+ 142:	64 13       	cpse	r22, r20
+ 144:	07 c0       	rjmp	.+14     	; 0x154 <_ZN11interpreter3cmpEcc+0x12>
+ 146:	fc 01       	movw	r30, r24
+ 148:	e1 5e       	subi	r30, 0xE1	; 225
+ 14a:	fe 4f       	sbci	r31, 0xFE	; 254
+ 14c:	80 81       	ld	r24, Z
+ 14e:	88 61       	ori	r24, 0x18	; 24
+ 150:	80 83       	st	Z, r24
+ 152:	08 95       	ret
+ 154:	46 17       	cp	r20, r22
+ 156:	38 f4       	brcc	.+14     	; 0x166 <_ZN11interpreter3cmpEcc+0x24>
+ 158:	fc 01       	movw	r30, r24
+ 15a:	e1 5e       	subi	r30, 0xE1	; 225
+ 15c:	fe 4f       	sbci	r31, 0xFE	; 254
+ 15e:	80 81       	ld	r24, Z
+ 160:	82 60       	ori	r24, 0x02	; 2
+ 162:	80 83       	st	Z, r24
+ 164:	08 95       	ret
+ 166:	64 17       	cp	r22, r20
+ 168:	30 f4       	brcc	.+12     	; 0x176 <_ZN11interpreter3cmpEcc+0x34>
+ 16a:	fc 01       	movw	r30, r24
+ 16c:	e1 5e       	subi	r30, 0xE1	; 225
+ 16e:	fe 4f       	sbci	r31, 0xFE	; 254
+ 170:	80 81       	ld	r24, Z
+ 172:	84 60       	ori	r24, 0x04	; 4
+ 174:	80 83       	st	Z, r24
+ 176:	08 95       	ret
 
-00000172 <_ZN11interpreter4pushEc>:
- 172:	cf 93       	push	r28
- 174:	df 93       	push	r29
- 176:	fc 01       	movw	r30, r24
- 178:	e6 0f       	add	r30, r22
- 17a:	f1 1d       	adc	r31, r1
- 17c:	ec 01       	movw	r28, r24
- 17e:	c1 5f       	subi	r28, 0xF1	; 241
- 180:	de 4f       	sbci	r29, 0xFE	; 254
- 182:	68 81       	ld	r22, Y
- 184:	79 81       	ldd	r23, Y+1	; 0x01
- 186:	40 89       	ldd	r20, Z+16	; 0x10
- 188:	fc 01       	movw	r30, r24
- 18a:	85 81       	ldd	r24, Z+5	; 0x05
- 18c:	96 81       	ldd	r25, Z+6	; 0x06
- 18e:	0e 94 cc 02 	call	0x598	; 0x598 <_ZN3ram5writeEjc>
- 192:	88 81       	ld	r24, Y
- 194:	99 81       	ldd	r25, Y+1	; 0x01
- 196:	01 97       	sbiw	r24, 0x01	; 1
- 198:	99 83       	std	Y+1, r25	; 0x01
- 19a:	88 83       	st	Y, r24
- 19c:	df 91       	pop	r29
- 19e:	cf 91       	pop	r28
- 1a0:	08 95       	ret
+00000178 <_ZN11interpreter3nopEv>:
+ 178:	00 00       	nop
+ 17a:	08 95       	ret
 
-000001a2 <_ZN11interpreterD1Ev>:
-	
+0000017c <_ZN11interpreter4pushEc>:
+ 17c:	cf 93       	push	r28
+ 17e:	df 93       	push	r29
+ 180:	fc 01       	movw	r30, r24
+ 182:	e6 0f       	add	r30, r22
+ 184:	f1 1d       	adc	r31, r1
+ 186:	ec 01       	movw	r28, r24
+ 188:	c1 5f       	subi	r28, 0xF1	; 241
+ 18a:	de 4f       	sbci	r29, 0xFE	; 254
+ 18c:	68 81       	ld	r22, Y
+ 18e:	79 81       	ldd	r23, Y+1	; 0x01
+ 190:	40 89       	ldd	r20, Z+16	; 0x10
+ 192:	fc 01       	movw	r30, r24
+ 194:	85 81       	ldd	r24, Z+5	; 0x05
+ 196:	96 81       	ldd	r25, Z+6	; 0x06
+ 198:	0e 94 60 02 	call	0x4c0	; 0x4c0 <_ZN3ram5writeEjc>
+ 19c:	88 81       	ld	r24, Y
+ 19e:	99 81       	ldd	r25, Y+1	; 0x01
+ 1a0:	01 97       	sbiw	r24, 0x01	; 1
+ 1a2:	99 83       	std	Y+1, r25	; 0x01
+ 1a4:	88 83       	st	Y, r24
+ 1a6:	df 91       	pop	r29
+ 1a8:	cf 91       	pop	r28
+ 1aa:	08 95       	ret
+
+000001ac <_ZN11interpreterD1Ev>:
+	{
+	}
 	
 }
-
 // default destructor
 interpreter::~interpreter()
- 1a2:	08 95       	ret
+ 1ac:	08 95       	ret
 
-000001a4 <_ZN10interruptsC1Ev>:
+000001ae <_ZN10interruptsC1Ev>:
 interrupts::interrupts()
 {
 } //interrupts
 
 void interrupts::handleinterrupt()
 {
- 1a4:	08 95       	ret
+ 1ae:	08 95       	ret
 
-000001a6 <_ZN10interruptsD1Ev>:
+000001b0 <_ZN10interruptsD1Ev>:
 	{
 	}
 }
 
 // default destructor
 interrupts::~interrupts()
- 1a6:	08 95       	ret
+ 1b0:	08 95       	ret
 
-000001a8 <_ZN3lcdC1Ev>:
-lcd::lcd()
-{
-	//instructions ins = instructions();
-} //lcd
-
- lcd::lcd(portcontroller* port)
- 1a8:	08 95       	ret
-
-000001aa <_ZN3lcdD1Ev>:
- {
-	
- }
-
-// default destructor
-lcd::~lcd()
- 1aa:	08 95       	ret
-
-000001ac <_ZN14portcontrollerC1Ev>:
+000001b2 <_ZN14portcontrollerC1Ev>:
 		{
 			PORTD|=0b10000000;
 		}
 		else
 		{
 			PORTD&=0b01111111;
- 1ac:	08 95       	ret
+ 1b2:	08 95       	ret
 
-000001ae <_ZN14portcontroller10writeportcEc>:
- 1ae:	68 b9       	out	0x08, r22	; 8
- 1b0:	08 95       	ret
+000001b4 <_ZN14portcontroller10writeportcEc>:
+ 1b4:	68 b9       	out	0x08, r22	; 8
+ 1b6:	08 95       	ret
 
-000001b2 <_ZN14portcontroller9writeddraEc>:
- 1b2:	61 b9       	out	0x01, r22	; 1
- 1b4:	08 95       	ret
+000001b8 <_ZN14portcontroller9writeddraEc>:
+ 1b8:	61 b9       	out	0x01, r22	; 1
+ 1ba:	08 95       	ret
 
-000001b6 <_ZN14portcontroller9writeddrcEc>:
- 1b6:	67 b9       	out	0x07, r22	; 7
- 1b8:	08 95       	ret
+000001bc <_ZN14portcontroller9writeddrcEc>:
+ 1bc:	67 b9       	out	0x07, r22	; 7
+ 1be:	08 95       	ret
 
-000001ba <_ZN14portcontroller13digitalwriteaEhb>:
- 1ba:	61 30       	cpi	r22, 0x01	; 1
- 1bc:	31 f4       	brne	.+12     	; 0x1ca <_ZN14portcontroller13digitalwriteaEhb+0x10>
- 1be:	44 23       	and	r20, r20
- 1c0:	11 f0       	breq	.+4      	; 0x1c6 <_ZN14portcontroller13digitalwriteaEhb+0xc>
- 1c2:	10 9a       	sbi	0x02, 0	; 2
- 1c4:	08 95       	ret
- 1c6:	10 98       	cbi	0x02, 0	; 2
- 1c8:	08 95       	ret
- 1ca:	62 30       	cpi	r22, 0x02	; 2
- 1cc:	31 f4       	brne	.+12     	; 0x1da <_ZN14portcontroller13digitalwriteaEhb+0x20>
- 1ce:	44 23       	and	r20, r20
- 1d0:	11 f0       	breq	.+4      	; 0x1d6 <_ZN14portcontroller13digitalwriteaEhb+0x1c>
- 1d2:	11 9a       	sbi	0x02, 1	; 2
- 1d4:	08 95       	ret
- 1d6:	11 98       	cbi	0x02, 1	; 2
- 1d8:	08 95       	ret
- 1da:	63 30       	cpi	r22, 0x03	; 3
- 1dc:	31 f4       	brne	.+12     	; 0x1ea <_ZN14portcontroller13digitalwriteaEhb+0x30>
- 1de:	44 23       	and	r20, r20
- 1e0:	11 f0       	breq	.+4      	; 0x1e6 <_ZN14portcontroller13digitalwriteaEhb+0x2c>
- 1e2:	12 9a       	sbi	0x02, 2	; 2
- 1e4:	08 95       	ret
- 1e6:	12 98       	cbi	0x02, 2	; 2
- 1e8:	08 95       	ret
- 1ea:	64 30       	cpi	r22, 0x04	; 4
- 1ec:	31 f4       	brne	.+12     	; 0x1fa <_ZN14portcontroller13digitalwriteaEhb+0x40>
- 1ee:	44 23       	and	r20, r20
- 1f0:	11 f0       	breq	.+4      	; 0x1f6 <_ZN14portcontroller13digitalwriteaEhb+0x3c>
- 1f2:	13 9a       	sbi	0x02, 3	; 2
- 1f4:	08 95       	ret
- 1f6:	13 98       	cbi	0x02, 3	; 2
- 1f8:	08 95       	ret
- 1fa:	65 30       	cpi	r22, 0x05	; 5
- 1fc:	31 f4       	brne	.+12     	; 0x20a <_ZN14portcontroller13digitalwriteaEhb+0x50>
- 1fe:	44 23       	and	r20, r20
- 200:	11 f0       	breq	.+4      	; 0x206 <_ZN14portcontroller13digitalwriteaEhb+0x4c>
- 202:	14 9a       	sbi	0x02, 4	; 2
- 204:	08 95       	ret
- 206:	14 98       	cbi	0x02, 4	; 2
- 208:	08 95       	ret
- 20a:	66 30       	cpi	r22, 0x06	; 6
- 20c:	31 f4       	brne	.+12     	; 0x21a <_ZN14portcontroller13digitalwriteaEhb+0x60>
- 20e:	44 23       	and	r20, r20
- 210:	11 f0       	breq	.+4      	; 0x216 <_ZN14portcontroller13digitalwriteaEhb+0x5c>
- 212:	15 9a       	sbi	0x02, 5	; 2
- 214:	08 95       	ret
- 216:	15 98       	cbi	0x02, 5	; 2
- 218:	08 95       	ret
- 21a:	67 30       	cpi	r22, 0x07	; 7
- 21c:	31 f4       	brne	.+12     	; 0x22a <_ZN14portcontroller13digitalwriteaEhb+0x70>
- 21e:	44 23       	and	r20, r20
- 220:	11 f0       	breq	.+4      	; 0x226 <_ZN14portcontroller13digitalwriteaEhb+0x6c>
- 222:	16 9a       	sbi	0x02, 6	; 2
- 224:	08 95       	ret
- 226:	16 98       	cbi	0x02, 6	; 2
- 228:	08 95       	ret
- 22a:	68 30       	cpi	r22, 0x08	; 8
- 22c:	29 f4       	brne	.+10     	; 0x238 <_ZN14portcontroller13digitalwriteaEhb+0x7e>
- 22e:	44 23       	and	r20, r20
- 230:	11 f0       	breq	.+4      	; 0x236 <_ZN14portcontroller13digitalwriteaEhb+0x7c>
- 232:	17 9a       	sbi	0x02, 7	; 2
- 234:	08 95       	ret
- 236:	17 98       	cbi	0x02, 7	; 2
- 238:	08 95       	ret
+000001c0 <_ZN14portcontroller13digitalwriteaEhb>:
+ 1c0:	61 30       	cpi	r22, 0x01	; 1
+ 1c2:	31 f4       	brne	.+12     	; 0x1d0 <_ZN14portcontroller13digitalwriteaEhb+0x10>
+ 1c4:	44 23       	and	r20, r20
+ 1c6:	11 f0       	breq	.+4      	; 0x1cc <_ZN14portcontroller13digitalwriteaEhb+0xc>
+ 1c8:	10 9a       	sbi	0x02, 0	; 2
+ 1ca:	08 95       	ret
+ 1cc:	10 98       	cbi	0x02, 0	; 2
+ 1ce:	08 95       	ret
+ 1d0:	62 30       	cpi	r22, 0x02	; 2
+ 1d2:	31 f4       	brne	.+12     	; 0x1e0 <_ZN14portcontroller13digitalwriteaEhb+0x20>
+ 1d4:	44 23       	and	r20, r20
+ 1d6:	11 f0       	breq	.+4      	; 0x1dc <_ZN14portcontroller13digitalwriteaEhb+0x1c>
+ 1d8:	11 9a       	sbi	0x02, 1	; 2
+ 1da:	08 95       	ret
+ 1dc:	11 98       	cbi	0x02, 1	; 2
+ 1de:	08 95       	ret
+ 1e0:	63 30       	cpi	r22, 0x03	; 3
+ 1e2:	31 f4       	brne	.+12     	; 0x1f0 <_ZN14portcontroller13digitalwriteaEhb+0x30>
+ 1e4:	44 23       	and	r20, r20
+ 1e6:	11 f0       	breq	.+4      	; 0x1ec <_ZN14portcontroller13digitalwriteaEhb+0x2c>
+ 1e8:	12 9a       	sbi	0x02, 2	; 2
+ 1ea:	08 95       	ret
+ 1ec:	12 98       	cbi	0x02, 2	; 2
+ 1ee:	08 95       	ret
+ 1f0:	64 30       	cpi	r22, 0x04	; 4
+ 1f2:	31 f4       	brne	.+12     	; 0x200 <_ZN14portcontroller13digitalwriteaEhb+0x40>
+ 1f4:	44 23       	and	r20, r20
+ 1f6:	11 f0       	breq	.+4      	; 0x1fc <_ZN14portcontroller13digitalwriteaEhb+0x3c>
+ 1f8:	13 9a       	sbi	0x02, 3	; 2
+ 1fa:	08 95       	ret
+ 1fc:	13 98       	cbi	0x02, 3	; 2
+ 1fe:	08 95       	ret
+ 200:	65 30       	cpi	r22, 0x05	; 5
+ 202:	31 f4       	brne	.+12     	; 0x210 <_ZN14portcontroller13digitalwriteaEhb+0x50>
+ 204:	44 23       	and	r20, r20
+ 206:	11 f0       	breq	.+4      	; 0x20c <_ZN14portcontroller13digitalwriteaEhb+0x4c>
+ 208:	14 9a       	sbi	0x02, 4	; 2
+ 20a:	08 95       	ret
+ 20c:	14 98       	cbi	0x02, 4	; 2
+ 20e:	08 95       	ret
+ 210:	66 30       	cpi	r22, 0x06	; 6
+ 212:	31 f4       	brne	.+12     	; 0x220 <_ZN14portcontroller13digitalwriteaEhb+0x60>
+ 214:	44 23       	and	r20, r20
+ 216:	11 f0       	breq	.+4      	; 0x21c <_ZN14portcontroller13digitalwriteaEhb+0x5c>
+ 218:	15 9a       	sbi	0x02, 5	; 2
+ 21a:	08 95       	ret
+ 21c:	15 98       	cbi	0x02, 5	; 2
+ 21e:	08 95       	ret
+ 220:	67 30       	cpi	r22, 0x07	; 7
+ 222:	31 f4       	brne	.+12     	; 0x230 <_ZN14portcontroller13digitalwriteaEhb+0x70>
+ 224:	44 23       	and	r20, r20
+ 226:	11 f0       	breq	.+4      	; 0x22c <_ZN14portcontroller13digitalwriteaEhb+0x6c>
+ 228:	16 9a       	sbi	0x02, 6	; 2
+ 22a:	08 95       	ret
+ 22c:	16 98       	cbi	0x02, 6	; 2
+ 22e:	08 95       	ret
+ 230:	68 30       	cpi	r22, 0x08	; 8
+ 232:	29 f4       	brne	.+10     	; 0x23e <_ZN14portcontroller13digitalwriteaEhb+0x7e>
+ 234:	44 23       	and	r20, r20
+ 236:	11 f0       	breq	.+4      	; 0x23c <_ZN14portcontroller13digitalwriteaEhb+0x7c>
+ 238:	17 9a       	sbi	0x02, 7	; 2
+ 23a:	08 95       	ret
+ 23c:	17 98       	cbi	0x02, 7	; 2
+ 23e:	08 95       	ret
 
-0000023a <_ZN14portcontroller12digitalwriteEhb>:
- 23a:	9c 01       	movw	r18, r24
- 23c:	9f ef       	ldi	r25, 0xFF	; 255
- 23e:	96 0f       	add	r25, r22
- 240:	98 30       	cpi	r25, 0x08	; 8
- 242:	28 f4       	brcc	.+10     	; 0x24e <_ZN14portcontroller12digitalwriteEhb+0x14>
- 244:	69 2f       	mov	r22, r25
- 246:	c9 01       	movw	r24, r18
- 248:	0e 94 dd 00 	call	0x1ba	; 0x1ba <_ZN14portcontroller13digitalwriteaEhb>
- 24c:	08 95       	ret
- 24e:	82 ef       	ldi	r24, 0xF2	; 242
- 250:	86 0f       	add	r24, r22
- 252:	88 30       	cpi	r24, 0x08	; 8
- 254:	28 f4       	brcc	.+10     	; 0x260 <_ZN14portcontroller12digitalwriteEhb+0x26>
- 256:	6d 50       	subi	r22, 0x0D	; 13
- 258:	c9 01       	movw	r24, r18
- 25a:	0e 94 dd 00 	call	0x1ba	; 0x1ba <_ZN14portcontroller13digitalwriteaEhb>
- 25e:	08 95       	ret
- 260:	8a ee       	ldi	r24, 0xEA	; 234
- 262:	86 0f       	add	r24, r22
- 264:	88 30       	cpi	r24, 0x08	; 8
- 266:	28 f4       	brcc	.+10     	; 0x272 <_ZN14portcontroller12digitalwriteEhb+0x38>
- 268:	65 51       	subi	r22, 0x15	; 21
- 26a:	c9 01       	movw	r24, r18
- 26c:	0e 94 dd 00 	call	0x1ba	; 0x1ba <_ZN14portcontroller13digitalwriteaEhb>
- 270:	08 95       	ret
- 272:	8f ed       	ldi	r24, 0xDF	; 223
- 274:	86 0f       	add	r24, r22
- 276:	88 30       	cpi	r24, 0x08	; 8
- 278:	20 f4       	brcc	.+8      	; 0x282 <_ZN14portcontroller12digitalwriteEhb+0x48>
- 27a:	60 52       	subi	r22, 0x20	; 32
- 27c:	c9 01       	movw	r24, r18
- 27e:	0e 94 dd 00 	call	0x1ba	; 0x1ba <_ZN14portcontroller13digitalwriteaEhb>
- 282:	08 95       	ret
+00000240 <_ZN14portcontroller12digitalwriteEhb>:
+ 240:	9c 01       	movw	r18, r24
+ 242:	9f ef       	ldi	r25, 0xFF	; 255
+ 244:	96 0f       	add	r25, r22
+ 246:	98 30       	cpi	r25, 0x08	; 8
+ 248:	28 f4       	brcc	.+10     	; 0x254 <_ZN14portcontroller12digitalwriteEhb+0x14>
+ 24a:	69 2f       	mov	r22, r25
+ 24c:	c9 01       	movw	r24, r18
+ 24e:	0e 94 e0 00 	call	0x1c0	; 0x1c0 <_ZN14portcontroller13digitalwriteaEhb>
+ 252:	08 95       	ret
+ 254:	82 ef       	ldi	r24, 0xF2	; 242
+ 256:	86 0f       	add	r24, r22
+ 258:	88 30       	cpi	r24, 0x08	; 8
+ 25a:	28 f4       	brcc	.+10     	; 0x266 <_ZN14portcontroller12digitalwriteEhb+0x26>
+ 25c:	6d 50       	subi	r22, 0x0D	; 13
+ 25e:	c9 01       	movw	r24, r18
+ 260:	0e 94 e0 00 	call	0x1c0	; 0x1c0 <_ZN14portcontroller13digitalwriteaEhb>
+ 264:	08 95       	ret
+ 266:	8a ee       	ldi	r24, 0xEA	; 234
+ 268:	86 0f       	add	r24, r22
+ 26a:	88 30       	cpi	r24, 0x08	; 8
+ 26c:	28 f4       	brcc	.+10     	; 0x278 <_ZN14portcontroller12digitalwriteEhb+0x38>
+ 26e:	65 51       	subi	r22, 0x15	; 21
+ 270:	c9 01       	movw	r24, r18
+ 272:	0e 94 e0 00 	call	0x1c0	; 0x1c0 <_ZN14portcontroller13digitalwriteaEhb>
+ 276:	08 95       	ret
+ 278:	8f ed       	ldi	r24, 0xDF	; 223
+ 27a:	86 0f       	add	r24, r22
+ 27c:	88 30       	cpi	r24, 0x08	; 8
+ 27e:	20 f4       	brcc	.+8      	; 0x288 <_ZN14portcontroller12digitalwriteEhb+0x48>
+ 280:	60 52       	subi	r22, 0x20	; 32
+ 282:	c9 01       	movw	r24, r18
+ 284:	0e 94 e0 00 	call	0x1c0	; 0x1c0 <_ZN14portcontroller13digitalwriteaEhb>
+ 288:	08 95       	ret
 
-00000284 <_ZN14portcontrollerD1Ev>:
+0000028a <_ZN14portcontrollerD1Ev>:
 	}
 
 }
 
 // default destructor
 portcontroller::~portcontroller()
- 284:	08 95       	ret
+ 28a:	08 95       	ret
 
-00000286 <_ZN8shiftregC1EhhhP14portcontroller>:
+0000028c <_ZN8shiftregC1EhhhP14portcontroller>:
 	}
 	port->digitalwrite(latchclkpin,true);
 
 	port->digitalwrite(latchclkpin,false);
 
 }
- 286:	0f 93       	push	r16
- 288:	1f 93       	push	r17
- 28a:	fc 01       	movw	r30, r24
- 28c:	60 83       	st	Z, r22
- 28e:	41 83       	std	Z+1, r20	; 0x01
- 290:	22 83       	std	Z+2, r18	; 0x02
- 292:	14 87       	std	Z+12, r17	; 0x0c
- 294:	03 87       	std	Z+11, r16	; 0x0b
- 296:	13 82       	std	Z+3, r1	; 0x03
- 298:	14 82       	std	Z+4, r1	; 0x04
- 29a:	15 82       	std	Z+5, r1	; 0x05
- 29c:	16 82       	std	Z+6, r1	; 0x06
- 29e:	17 82       	std	Z+7, r1	; 0x07
- 2a0:	10 86       	std	Z+8, r1	; 0x08
- 2a2:	11 86       	std	Z+9, r1	; 0x09
- 2a4:	12 86       	std	Z+10, r1	; 0x0a
- 2a6:	1f 91       	pop	r17
- 2a8:	0f 91       	pop	r16
- 2aa:	08 95       	ret
+ 28c:	0f 93       	push	r16
+ 28e:	1f 93       	push	r17
+ 290:	fc 01       	movw	r30, r24
+ 292:	60 83       	st	Z, r22
+ 294:	41 83       	std	Z+1, r20	; 0x01
+ 296:	22 83       	std	Z+2, r18	; 0x02
+ 298:	14 87       	std	Z+12, r17	; 0x0c
+ 29a:	03 87       	std	Z+11, r16	; 0x0b
+ 29c:	13 82       	std	Z+3, r1	; 0x03
+ 29e:	14 82       	std	Z+4, r1	; 0x04
+ 2a0:	15 82       	std	Z+5, r1	; 0x05
+ 2a2:	16 82       	std	Z+6, r1	; 0x06
+ 2a4:	17 82       	std	Z+7, r1	; 0x07
+ 2a6:	10 86       	std	Z+8, r1	; 0x08
+ 2a8:	11 86       	std	Z+9, r1	; 0x09
+ 2aa:	12 86       	std	Z+10, r1	; 0x0a
+ 2ac:	1f 91       	pop	r17
+ 2ae:	0f 91       	pop	r16
+ 2b0:	08 95       	ret
 
-000002ac <_ZN8shiftreg9shiftout8Eh>:
- 2ac:	ef 92       	push	r14
- 2ae:	ff 92       	push	r15
- 2b0:	0f 93       	push	r16
- 2b2:	1f 93       	push	r17
- 2b4:	cf 93       	push	r28
- 2b6:	df 93       	push	r29
- 2b8:	ec 01       	movw	r28, r24
- 2ba:	07 e0       	ldi	r16, 0x07	; 7
- 2bc:	10 e0       	ldi	r17, 0x00	; 0
- 2be:	e6 2e       	mov	r14, r22
- 2c0:	f1 2c       	mov	r15, r1
- 2c2:	c7 01       	movw	r24, r14
- 2c4:	00 2e       	mov	r0, r16
- 2c6:	02 c0       	rjmp	.+4      	; 0x2cc <_ZN8shiftreg9shiftout8Eh+0x20>
- 2c8:	95 95       	asr	r25
- 2ca:	87 95       	ror	r24
- 2cc:	0a 94       	dec	r0
- 2ce:	e2 f7       	brpl	.-8      	; 0x2c8 <_ZN8shiftreg9shiftout8Eh+0x1c>
- 2d0:	01 97       	sbiw	r24, 0x01	; 1
- 2d2:	39 f4       	brne	.+14     	; 0x2e2 <_ZN8shiftreg9shiftout8Eh+0x36>
- 2d4:	41 e0       	ldi	r20, 0x01	; 1
- 2d6:	68 81       	ld	r22, Y
- 2d8:	8b 85       	ldd	r24, Y+11	; 0x0b
- 2da:	9c 85       	ldd	r25, Y+12	; 0x0c
- 2dc:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
- 2e0:	06 c0       	rjmp	.+12     	; 0x2ee <_ZN8shiftreg9shiftout8Eh+0x42>
- 2e2:	40 e0       	ldi	r20, 0x00	; 0
- 2e4:	68 81       	ld	r22, Y
- 2e6:	8b 85       	ldd	r24, Y+11	; 0x0b
- 2e8:	9c 85       	ldd	r25, Y+12	; 0x0c
- 2ea:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
- 2ee:	41 e0       	ldi	r20, 0x01	; 1
- 2f0:	69 81       	ldd	r22, Y+1	; 0x01
- 2f2:	8b 85       	ldd	r24, Y+11	; 0x0b
- 2f4:	9c 85       	ldd	r25, Y+12	; 0x0c
- 2f6:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
- 2fa:	40 e0       	ldi	r20, 0x00	; 0
- 2fc:	69 81       	ldd	r22, Y+1	; 0x01
- 2fe:	8b 85       	ldd	r24, Y+11	; 0x0b
- 300:	9c 85       	ldd	r25, Y+12	; 0x0c
- 302:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
- 306:	01 50       	subi	r16, 0x01	; 1
- 308:	11 09       	sbc	r17, r1
- 30a:	d8 f6       	brcc	.-74     	; 0x2c2 <_ZN8shiftreg9shiftout8Eh+0x16>
- 30c:	41 e0       	ldi	r20, 0x01	; 1
- 30e:	6a 81       	ldd	r22, Y+2	; 0x02
- 310:	8b 85       	ldd	r24, Y+11	; 0x0b
- 312:	9c 85       	ldd	r25, Y+12	; 0x0c
- 314:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
- 318:	40 e0       	ldi	r20, 0x00	; 0
- 31a:	6a 81       	ldd	r22, Y+2	; 0x02
- 31c:	8b 85       	ldd	r24, Y+11	; 0x0b
- 31e:	9c 85       	ldd	r25, Y+12	; 0x0c
- 320:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
- 324:	df 91       	pop	r29
- 326:	cf 91       	pop	r28
- 328:	1f 91       	pop	r17
- 32a:	0f 91       	pop	r16
- 32c:	ff 90       	pop	r15
- 32e:	ef 90       	pop	r14
- 330:	08 95       	ret
+000002b2 <_ZN8shiftreg9shiftout8Eh>:
+ 2b2:	ef 92       	push	r14
+ 2b4:	ff 92       	push	r15
+ 2b6:	0f 93       	push	r16
+ 2b8:	1f 93       	push	r17
+ 2ba:	cf 93       	push	r28
+ 2bc:	df 93       	push	r29
+ 2be:	ec 01       	movw	r28, r24
+ 2c0:	07 e0       	ldi	r16, 0x07	; 7
+ 2c2:	10 e0       	ldi	r17, 0x00	; 0
+ 2c4:	e6 2e       	mov	r14, r22
+ 2c6:	f1 2c       	mov	r15, r1
+ 2c8:	c7 01       	movw	r24, r14
+ 2ca:	00 2e       	mov	r0, r16
+ 2cc:	02 c0       	rjmp	.+4      	; 0x2d2 <_ZN8shiftreg9shiftout8Eh+0x20>
+ 2ce:	95 95       	asr	r25
+ 2d0:	87 95       	ror	r24
+ 2d2:	0a 94       	dec	r0
+ 2d4:	e2 f7       	brpl	.-8      	; 0x2ce <_ZN8shiftreg9shiftout8Eh+0x1c>
+ 2d6:	01 97       	sbiw	r24, 0x01	; 1
+ 2d8:	39 f4       	brne	.+14     	; 0x2e8 <_ZN8shiftreg9shiftout8Eh+0x36>
+ 2da:	41 e0       	ldi	r20, 0x01	; 1
+ 2dc:	68 81       	ld	r22, Y
+ 2de:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 2e0:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 2e2:	0e 94 20 01 	call	0x240	; 0x240 <_ZN14portcontroller12digitalwriteEhb>
+ 2e6:	06 c0       	rjmp	.+12     	; 0x2f4 <_ZN8shiftreg9shiftout8Eh+0x42>
+ 2e8:	40 e0       	ldi	r20, 0x00	; 0
+ 2ea:	68 81       	ld	r22, Y
+ 2ec:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 2ee:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 2f0:	0e 94 20 01 	call	0x240	; 0x240 <_ZN14portcontroller12digitalwriteEhb>
+ 2f4:	41 e0       	ldi	r20, 0x01	; 1
+ 2f6:	69 81       	ldd	r22, Y+1	; 0x01
+ 2f8:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 2fa:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 2fc:	0e 94 20 01 	call	0x240	; 0x240 <_ZN14portcontroller12digitalwriteEhb>
+ 300:	40 e0       	ldi	r20, 0x00	; 0
+ 302:	69 81       	ldd	r22, Y+1	; 0x01
+ 304:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 306:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 308:	0e 94 20 01 	call	0x240	; 0x240 <_ZN14portcontroller12digitalwriteEhb>
+ 30c:	01 50       	subi	r16, 0x01	; 1
+ 30e:	11 09       	sbc	r17, r1
+ 310:	d8 f6       	brcc	.-74     	; 0x2c8 <_ZN8shiftreg9shiftout8Eh+0x16>
+ 312:	41 e0       	ldi	r20, 0x01	; 1
+ 314:	6a 81       	ldd	r22, Y+2	; 0x02
+ 316:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 318:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 31a:	0e 94 20 01 	call	0x240	; 0x240 <_ZN14portcontroller12digitalwriteEhb>
+ 31e:	40 e0       	ldi	r20, 0x00	; 0
+ 320:	6a 81       	ldd	r22, Y+2	; 0x02
+ 322:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 324:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 326:	0e 94 20 01 	call	0x240	; 0x240 <_ZN14portcontroller12digitalwriteEhb>
+ 32a:	df 91       	pop	r29
+ 32c:	cf 91       	pop	r28
+ 32e:	1f 91       	pop	r17
+ 330:	0f 91       	pop	r16
+ 332:	ff 90       	pop	r15
+ 334:	ef 90       	pop	r14
+ 336:	08 95       	ret
 
-00000332 <_ZN8shiftreg10shiftout16Ej>:
- 332:	cf 92       	push	r12
- 334:	df 92       	push	r13
- 336:	ef 92       	push	r14
- 338:	ff 92       	push	r15
- 33a:	0f 93       	push	r16
- 33c:	1f 93       	push	r17
- 33e:	cf 93       	push	r28
- 340:	df 93       	push	r29
- 342:	ec 01       	movw	r28, r24
- 344:	e7 2e       	mov	r14, r23
- 346:	ff 24       	eor	r15, r15
- 348:	0f e0       	ldi	r16, 0x0F	; 15
- 34a:	10 e0       	ldi	r17, 0x00	; 0
- 34c:	6b 01       	movw	r12, r22
- 34e:	dd 24       	eor	r13, r13
- 350:	c6 01       	movw	r24, r12
- 352:	00 2e       	mov	r0, r16
- 354:	02 c0       	rjmp	.+4      	; 0x35a <_ZN8shiftreg10shiftout16Ej+0x28>
- 356:	95 95       	asr	r25
- 358:	87 95       	ror	r24
- 35a:	0a 94       	dec	r0
- 35c:	e2 f7       	brpl	.-8      	; 0x356 <_ZN8shiftreg10shiftout16Ej+0x24>
- 35e:	01 97       	sbiw	r24, 0x01	; 1
- 360:	39 f4       	brne	.+14     	; 0x370 <_ZN8shiftreg10shiftout16Ej+0x3e>
- 362:	41 e0       	ldi	r20, 0x01	; 1
- 364:	68 81       	ld	r22, Y
- 366:	8b 85       	ldd	r24, Y+11	; 0x0b
- 368:	9c 85       	ldd	r25, Y+12	; 0x0c
- 36a:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
- 36e:	06 c0       	rjmp	.+12     	; 0x37c <_ZN8shiftreg10shiftout16Ej+0x4a>
- 370:	40 e0       	ldi	r20, 0x00	; 0
- 372:	68 81       	ld	r22, Y
- 374:	8b 85       	ldd	r24, Y+11	; 0x0b
- 376:	9c 85       	ldd	r25, Y+12	; 0x0c
- 378:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
- 37c:	41 e0       	ldi	r20, 0x01	; 1
- 37e:	69 81       	ldd	r22, Y+1	; 0x01
- 380:	8b 85       	ldd	r24, Y+11	; 0x0b
- 382:	9c 85       	ldd	r25, Y+12	; 0x0c
- 384:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
- 388:	40 e0       	ldi	r20, 0x00	; 0
- 38a:	69 81       	ldd	r22, Y+1	; 0x01
- 38c:	8b 85       	ldd	r24, Y+11	; 0x0b
- 38e:	9c 85       	ldd	r25, Y+12	; 0x0c
- 390:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
- 394:	01 50       	subi	r16, 0x01	; 1
- 396:	11 09       	sbc	r17, r1
- 398:	d8 f6       	brcc	.-74     	; 0x350 <_ZN8shiftreg10shiftout16Ej+0x1e>
- 39a:	07 e0       	ldi	r16, 0x07	; 7
- 39c:	10 e0       	ldi	r17, 0x00	; 0
- 39e:	c7 01       	movw	r24, r14
- 3a0:	00 2e       	mov	r0, r16
- 3a2:	02 c0       	rjmp	.+4      	; 0x3a8 <_ZN8shiftreg10shiftout16Ej+0x76>
- 3a4:	95 95       	asr	r25
- 3a6:	87 95       	ror	r24
- 3a8:	0a 94       	dec	r0
- 3aa:	e2 f7       	brpl	.-8      	; 0x3a4 <_ZN8shiftreg10shiftout16Ej+0x72>
- 3ac:	01 97       	sbiw	r24, 0x01	; 1
- 3ae:	39 f4       	brne	.+14     	; 0x3be <_ZN8shiftreg10shiftout16Ej+0x8c>
- 3b0:	41 e0       	ldi	r20, 0x01	; 1
- 3b2:	68 81       	ld	r22, Y
- 3b4:	8b 85       	ldd	r24, Y+11	; 0x0b
- 3b6:	9c 85       	ldd	r25, Y+12	; 0x0c
- 3b8:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
- 3bc:	06 c0       	rjmp	.+12     	; 0x3ca <_ZN8shiftreg10shiftout16Ej+0x98>
- 3be:	40 e0       	ldi	r20, 0x00	; 0
- 3c0:	68 81       	ld	r22, Y
- 3c2:	8b 85       	ldd	r24, Y+11	; 0x0b
- 3c4:	9c 85       	ldd	r25, Y+12	; 0x0c
- 3c6:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
- 3ca:	41 e0       	ldi	r20, 0x01	; 1
- 3cc:	69 81       	ldd	r22, Y+1	; 0x01
- 3ce:	8b 85       	ldd	r24, Y+11	; 0x0b
- 3d0:	9c 85       	ldd	r25, Y+12	; 0x0c
- 3d2:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
- 3d6:	40 e0       	ldi	r20, 0x00	; 0
- 3d8:	69 81       	ldd	r22, Y+1	; 0x01
- 3da:	8b 85       	ldd	r24, Y+11	; 0x0b
- 3dc:	9c 85       	ldd	r25, Y+12	; 0x0c
- 3de:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
- 3e2:	01 50       	subi	r16, 0x01	; 1
- 3e4:	11 09       	sbc	r17, r1
- 3e6:	d8 f6       	brcc	.-74     	; 0x39e <_ZN8shiftreg10shiftout16Ej+0x6c>
- 3e8:	41 e0       	ldi	r20, 0x01	; 1
- 3ea:	6a 81       	ldd	r22, Y+2	; 0x02
- 3ec:	8b 85       	ldd	r24, Y+11	; 0x0b
- 3ee:	9c 85       	ldd	r25, Y+12	; 0x0c
- 3f0:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
- 3f4:	40 e0       	ldi	r20, 0x00	; 0
- 3f6:	6a 81       	ldd	r22, Y+2	; 0x02
- 3f8:	8b 85       	ldd	r24, Y+11	; 0x0b
- 3fa:	9c 85       	ldd	r25, Y+12	; 0x0c
- 3fc:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
- 400:	df 91       	pop	r29
- 402:	cf 91       	pop	r28
- 404:	1f 91       	pop	r17
- 406:	0f 91       	pop	r16
- 408:	ff 90       	pop	r15
- 40a:	ef 90       	pop	r14
- 40c:	df 90       	pop	r13
- 40e:	cf 90       	pop	r12
- 410:	08 95       	ret
+00000338 <_ZN8shiftreg10shiftout16Ej>:
+ 338:	cf 92       	push	r12
+ 33a:	df 92       	push	r13
+ 33c:	ef 92       	push	r14
+ 33e:	ff 92       	push	r15
+ 340:	0f 93       	push	r16
+ 342:	1f 93       	push	r17
+ 344:	cf 93       	push	r28
+ 346:	df 93       	push	r29
+ 348:	ec 01       	movw	r28, r24
+ 34a:	e7 2e       	mov	r14, r23
+ 34c:	ff 24       	eor	r15, r15
+ 34e:	0f e0       	ldi	r16, 0x0F	; 15
+ 350:	10 e0       	ldi	r17, 0x00	; 0
+ 352:	6b 01       	movw	r12, r22
+ 354:	dd 24       	eor	r13, r13
+ 356:	c6 01       	movw	r24, r12
+ 358:	00 2e       	mov	r0, r16
+ 35a:	02 c0       	rjmp	.+4      	; 0x360 <_ZN8shiftreg10shiftout16Ej+0x28>
+ 35c:	95 95       	asr	r25
+ 35e:	87 95       	ror	r24
+ 360:	0a 94       	dec	r0
+ 362:	e2 f7       	brpl	.-8      	; 0x35c <_ZN8shiftreg10shiftout16Ej+0x24>
+ 364:	01 97       	sbiw	r24, 0x01	; 1
+ 366:	39 f4       	brne	.+14     	; 0x376 <_ZN8shiftreg10shiftout16Ej+0x3e>
+ 368:	41 e0       	ldi	r20, 0x01	; 1
+ 36a:	68 81       	ld	r22, Y
+ 36c:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 36e:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 370:	0e 94 20 01 	call	0x240	; 0x240 <_ZN14portcontroller12digitalwriteEhb>
+ 374:	06 c0       	rjmp	.+12     	; 0x382 <_ZN8shiftreg10shiftout16Ej+0x4a>
+ 376:	40 e0       	ldi	r20, 0x00	; 0
+ 378:	68 81       	ld	r22, Y
+ 37a:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 37c:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 37e:	0e 94 20 01 	call	0x240	; 0x240 <_ZN14portcontroller12digitalwriteEhb>
+ 382:	41 e0       	ldi	r20, 0x01	; 1
+ 384:	69 81       	ldd	r22, Y+1	; 0x01
+ 386:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 388:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 38a:	0e 94 20 01 	call	0x240	; 0x240 <_ZN14portcontroller12digitalwriteEhb>
+ 38e:	40 e0       	ldi	r20, 0x00	; 0
+ 390:	69 81       	ldd	r22, Y+1	; 0x01
+ 392:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 394:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 396:	0e 94 20 01 	call	0x240	; 0x240 <_ZN14portcontroller12digitalwriteEhb>
+ 39a:	01 50       	subi	r16, 0x01	; 1
+ 39c:	11 09       	sbc	r17, r1
+ 39e:	d8 f6       	brcc	.-74     	; 0x356 <_ZN8shiftreg10shiftout16Ej+0x1e>
+ 3a0:	07 e0       	ldi	r16, 0x07	; 7
+ 3a2:	10 e0       	ldi	r17, 0x00	; 0
+ 3a4:	c7 01       	movw	r24, r14
+ 3a6:	00 2e       	mov	r0, r16
+ 3a8:	02 c0       	rjmp	.+4      	; 0x3ae <_ZN8shiftreg10shiftout16Ej+0x76>
+ 3aa:	95 95       	asr	r25
+ 3ac:	87 95       	ror	r24
+ 3ae:	0a 94       	dec	r0
+ 3b0:	e2 f7       	brpl	.-8      	; 0x3aa <_ZN8shiftreg10shiftout16Ej+0x72>
+ 3b2:	01 97       	sbiw	r24, 0x01	; 1
+ 3b4:	39 f4       	brne	.+14     	; 0x3c4 <_ZN8shiftreg10shiftout16Ej+0x8c>
+ 3b6:	41 e0       	ldi	r20, 0x01	; 1
+ 3b8:	68 81       	ld	r22, Y
+ 3ba:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 3bc:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 3be:	0e 94 20 01 	call	0x240	; 0x240 <_ZN14portcontroller12digitalwriteEhb>
+ 3c2:	06 c0       	rjmp	.+12     	; 0x3d0 <_ZN8shiftreg10shiftout16Ej+0x98>
+ 3c4:	40 e0       	ldi	r20, 0x00	; 0
+ 3c6:	68 81       	ld	r22, Y
+ 3c8:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 3ca:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 3cc:	0e 94 20 01 	call	0x240	; 0x240 <_ZN14portcontroller12digitalwriteEhb>
+ 3d0:	41 e0       	ldi	r20, 0x01	; 1
+ 3d2:	69 81       	ldd	r22, Y+1	; 0x01
+ 3d4:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 3d6:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 3d8:	0e 94 20 01 	call	0x240	; 0x240 <_ZN14portcontroller12digitalwriteEhb>
+ 3dc:	40 e0       	ldi	r20, 0x00	; 0
+ 3de:	69 81       	ldd	r22, Y+1	; 0x01
+ 3e0:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 3e2:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 3e4:	0e 94 20 01 	call	0x240	; 0x240 <_ZN14portcontroller12digitalwriteEhb>
+ 3e8:	01 50       	subi	r16, 0x01	; 1
+ 3ea:	11 09       	sbc	r17, r1
+ 3ec:	d8 f6       	brcc	.-74     	; 0x3a4 <_ZN8shiftreg10shiftout16Ej+0x6c>
+ 3ee:	41 e0       	ldi	r20, 0x01	; 1
+ 3f0:	6a 81       	ldd	r22, Y+2	; 0x02
+ 3f2:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 3f4:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 3f6:	0e 94 20 01 	call	0x240	; 0x240 <_ZN14portcontroller12digitalwriteEhb>
+ 3fa:	40 e0       	ldi	r20, 0x00	; 0
+ 3fc:	6a 81       	ldd	r22, Y+2	; 0x02
+ 3fe:	8b 85       	ldd	r24, Y+11	; 0x0b
+ 400:	9c 85       	ldd	r25, Y+12	; 0x0c
+ 402:	0e 94 20 01 	call	0x240	; 0x240 <_ZN14portcontroller12digitalwriteEhb>
+ 406:	df 91       	pop	r29
+ 408:	cf 91       	pop	r28
+ 40a:	1f 91       	pop	r17
+ 40c:	0f 91       	pop	r16
+ 40e:	ff 90       	pop	r15
+ 410:	ef 90       	pop	r14
+ 412:	df 90       	pop	r13
+ 414:	cf 90       	pop	r12
+ 416:	08 95       	ret
 
-00000412 <_ZN8shiftreg10shiftout64Ey>:
-void shiftreg::shiftout64(uint64_t data32)
+00000418 <_ZN8shiftregD1Ev>:
+// default destructor
+shiftreg::~shiftreg()
+ 418:	08 95       	ret
+
+0000041a <_ZN6eepromC1EP14portcontrollerP8shiftreghy>:
+ void eeprom::write(char data)
+ {
+	 
+ }
+void eeprom::write(char data,uint16_t address)
 {
- 412:	7f 92       	push	r7
- 414:	8f 92       	push	r8
- 416:	9f 92       	push	r9
- 418:	af 92       	push	r10
- 41a:	bf 92       	push	r11
- 41c:	cf 92       	push	r12
- 41e:	df 92       	push	r13
- 420:	ef 92       	push	r14
+ 41a:	af 92       	push	r10
+ 41c:	bf 92       	push	r11
+ 41e:	cf 92       	push	r12
+ 420:	df 92       	push	r13
  422:	ff 92       	push	r15
  424:	0f 93       	push	r16
  426:	1f 93       	push	r17
  428:	cf 93       	push	r28
  42a:	df 93       	push	r29
  42c:	ec 01       	movw	r28, r24
- 42e:	70 2e       	mov	r7, r16
- 430:	82 2e       	mov	r8, r18
- 432:	93 2e       	mov	r9, r19
- 434:	a4 2e       	mov	r10, r20
- 436:	b5 2e       	mov	r11, r21
- 438:	c6 2e       	mov	r12, r22
- 43a:	d7 2e       	mov	r13, r23
- 43c:	68 94       	set
- 43e:	ee 24       	eor	r14, r14
- 440:	e6 f8       	bld	r14, 6
- 442:	f1 2c       	mov	r15, r1
+ 42e:	8b 01       	movw	r16, r22
+ 430:	6a 01       	movw	r12, r20
+ 432:	f2 2e       	mov	r15, r18
+ 434:	0e 94 37 02 	call	0x46e	; 0x46e <_ZN3romC1Ev>
+ 438:	1d 83       	std	Y+5, r17	; 0x05
+ 43a:	0c 83       	std	Y+4, r16	; 0x04
+ 43c:	df 82       	std	Y+7, r13	; 0x07
+ 43e:	ce 82       	std	Y+6, r12	; 0x06
+ 440:	fa 86       	std	Y+10, r15	; 0x0a
+ 442:	aa 82       	std	Y+2, r10	; 0x02
+ 444:	bb 82       	std	Y+3, r11	; 0x03
+ 446:	19 86       	std	Y+9, r1	; 0x09
+ 448:	18 86       	std	Y+8, r1	; 0x08
+ 44a:	41 e0       	ldi	r20, 0x01	; 1
+ 44c:	6f 2d       	mov	r22, r15
+ 44e:	c8 01       	movw	r24, r16
+ 450:	0e 94 20 01 	call	0x240	; 0x240 <_ZN14portcontroller12digitalwriteEhb>
+ 454:	df 91       	pop	r29
+ 456:	cf 91       	pop	r28
+ 458:	1f 91       	pop	r17
+ 45a:	0f 91       	pop	r16
+ 45c:	ff 90       	pop	r15
+ 45e:	df 90       	pop	r13
+ 460:	cf 90       	pop	r12
+ 462:	bf 90       	pop	r11
+ 464:	af 90       	pop	r10
+ 466:	08 95       	ret
+
+00000468 <_ZN6eepromD1Ev>:
 	
-	for (char i =  0; i<64;i++)
-	{
-		if ((data32>>(64-i))==1)
- 444:	27 2d       	mov	r18, r7
- 446:	31 2f       	mov	r19, r17
- 448:	48 2d       	mov	r20, r8
- 44a:	59 2d       	mov	r21, r9
- 44c:	6a 2d       	mov	r22, r10
- 44e:	7b 2d       	mov	r23, r11
- 450:	8c 2d       	mov	r24, r12
- 452:	9d 2d       	mov	r25, r13
- 454:	0e 2d       	mov	r16, r14
- 456:	0e 94 58 06 	call	0xcb0	; 0xcb0 <__lshrdi3>
- 45a:	a1 e0       	ldi	r26, 0x01	; 1
- 45c:	0e 94 74 06 	call	0xce8	; 0xce8 <__cmpdi2_s8>
- 460:	39 f4       	brne	.+14     	; 0x470 <_ZN8shiftreg10shiftout64Ey+0x5e>
-		{
-			
-			port->digitalwrite(datapin,true);
- 462:	41 e0       	ldi	r20, 0x01	; 1
- 464:	68 81       	ld	r22, Y
- 466:	8b 85       	ldd	r24, Y+11	; 0x0b
- 468:	9c 85       	ldd	r25, Y+12	; 0x0c
- 46a:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
- 46e:	06 c0       	rjmp	.+12     	; 0x47c <_ZN8shiftreg10shiftout64Ey+0x6a>
-			
-		}
-		else
-		{
-			port->digitalwrite(datapin,false);
- 470:	40 e0       	ldi	r20, 0x00	; 0
- 472:	68 81       	ld	r22, Y
- 474:	8b 85       	ldd	r24, Y+11	; 0x0b
- 476:	9c 85       	ldd	r25, Y+12	; 0x0c
- 478:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
-		}
-		port->digitalwrite(clockpin,true);
- 47c:	41 e0       	ldi	r20, 0x01	; 1
- 47e:	69 81       	ldd	r22, Y+1	; 0x01
- 480:	8b 85       	ldd	r24, Y+11	; 0x0b
- 482:	9c 85       	ldd	r25, Y+12	; 0x0c
- 484:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
-		port->digitalwrite(clockpin,false);
- 488:	40 e0       	ldi	r20, 0x00	; 0
- 48a:	69 81       	ldd	r22, Y+1	; 0x01
- 48c:	8b 85       	ldd	r24, Y+11	; 0x0b
- 48e:	9c 85       	ldd	r25, Y+12	; 0x0c
- 490:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
- 494:	81 e0       	ldi	r24, 0x01	; 1
- 496:	e8 1a       	sub	r14, r24
- 498:	f1 08       	sbc	r15, r1
-
-}
-void shiftreg::shiftout64(uint64_t data32)
-{
 	
-	for (char i =  0; i<64;i++)
- 49a:	a1 f6       	brne	.-88     	; 0x444 <_ZN8shiftreg10shiftout64Ey+0x32>
-		}
-		port->digitalwrite(clockpin,true);
-		port->digitalwrite(clockpin,false);
-		
-	}
-	port->digitalwrite(latchclkpin,true);
- 49c:	41 e0       	ldi	r20, 0x01	; 1
- 49e:	6a 81       	ldd	r22, Y+2	; 0x02
- 4a0:	8b 85       	ldd	r24, Y+11	; 0x0b
- 4a2:	9c 85       	ldd	r25, Y+12	; 0x0c
- 4a4:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
-
-	port->digitalwrite(latchclkpin,false);
- 4a8:	40 e0       	ldi	r20, 0x00	; 0
- 4aa:	6a 81       	ldd	r22, Y+2	; 0x02
- 4ac:	8b 85       	ldd	r24, Y+11	; 0x0b
- 4ae:	9c 85       	ldd	r25, Y+12	; 0x0c
- 4b0:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
-
 }
- 4b4:	df 91       	pop	r29
- 4b6:	cf 91       	pop	r28
- 4b8:	1f 91       	pop	r17
- 4ba:	0f 91       	pop	r16
- 4bc:	ff 90       	pop	r15
- 4be:	ef 90       	pop	r14
- 4c0:	df 90       	pop	r13
- 4c2:	cf 90       	pop	r12
- 4c4:	bf 90       	pop	r11
- 4c6:	af 90       	pop	r10
- 4c8:	9f 90       	pop	r9
- 4ca:	8f 90       	pop	r8
- 4cc:	7f 90       	pop	r7
- 4ce:	08 95       	ret
-
-000004d0 <_ZN8shiftregD1Ev>:
-// default destructor
-shiftreg::~shiftreg()
- 4d0:	08 95       	ret
-
-000004d2 <_ZN6eepromC1EP14portcontrollerP8shiftreghy>:
-// default constructor
-eeprom::eeprom()
-{
-} //eeprom
-
- eeprom::eeprom(portcontroller* portptr,shiftreg* addrptr,uint8_t wepin,uint64_t address2)
- 4d2:	af 92       	push	r10
- 4d4:	bf 92       	push	r11
- 4d6:	cf 92       	push	r12
- 4d8:	df 92       	push	r13
- 4da:	ef 92       	push	r14
- 4dc:	ff 92       	push	r15
- 4de:	0f 93       	push	r16
- 4e0:	1f 93       	push	r17
- 4e2:	fc 01       	movw	r30, r24
- 4e4:	cb 01       	movw	r24, r22
- {
-	 	this->portptr=portptr;
- 4e6:	74 83       	std	Z+4, r23	; 0x04
- 4e8:	63 83       	std	Z+3, r22	; 0x03
-	 	this->addrptr=addrptr;
- 4ea:	56 83       	std	Z+6, r21	; 0x06
- 4ec:	45 83       	std	Z+5, r20	; 0x05
-	 	this->wepin=wepin;
- 4ee:	22 83       	std	Z+2, r18	; 0x02
-		this->address= address2;
- 4f0:	a1 86       	std	Z+9, r10	; 0x09
- 4f2:	b2 86       	std	Z+10, r11	; 0x0a
- 4f4:	c3 86       	std	Z+11, r12	; 0x0b
- 4f6:	d4 86       	std	Z+12, r13	; 0x0c
- 4f8:	e5 86       	std	Z+13, r14	; 0x0d
- 4fa:	f6 86       	std	Z+14, r15	; 0x0e
- 4fc:	07 87       	std	Z+15, r16	; 0x0f
- 4fe:	10 8b       	std	Z+16, r17	; 0x10
-		this->offset = 0;
- 500:	11 82       	std	Z+1, r1	; 0x01
- 502:	10 82       	st	Z, r1
-	 	portptr->digitalwrite(wepin,true);
- 504:	41 e0       	ldi	r20, 0x01	; 1
- 506:	62 2f       	mov	r22, r18
- 508:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
-
- }
- 50c:	1f 91       	pop	r17
- 50e:	0f 91       	pop	r16
- 510:	ff 90       	pop	r15
- 512:	ef 90       	pop	r14
- 514:	df 90       	pop	r13
- 516:	cf 90       	pop	r12
- 518:	bf 90       	pop	r11
- 51a:	af 90       	pop	r10
- 51c:	08 95       	ret
-
-0000051e <_ZN6eepromD1Ev>:
-
 // default destructor
 eeprom::~eeprom()
- 51e:	08 95       	ret
+ 468:	0e 94 46 02 	call	0x48c	; 0x48c <_ZN3romD1Ev>
+ 46c:	08 95       	ret
 
-00000520 <_ZN3romC1EP14portcontrollerP8shiftregy>:
+0000046e <_ZN3romC1Ev>:
 }
 
 uint16_t rom::getaddr()
 {
 	return address;
 }
- 520:	cf 92       	push	r12
- 522:	df 92       	push	r13
- 524:	ef 92       	push	r14
- 526:	ff 92       	push	r15
- 528:	0f 93       	push	r16
- 52a:	1f 93       	push	r17
- 52c:	fc 01       	movw	r30, r24
- 52e:	71 8b       	std	Z+17, r23	; 0x11
- 530:	60 8b       	std	Z+16, r22	; 0x10
- 532:	53 8b       	std	Z+19, r21	; 0x13
- 534:	42 8b       	std	Z+18, r20	; 0x12
- 536:	c0 86       	std	Z+8, r12	; 0x08
- 538:	d1 86       	std	Z+9, r13	; 0x09
- 53a:	e2 86       	std	Z+10, r14	; 0x0a
- 53c:	f3 86       	std	Z+11, r15	; 0x0b
- 53e:	04 87       	std	Z+12, r16	; 0x0c
- 540:	15 87       	std	Z+13, r17	; 0x0d
- 542:	26 87       	std	Z+14, r18	; 0x0e
- 544:	37 87       	std	Z+15, r19	; 0x0f
- 546:	10 82       	st	Z, r1
- 548:	11 82       	std	Z+1, r1	; 0x01
- 54a:	12 82       	std	Z+2, r1	; 0x02
- 54c:	13 82       	std	Z+3, r1	; 0x03
- 54e:	14 82       	std	Z+4, r1	; 0x04
- 550:	15 82       	std	Z+5, r1	; 0x05
- 552:	16 82       	std	Z+6, r1	; 0x06
- 554:	17 82       	std	Z+7, r1	; 0x07
- 556:	1f 91       	pop	r17
- 558:	0f 91       	pop	r16
- 55a:	ff 90       	pop	r15
- 55c:	ef 90       	pop	r14
- 55e:	df 90       	pop	r13
- 560:	cf 90       	pop	r12
- 562:	08 95       	ret
+ 46e:	08 95       	ret
 
-00000564 <_ZN3romD1Ev>:
+00000470 <_ZN3romC1EP14portcontrollerP8shiftregy>:
+ 470:	cf 92       	push	r12
+ 472:	df 92       	push	r13
+ 474:	fc 01       	movw	r30, r24
+ 476:	75 83       	std	Z+5, r23	; 0x05
+ 478:	64 83       	std	Z+4, r22	; 0x04
+ 47a:	57 83       	std	Z+7, r21	; 0x07
+ 47c:	46 83       	std	Z+6, r20	; 0x06
+ 47e:	c2 82       	std	Z+2, r12	; 0x02
+ 480:	d3 82       	std	Z+3, r13	; 0x03
+ 482:	11 82       	std	Z+1, r1	; 0x01
+ 484:	10 82       	st	Z, r1
+ 486:	df 90       	pop	r13
+ 488:	cf 90       	pop	r12
+ 48a:	08 95       	ret
+
+0000048c <_ZN3romD1Ev>:
 
 // default destructor
 rom::~rom()
- 564:	08 95       	ret
+ 48c:	08 95       	ret
 
-00000566 <_ZN3ramC1EP14portcontrollerP8shiftreghm>:
+0000048e <_ZN3ramC1EP14portcontrollerP8shiftreghm>:
 		dataptr->shiftout8(data);
 	}
 	portptr->digitalwrite(wepin,false);
 	_delay_ms(1);
 	portptr->digitalwrite(wepin,true);
 }
- 566:	ef 92       	push	r14
- 568:	ff 92       	push	r15
- 56a:	0f 93       	push	r16
- 56c:	1f 93       	push	r17
- 56e:	fc 01       	movw	r30, r24
- 570:	cb 01       	movw	r24, r22
- 572:	73 83       	std	Z+3, r23	; 0x03
- 574:	62 83       	std	Z+2, r22	; 0x02
- 576:	55 83       	std	Z+5, r21	; 0x05
- 578:	44 83       	std	Z+4, r20	; 0x04
- 57a:	21 83       	std	Z+1, r18	; 0x01
- 57c:	e0 86       	std	Z+8, r14	; 0x08
- 57e:	f1 86       	std	Z+9, r15	; 0x09
- 580:	02 87       	std	Z+10, r16	; 0x0a
- 582:	13 87       	std	Z+11, r17	; 0x0b
- 584:	10 82       	st	Z, r1
- 586:	41 e0       	ldi	r20, 0x01	; 1
- 588:	62 2f       	mov	r22, r18
- 58a:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
- 58e:	1f 91       	pop	r17
- 590:	0f 91       	pop	r16
- 592:	ff 90       	pop	r15
- 594:	ef 90       	pop	r14
- 596:	08 95       	ret
+ 48e:	ef 92       	push	r14
+ 490:	ff 92       	push	r15
+ 492:	0f 93       	push	r16
+ 494:	1f 93       	push	r17
+ 496:	fc 01       	movw	r30, r24
+ 498:	cb 01       	movw	r24, r22
+ 49a:	73 83       	std	Z+3, r23	; 0x03
+ 49c:	62 83       	std	Z+2, r22	; 0x02
+ 49e:	55 83       	std	Z+5, r21	; 0x05
+ 4a0:	44 83       	std	Z+4, r20	; 0x04
+ 4a2:	21 83       	std	Z+1, r18	; 0x01
+ 4a4:	e0 86       	std	Z+8, r14	; 0x08
+ 4a6:	f1 86       	std	Z+9, r15	; 0x09
+ 4a8:	02 87       	std	Z+10, r16	; 0x0a
+ 4aa:	13 87       	std	Z+11, r17	; 0x0b
+ 4ac:	10 82       	st	Z, r1
+ 4ae:	41 e0       	ldi	r20, 0x01	; 1
+ 4b0:	62 2f       	mov	r22, r18
+ 4b2:	0e 94 20 01 	call	0x240	; 0x240 <_ZN14portcontroller12digitalwriteEhb>
+ 4b6:	1f 91       	pop	r17
+ 4b8:	0f 91       	pop	r16
+ 4ba:	ff 90       	pop	r15
+ 4bc:	ef 90       	pop	r14
+ 4be:	08 95       	ret
 
-00000598 <_ZN3ram5writeEjc>:
+000004c0 <_ZN3ram5writeEjc>:
+ 4c0:	1f 93       	push	r17
+ 4c2:	cf 93       	push	r28
+ 4c4:	df 93       	push	r29
+ 4c6:	ec 01       	movw	r28, r24
+ 4c8:	14 2f       	mov	r17, r20
+ 4ca:	8c 81       	ldd	r24, Y+4	; 0x04
+ 4cc:	9d 81       	ldd	r25, Y+5	; 0x05
+ 4ce:	0e 94 9c 01 	call	0x338	; 0x338 <_ZN8shiftreg10shiftout16Ej>
+ 4d2:	8e 81       	ldd	r24, Y+6	; 0x06
+ 4d4:	9f 81       	ldd	r25, Y+7	; 0x07
+ 4d6:	00 97       	sbiw	r24, 0x00	; 0
+ 4d8:	31 f4       	brne	.+12     	; 0x4e6 <_ZN3ram5writeEjc+0x26>
+ 4da:	61 2f       	mov	r22, r17
+ 4dc:	8a 81       	ldd	r24, Y+2	; 0x02
+ 4de:	9b 81       	ldd	r25, Y+3	; 0x03
+ 4e0:	0e 94 da 00 	call	0x1b4	; 0x1b4 <_ZN14portcontroller10writeportcEc>
+ 4e4:	03 c0       	rjmp	.+6      	; 0x4ec <_ZN3ram5writeEjc+0x2c>
+ 4e6:	61 2f       	mov	r22, r17
+ 4e8:	0e 94 59 01 	call	0x2b2	; 0x2b2 <_ZN8shiftreg9shiftout8Eh>
+ 4ec:	40 e0       	ldi	r20, 0x00	; 0
+ 4ee:	69 81       	ldd	r22, Y+1	; 0x01
+ 4f0:	8a 81       	ldd	r24, Y+2	; 0x02
+ 4f2:	9b 81       	ldd	r25, Y+3	; 0x03
+ 4f4:	0e 94 20 01 	call	0x240	; 0x240 <_ZN14portcontroller12digitalwriteEhb>
+ 4f8:	89 ef       	ldi	r24, 0xF9	; 249
+ 4fa:	90 e0       	ldi	r25, 0x00	; 0
+ 4fc:	01 97       	sbiw	r24, 0x01	; 1
+ 4fe:	f1 f7       	brne	.-4      	; 0x4fc <_ZN3ram5writeEjc+0x3c>
+ 500:	00 c0       	rjmp	.+0      	; 0x502 <_ZN3ram5writeEjc+0x42>
+ 502:	00 00       	nop
+ 504:	41 e0       	ldi	r20, 0x01	; 1
+ 506:	69 81       	ldd	r22, Y+1	; 0x01
+ 508:	8a 81       	ldd	r24, Y+2	; 0x02
+ 50a:	9b 81       	ldd	r25, Y+3	; 0x03
+ 50c:	0e 94 20 01 	call	0x240	; 0x240 <_ZN14portcontroller12digitalwriteEhb>
+ 510:	df 91       	pop	r29
+ 512:	cf 91       	pop	r28
+ 514:	1f 91       	pop	r17
+ 516:	08 95       	ret
 
-void ram::write(uint16_t address,char data)
-{
- 598:	1f 93       	push	r17
- 59a:	cf 93       	push	r28
- 59c:	df 93       	push	r29
- 59e:	ec 01       	movw	r28, r24
- 5a0:	14 2f       	mov	r17, r20
-	addrptr->shiftout16(address);
- 5a2:	8c 81       	ldd	r24, Y+4	; 0x04
- 5a4:	9d 81       	ldd	r25, Y+5	; 0x05
- 5a6:	0e 94 99 01 	call	0x332	; 0x332 <_ZN8shiftreg10shiftout16Ej>
-	if(dataptr== NULL)
- 5aa:	8e 81       	ldd	r24, Y+6	; 0x06
- 5ac:	9f 81       	ldd	r25, Y+7	; 0x07
- 5ae:	00 97       	sbiw	r24, 0x00	; 0
- 5b0:	31 f4       	brne	.+12     	; 0x5be <_ZN3ram5writeEjc+0x26>
-	{
-		portptr->writeportc(data);		
- 5b2:	61 2f       	mov	r22, r17
- 5b4:	8a 81       	ldd	r24, Y+2	; 0x02
- 5b6:	9b 81       	ldd	r25, Y+3	; 0x03
- 5b8:	0e 94 d7 00 	call	0x1ae	; 0x1ae <_ZN14portcontroller10writeportcEc>
- 5bc:	03 c0       	rjmp	.+6      	; 0x5c4 <_ZN3ram5writeEjc+0x2c>
-	} 
-	else 
-	{
-		dataptr->shiftout8(data);
- 5be:	61 2f       	mov	r22, r17
- 5c0:	0e 94 56 01 	call	0x2ac	; 0x2ac <_ZN8shiftreg9shiftout8Eh>
-	}
-	portptr->digitalwrite(wepin,false);
- 5c4:	40 e0       	ldi	r20, 0x00	; 0
- 5c6:	69 81       	ldd	r22, Y+1	; 0x01
- 5c8:	8a 81       	ldd	r24, Y+2	; 0x02
- 5ca:	9b 81       	ldd	r25, Y+3	; 0x03
- 5cc:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
-	#else
-		//round up by default
-		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
-	#endif
-
-	__builtin_avr_delay_cycles(__ticks_dc);
- 5d0:	89 ef       	ldi	r24, 0xF9	; 249
- 5d2:	90 e0       	ldi	r25, 0x00	; 0
- 5d4:	01 97       	sbiw	r24, 0x01	; 1
- 5d6:	f1 f7       	brne	.-4      	; 0x5d4 <_ZN3ram5writeEjc+0x3c>
- 5d8:	00 c0       	rjmp	.+0      	; 0x5da <_ZN3ram5writeEjc+0x42>
- 5da:	00 00       	nop
-	_delay_ms(1);
-	portptr->digitalwrite(wepin,true);
- 5dc:	41 e0       	ldi	r20, 0x01	; 1
- 5de:	69 81       	ldd	r22, Y+1	; 0x01
- 5e0:	8a 81       	ldd	r24, Y+2	; 0x02
- 5e2:	9b 81       	ldd	r25, Y+3	; 0x03
- 5e4:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
-}
- 5e8:	df 91       	pop	r29
- 5ea:	cf 91       	pop	r28
- 5ec:	1f 91       	pop	r17
- 5ee:	08 95       	ret
-
-000005f0 <_ZN3ram5writeEyc>:
-void ram::write(uint64_t address,char data)
-{
- 5f0:	ef 92       	push	r14
- 5f2:	0f 93       	push	r16
- 5f4:	1f 93       	push	r17
- 5f6:	cf 93       	push	r28
- 5f8:	df 93       	push	r29
- 5fa:	ec 01       	movw	r28, r24
-	addrptr->shiftout64(address);
- 5fc:	8c 81       	ldd	r24, Y+4	; 0x04
- 5fe:	9d 81       	ldd	r25, Y+5	; 0x05
- 600:	0e 94 09 02 	call	0x412	; 0x412 <_ZN8shiftreg10shiftout64Ey>
-	if(dataptr == NULL)
- 604:	8e 81       	ldd	r24, Y+6	; 0x06
- 606:	9f 81       	ldd	r25, Y+7	; 0x07
- 608:	00 97       	sbiw	r24, 0x00	; 0
- 60a:	31 f4       	brne	.+12     	; 0x618 <_ZN3ram5writeEyc+0x28>
-	{
-		portptr->writeportc(data);
- 60c:	6e 2d       	mov	r22, r14
- 60e:	8a 81       	ldd	r24, Y+2	; 0x02
- 610:	9b 81       	ldd	r25, Y+3	; 0x03
- 612:	0e 94 d7 00 	call	0x1ae	; 0x1ae <_ZN14portcontroller10writeportcEc>
- 616:	03 c0       	rjmp	.+6      	; 0x61e <_ZN3ram5writeEyc+0x2e>
-	}
-	else
-	{
-		dataptr->shiftout8(data);
- 618:	6e 2d       	mov	r22, r14
- 61a:	0e 94 56 01 	call	0x2ac	; 0x2ac <_ZN8shiftreg9shiftout8Eh>
-	}
-	portptr->digitalwrite(wepin,false);
- 61e:	40 e0       	ldi	r20, 0x00	; 0
- 620:	69 81       	ldd	r22, Y+1	; 0x01
- 622:	8a 81       	ldd	r24, Y+2	; 0x02
- 624:	9b 81       	ldd	r25, Y+3	; 0x03
- 626:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
- 62a:	89 ef       	ldi	r24, 0xF9	; 249
- 62c:	90 e0       	ldi	r25, 0x00	; 0
- 62e:	01 97       	sbiw	r24, 0x01	; 1
- 630:	f1 f7       	brne	.-4      	; 0x62e <_ZN3ram5writeEyc+0x3e>
- 632:	00 c0       	rjmp	.+0      	; 0x634 <_ZN3ram5writeEyc+0x44>
- 634:	00 00       	nop
-	_delay_ms(1);
-	portptr->digitalwrite(wepin,true);
- 636:	41 e0       	ldi	r20, 0x01	; 1
- 638:	69 81       	ldd	r22, Y+1	; 0x01
- 63a:	8a 81       	ldd	r24, Y+2	; 0x02
- 63c:	9b 81       	ldd	r25, Y+3	; 0x03
- 63e:	0e 94 1d 01 	call	0x23a	; 0x23a <_ZN14portcontroller12digitalwriteEhb>
-}
- 642:	df 91       	pop	r29
- 644:	cf 91       	pop	r28
- 646:	1f 91       	pop	r17
- 648:	0f 91       	pop	r16
- 64a:	ef 90       	pop	r14
- 64c:	08 95       	ret
-
-0000064e <_ZN3ramD1Ev>:
+00000518 <_ZN3ramD1Ev>:
 {
 	return address;
 }
 */
 // default destructor
 ram::~ram()
- 64e:	08 95       	ret
+ 518:	08 95       	ret
 
-00000650 <_ZN4VramC1EP14portcontrollerP8shiftreghhy>:
+0000051a <_ZN4VramC1EP14portcontrollerP8shiftreghhy>:
 {
 	for (int i =0; i<8 ; i++)
 	{
 		write(this->custom_char_memory_base+i,customchar[i]);	
 	}
 }
- 650:	7f 92       	push	r7
- 652:	8f 92       	push	r8
- 654:	9f 92       	push	r9
- 656:	af 92       	push	r10
- 658:	bf 92       	push	r11
- 65a:	cf 92       	push	r12
- 65c:	df 92       	push	r13
- 65e:	ef 92       	push	r14
- 660:	ff 92       	push	r15
- 662:	0f 93       	push	r16
- 664:	1f 93       	push	r17
- 666:	cf 93       	push	r28
- 668:	df 93       	push	r29
- 66a:	cd b7       	in	r28, 0x3d	; 61
- 66c:	de b7       	in	r29, 0x3e	; 62
- 66e:	6c 01       	movw	r12, r24
- 670:	70 2e       	mov	r7, r16
- 672:	e8 2c       	mov	r14, r8
- 674:	f9 2c       	mov	r15, r9
- 676:	0a 2d       	mov	r16, r10
- 678:	1b 2d       	mov	r17, r11
- 67a:	0e 94 b3 02 	call	0x566	; 0x566 <_ZN3ramC1EP14portcontrollerP8shiftreghm>
- 67e:	f6 01       	movw	r30, r12
- 680:	74 86       	std	Z+12, r7	; 0x0c
- 682:	df 91       	pop	r29
- 684:	cf 91       	pop	r28
- 686:	1f 91       	pop	r17
- 688:	0f 91       	pop	r16
- 68a:	ff 90       	pop	r15
- 68c:	ef 90       	pop	r14
- 68e:	df 90       	pop	r13
- 690:	cf 90       	pop	r12
- 692:	bf 90       	pop	r11
- 694:	af 90       	pop	r10
- 696:	9f 90       	pop	r9
- 698:	8f 90       	pop	r8
- 69a:	7f 90       	pop	r7
- 69c:	08 95       	ret
+ 51a:	7f 92       	push	r7
+ 51c:	8f 92       	push	r8
+ 51e:	9f 92       	push	r9
+ 520:	af 92       	push	r10
+ 522:	bf 92       	push	r11
+ 524:	cf 92       	push	r12
+ 526:	df 92       	push	r13
+ 528:	ef 92       	push	r14
+ 52a:	ff 92       	push	r15
+ 52c:	0f 93       	push	r16
+ 52e:	1f 93       	push	r17
+ 530:	cf 93       	push	r28
+ 532:	df 93       	push	r29
+ 534:	cd b7       	in	r28, 0x3d	; 61
+ 536:	de b7       	in	r29, 0x3e	; 62
+ 538:	6c 01       	movw	r12, r24
+ 53a:	70 2e       	mov	r7, r16
+ 53c:	e8 2c       	mov	r14, r8
+ 53e:	f9 2c       	mov	r15, r9
+ 540:	0a 2d       	mov	r16, r10
+ 542:	1b 2d       	mov	r17, r11
+ 544:	0e 94 47 02 	call	0x48e	; 0x48e <_ZN3ramC1EP14portcontrollerP8shiftreghm>
+ 548:	f6 01       	movw	r30, r12
+ 54a:	74 86       	std	Z+12, r7	; 0x0c
+ 54c:	df 91       	pop	r29
+ 54e:	cf 91       	pop	r28
+ 550:	1f 91       	pop	r17
+ 552:	0f 91       	pop	r16
+ 554:	ff 90       	pop	r15
+ 556:	ef 90       	pop	r14
+ 558:	df 90       	pop	r13
+ 55a:	cf 90       	pop	r12
+ 55c:	bf 90       	pop	r11
+ 55e:	af 90       	pop	r10
+ 560:	9f 90       	pop	r9
+ 562:	8f 90       	pop	r8
+ 564:	7f 90       	pop	r7
+ 566:	08 95       	ret
 
-0000069e <_ZN4VramD1Ev>:
+00000568 <_ZN4VramD1Ev>:
 
 // default destructor
 Vram::~Vram()
- 69e:	0e 94 27 03 	call	0x64e	; 0x64e <_ZN3ramD1Ev>
- 6a2:	08 95       	ret
+ 568:	0e 94 8c 02 	call	0x518	; 0x518 <_ZN3ramD1Ev>
+ 56c:	08 95       	ret
 
-000006a4 <_Z11storememoryyc>:
-{
-	
-	
+0000056e <main>:
 }
-void storememory(uint64_t address, char out)
-{
- 6a4:	6f 92       	push	r6
- 6a6:	7f 92       	push	r7
- 6a8:	8f 92       	push	r8
- 6aa:	9f 92       	push	r9
- 6ac:	af 92       	push	r10
- 6ae:	bf 92       	push	r11
- 6b0:	cf 92       	push	r12
- 6b2:	df 92       	push	r13
- 6b4:	ef 92       	push	r14
- 6b6:	ff 92       	push	r15
- 6b8:	0f 93       	push	r16
- 6ba:	1f 93       	push	r17
- 6bc:	cf 93       	push	r28
- 6be:	df 93       	push	r29
- 6c0:	c2 2e       	mov	r12, r18
- 6c2:	d3 2e       	mov	r13, r19
- 6c4:	f4 2e       	mov	r15, r20
- 6c6:	d5 2f       	mov	r29, r21
- 6c8:	c6 2f       	mov	r28, r22
- 6ca:	b7 2f       	mov	r27, r23
- 6cc:	f8 2f       	mov	r31, r24
- 6ce:	e9 2f       	mov	r30, r25
- 6d0:	e0 2e       	mov	r14, r16
-	if (address>=0x0 && address<=0x3fff)
- 6d2:	2f 3f       	cpi	r18, 0xFF	; 255
- 6d4:	0f e3       	ldi	r16, 0x3F	; 63
- 6d6:	30 07       	cpc	r19, r16
- 6d8:	41 05       	cpc	r20, r1
- 6da:	51 05       	cpc	r21, r1
- 6dc:	61 05       	cpc	r22, r1
- 6de:	71 05       	cpc	r23, r1
- 6e0:	81 05       	cpc	r24, r1
- 6e2:	91 05       	cpc	r25, r1
- 6e4:	09 f0       	breq	.+2      	; 0x6e8 <_Z11storememoryyc+0x44>
- 6e6:	68 f4       	brcc	.+26     	; 0x702 <_Z11storememoryyc+0x5e>
-	{
-		bank0.write(address,out);
- 6e8:	02 2f       	mov	r16, r18
- 6ea:	13 2f       	mov	r17, r19
- 6ec:	24 2f       	mov	r18, r20
- 6ee:	35 2f       	mov	r19, r21
- 6f0:	46 2f       	mov	r20, r22
- 6f2:	57 2f       	mov	r21, r23
- 6f4:	68 2f       	mov	r22, r24
- 6f6:	79 2f       	mov	r23, r25
- 6f8:	8d e8       	ldi	r24, 0x8D	; 141
- 6fa:	93 e0       	ldi	r25, 0x03	; 3
- 6fc:	0e 94 f8 02 	call	0x5f0	; 0x5f0 <_ZN3ram5writeEyc>
- 700:	9c c0       	rjmp	.+312    	; 0x83a <_Z11storememoryyc+0x196>
-	}
-	else if (address>=0x4000 && address<=0x7fff)
- 702:	30 54       	subi	r19, 0x40	; 64
- 704:	41 09       	sbc	r20, r1
- 706:	51 09       	sbc	r21, r1
- 708:	61 09       	sbc	r22, r1
- 70a:	71 09       	sbc	r23, r1
- 70c:	81 09       	sbc	r24, r1
- 70e:	91 09       	sbc	r25, r1
- 710:	13 2f       	mov	r17, r19
- 712:	2f 3f       	cpi	r18, 0xFF	; 255
- 714:	0f e3       	ldi	r16, 0x3F	; 63
- 716:	30 07       	cpc	r19, r16
- 718:	41 05       	cpc	r20, r1
- 71a:	51 05       	cpc	r21, r1
- 71c:	61 05       	cpc	r22, r1
- 71e:	71 05       	cpc	r23, r1
- 720:	81 05       	cpc	r24, r1
- 722:	91 05       	cpc	r25, r1
- 724:	09 f0       	breq	.+2      	; 0x728 <_Z11storememoryyc+0x84>
- 726:	60 f4       	brcc	.+24     	; 0x740 <_Z11storememoryyc+0x9c>
-	{
-		bank1.write(address-0x4000,out);
- 728:	02 2f       	mov	r16, r18
- 72a:	24 2f       	mov	r18, r20
- 72c:	35 2f       	mov	r19, r21
- 72e:	46 2f       	mov	r20, r22
- 730:	57 2f       	mov	r21, r23
- 732:	68 2f       	mov	r22, r24
- 734:	79 2f       	mov	r23, r25
- 736:	81 e8       	ldi	r24, 0x81	; 129
- 738:	93 e0       	ldi	r25, 0x03	; 3
- 73a:	0e 94 f8 02 	call	0x5f0	; 0x5f0 <_ZN3ram5writeEyc>
- 73e:	7d c0       	rjmp	.+250    	; 0x83a <_Z11storememoryyc+0x196>
-	} 
-	else if(address>=0x8000 && address<=0xbfff)
- 740:	2c 2d       	mov	r18, r12
- 742:	3d 2d       	mov	r19, r13
- 744:	4f 2d       	mov	r20, r15
- 746:	5d 2f       	mov	r21, r29
- 748:	6c 2f       	mov	r22, r28
- 74a:	7b 2f       	mov	r23, r27
- 74c:	8f 2f       	mov	r24, r31
- 74e:	9e 2f       	mov	r25, r30
- 750:	30 58       	subi	r19, 0x80	; 128
- 752:	41 09       	sbc	r20, r1
- 754:	51 09       	sbc	r21, r1
- 756:	61 09       	sbc	r22, r1
- 758:	71 09       	sbc	r23, r1
- 75a:	81 09       	sbc	r24, r1
- 75c:	91 09       	sbc	r25, r1
- 75e:	13 2f       	mov	r17, r19
- 760:	2f 3f       	cpi	r18, 0xFF	; 255
- 762:	0f e3       	ldi	r16, 0x3F	; 63
- 764:	30 07       	cpc	r19, r16
- 766:	41 05       	cpc	r20, r1
- 768:	51 05       	cpc	r21, r1
- 76a:	61 05       	cpc	r22, r1
- 76c:	71 05       	cpc	r23, r1
- 76e:	81 05       	cpc	r24, r1
- 770:	91 05       	cpc	r25, r1
- 772:	09 f0       	breq	.+2      	; 0x776 <_Z11storememoryyc+0xd2>
- 774:	60 f4       	brcc	.+24     	; 0x78e <_Z11storememoryyc+0xea>
-	{
-		bank2.write(address-0x8000,out);
- 776:	02 2f       	mov	r16, r18
- 778:	24 2f       	mov	r18, r20
- 77a:	35 2f       	mov	r19, r21
- 77c:	46 2f       	mov	r20, r22
- 77e:	57 2f       	mov	r21, r23
- 780:	68 2f       	mov	r22, r24
- 782:	79 2f       	mov	r23, r25
- 784:	85 e7       	ldi	r24, 0x75	; 117
- 786:	93 e0       	ldi	r25, 0x03	; 3
- 788:	0e 94 f8 02 	call	0x5f0	; 0x5f0 <_ZN3ram5writeEyc>
- 78c:	56 c0       	rjmp	.+172    	; 0x83a <_Z11storememoryyc+0x196>
-	}
-	else if(address>=0xC000 && address<=0xffff)
- 78e:	2c 2d       	mov	r18, r12
- 790:	3d 2d       	mov	r19, r13
- 792:	4f 2d       	mov	r20, r15
- 794:	5d 2f       	mov	r21, r29
- 796:	6c 2f       	mov	r22, r28
- 798:	7b 2f       	mov	r23, r27
- 79a:	8f 2f       	mov	r24, r31
- 79c:	9e 2f       	mov	r25, r30
- 79e:	30 5c       	subi	r19, 0xC0	; 192
- 7a0:	41 09       	sbc	r20, r1
- 7a2:	51 09       	sbc	r21, r1
- 7a4:	61 09       	sbc	r22, r1
- 7a6:	71 09       	sbc	r23, r1
- 7a8:	81 09       	sbc	r24, r1
- 7aa:	91 09       	sbc	r25, r1
- 7ac:	13 2f       	mov	r17, r19
- 7ae:	2f 3f       	cpi	r18, 0xFF	; 255
- 7b0:	0f e3       	ldi	r16, 0x3F	; 63
- 7b2:	30 07       	cpc	r19, r16
- 7b4:	41 05       	cpc	r20, r1
- 7b6:	51 05       	cpc	r21, r1
- 7b8:	61 05       	cpc	r22, r1
- 7ba:	71 05       	cpc	r23, r1
- 7bc:	81 05       	cpc	r24, r1
- 7be:	91 05       	cpc	r25, r1
- 7c0:	09 f0       	breq	.+2      	; 0x7c4 <_Z11storememoryyc+0x120>
- 7c2:	60 f4       	brcc	.+24     	; 0x7dc <_Z11storememoryyc+0x138>
-	{
-		bank3.write(address-0xC000,out);
- 7c4:	02 2f       	mov	r16, r18
- 7c6:	24 2f       	mov	r18, r20
- 7c8:	35 2f       	mov	r19, r21
- 7ca:	46 2f       	mov	r20, r22
- 7cc:	57 2f       	mov	r21, r23
- 7ce:	68 2f       	mov	r22, r24
- 7d0:	79 2f       	mov	r23, r25
- 7d2:	89 e6       	ldi	r24, 0x69	; 105
- 7d4:	93 e0       	ldi	r25, 0x03	; 3
- 7d6:	0e 94 f8 02 	call	0x5f0	; 0x5f0 <_ZN3ram5writeEyc>
- 7da:	2f c0       	rjmp	.+94     	; 0x83a <_Z11storememoryyc+0x196>
-	}
-	else if(address>=0xffff && address<=0x10000)
- 7dc:	2c 2d       	mov	r18, r12
- 7de:	3d 2d       	mov	r19, r13
- 7e0:	4f 2d       	mov	r20, r15
- 7e2:	5d 2f       	mov	r21, r29
- 7e4:	6c 2f       	mov	r22, r28
- 7e6:	7b 2f       	mov	r23, r27
- 7e8:	8f 2f       	mov	r24, r31
- 7ea:	9e 2f       	mov	r25, r30
- 7ec:	2f 5f       	subi	r18, 0xFF	; 255
- 7ee:	3f 4f       	sbci	r19, 0xFF	; 255
- 7f0:	41 09       	sbc	r20, r1
- 7f2:	51 09       	sbc	r21, r1
- 7f4:	61 09       	sbc	r22, r1
- 7f6:	71 09       	sbc	r23, r1
- 7f8:	81 09       	sbc	r24, r1
- 7fa:	91 09       	sbc	r25, r1
- 7fc:	a1 e0       	ldi	r26, 0x01	; 1
- 7fe:	0e 94 74 06 	call	0xce8	; 0xce8 <__cmpdi2_s8>
- 802:	09 f0       	breq	.+2      	; 0x806 <_Z11storememoryyc+0x162>
- 804:	d0 f4       	brcc	.+52     	; 0x83a <_Z11storememoryyc+0x196>
-	{
-		bank4.write(address-0x10000,out);
- 806:	2c 2d       	mov	r18, r12
- 808:	3d 2d       	mov	r19, r13
- 80a:	4f 2d       	mov	r20, r15
- 80c:	5d 2f       	mov	r21, r29
- 80e:	6c 2f       	mov	r22, r28
- 810:	7b 2f       	mov	r23, r27
- 812:	8f 2f       	mov	r24, r31
- 814:	9e 2f       	mov	r25, r30
- 816:	41 50       	subi	r20, 0x01	; 1
- 818:	51 09       	sbc	r21, r1
- 81a:	61 09       	sbc	r22, r1
- 81c:	71 09       	sbc	r23, r1
- 81e:	81 09       	sbc	r24, r1
- 820:	91 09       	sbc	r25, r1
- 822:	02 2f       	mov	r16, r18
- 824:	13 2f       	mov	r17, r19
- 826:	24 2f       	mov	r18, r20
- 828:	35 2f       	mov	r19, r21
- 82a:	46 2f       	mov	r20, r22
- 82c:	57 2f       	mov	r21, r23
- 82e:	68 2f       	mov	r22, r24
- 830:	79 2f       	mov	r23, r25
- 832:	8d e5       	ldi	r24, 0x5D	; 93
- 834:	93 e0       	ldi	r25, 0x03	; 3
- 836:	0e 94 f8 02 	call	0x5f0	; 0x5f0 <_ZN3ram5writeEyc>
-	}
-	
-	
-}
- 83a:	df 91       	pop	r29
- 83c:	cf 91       	pop	r28
- 83e:	1f 91       	pop	r17
- 840:	0f 91       	pop	r16
- 842:	ff 90       	pop	r15
- 844:	ef 90       	pop	r14
- 846:	df 90       	pop	r13
- 848:	cf 90       	pop	r12
- 84a:	bf 90       	pop	r11
- 84c:	af 90       	pop	r10
- 84e:	9f 90       	pop	r9
- 850:	8f 90       	pop	r8
- 852:	7f 90       	pop	r7
- 854:	6f 90       	pop	r6
- 856:	08 95       	ret
 
-00000858 <main>:
 
 int main(void)
 {
 	port.writeddra(0xff);
- 858:	6f ef       	ldi	r22, 0xFF	; 255
- 85a:	84 eb       	ldi	r24, 0xB4	; 180
- 85c:	93 e0       	ldi	r25, 0x03	; 3
- 85e:	0e 94 d9 00 	call	0x1b2	; 0x1b2 <_ZN14portcontroller9writeddraEc>
+ 56e:	6f ef       	ldi	r22, 0xFF	; 255
+ 570:	82 e5       	ldi	r24, 0x52	; 82
+ 572:	93 e0       	ldi	r25, 0x03	; 3
+ 574:	0e 94 dc 00 	call	0x1b8	; 0x1b8 <_ZN14portcontroller9writeddraEc>
 	port.writeddrc(0xff);
- 862:	6f ef       	ldi	r22, 0xFF	; 255
- 864:	84 eb       	ldi	r24, 0xB4	; 180
- 866:	93 e0       	ldi	r25, 0x03	; 3
- 868:	0e 94 db 00 	call	0x1b6	; 0x1b6 <_ZN14portcontroller9writeddrcEc>
-//variables
-public:
-	rom* Baseprogram() const { return baseprogram; }
-	void Baseprogram(rom* val) { baseprogram = val; }
+ 578:	6f ef       	ldi	r22, 0xFF	; 255
+ 57a:	82 e5       	ldi	r24, 0x52	; 82
+ 57c:	93 e0       	ldi	r25, 0x03	; 3
+ 57e:	0e 94 de 00 	call	0x1bc	; 0x1bc <_ZN14portcontroller9writeddrcEc>
+	
+	public:
+	ram* Baseprogram() const { return baseprogram; }
+	void Baseprogram(ram* val) { baseprogram = val; }
 	ram* Dataram() const { return dataram; }
 	void Dataram(ram* val) { dataram = val; }
- 86c:	85 e7       	ldi	r24, 0x75	; 117
- 86e:	93 e0       	ldi	r25, 0x03	; 3
- 870:	90 93 06 01 	sts	0x0106, r25	; 0x800106 <_ZL9interpret+0x4>
- 874:	80 93 05 01 	sts	0x0105, r24	; 0x800105 <_ZL9interpret+0x3>
+ 582:	e0 e0       	ldi	r30, 0x00	; 0
+ 584:	f1 e0       	ldi	r31, 0x01	; 1
+ 586:	8d e0       	ldi	r24, 0x0D	; 13
+ 588:	93 e0       	ldi	r25, 0x03	; 3
+ 58a:	94 83       	std	Z+4, r25	; 0x04
+ 58c:	83 83       	std	Z+3, r24	; 0x03
+	ram* Stackram() const { return stackram; }
+	void Stackram(ram* val) { stackram = val; }
+ 58e:	85 ef       	ldi	r24, 0xF5	; 245
+ 590:	92 e0       	ldi	r25, 0x02	; 2
+ 592:	96 83       	std	Z+6, r25	; 0x06
+ 594:	85 83       	std	Z+5, r24	; 0x05
 	interpret.Dataram(&bank2);
+	interpret.Stackram(&bank4);
 	interpret.nop();
- 878:	82 e0       	ldi	r24, 0x02	; 2
- 87a:	91 e0       	ldi	r25, 0x01	; 1
- 87c:	0e 94 b7 00 	call	0x16e	; 0x16e <_ZN11interpreter3nopEv>
-	//bank1.setaddress(0);
+ 596:	cf 01       	movw	r24, r30
+ 598:	0e 94 bc 00 	call	0x178	; 0x178 <_ZN11interpreter3nopEv>
     /* Replace with your application code */
     while (1) 
     {
 		
 		interpret.inc((char)9);
- 880:	69 e0       	ldi	r22, 0x09	; 9
- 882:	82 e0       	ldi	r24, 0x02	; 2
- 884:	91 e0       	ldi	r25, 0x01	; 1
- 886:	0e 94 90 00 	call	0x120	; 0x120 <_ZN11interpreter3incEc>
+ 59c:	69 e0       	ldi	r22, 0x09	; 9
+ 59e:	80 e0       	ldi	r24, 0x00	; 0
+ 5a0:	91 e0       	ldi	r25, 0x01	; 1
+ 5a2:	0e 94 95 00 	call	0x12a	; 0x12a <_ZN11interpreter3incEc>
 		interpret.ldi(5,10);
- 88a:	4a e0       	ldi	r20, 0x0A	; 10
- 88c:	65 e0       	ldi	r22, 0x05	; 5
- 88e:	82 e0       	ldi	r24, 0x02	; 2
- 890:	91 e0       	ldi	r25, 0x01	; 1
- 892:	0e 94 97 00 	call	0x12e	; 0x12e <_ZN11interpreter3ldiEcc>
+ 5a6:	4a e0       	ldi	r20, 0x0A	; 10
+ 5a8:	65 e0       	ldi	r22, 0x05	; 5
+ 5aa:	80 e0       	ldi	r24, 0x00	; 0
+ 5ac:	91 e0       	ldi	r25, 0x01	; 1
+ 5ae:	0e 94 9c 00 	call	0x138	; 0x138 <_ZN11interpreter3ldiEcc>
 		interpret.cmp(9,5);
- 896:	45 e0       	ldi	r20, 0x05	; 5
- 898:	69 e0       	ldi	r22, 0x09	; 9
- 89a:	82 e0       	ldi	r24, 0x02	; 2
- 89c:	91 e0       	ldi	r25, 0x01	; 1
- 89e:	0e 94 9c 00 	call	0x138	; 0x138 <_ZN11interpreter3cmpEcc>
-		interpret.ldi(254,65);
- 8a2:	41 e4       	ldi	r20, 0x41	; 65
- 8a4:	6e ef       	ldi	r22, 0xFE	; 254
- 8a6:	82 e0       	ldi	r24, 0x02	; 2
- 8a8:	91 e0       	ldi	r25, 0x01	; 1
- 8aa:	0e 94 97 00 	call	0x12e	; 0x12e <_ZN11interpreter3ldiEcc>
-		interpret.ldi(0,10);
- 8ae:	4a e0       	ldi	r20, 0x0A	; 10
- 8b0:	60 e0       	ldi	r22, 0x00	; 0
- 8b2:	82 e0       	ldi	r24, 0x02	; 2
- 8b4:	91 e0       	ldi	r25, 0x01	; 1
- 8b6:	0e 94 97 00 	call	0x12e	; 0x12e <_ZN11interpreter3ldiEcc>
-		interpret.push(0);
- 8ba:	60 e0       	ldi	r22, 0x00	; 0
- 8bc:	82 e0       	ldi	r24, 0x02	; 2
- 8be:	91 e0       	ldi	r25, 0x01	; 1
- 8c0:	0e 94 b9 00 	call	0x172	; 0x172 <_ZN11interpreter4pushEc>
-		if (PINB>0)
- 8c4:	83 b1       	in	r24, 0x03	; 3
- 8c6:	88 23       	and	r24, r24
- 8c8:	d9 f2       	breq	.-74     	; 0x880 <main+0x28>
+ 5b2:	45 e0       	ldi	r20, 0x05	; 5
+ 5b4:	69 e0       	ldi	r22, 0x09	; 9
+ 5b6:	80 e0       	ldi	r24, 0x00	; 0
+ 5b8:	91 e0       	ldi	r25, 0x01	; 1
+ 5ba:	0e 94 a1 00 	call	0x142	; 0x142 <_ZN11interpreter3cmpEcc>
+ 5be:	c0 e0       	ldi	r28, 0x00	; 0
+		for(int i = 0;i<255;i++)
 		{
-			if (PINB)
- 8ca:	83 b1       	in	r24, 0x03	; 3
-			{
-				
-			}
-		storememory(0x0000,0xff);
- 8cc:	0f ef       	ldi	r16, 0xFF	; 255
- 8ce:	20 e0       	ldi	r18, 0x00	; 0
- 8d0:	30 e0       	ldi	r19, 0x00	; 0
- 8d2:	40 e0       	ldi	r20, 0x00	; 0
- 8d4:	50 e0       	ldi	r21, 0x00	; 0
- 8d6:	60 e0       	ldi	r22, 0x00	; 0
- 8d8:	70 e0       	ldi	r23, 0x00	; 0
- 8da:	80 e0       	ldi	r24, 0x00	; 0
- 8dc:	90 e0       	ldi	r25, 0x00	; 0
- 8de:	0e 94 52 03 	call	0x6a4	; 0x6a4 <_Z11storememoryyc>
- 8e2:	ce cf       	rjmp	.-100    	; 0x880 <main+0x28>
+		
+			interpret.ldi(i,65);
+ 5c0:	41 e4       	ldi	r20, 0x41	; 65
+ 5c2:	6c 2f       	mov	r22, r28
+ 5c4:	80 e0       	ldi	r24, 0x00	; 0
+ 5c6:	91 e0       	ldi	r25, 0x01	; 1
+ 5c8:	0e 94 9c 00 	call	0x138	; 0x138 <_ZN11interpreter3ldiEcc>
+ 5cc:	cf 5f       	subi	r28, 0xFF	; 255
+    {
+		
+		interpret.inc((char)9);
+		interpret.ldi(5,10);
+		interpret.cmp(9,5);
+		for(int i = 0;i<255;i++)
+ 5ce:	cf 3f       	cpi	r28, 0xFF	; 255
+ 5d0:	b9 f7       	brne	.-18     	; 0x5c0 <main+0x52>
+		{
+		
+			interpret.ldi(i,65);
+			
+		}
+		interpret.ldi(0,10);
+ 5d2:	4a e0       	ldi	r20, 0x0A	; 10
+ 5d4:	60 e0       	ldi	r22, 0x00	; 0
+ 5d6:	80 e0       	ldi	r24, 0x00	; 0
+ 5d8:	91 e0       	ldi	r25, 0x01	; 1
+ 5da:	0e 94 9c 00 	call	0x138	; 0x138 <_ZN11interpreter3ldiEcc>
+		interpret.push(0);
+ 5de:	60 e0       	ldi	r22, 0x00	; 0
+ 5e0:	80 e0       	ldi	r24, 0x00	; 0
+ 5e2:	91 e0       	ldi	r25, 0x01	; 1
+ 5e4:	0e 94 be 00 	call	0x17c	; 0x17c <_ZN11interpreter4pushEc>
+		uint8_t pb = PINB;
+ 5e8:	83 b1       	in	r24, 0x03	; 3
+ 5ea:	d8 cf       	rjmp	.-80     	; 0x59c <main+0x2e>
 
-000008e4 <_GLOBAL__sub_I_gpvariables>:
+000005ec <_GLOBAL__sub_I__Z10runprogrami>:
+		{
+			
+					
 		}
 	}
- 8e4:	8f 92       	push	r8
- 8e6:	9f 92       	push	r9
- 8e8:	af 92       	push	r10
- 8ea:	bf 92       	push	r11
- 8ec:	cf 92       	push	r12
- 8ee:	df 92       	push	r13
- 8f0:	ef 92       	push	r14
- 8f2:	ff 92       	push	r15
- 8f4:	0f 93       	push	r16
- 8f6:	1f 93       	push	r17
+ 5ec:	8f 92       	push	r8
+ 5ee:	9f 92       	push	r9
+ 5f0:	af 92       	push	r10
+ 5f2:	bf 92       	push	r11
+ 5f4:	cf 92       	push	r12
+ 5f6:	df 92       	push	r13
+ 5f8:	ef 92       	push	r14
+ 5fa:	ff 92       	push	r15
+ 5fc:	0f 93       	push	r16
+ 5fe:	1f 93       	push	r17
+	a0-a12 adress a13-a15 
 	
 	
 */
 static const int address_max_hex=0x1fff;
-
 static portcontroller port=portcontroller();
- 8f8:	84 eb       	ldi	r24, 0xB4	; 180
- 8fa:	93 e0       	ldi	r25, 0x03	; 3
- 8fc:	0e 94 d6 00 	call	0x1ac	; 0x1ac <_ZN14portcontrollerC1Ev>
+ 600:	82 e5       	ldi	r24, 0x52	; 82
+ 602:	93 e0       	ldi	r25, 0x03	; 3
+ 604:	0e 94 d9 00 	call	0x1b2	; 0x1b2 <_ZN14portcontrollerC1Ev>
 static shiftreg addreg=shiftreg(40,39,38,&port);
- 900:	04 eb       	ldi	r16, 0xB4	; 180
- 902:	13 e0       	ldi	r17, 0x03	; 3
- 904:	26 e2       	ldi	r18, 0x26	; 38
- 906:	47 e2       	ldi	r20, 0x27	; 39
- 908:	68 e2       	ldi	r22, 0x28	; 40
- 90a:	87 ea       	ldi	r24, 0xA7	; 167
- 90c:	93 e0       	ldi	r25, 0x03	; 3
- 90e:	0e 94 43 01 	call	0x286	; 0x286 <_ZN8shiftregC1EhhhP14portcontroller>
+ 608:	02 e5       	ldi	r16, 0x52	; 82
+ 60a:	13 e0       	ldi	r17, 0x03	; 3
+ 60c:	26 e2       	ldi	r18, 0x26	; 38
+ 60e:	47 e2       	ldi	r20, 0x27	; 39
+ 610:	68 e2       	ldi	r22, 0x28	; 40
+ 612:	85 e4       	ldi	r24, 0x45	; 69
+ 614:	93 e0       	ldi	r25, 0x03	; 3
+ 616:	0e 94 46 01 	call	0x28c	; 0x28c <_ZN8shiftregC1EhhhP14portcontroller>
 static shiftreg csreg=shiftreg(37,36,35,&port);
- 912:	23 e2       	ldi	r18, 0x23	; 35
- 914:	44 e2       	ldi	r20, 0x24	; 36
- 916:	65 e2       	ldi	r22, 0x25	; 37
- 918:	8a e9       	ldi	r24, 0x9A	; 154
- 91a:	93 e0       	ldi	r25, 0x03	; 3
- 91c:	0e 94 43 01 	call	0x286	; 0x286 <_ZN8shiftregC1EhhhP14portcontroller>
-static Serial serial =  Serial();
- 920:	89 e9       	ldi	r24, 0x99	; 153
- 922:	93 e0       	ldi	r25, 0x03	; 3
- 924:	0e 94 5f 00 	call	0xbe	; 0xbe <_ZN6SerialC1Ev>
+ 61a:	23 e2       	ldi	r18, 0x23	; 35
+ 61c:	44 e2       	ldi	r20, 0x24	; 36
+ 61e:	65 e2       	ldi	r22, 0x25	; 37
+ 620:	88 e3       	ldi	r24, 0x38	; 56
+ 622:	93 e0       	ldi	r25, 0x03	; 3
+ 624:	0e 94 46 01 	call	0x28c	; 0x28c <_ZN8shiftregC1EhhhP14portcontroller>
+static Serial serial= Serial(&csreg,&port);
+ 628:	a8 01       	movw	r20, r16
+ 62a:	68 e3       	ldi	r22, 0x38	; 56
+ 62c:	73 e0       	ldi	r23, 0x03	; 3
+ 62e:	81 e3       	ldi	r24, 0x31	; 49
+ 630:	93 e0       	ldi	r25, 0x03	; 3
+ 632:	0e 94 5f 00 	call	0xbe	; 0xbe <_ZN6SerialC1EP8shiftregP14portcontroller>
 static ram bank0 = ram(&port,&addreg,rwpin,0x0u);	// os ram 
- 928:	e1 2c       	mov	r14, r1
- 92a:	f1 2c       	mov	r15, r1
- 92c:	87 01       	movw	r16, r14
- 92e:	21 e0       	ldi	r18, 0x01	; 1
- 930:	47 ea       	ldi	r20, 0xA7	; 167
- 932:	53 e0       	ldi	r21, 0x03	; 3
- 934:	64 eb       	ldi	r22, 0xB4	; 180
- 936:	73 e0       	ldi	r23, 0x03	; 3
- 938:	8d e8       	ldi	r24, 0x8D	; 141
- 93a:	93 e0       	ldi	r25, 0x03	; 3
- 93c:	0e 94 b3 02 	call	0x566	; 0x566 <_ZN3ramC1EP14portcontrollerP8shiftreghm>
-static ram bank1 = ram(&port,&addreg,rwpin,0x2000u);//os extended ram
- 940:	e1 2c       	mov	r14, r1
- 942:	10 e2       	ldi	r17, 0x20	; 32
- 944:	f1 2e       	mov	r15, r17
- 946:	00 e0       	ldi	r16, 0x00	; 0
- 948:	10 e0       	ldi	r17, 0x00	; 0
- 94a:	21 e0       	ldi	r18, 0x01	; 1
- 94c:	47 ea       	ldi	r20, 0xA7	; 167
- 94e:	53 e0       	ldi	r21, 0x03	; 3
- 950:	64 eb       	ldi	r22, 0xB4	; 180
- 952:	73 e0       	ldi	r23, 0x03	; 3
- 954:	81 e8       	ldi	r24, 0x81	; 129
- 956:	93 e0       	ldi	r25, 0x03	; 3
- 958:	0e 94 b3 02 	call	0x566	; 0x566 <_ZN3ramC1EP14portcontrollerP8shiftreghm>
+ 636:	e1 2c       	mov	r14, r1
+ 638:	f1 2c       	mov	r15, r1
+ 63a:	87 01       	movw	r16, r14
+ 63c:	21 e0       	ldi	r18, 0x01	; 1
+ 63e:	45 e4       	ldi	r20, 0x45	; 69
+ 640:	53 e0       	ldi	r21, 0x03	; 3
+ 642:	62 e5       	ldi	r22, 0x52	; 82
+ 644:	73 e0       	ldi	r23, 0x03	; 3
+ 646:	85 e2       	ldi	r24, 0x25	; 37
+ 648:	93 e0       	ldi	r25, 0x03	; 3
+ 64a:	0e 94 47 02 	call	0x48e	; 0x48e <_ZN3ramC1EP14portcontrollerP8shiftreghm>
+static ram bank1 = ram(&port,&addreg,rwpin,0x2000u);//main program 
+ 64e:	e1 2c       	mov	r14, r1
+ 650:	10 e2       	ldi	r17, 0x20	; 32
+ 652:	f1 2e       	mov	r15, r17
+ 654:	00 e0       	ldi	r16, 0x00	; 0
+ 656:	10 e0       	ldi	r17, 0x00	; 0
+ 658:	21 e0       	ldi	r18, 0x01	; 1
+ 65a:	45 e4       	ldi	r20, 0x45	; 69
+ 65c:	53 e0       	ldi	r21, 0x03	; 3
+ 65e:	62 e5       	ldi	r22, 0x52	; 82
+ 660:	73 e0       	ldi	r23, 0x03	; 3
+ 662:	89 e1       	ldi	r24, 0x19	; 25
+ 664:	93 e0       	ldi	r25, 0x03	; 3
+ 666:	0e 94 47 02 	call	0x48e	; 0x48e <_ZN3ramC1EP14portcontrollerP8shiftreghm>
 static ram bank2 = ram(&port,&addreg,rwpin,0x4000u);// main prog ram 
- 95c:	e1 2c       	mov	r14, r1
- 95e:	10 e4       	ldi	r17, 0x40	; 64
- 960:	f1 2e       	mov	r15, r17
- 962:	00 e0       	ldi	r16, 0x00	; 0
- 964:	10 e0       	ldi	r17, 0x00	; 0
- 966:	21 e0       	ldi	r18, 0x01	; 1
- 968:	47 ea       	ldi	r20, 0xA7	; 167
- 96a:	53 e0       	ldi	r21, 0x03	; 3
- 96c:	64 eb       	ldi	r22, 0xB4	; 180
- 96e:	73 e0       	ldi	r23, 0x03	; 3
- 970:	85 e7       	ldi	r24, 0x75	; 117
+ 66a:	e1 2c       	mov	r14, r1
+ 66c:	10 e4       	ldi	r17, 0x40	; 64
+ 66e:	f1 2e       	mov	r15, r17
+ 670:	00 e0       	ldi	r16, 0x00	; 0
+ 672:	10 e0       	ldi	r17, 0x00	; 0
+ 674:	21 e0       	ldi	r18, 0x01	; 1
+ 676:	45 e4       	ldi	r20, 0x45	; 69
+ 678:	53 e0       	ldi	r21, 0x03	; 3
+ 67a:	62 e5       	ldi	r22, 0x52	; 82
+ 67c:	73 e0       	ldi	r23, 0x03	; 3
+ 67e:	8d e0       	ldi	r24, 0x0D	; 13
+ 680:	93 e0       	ldi	r25, 0x03	; 3
+ 682:	0e 94 47 02 	call	0x48e	; 0x48e <_ZN3ramC1EP14portcontrollerP8shiftreghm>
+static ram bank3 = ram(&port,&addreg,rwpin,0x6000u);// second prog ram  
+ 686:	e1 2c       	mov	r14, r1
+ 688:	10 e6       	ldi	r17, 0x60	; 96
+ 68a:	f1 2e       	mov	r15, r17
+ 68c:	00 e0       	ldi	r16, 0x00	; 0
+ 68e:	10 e0       	ldi	r17, 0x00	; 0
+ 690:	21 e0       	ldi	r18, 0x01	; 1
+ 692:	45 e4       	ldi	r20, 0x45	; 69
+ 694:	53 e0       	ldi	r21, 0x03	; 3
+ 696:	62 e5       	ldi	r22, 0x52	; 82
+ 698:	73 e0       	ldi	r23, 0x03	; 3
+ 69a:	81 e0       	ldi	r24, 0x01	; 1
+ 69c:	93 e0       	ldi	r25, 0x03	; 3
+ 69e:	0e 94 47 02 	call	0x48e	; 0x48e <_ZN3ramC1EP14portcontrollerP8shiftreghm>
+static ram bank4 = ram(&port,&addreg,rwpin,0x8000u);// stack ram
+ 6a2:	e1 2c       	mov	r14, r1
+ 6a4:	10 e8       	ldi	r17, 0x80	; 128
+ 6a6:	f1 2e       	mov	r15, r17
+ 6a8:	00 e0       	ldi	r16, 0x00	; 0
+ 6aa:	10 e0       	ldi	r17, 0x00	; 0
+ 6ac:	21 e0       	ldi	r18, 0x01	; 1
+ 6ae:	45 e4       	ldi	r20, 0x45	; 69
+ 6b0:	53 e0       	ldi	r21, 0x03	; 3
+ 6b2:	62 e5       	ldi	r22, 0x52	; 82
+ 6b4:	73 e0       	ldi	r23, 0x03	; 3
+ 6b6:	85 ef       	ldi	r24, 0xF5	; 245
+ 6b8:	92 e0       	ldi	r25, 0x02	; 2
+ 6ba:	0e 94 47 02 	call	0x48e	; 0x48e <_ZN3ramC1EP14portcontrollerP8shiftreghm>
+
+
+static rom bios = rom(&port,&addreg,0xA000u);
+ 6be:	c1 2c       	mov	r12, r1
+ 6c0:	0f 2e       	mov	r0, r31
+ 6c2:	f0 ea       	ldi	r31, 0xA0	; 160
+ 6c4:	df 2e       	mov	r13, r31
+ 6c6:	f0 2d       	mov	r31, r0
+ 6c8:	e1 2c       	mov	r14, r1
+ 6ca:	f1 2c       	mov	r15, r1
+ 6cc:	00 e0       	ldi	r16, 0x00	; 0
+ 6ce:	10 e0       	ldi	r17, 0x00	; 0
+ 6d0:	20 e0       	ldi	r18, 0x00	; 0
+ 6d2:	30 e0       	ldi	r19, 0x00	; 0
+ 6d4:	45 e4       	ldi	r20, 0x45	; 69
+ 6d6:	53 e0       	ldi	r21, 0x03	; 3
+ 6d8:	62 e5       	ldi	r22, 0x52	; 82
+ 6da:	73 e0       	ldi	r23, 0x03	; 3
+ 6dc:	8d ee       	ldi	r24, 0xED	; 237
+ 6de:	92 e0       	ldi	r25, 0x02	; 2
+ 6e0:	0e 94 38 02 	call	0x470	; 0x470 <_ZN3romC1EP14portcontrollerP8shiftregy>
+static rom settings = rom(&port,&addreg,0xC000u);
+ 6e4:	0f 2e       	mov	r0, r31
+ 6e6:	f0 ec       	ldi	r31, 0xC0	; 192
+ 6e8:	df 2e       	mov	r13, r31
+ 6ea:	f0 2d       	mov	r31, r0
+ 6ec:	20 e0       	ldi	r18, 0x00	; 0
+ 6ee:	30 e0       	ldi	r19, 0x00	; 0
+ 6f0:	45 e4       	ldi	r20, 0x45	; 69
+ 6f2:	53 e0       	ldi	r21, 0x03	; 3
+ 6f4:	62 e5       	ldi	r22, 0x52	; 82
+ 6f6:	73 e0       	ldi	r23, 0x03	; 3
+ 6f8:	85 ee       	ldi	r24, 0xE5	; 229
+ 6fa:	92 e0       	ldi	r25, 0x02	; 2
+ 6fc:	0e 94 38 02 	call	0x470	; 0x470 <_ZN3romC1EP14portcontrollerP8shiftregy>
+static rom program0 = rom(&port,&addreg,0xE000u);
+ 700:	0f 2e       	mov	r0, r31
+ 702:	f0 ee       	ldi	r31, 0xE0	; 224
+ 704:	df 2e       	mov	r13, r31
+ 706:	f0 2d       	mov	r31, r0
+ 708:	20 e0       	ldi	r18, 0x00	; 0
+ 70a:	30 e0       	ldi	r19, 0x00	; 0
+ 70c:	45 e4       	ldi	r20, 0x45	; 69
+ 70e:	53 e0       	ldi	r21, 0x03	; 3
+ 710:	62 e5       	ldi	r22, 0x52	; 82
+ 712:	73 e0       	ldi	r23, 0x03	; 3
+ 714:	8d ed       	ldi	r24, 0xDD	; 221
+ 716:	92 e0       	ldi	r25, 0x02	; 2
+ 718:	0e 94 38 02 	call	0x470	; 0x470 <_ZN3romC1EP14portcontrollerP8shiftregy>
+static rom program1 = rom(&port,&addreg,0x10000u);
+ 71c:	d1 2c       	mov	r13, r1
+ 71e:	ee 24       	eor	r14, r14
+ 720:	e3 94       	inc	r14
+ 722:	20 e0       	ldi	r18, 0x00	; 0
+ 724:	30 e0       	ldi	r19, 0x00	; 0
+ 726:	45 e4       	ldi	r20, 0x45	; 69
+ 728:	53 e0       	ldi	r21, 0x03	; 3
+ 72a:	62 e5       	ldi	r22, 0x52	; 82
+ 72c:	73 e0       	ldi	r23, 0x03	; 3
+ 72e:	85 ed       	ldi	r24, 0xD5	; 213
+ 730:	92 e0       	ldi	r25, 0x02	; 2
+ 732:	0e 94 38 02 	call	0x470	; 0x470 <_ZN3romC1EP14portcontrollerP8shiftregy>
+static rom program2 = rom(&port,&addreg,0x12000u);
+ 736:	68 94       	set
+ 738:	dd 24       	eor	r13, r13
+ 73a:	d5 f8       	bld	r13, 5
+ 73c:	20 e0       	ldi	r18, 0x00	; 0
+ 73e:	30 e0       	ldi	r19, 0x00	; 0
+ 740:	45 e4       	ldi	r20, 0x45	; 69
+ 742:	53 e0       	ldi	r21, 0x03	; 3
+ 744:	62 e5       	ldi	r22, 0x52	; 82
+ 746:	73 e0       	ldi	r23, 0x03	; 3
+ 748:	8d ec       	ldi	r24, 0xCD	; 205
+ 74a:	92 e0       	ldi	r25, 0x02	; 2
+ 74c:	0e 94 38 02 	call	0x470	; 0x470 <_ZN3romC1EP14portcontrollerP8shiftregy>
+static rom program3 = rom(&port,&addreg,0x14000u);
+ 750:	68 94       	set
+ 752:	dd 24       	eor	r13, r13
+ 754:	d6 f8       	bld	r13, 6
+ 756:	20 e0       	ldi	r18, 0x00	; 0
+ 758:	30 e0       	ldi	r19, 0x00	; 0
+ 75a:	45 e4       	ldi	r20, 0x45	; 69
+ 75c:	53 e0       	ldi	r21, 0x03	; 3
+ 75e:	62 e5       	ldi	r22, 0x52	; 82
+ 760:	73 e0       	ldi	r23, 0x03	; 3
+ 762:	85 ec       	ldi	r24, 0xC5	; 197
+ 764:	92 e0       	ldi	r25, 0x02	; 2
+ 766:	0e 94 38 02 	call	0x470	; 0x470 <_ZN3romC1EP14portcontrollerP8shiftregy>
+
+static eeprom fattable =eeprom(&port,&addreg,rwpin,0x16000u);
+ 76a:	a1 2c       	mov	r10, r1
+ 76c:	0f 2e       	mov	r0, r31
+ 76e:	f0 e6       	ldi	r31, 0x60	; 96
+ 770:	bf 2e       	mov	r11, r31
+ 772:	f0 2d       	mov	r31, r0
+ 774:	cc 24       	eor	r12, r12
+ 776:	c3 94       	inc	r12
+ 778:	d1 2c       	mov	r13, r1
+ 77a:	e1 2c       	mov	r14, r1
+ 77c:	21 e0       	ldi	r18, 0x01	; 1
+ 77e:	45 e4       	ldi	r20, 0x45	; 69
+ 780:	53 e0       	ldi	r21, 0x03	; 3
+ 782:	62 e5       	ldi	r22, 0x52	; 82
+ 784:	73 e0       	ldi	r23, 0x03	; 3
+ 786:	8a eb       	ldi	r24, 0xBA	; 186
+ 788:	92 e0       	ldi	r25, 0x02	; 2
+ 78a:	0e 94 0d 02 	call	0x41a	; 0x41a <_ZN6eepromC1EP14portcontrollerP8shiftreghy>
+static eeprom storage0 =eeprom(&port,&addreg,rwpin,0x18000u);
+ 78e:	68 94       	set
+ 790:	bb 24       	eor	r11, r11
+ 792:	b7 f8       	bld	r11, 7
+ 794:	21 e0       	ldi	r18, 0x01	; 1
+ 796:	45 e4       	ldi	r20, 0x45	; 69
+ 798:	53 e0       	ldi	r21, 0x03	; 3
+ 79a:	62 e5       	ldi	r22, 0x52	; 82
+ 79c:	73 e0       	ldi	r23, 0x03	; 3
+ 79e:	8f ea       	ldi	r24, 0xAF	; 175
+ 7a0:	92 e0       	ldi	r25, 0x02	; 2
+ 7a2:	0e 94 0d 02 	call	0x41a	; 0x41a <_ZN6eepromC1EP14portcontrollerP8shiftreghy>
+static eeprom storage1 =eeprom(&port,&addreg,rwpin,0x1A000u);
+ 7a6:	0f 2e       	mov	r0, r31
+ 7a8:	f0 ea       	ldi	r31, 0xA0	; 160
+ 7aa:	bf 2e       	mov	r11, r31
+ 7ac:	f0 2d       	mov	r31, r0
+ 7ae:	21 e0       	ldi	r18, 0x01	; 1
+ 7b0:	45 e4       	ldi	r20, 0x45	; 69
+ 7b2:	53 e0       	ldi	r21, 0x03	; 3
+ 7b4:	62 e5       	ldi	r22, 0x52	; 82
+ 7b6:	73 e0       	ldi	r23, 0x03	; 3
+ 7b8:	84 ea       	ldi	r24, 0xA4	; 164
+ 7ba:	92 e0       	ldi	r25, 0x02	; 2
+ 7bc:	0e 94 0d 02 	call	0x41a	; 0x41a <_ZN6eepromC1EP14portcontrollerP8shiftreghy>
+static eeprom storage2 =eeprom(&port,&addreg,rwpin,0x1C000u);
+ 7c0:	0f 2e       	mov	r0, r31
+ 7c2:	f0 ec       	ldi	r31, 0xC0	; 192
+ 7c4:	bf 2e       	mov	r11, r31
+ 7c6:	f0 2d       	mov	r31, r0
+ 7c8:	21 e0       	ldi	r18, 0x01	; 1
+ 7ca:	45 e4       	ldi	r20, 0x45	; 69
+ 7cc:	53 e0       	ldi	r21, 0x03	; 3
+ 7ce:	62 e5       	ldi	r22, 0x52	; 82
+ 7d0:	73 e0       	ldi	r23, 0x03	; 3
+ 7d2:	89 e9       	ldi	r24, 0x99	; 153
+ 7d4:	92 e0       	ldi	r25, 0x02	; 2
+ 7d6:	0e 94 0d 02 	call	0x41a	; 0x41a <_ZN6eepromC1EP14portcontrollerP8shiftreghy>
+static eeprom storage3 =eeprom(&port,&addreg,rwpin,0x1E000u);
+ 7da:	0f 2e       	mov	r0, r31
+ 7dc:	f0 ee       	ldi	r31, 0xE0	; 224
+ 7de:	bf 2e       	mov	r11, r31
+ 7e0:	f0 2d       	mov	r31, r0
+ 7e2:	21 e0       	ldi	r18, 0x01	; 1
+ 7e4:	45 e4       	ldi	r20, 0x45	; 69
+ 7e6:	53 e0       	ldi	r21, 0x03	; 3
+ 7e8:	62 e5       	ldi	r22, 0x52	; 82
+ 7ea:	73 e0       	ldi	r23, 0x03	; 3
+ 7ec:	8e e8       	ldi	r24, 0x8E	; 142
+ 7ee:	92 e0       	ldi	r25, 0x02	; 2
+ 7f0:	0e 94 0d 02 	call	0x41a	; 0x41a <_ZN6eepromC1EP14portcontrollerP8shiftreghy>
+ 
+static Vram vbank0 = Vram(&port,&addreg,rwpin,vmempin,0x0u);	// video ram
+ 7f4:	81 2c       	mov	r8, r1
+ 7f6:	91 2c       	mov	r9, r1
+ 7f8:	b1 2c       	mov	r11, r1
+ 7fa:	c1 2c       	mov	r12, r1
+ 7fc:	02 e0       	ldi	r16, 0x02	; 2
+ 7fe:	21 e0       	ldi	r18, 0x01	; 1
+ 800:	45 e4       	ldi	r20, 0x45	; 69
+ 802:	53 e0       	ldi	r21, 0x03	; 3
+ 804:	62 e5       	ldi	r22, 0x52	; 82
+ 806:	73 e0       	ldi	r23, 0x03	; 3
+ 808:	8e e7       	ldi	r24, 0x7E	; 126
+ 80a:	92 e0       	ldi	r25, 0x02	; 2
+ 80c:	0e 94 8d 02 	call	0x51a	; 0x51a <_ZN4VramC1EP14portcontrollerP8shiftreghhy>
+static Vram vbank1 = Vram(&port,&addreg,rwpin,vmempin,0x2000u);//instruction ram
+ 810:	68 94       	set
+ 812:	99 24       	eor	r9, r9
+ 814:	95 f8       	bld	r9, 5
+ 816:	21 e0       	ldi	r18, 0x01	; 1
+ 818:	45 e4       	ldi	r20, 0x45	; 69
+ 81a:	53 e0       	ldi	r21, 0x03	; 3
+ 81c:	62 e5       	ldi	r22, 0x52	; 82
+ 81e:	73 e0       	ldi	r23, 0x03	; 3
+ 820:	8e e6       	ldi	r24, 0x6E	; 110
+ 822:	92 e0       	ldi	r25, 0x02	; 2
+ 824:	0e 94 8d 02 	call	0x51a	; 0x51a <_ZN4VramC1EP14portcontrollerP8shiftreghhy>
+static Vram vbank2 = Vram(&port,&addreg,rwpin,vmempin,0x4000u);// custom char ram 
+ 828:	68 94       	set
+ 82a:	99 24       	eor	r9, r9
+ 82c:	96 f8       	bld	r9, 6
+ 82e:	21 e0       	ldi	r18, 0x01	; 1
+ 830:	45 e4       	ldi	r20, 0x45	; 69
+ 832:	53 e0       	ldi	r21, 0x03	; 3
+ 834:	62 e5       	ldi	r22, 0x52	; 82
+ 836:	73 e0       	ldi	r23, 0x03	; 3
+ 838:	8e e5       	ldi	r24, 0x5E	; 94
+ 83a:	92 e0       	ldi	r25, 0x02	; 2
+ 83c:	0e 94 8d 02 	call	0x51a	; 0x51a <_ZN4VramC1EP14portcontrollerP8shiftreghhy>
+
+
+static ram rambanklist[] = {bank0,bank1,bank2,bank3,bank4};
+ 840:	8c e0       	ldi	r24, 0x0C	; 12
+ 842:	e5 e2       	ldi	r30, 0x25	; 37
+ 844:	f3 e0       	ldi	r31, 0x03	; 3
+ 846:	a2 e2       	ldi	r26, 0x22	; 34
+ 848:	b2 e0       	ldi	r27, 0x02	; 2
+ 84a:	01 90       	ld	r0, Z+
+ 84c:	0d 92       	st	X+, r0
+ 84e:	8a 95       	dec	r24
+ 850:	e1 f7       	brne	.-8      	; 0x84a <_GLOBAL__sub_I__Z10runprogrami+0x25e>
+ 852:	8c e0       	ldi	r24, 0x0C	; 12
+ 854:	e9 e1       	ldi	r30, 0x19	; 25
+ 856:	f3 e0       	ldi	r31, 0x03	; 3
+ 858:	ae e2       	ldi	r26, 0x2E	; 46
+ 85a:	b2 e0       	ldi	r27, 0x02	; 2
+ 85c:	01 90       	ld	r0, Z+
+ 85e:	0d 92       	st	X+, r0
+ 860:	8a 95       	dec	r24
+ 862:	e1 f7       	brne	.-8      	; 0x85c <_GLOBAL__sub_I__Z10runprogrami+0x270>
+ 864:	8c e0       	ldi	r24, 0x0C	; 12
+ 866:	ed e0       	ldi	r30, 0x0D	; 13
+ 868:	f3 e0       	ldi	r31, 0x03	; 3
+ 86a:	aa e3       	ldi	r26, 0x3A	; 58
+ 86c:	b2 e0       	ldi	r27, 0x02	; 2
+ 86e:	01 90       	ld	r0, Z+
+ 870:	0d 92       	st	X+, r0
+ 872:	8a 95       	dec	r24
+ 874:	e1 f7       	brne	.-8      	; 0x86e <_GLOBAL__sub_I__Z10runprogrami+0x282>
+ 876:	8c e0       	ldi	r24, 0x0C	; 12
+ 878:	e1 e0       	ldi	r30, 0x01	; 1
+ 87a:	f3 e0       	ldi	r31, 0x03	; 3
+ 87c:	a6 e4       	ldi	r26, 0x46	; 70
+ 87e:	b2 e0       	ldi	r27, 0x02	; 2
+ 880:	01 90       	ld	r0, Z+
+ 882:	0d 92       	st	X+, r0
+ 884:	8a 95       	dec	r24
+ 886:	e1 f7       	brne	.-8      	; 0x880 <_GLOBAL__sub_I__Z10runprogrami+0x294>
+ 888:	8c e0       	ldi	r24, 0x0C	; 12
+ 88a:	e5 ef       	ldi	r30, 0xF5	; 245
+ 88c:	f2 e0       	ldi	r31, 0x02	; 2
+ 88e:	a2 e5       	ldi	r26, 0x52	; 82
+ 890:	b2 e0       	ldi	r27, 0x02	; 2
+ 892:	01 90       	ld	r0, Z+
+ 894:	0d 92       	st	X+, r0
+ 896:	8a 95       	dec	r24
+ 898:	e1 f7       	brne	.-8      	; 0x892 <_GLOBAL__sub_I__Z10runprogrami+0x2a6>
+static Vram vrambanklist[]={};
+
+
+
+static interrupts irqhandler= interrupts();
+ 89a:	80 e2       	ldi	r24, 0x20	; 32
+ 89c:	92 e0       	ldi	r25, 0x02	; 2
+ 89e:	0e 94 d7 00 	call	0x1ae	; 0x1ae <_ZN10interruptsC1Ev>
+static interpreter interpret= interpreter();
+ 8a2:	80 e0       	ldi	r24, 0x00	; 0
+ 8a4:	91 e0       	ldi	r25, 0x01	; 1
+ 8a6:	0e 94 66 00 	call	0xcc	; 0xcc <_ZN11interpreterC1Ev>
+		{
+			
+					
+		}
+	}
+ 8aa:	1f 91       	pop	r17
+ 8ac:	0f 91       	pop	r16
+ 8ae:	ff 90       	pop	r15
+ 8b0:	ef 90       	pop	r14
+ 8b2:	df 90       	pop	r13
+ 8b4:	cf 90       	pop	r12
+ 8b6:	bf 90       	pop	r11
+ 8b8:	af 90       	pop	r10
+ 8ba:	9f 90       	pop	r9
+ 8bc:	8f 90       	pop	r8
+ 8be:	08 95       	ret
+
+000008c0 <_GLOBAL__sub_D__Z10runprogrami>:
+ 8c0:	cf 93       	push	r28
+ 8c2:	df 93       	push	r29
+static Vram vrambanklist[]={};
+
+
+
+static interrupts irqhandler= interrupts();
+static interpreter interpret= interpreter();
+ 8c4:	80 e0       	ldi	r24, 0x00	; 0
+ 8c6:	91 e0       	ldi	r25, 0x01	; 1
+ 8c8:	0e 94 d6 00 	call	0x1ac	; 0x1ac <_ZN11interpreterD1Ev>
+static ram rambanklist[] = {bank0,bank1,bank2,bank3,bank4};
+static Vram vrambanklist[]={};
+
+
+
+static interrupts irqhandler= interrupts();
+ 8cc:	80 e2       	ldi	r24, 0x20	; 32
+ 8ce:	92 e0       	ldi	r25, 0x02	; 2
+ 8d0:	0e 94 d8 00 	call	0x1b0	; 0x1b0 <_ZN10interruptsD1Ev>
+static Vram vbank0 = Vram(&port,&addreg,rwpin,vmempin,0x0u);	// video ram
+static Vram vbank1 = Vram(&port,&addreg,rwpin,vmempin,0x2000u);//instruction ram
+static Vram vbank2 = Vram(&port,&addreg,rwpin,vmempin,0x4000u);// custom char ram 
+
+
+static ram rambanklist[] = {bank0,bank1,bank2,bank3,bank4};
+ 8d4:	ce e5       	ldi	r28, 0x5E	; 94
+ 8d6:	d2 e0       	ldi	r29, 0x02	; 2
+ 8d8:	2c 97       	sbiw	r28, 0x0c	; 12
+ 8da:	ce 01       	movw	r24, r28
+ 8dc:	0e 94 8c 02 	call	0x518	; 0x518 <_ZN3ramD1Ev>
+ 8e0:	82 e0       	ldi	r24, 0x02	; 2
+ 8e2:	c2 32       	cpi	r28, 0x22	; 34
+ 8e4:	d8 07       	cpc	r29, r24
+ 8e6:	c1 f7       	brne	.-16     	; 0x8d8 <_GLOBAL__sub_D__Z10runprogrami+0x18>
+static eeprom storage2 =eeprom(&port,&addreg,rwpin,0x1C000u);
+static eeprom storage3 =eeprom(&port,&addreg,rwpin,0x1E000u);
+ 
+static Vram vbank0 = Vram(&port,&addreg,rwpin,vmempin,0x0u);	// video ram
+static Vram vbank1 = Vram(&port,&addreg,rwpin,vmempin,0x2000u);//instruction ram
+static Vram vbank2 = Vram(&port,&addreg,rwpin,vmempin,0x4000u);// custom char ram 
+ 8e8:	8e e5       	ldi	r24, 0x5E	; 94
+ 8ea:	92 e0       	ldi	r25, 0x02	; 2
+ 8ec:	0e 94 b4 02 	call	0x568	; 0x568 <_ZN4VramD1Ev>
+static eeprom storage1 =eeprom(&port,&addreg,rwpin,0x1A000u);
+static eeprom storage2 =eeprom(&port,&addreg,rwpin,0x1C000u);
+static eeprom storage3 =eeprom(&port,&addreg,rwpin,0x1E000u);
+ 
+static Vram vbank0 = Vram(&port,&addreg,rwpin,vmempin,0x0u);	// video ram
+static Vram vbank1 = Vram(&port,&addreg,rwpin,vmempin,0x2000u);//instruction ram
+ 8f0:	8e e6       	ldi	r24, 0x6E	; 110
+ 8f2:	92 e0       	ldi	r25, 0x02	; 2
+ 8f4:	0e 94 b4 02 	call	0x568	; 0x568 <_ZN4VramD1Ev>
+static eeprom storage0 =eeprom(&port,&addreg,rwpin,0x18000u);
+static eeprom storage1 =eeprom(&port,&addreg,rwpin,0x1A000u);
+static eeprom storage2 =eeprom(&port,&addreg,rwpin,0x1C000u);
+static eeprom storage3 =eeprom(&port,&addreg,rwpin,0x1E000u);
+ 
+static Vram vbank0 = Vram(&port,&addreg,rwpin,vmempin,0x0u);	// video ram
+ 8f8:	8e e7       	ldi	r24, 0x7E	; 126
+ 8fa:	92 e0       	ldi	r25, 0x02	; 2
+ 8fc:	0e 94 b4 02 	call	0x568	; 0x568 <_ZN4VramD1Ev>
+
+static eeprom fattable =eeprom(&port,&addreg,rwpin,0x16000u);
+static eeprom storage0 =eeprom(&port,&addreg,rwpin,0x18000u);
+static eeprom storage1 =eeprom(&port,&addreg,rwpin,0x1A000u);
+static eeprom storage2 =eeprom(&port,&addreg,rwpin,0x1C000u);
+static eeprom storage3 =eeprom(&port,&addreg,rwpin,0x1E000u);
+ 900:	8e e8       	ldi	r24, 0x8E	; 142
+ 902:	92 e0       	ldi	r25, 0x02	; 2
+ 904:	0e 94 34 02 	call	0x468	; 0x468 <_ZN6eepromD1Ev>
+static rom program3 = rom(&port,&addreg,0x14000u);
+
+static eeprom fattable =eeprom(&port,&addreg,rwpin,0x16000u);
+static eeprom storage0 =eeprom(&port,&addreg,rwpin,0x18000u);
+static eeprom storage1 =eeprom(&port,&addreg,rwpin,0x1A000u);
+static eeprom storage2 =eeprom(&port,&addreg,rwpin,0x1C000u);
+ 908:	89 e9       	ldi	r24, 0x99	; 153
+ 90a:	92 e0       	ldi	r25, 0x02	; 2
+ 90c:	0e 94 34 02 	call	0x468	; 0x468 <_ZN6eepromD1Ev>
+static rom program2 = rom(&port,&addreg,0x12000u);
+static rom program3 = rom(&port,&addreg,0x14000u);
+
+static eeprom fattable =eeprom(&port,&addreg,rwpin,0x16000u);
+static eeprom storage0 =eeprom(&port,&addreg,rwpin,0x18000u);
+static eeprom storage1 =eeprom(&port,&addreg,rwpin,0x1A000u);
+ 910:	84 ea       	ldi	r24, 0xA4	; 164
+ 912:	92 e0       	ldi	r25, 0x02	; 2
+ 914:	0e 94 34 02 	call	0x468	; 0x468 <_ZN6eepromD1Ev>
+static rom program1 = rom(&port,&addreg,0x10000u);
+static rom program2 = rom(&port,&addreg,0x12000u);
+static rom program3 = rom(&port,&addreg,0x14000u);
+
+static eeprom fattable =eeprom(&port,&addreg,rwpin,0x16000u);
+static eeprom storage0 =eeprom(&port,&addreg,rwpin,0x18000u);
+ 918:	8f ea       	ldi	r24, 0xAF	; 175
+ 91a:	92 e0       	ldi	r25, 0x02	; 2
+ 91c:	0e 94 34 02 	call	0x468	; 0x468 <_ZN6eepromD1Ev>
+static rom program0 = rom(&port,&addreg,0xE000u);
+static rom program1 = rom(&port,&addreg,0x10000u);
+static rom program2 = rom(&port,&addreg,0x12000u);
+static rom program3 = rom(&port,&addreg,0x14000u);
+
+static eeprom fattable =eeprom(&port,&addreg,rwpin,0x16000u);
+ 920:	8a eb       	ldi	r24, 0xBA	; 186
+ 922:	92 e0       	ldi	r25, 0x02	; 2
+ 924:	0e 94 34 02 	call	0x468	; 0x468 <_ZN6eepromD1Ev>
+static rom bios = rom(&port,&addreg,0xA000u);
+static rom settings = rom(&port,&addreg,0xC000u);
+static rom program0 = rom(&port,&addreg,0xE000u);
+static rom program1 = rom(&port,&addreg,0x10000u);
+static rom program2 = rom(&port,&addreg,0x12000u);
+static rom program3 = rom(&port,&addreg,0x14000u);
+ 928:	85 ec       	ldi	r24, 0xC5	; 197
+ 92a:	92 e0       	ldi	r25, 0x02	; 2
+ 92c:	0e 94 46 02 	call	0x48c	; 0x48c <_ZN3romD1Ev>
+
+static rom bios = rom(&port,&addreg,0xA000u);
+static rom settings = rom(&port,&addreg,0xC000u);
+static rom program0 = rom(&port,&addreg,0xE000u);
+static rom program1 = rom(&port,&addreg,0x10000u);
+static rom program2 = rom(&port,&addreg,0x12000u);
+ 930:	8d ec       	ldi	r24, 0xCD	; 205
+ 932:	92 e0       	ldi	r25, 0x02	; 2
+ 934:	0e 94 46 02 	call	0x48c	; 0x48c <_ZN3romD1Ev>
+
+
+static rom bios = rom(&port,&addreg,0xA000u);
+static rom settings = rom(&port,&addreg,0xC000u);
+static rom program0 = rom(&port,&addreg,0xE000u);
+static rom program1 = rom(&port,&addreg,0x10000u);
+ 938:	85 ed       	ldi	r24, 0xD5	; 213
+ 93a:	92 e0       	ldi	r25, 0x02	; 2
+ 93c:	0e 94 46 02 	call	0x48c	; 0x48c <_ZN3romD1Ev>
+static ram bank4 = ram(&port,&addreg,rwpin,0x8000u);// stack ram
+
+
+static rom bios = rom(&port,&addreg,0xA000u);
+static rom settings = rom(&port,&addreg,0xC000u);
+static rom program0 = rom(&port,&addreg,0xE000u);
+ 940:	8d ed       	ldi	r24, 0xDD	; 221
+ 942:	92 e0       	ldi	r25, 0x02	; 2
+ 944:	0e 94 46 02 	call	0x48c	; 0x48c <_ZN3romD1Ev>
+static ram bank3 = ram(&port,&addreg,rwpin,0x6000u);// second prog ram  
+static ram bank4 = ram(&port,&addreg,rwpin,0x8000u);// stack ram
+
+
+static rom bios = rom(&port,&addreg,0xA000u);
+static rom settings = rom(&port,&addreg,0xC000u);
+ 948:	85 ee       	ldi	r24, 0xE5	; 229
+ 94a:	92 e0       	ldi	r25, 0x02	; 2
+ 94c:	0e 94 46 02 	call	0x48c	; 0x48c <_ZN3romD1Ev>
+static ram bank2 = ram(&port,&addreg,rwpin,0x4000u);// main prog ram 
+static ram bank3 = ram(&port,&addreg,rwpin,0x6000u);// second prog ram  
+static ram bank4 = ram(&port,&addreg,rwpin,0x8000u);// stack ram
+
+
+static rom bios = rom(&port,&addreg,0xA000u);
+ 950:	8d ee       	ldi	r24, 0xED	; 237
+ 952:	92 e0       	ldi	r25, 0x02	; 2
+ 954:	0e 94 46 02 	call	0x48c	; 0x48c <_ZN3romD1Ev>
+static Serial serial= Serial(&csreg,&port);
+static ram bank0 = ram(&port,&addreg,rwpin,0x0u);	// os ram 
+static ram bank1 = ram(&port,&addreg,rwpin,0x2000u);//main program 
+static ram bank2 = ram(&port,&addreg,rwpin,0x4000u);// main prog ram 
+static ram bank3 = ram(&port,&addreg,rwpin,0x6000u);// second prog ram  
+static ram bank4 = ram(&port,&addreg,rwpin,0x8000u);// stack ram
+ 958:	85 ef       	ldi	r24, 0xF5	; 245
+ 95a:	92 e0       	ldi	r25, 0x02	; 2
+ 95c:	0e 94 8c 02 	call	0x518	; 0x518 <_ZN3ramD1Ev>
+static shiftreg csreg=shiftreg(37,36,35,&port);
+static Serial serial= Serial(&csreg,&port);
+static ram bank0 = ram(&port,&addreg,rwpin,0x0u);	// os ram 
+static ram bank1 = ram(&port,&addreg,rwpin,0x2000u);//main program 
+static ram bank2 = ram(&port,&addreg,rwpin,0x4000u);// main prog ram 
+static ram bank3 = ram(&port,&addreg,rwpin,0x6000u);// second prog ram  
+ 960:	81 e0       	ldi	r24, 0x01	; 1
+ 962:	93 e0       	ldi	r25, 0x03	; 3
+ 964:	0e 94 8c 02 	call	0x518	; 0x518 <_ZN3ramD1Ev>
+static shiftreg addreg=shiftreg(40,39,38,&port);
+static shiftreg csreg=shiftreg(37,36,35,&port);
+static Serial serial= Serial(&csreg,&port);
+static ram bank0 = ram(&port,&addreg,rwpin,0x0u);	// os ram 
+static ram bank1 = ram(&port,&addreg,rwpin,0x2000u);//main program 
+static ram bank2 = ram(&port,&addreg,rwpin,0x4000u);// main prog ram 
+ 968:	8d e0       	ldi	r24, 0x0D	; 13
+ 96a:	93 e0       	ldi	r25, 0x03	; 3
+ 96c:	0e 94 8c 02 	call	0x518	; 0x518 <_ZN3ramD1Ev>
+static portcontroller port=portcontroller();
+static shiftreg addreg=shiftreg(40,39,38,&port);
+static shiftreg csreg=shiftreg(37,36,35,&port);
+static Serial serial= Serial(&csreg,&port);
+static ram bank0 = ram(&port,&addreg,rwpin,0x0u);	// os ram 
+static ram bank1 = ram(&port,&addreg,rwpin,0x2000u);//main program 
+ 970:	89 e1       	ldi	r24, 0x19	; 25
  972:	93 e0       	ldi	r25, 0x03	; 3
- 974:	0e 94 b3 02 	call	0x566	; 0x566 <_ZN3ramC1EP14portcontrollerP8shiftreghm>
-static ram bank3 = ram(&port,&addreg,rwpin,0x5000u);// second prog ram or extended main program ram 
- 978:	e1 2c       	mov	r14, r1
- 97a:	10 e5       	ldi	r17, 0x50	; 80
- 97c:	f1 2e       	mov	r15, r17
- 97e:	00 e0       	ldi	r16, 0x00	; 0
- 980:	10 e0       	ldi	r17, 0x00	; 0
- 982:	21 e0       	ldi	r18, 0x01	; 1
- 984:	47 ea       	ldi	r20, 0xA7	; 167
- 986:	53 e0       	ldi	r21, 0x03	; 3
- 988:	64 eb       	ldi	r22, 0xB4	; 180
- 98a:	73 e0       	ldi	r23, 0x03	; 3
- 98c:	89 e6       	ldi	r24, 0x69	; 105
- 98e:	93 e0       	ldi	r25, 0x03	; 3
- 990:	0e 94 b3 02 	call	0x566	; 0x566 <_ZN3ramC1EP14portcontrollerP8shiftreghm>
-static ram bank4 = ram(&port,&addreg,rwpin,0x6000u);// stack ram
- 994:	e1 2c       	mov	r14, r1
- 996:	10 e6       	ldi	r17, 0x60	; 96
- 998:	f1 2e       	mov	r15, r17
- 99a:	00 e0       	ldi	r16, 0x00	; 0
- 99c:	10 e0       	ldi	r17, 0x00	; 0
- 99e:	21 e0       	ldi	r18, 0x01	; 1
- 9a0:	47 ea       	ldi	r20, 0xA7	; 167
- 9a2:	53 e0       	ldi	r21, 0x03	; 3
- 9a4:	64 eb       	ldi	r22, 0xB4	; 180
- 9a6:	73 e0       	ldi	r23, 0x03	; 3
- 9a8:	8d e5       	ldi	r24, 0x5D	; 93
- 9aa:	93 e0       	ldi	r25, 0x03	; 3
- 9ac:	0e 94 b3 02 	call	0x566	; 0x566 <_ZN3ramC1EP14portcontrollerP8shiftreghm>
- 
-static Vram vbank0 = Vram(&port,&addreg,rwpin,vmempin,0x0u);	// video ram
- 9b0:	81 2c       	mov	r8, r1
- 9b2:	91 2c       	mov	r9, r1
- 9b4:	a1 2c       	mov	r10, r1
- 9b6:	b1 2c       	mov	r11, r1
- 9b8:	c1 2c       	mov	r12, r1
- 9ba:	d1 2c       	mov	r13, r1
- 9bc:	e1 2c       	mov	r14, r1
- 9be:	f1 2c       	mov	r15, r1
- 9c0:	02 e0       	ldi	r16, 0x02	; 2
- 9c2:	21 e0       	ldi	r18, 0x01	; 1
- 9c4:	47 ea       	ldi	r20, 0xA7	; 167
- 9c6:	53 e0       	ldi	r21, 0x03	; 3
- 9c8:	64 eb       	ldi	r22, 0xB4	; 180
- 9ca:	73 e0       	ldi	r23, 0x03	; 3
- 9cc:	8d e4       	ldi	r24, 0x4D	; 77
- 9ce:	93 e0       	ldi	r25, 0x03	; 3
- 9d0:	0e 94 28 03 	call	0x650	; 0x650 <_ZN4VramC1EP14portcontrollerP8shiftreghhy>
-static Vram vbank1 = Vram(&port,&addreg,rwpin,vmempin,0x2000u);//instruction ram
- 9d4:	68 94       	set
- 9d6:	99 24       	eor	r9, r9
- 9d8:	95 f8       	bld	r9, 5
- 9da:	21 e0       	ldi	r18, 0x01	; 1
- 9dc:	47 ea       	ldi	r20, 0xA7	; 167
- 9de:	53 e0       	ldi	r21, 0x03	; 3
- 9e0:	64 eb       	ldi	r22, 0xB4	; 180
- 9e2:	73 e0       	ldi	r23, 0x03	; 3
- 9e4:	8d e3       	ldi	r24, 0x3D	; 61
- 9e6:	93 e0       	ldi	r25, 0x03	; 3
- 9e8:	0e 94 28 03 	call	0x650	; 0x650 <_ZN4VramC1EP14portcontrollerP8shiftreghhy>
-static Vram vbank2 = Vram(&port,&addreg,rwpin,vmempin,0x4000u);// custom char ram 
- 9ec:	68 94       	set
- 9ee:	99 24       	eor	r9, r9
- 9f0:	96 f8       	bld	r9, 6
- 9f2:	21 e0       	ldi	r18, 0x01	; 1
- 9f4:	47 ea       	ldi	r20, 0xA7	; 167
- 9f6:	53 e0       	ldi	r21, 0x03	; 3
- 9f8:	64 eb       	ldi	r22, 0xB4	; 180
- 9fa:	73 e0       	ldi	r23, 0x03	; 3
- 9fc:	8d e2       	ldi	r24, 0x2D	; 45
- 9fe:	93 e0       	ldi	r25, 0x03	; 3
- a00:	0e 94 28 03 	call	0x650	; 0x650 <_ZN4VramC1EP14portcontrollerP8shiftreghhy>
-
-
-static ram rambanklist[] = {bank0,bank1,bank2,bank3,bank4};
- a04:	8c e0       	ldi	r24, 0x0C	; 12
- a06:	ed e8       	ldi	r30, 0x8D	; 141
- a08:	f3 e0       	ldi	r31, 0x03	; 3
- a0a:	a1 ef       	ldi	r26, 0xF1	; 241
- a0c:	b2 e0       	ldi	r27, 0x02	; 2
- a0e:	01 90       	ld	r0, Z+
- a10:	0d 92       	st	X+, r0
- a12:	8a 95       	dec	r24
- a14:	e1 f7       	brne	.-8      	; 0xa0e <_GLOBAL__sub_I_gpvariables+0x12a>
- a16:	8c e0       	ldi	r24, 0x0C	; 12
- a18:	e1 e8       	ldi	r30, 0x81	; 129
- a1a:	f3 e0       	ldi	r31, 0x03	; 3
- a1c:	ad ef       	ldi	r26, 0xFD	; 253
- a1e:	b2 e0       	ldi	r27, 0x02	; 2
- a20:	01 90       	ld	r0, Z+
- a22:	0d 92       	st	X+, r0
- a24:	8a 95       	dec	r24
- a26:	e1 f7       	brne	.-8      	; 0xa20 <_GLOBAL__sub_I_gpvariables+0x13c>
- a28:	8c e0       	ldi	r24, 0x0C	; 12
- a2a:	e5 e7       	ldi	r30, 0x75	; 117
- a2c:	f3 e0       	ldi	r31, 0x03	; 3
- a2e:	a9 e0       	ldi	r26, 0x09	; 9
- a30:	b3 e0       	ldi	r27, 0x03	; 3
- a32:	01 90       	ld	r0, Z+
- a34:	0d 92       	st	X+, r0
- a36:	8a 95       	dec	r24
- a38:	e1 f7       	brne	.-8      	; 0xa32 <_GLOBAL__sub_I_gpvariables+0x14e>
- a3a:	8c e0       	ldi	r24, 0x0C	; 12
- a3c:	e9 e6       	ldi	r30, 0x69	; 105
- a3e:	f3 e0       	ldi	r31, 0x03	; 3
- a40:	a5 e1       	ldi	r26, 0x15	; 21
- a42:	b3 e0       	ldi	r27, 0x03	; 3
- a44:	01 90       	ld	r0, Z+
- a46:	0d 92       	st	X+, r0
- a48:	8a 95       	dec	r24
- a4a:	e1 f7       	brne	.-8      	; 0xa44 <_GLOBAL__sub_I_gpvariables+0x160>
- a4c:	8c e0       	ldi	r24, 0x0C	; 12
- a4e:	ed e5       	ldi	r30, 0x5D	; 93
- a50:	f3 e0       	ldi	r31, 0x03	; 3
- a52:	a1 e2       	ldi	r26, 0x21	; 33
- a54:	b3 e0       	ldi	r27, 0x03	; 3
- a56:	01 90       	ld	r0, Z+
- a58:	0d 92       	st	X+, r0
- a5a:	8a 95       	dec	r24
- a5c:	e1 f7       	brne	.-8      	; 0xa56 <_GLOBAL__sub_I_gpvariables+0x172>
-static Vram vrambanklist[]={};
-
-static rom bios = rom(&port,&addreg,0x7000);
- a5e:	0f 2e       	mov	r0, r31
- a60:	f0 e7       	ldi	r31, 0x70	; 112
- a62:	df 2e       	mov	r13, r31
- a64:	f0 2d       	mov	r31, r0
- a66:	00 e0       	ldi	r16, 0x00	; 0
- a68:	10 e0       	ldi	r17, 0x00	; 0
- a6a:	20 e0       	ldi	r18, 0x00	; 0
- a6c:	30 e0       	ldi	r19, 0x00	; 0
- a6e:	47 ea       	ldi	r20, 0xA7	; 167
- a70:	53 e0       	ldi	r21, 0x03	; 3
- a72:	64 eb       	ldi	r22, 0xB4	; 180
- a74:	73 e0       	ldi	r23, 0x03	; 3
- a76:	8d ed       	ldi	r24, 0xDD	; 221
- a78:	92 e0       	ldi	r25, 0x02	; 2
- a7a:	0e 94 90 02 	call	0x520	; 0x520 <_ZN3romC1EP14portcontrollerP8shiftregy>
-static rom settings = rom(&port,&addreg,0x8000);
- a7e:	68 94       	set
- a80:	dd 24       	eor	r13, r13
- a82:	d7 f8       	bld	r13, 7
- a84:	20 e0       	ldi	r18, 0x00	; 0
- a86:	30 e0       	ldi	r19, 0x00	; 0
- a88:	47 ea       	ldi	r20, 0xA7	; 167
- a8a:	53 e0       	ldi	r21, 0x03	; 3
- a8c:	64 eb       	ldi	r22, 0xB4	; 180
- a8e:	73 e0       	ldi	r23, 0x03	; 3
- a90:	89 ec       	ldi	r24, 0xC9	; 201
- a92:	92 e0       	ldi	r25, 0x02	; 2
- a94:	0e 94 90 02 	call	0x520	; 0x520 <_ZN3romC1EP14portcontrollerP8shiftregy>
-static rom program0 = rom(&port,&addreg,0x9000);
- a98:	0f 2e       	mov	r0, r31
- a9a:	f0 e9       	ldi	r31, 0x90	; 144
- a9c:	df 2e       	mov	r13, r31
- a9e:	f0 2d       	mov	r31, r0
- aa0:	20 e0       	ldi	r18, 0x00	; 0
- aa2:	30 e0       	ldi	r19, 0x00	; 0
- aa4:	47 ea       	ldi	r20, 0xA7	; 167
- aa6:	53 e0       	ldi	r21, 0x03	; 3
- aa8:	64 eb       	ldi	r22, 0xB4	; 180
- aaa:	73 e0       	ldi	r23, 0x03	; 3
- aac:	85 eb       	ldi	r24, 0xB5	; 181
- aae:	92 e0       	ldi	r25, 0x02	; 2
- ab0:	0e 94 90 02 	call	0x520	; 0x520 <_ZN3romC1EP14portcontrollerP8shiftregy>
-static rom program1 = rom(&port,&addreg,0xA000);
- ab4:	0f 2e       	mov	r0, r31
- ab6:	f0 ea       	ldi	r31, 0xA0	; 160
- ab8:	df 2e       	mov	r13, r31
- aba:	f0 2d       	mov	r31, r0
- abc:	20 e0       	ldi	r18, 0x00	; 0
- abe:	30 e0       	ldi	r19, 0x00	; 0
- ac0:	47 ea       	ldi	r20, 0xA7	; 167
- ac2:	53 e0       	ldi	r21, 0x03	; 3
- ac4:	64 eb       	ldi	r22, 0xB4	; 180
- ac6:	73 e0       	ldi	r23, 0x03	; 3
- ac8:	81 ea       	ldi	r24, 0xA1	; 161
- aca:	92 e0       	ldi	r25, 0x02	; 2
- acc:	0e 94 90 02 	call	0x520	; 0x520 <_ZN3romC1EP14portcontrollerP8shiftregy>
-static rom program2 = rom(&port,&addreg,0xB000);
- ad0:	0f 2e       	mov	r0, r31
- ad2:	f0 eb       	ldi	r31, 0xB0	; 176
- ad4:	df 2e       	mov	r13, r31
- ad6:	f0 2d       	mov	r31, r0
- ad8:	20 e0       	ldi	r18, 0x00	; 0
- ada:	30 e0       	ldi	r19, 0x00	; 0
- adc:	47 ea       	ldi	r20, 0xA7	; 167
- ade:	53 e0       	ldi	r21, 0x03	; 3
- ae0:	64 eb       	ldi	r22, 0xB4	; 180
- ae2:	73 e0       	ldi	r23, 0x03	; 3
- ae4:	8d e8       	ldi	r24, 0x8D	; 141
- ae6:	92 e0       	ldi	r25, 0x02	; 2
- ae8:	0e 94 90 02 	call	0x520	; 0x520 <_ZN3romC1EP14portcontrollerP8shiftregy>
-static rom program3 = rom(&port,&addreg,0xC000);
- aec:	0f 2e       	mov	r0, r31
- aee:	f0 ec       	ldi	r31, 0xC0	; 192
- af0:	df 2e       	mov	r13, r31
- af2:	f0 2d       	mov	r31, r0
- af4:	20 e0       	ldi	r18, 0x00	; 0
- af6:	30 e0       	ldi	r19, 0x00	; 0
- af8:	47 ea       	ldi	r20, 0xA7	; 167
- afa:	53 e0       	ldi	r21, 0x03	; 3
- afc:	64 eb       	ldi	r22, 0xB4	; 180
- afe:	73 e0       	ldi	r23, 0x03	; 3
- b00:	89 e7       	ldi	r24, 0x79	; 121
- b02:	92 e0       	ldi	r25, 0x02	; 2
- b04:	0e 94 90 02 	call	0x520	; 0x520 <_ZN3romC1EP14portcontrollerP8shiftregy>
-
-static eeprom fattable =eeprom(&port,&addreg,rwpin,0x0002C000);
- b08:	0f 2e       	mov	r0, r31
- b0a:	f0 ec       	ldi	r31, 0xC0	; 192
- b0c:	bf 2e       	mov	r11, r31
- b0e:	f0 2d       	mov	r31, r0
- b10:	68 94       	set
- b12:	cc 24       	eor	r12, r12
- b14:	c1 f8       	bld	r12, 1
- b16:	d1 2c       	mov	r13, r1
- b18:	21 e0       	ldi	r18, 0x01	; 1
- b1a:	47 ea       	ldi	r20, 0xA7	; 167
- b1c:	53 e0       	ldi	r21, 0x03	; 3
- b1e:	64 eb       	ldi	r22, 0xB4	; 180
- b20:	73 e0       	ldi	r23, 0x03	; 3
- b22:	88 e6       	ldi	r24, 0x68	; 104
- b24:	92 e0       	ldi	r25, 0x02	; 2
- b26:	0e 94 69 02 	call	0x4d2	; 0x4d2 <_ZN6eepromC1EP14portcontrollerP8shiftreghy>
-static eeprom storage0 =eeprom(&port,&addreg,rwpin,0x00030000);
- b2a:	b1 2c       	mov	r11, r1
- b2c:	0f 2e       	mov	r0, r31
- b2e:	f3 e0       	ldi	r31, 0x03	; 3
- b30:	cf 2e       	mov	r12, r31
- b32:	f0 2d       	mov	r31, r0
- b34:	21 e0       	ldi	r18, 0x01	; 1
- b36:	47 ea       	ldi	r20, 0xA7	; 167
- b38:	53 e0       	ldi	r21, 0x03	; 3
- b3a:	64 eb       	ldi	r22, 0xB4	; 180
- b3c:	73 e0       	ldi	r23, 0x03	; 3
- b3e:	87 e5       	ldi	r24, 0x57	; 87
- b40:	92 e0       	ldi	r25, 0x02	; 2
- b42:	0e 94 69 02 	call	0x4d2	; 0x4d2 <_ZN6eepromC1EP14portcontrollerP8shiftreghy>
-static eeprom storage1 =eeprom(&port,&addreg,rwpin,0x00034000);
- b46:	68 94       	set
- b48:	bb 24       	eor	r11, r11
- b4a:	b6 f8       	bld	r11, 6
- b4c:	21 e0       	ldi	r18, 0x01	; 1
- b4e:	47 ea       	ldi	r20, 0xA7	; 167
- b50:	53 e0       	ldi	r21, 0x03	; 3
- b52:	64 eb       	ldi	r22, 0xB4	; 180
- b54:	73 e0       	ldi	r23, 0x03	; 3
- b56:	86 e4       	ldi	r24, 0x46	; 70
- b58:	92 e0       	ldi	r25, 0x02	; 2
- b5a:	0e 94 69 02 	call	0x4d2	; 0x4d2 <_ZN6eepromC1EP14portcontrollerP8shiftreghy>
-static eeprom storage2 =eeprom(&port,&addreg,rwpin,0x00038000);
- b5e:	68 94       	set
- b60:	bb 24       	eor	r11, r11
- b62:	b7 f8       	bld	r11, 7
- b64:	21 e0       	ldi	r18, 0x01	; 1
- b66:	47 ea       	ldi	r20, 0xA7	; 167
- b68:	53 e0       	ldi	r21, 0x03	; 3
- b6a:	64 eb       	ldi	r22, 0xB4	; 180
- b6c:	73 e0       	ldi	r23, 0x03	; 3
- b6e:	85 e3       	ldi	r24, 0x35	; 53
- b70:	92 e0       	ldi	r25, 0x02	; 2
- b72:	0e 94 69 02 	call	0x4d2	; 0x4d2 <_ZN6eepromC1EP14portcontrollerP8shiftreghy>
-static eeprom storage3 =eeprom(&port,&addreg,rwpin,0x0003C000);
- b76:	0f 2e       	mov	r0, r31
- b78:	f0 ec       	ldi	r31, 0xC0	; 192
- b7a:	bf 2e       	mov	r11, r31
- b7c:	f0 2d       	mov	r31, r0
- b7e:	21 e0       	ldi	r18, 0x01	; 1
- b80:	47 ea       	ldi	r20, 0xA7	; 167
- b82:	53 e0       	ldi	r21, 0x03	; 3
- b84:	64 eb       	ldi	r22, 0xB4	; 180
- b86:	73 e0       	ldi	r23, 0x03	; 3
- b88:	84 e2       	ldi	r24, 0x24	; 36
- b8a:	92 e0       	ldi	r25, 0x02	; 2
- b8c:	0e 94 69 02 	call	0x4d2	; 0x4d2 <_ZN6eepromC1EP14portcontrollerP8shiftreghy>
-
-
-static interrupts irqhandler= interrupts();
- b90:	82 e2       	ldi	r24, 0x22	; 34
- b92:	92 e0       	ldi	r25, 0x02	; 2
- b94:	0e 94 d2 00 	call	0x1a4	; 0x1a4 <_ZN10interruptsC1Ev>
-static interpreter interpret= interpreter();
- b98:	82 e0       	ldi	r24, 0x02	; 2
- b9a:	91 e0       	ldi	r25, 0x01	; 1
- b9c:	0e 94 61 00 	call	0xc2	; 0xc2 <_ZN11interpreterC1Ev>
-
-static lcd disp1=lcd();
- ba0:	80 e0       	ldi	r24, 0x00	; 0
- ba2:	91 e0       	ldi	r25, 0x01	; 1
- ba4:	0e 94 d4 00 	call	0x1a8	; 0x1a8 <_ZN3lcdC1Ev>
-				
-			}
-		storememory(0x0000,0xff);
+ 974:	0e 94 8c 02 	call	0x518	; 0x518 <_ZN3ramD1Ev>
+static const int address_max_hex=0x1fff;
+static portcontroller port=portcontroller();
+static shiftreg addreg=shiftreg(40,39,38,&port);
+static shiftreg csreg=shiftreg(37,36,35,&port);
+static Serial serial= Serial(&csreg,&port);
+static ram bank0 = ram(&port,&addreg,rwpin,0x0u);	// os ram 
+ 978:	85 e2       	ldi	r24, 0x25	; 37
+ 97a:	93 e0       	ldi	r25, 0x03	; 3
+ 97c:	0e 94 8c 02 	call	0x518	; 0x518 <_ZN3ramD1Ev>
+*/
+static const int address_max_hex=0x1fff;
+static portcontroller port=portcontroller();
+static shiftreg addreg=shiftreg(40,39,38,&port);
+static shiftreg csreg=shiftreg(37,36,35,&port);
+static Serial serial= Serial(&csreg,&port);
+ 980:	81 e3       	ldi	r24, 0x31	; 49
+ 982:	93 e0       	ldi	r25, 0x03	; 3
+ 984:	0e 94 65 00 	call	0xca	; 0xca <_ZN6SerialD1Ev>
+	
+*/
+static const int address_max_hex=0x1fff;
+static portcontroller port=portcontroller();
+static shiftreg addreg=shiftreg(40,39,38,&port);
+static shiftreg csreg=shiftreg(37,36,35,&port);
+ 988:	88 e3       	ldi	r24, 0x38	; 56
+ 98a:	93 e0       	ldi	r25, 0x03	; 3
+ 98c:	0e 94 0c 02 	call	0x418	; 0x418 <_ZN8shiftregD1Ev>
+	
+	
+*/
+static const int address_max_hex=0x1fff;
+static portcontroller port=portcontroller();
+static shiftreg addreg=shiftreg(40,39,38,&port);
+ 990:	85 e4       	ldi	r24, 0x45	; 69
+ 992:	93 e0       	ldi	r25, 0x03	; 3
+ 994:	0e 94 0c 02 	call	0x418	; 0x418 <_ZN8shiftregD1Ev>
+	a0-a12 adress a13-a15 
+	
+	
+*/
+static const int address_max_hex=0x1fff;
+static portcontroller port=portcontroller();
+ 998:	82 e5       	ldi	r24, 0x52	; 82
+ 99a:	93 e0       	ldi	r25, 0x03	; 3
+ 99c:	0e 94 45 01 	call	0x28a	; 0x28a <_ZN14portcontrollerD1Ev>
+		{
+			
+					
 		}
 	}
- ba8:	1f 91       	pop	r17
- baa:	0f 91       	pop	r16
- bac:	ff 90       	pop	r15
- bae:	ef 90       	pop	r14
- bb0:	df 90       	pop	r13
- bb2:	cf 90       	pop	r12
- bb4:	bf 90       	pop	r11
- bb6:	af 90       	pop	r10
- bb8:	9f 90       	pop	r9
- bba:	8f 90       	pop	r8
- bbc:	08 95       	ret
+ 9a0:	df 91       	pop	r29
+ 9a2:	cf 91       	pop	r28
+ 9a4:	08 95       	ret
 
-00000bbe <_GLOBAL__sub_D_gpvariables>:
- bbe:	cf 93       	push	r28
- bc0:	df 93       	push	r29
+000009a6 <__tablejump2__>:
+ 9a6:	ee 0f       	add	r30, r30
+ 9a8:	ff 1f       	adc	r31, r31
+ 9aa:	05 90       	lpm	r0, Z+
+ 9ac:	f4 91       	lpm	r31, Z
+ 9ae:	e0 2d       	mov	r30, r0
+ 9b0:	09 94       	ijmp
 
+000009b2 <__do_global_dtors>:
+ 9b2:	10 e0       	ldi	r17, 0x00	; 0
+ 9b4:	cf e3       	ldi	r28, 0x3F	; 63
+ 9b6:	d0 e0       	ldi	r29, 0x00	; 0
+ 9b8:	04 c0       	rjmp	.+8      	; 0x9c2 <__do_global_dtors+0x10>
+ 9ba:	fe 01       	movw	r30, r28
+ 9bc:	0e 94 d3 04 	call	0x9a6	; 0x9a6 <__tablejump2__>
+ 9c0:	21 96       	adiw	r28, 0x01	; 1
+ 9c2:	c0 34       	cpi	r28, 0x40	; 64
+ 9c4:	d1 07       	cpc	r29, r17
+ 9c6:	c9 f7       	brne	.-14     	; 0x9ba <__do_global_dtors+0x8>
+ 9c8:	f8 94       	cli
 
-static interrupts irqhandler= interrupts();
-static interpreter interpret= interpreter();
-
-static lcd disp1=lcd();
- bc2:	80 e0       	ldi	r24, 0x00	; 0
- bc4:	91 e0       	ldi	r25, 0x01	; 1
- bc6:	0e 94 d5 00 	call	0x1aa	; 0x1aa <_ZN3lcdD1Ev>
-static eeprom storage2 =eeprom(&port,&addreg,rwpin,0x00038000);
-static eeprom storage3 =eeprom(&port,&addreg,rwpin,0x0003C000);
-
-
-static interrupts irqhandler= interrupts();
-static interpreter interpret= interpreter();
- bca:	82 e0       	ldi	r24, 0x02	; 2
- bcc:	91 e0       	ldi	r25, 0x01	; 1
- bce:	0e 94 d1 00 	call	0x1a2	; 0x1a2 <_ZN11interpreterD1Ev>
-static eeprom storage1 =eeprom(&port,&addreg,rwpin,0x00034000);
-static eeprom storage2 =eeprom(&port,&addreg,rwpin,0x00038000);
-static eeprom storage3 =eeprom(&port,&addreg,rwpin,0x0003C000);
-
-
-static interrupts irqhandler= interrupts();
- bd2:	82 e2       	ldi	r24, 0x22	; 34
- bd4:	92 e0       	ldi	r25, 0x02	; 2
- bd6:	0e 94 d3 00 	call	0x1a6	; 0x1a6 <_ZN10interruptsD1Ev>
-
-static eeprom fattable =eeprom(&port,&addreg,rwpin,0x0002C000);
-static eeprom storage0 =eeprom(&port,&addreg,rwpin,0x00030000);
-static eeprom storage1 =eeprom(&port,&addreg,rwpin,0x00034000);
-static eeprom storage2 =eeprom(&port,&addreg,rwpin,0x00038000);
-static eeprom storage3 =eeprom(&port,&addreg,rwpin,0x0003C000);
- bda:	84 e2       	ldi	r24, 0x24	; 36
- bdc:	92 e0       	ldi	r25, 0x02	; 2
- bde:	0e 94 8f 02 	call	0x51e	; 0x51e <_ZN6eepromD1Ev>
-static rom program3 = rom(&port,&addreg,0xC000);
-
-static eeprom fattable =eeprom(&port,&addreg,rwpin,0x0002C000);
-static eeprom storage0 =eeprom(&port,&addreg,rwpin,0x00030000);
-static eeprom storage1 =eeprom(&port,&addreg,rwpin,0x00034000);
-static eeprom storage2 =eeprom(&port,&addreg,rwpin,0x00038000);
- be2:	85 e3       	ldi	r24, 0x35	; 53
- be4:	92 e0       	ldi	r25, 0x02	; 2
- be6:	0e 94 8f 02 	call	0x51e	; 0x51e <_ZN6eepromD1Ev>
-static rom program2 = rom(&port,&addreg,0xB000);
-static rom program3 = rom(&port,&addreg,0xC000);
-
-static eeprom fattable =eeprom(&port,&addreg,rwpin,0x0002C000);
-static eeprom storage0 =eeprom(&port,&addreg,rwpin,0x00030000);
-static eeprom storage1 =eeprom(&port,&addreg,rwpin,0x00034000);
- bea:	86 e4       	ldi	r24, 0x46	; 70
- bec:	92 e0       	ldi	r25, 0x02	; 2
- bee:	0e 94 8f 02 	call	0x51e	; 0x51e <_ZN6eepromD1Ev>
-static rom program1 = rom(&port,&addreg,0xA000);
-static rom program2 = rom(&port,&addreg,0xB000);
-static rom program3 = rom(&port,&addreg,0xC000);
-
-static eeprom fattable =eeprom(&port,&addreg,rwpin,0x0002C000);
-static eeprom storage0 =eeprom(&port,&addreg,rwpin,0x00030000);
- bf2:	87 e5       	ldi	r24, 0x57	; 87
- bf4:	92 e0       	ldi	r25, 0x02	; 2
- bf6:	0e 94 8f 02 	call	0x51e	; 0x51e <_ZN6eepromD1Ev>
-static rom program0 = rom(&port,&addreg,0x9000);
-static rom program1 = rom(&port,&addreg,0xA000);
-static rom program2 = rom(&port,&addreg,0xB000);
-static rom program3 = rom(&port,&addreg,0xC000);
-
-static eeprom fattable =eeprom(&port,&addreg,rwpin,0x0002C000);
- bfa:	88 e6       	ldi	r24, 0x68	; 104
- bfc:	92 e0       	ldi	r25, 0x02	; 2
- bfe:	0e 94 8f 02 	call	0x51e	; 0x51e <_ZN6eepromD1Ev>
-static rom bios = rom(&port,&addreg,0x7000);
-static rom settings = rom(&port,&addreg,0x8000);
-static rom program0 = rom(&port,&addreg,0x9000);
-static rom program1 = rom(&port,&addreg,0xA000);
-static rom program2 = rom(&port,&addreg,0xB000);
-static rom program3 = rom(&port,&addreg,0xC000);
- c02:	89 e7       	ldi	r24, 0x79	; 121
- c04:	92 e0       	ldi	r25, 0x02	; 2
- c06:	0e 94 b2 02 	call	0x564	; 0x564 <_ZN3romD1Ev>
-
-static rom bios = rom(&port,&addreg,0x7000);
-static rom settings = rom(&port,&addreg,0x8000);
-static rom program0 = rom(&port,&addreg,0x9000);
-static rom program1 = rom(&port,&addreg,0xA000);
-static rom program2 = rom(&port,&addreg,0xB000);
- c0a:	8d e8       	ldi	r24, 0x8D	; 141
- c0c:	92 e0       	ldi	r25, 0x02	; 2
- c0e:	0e 94 b2 02 	call	0x564	; 0x564 <_ZN3romD1Ev>
-static Vram vrambanklist[]={};
-
-static rom bios = rom(&port,&addreg,0x7000);
-static rom settings = rom(&port,&addreg,0x8000);
-static rom program0 = rom(&port,&addreg,0x9000);
-static rom program1 = rom(&port,&addreg,0xA000);
- c12:	81 ea       	ldi	r24, 0xA1	; 161
- c14:	92 e0       	ldi	r25, 0x02	; 2
- c16:	0e 94 b2 02 	call	0x564	; 0x564 <_ZN3romD1Ev>
-static ram rambanklist[] = {bank0,bank1,bank2,bank3,bank4};
-static Vram vrambanklist[]={};
-
-static rom bios = rom(&port,&addreg,0x7000);
-static rom settings = rom(&port,&addreg,0x8000);
-static rom program0 = rom(&port,&addreg,0x9000);
- c1a:	85 eb       	ldi	r24, 0xB5	; 181
- c1c:	92 e0       	ldi	r25, 0x02	; 2
- c1e:	0e 94 b2 02 	call	0x564	; 0x564 <_ZN3romD1Ev>
-
-static ram rambanklist[] = {bank0,bank1,bank2,bank3,bank4};
-static Vram vrambanklist[]={};
-
-static rom bios = rom(&port,&addreg,0x7000);
-static rom settings = rom(&port,&addreg,0x8000);
- c22:	89 ec       	ldi	r24, 0xC9	; 201
- c24:	92 e0       	ldi	r25, 0x02	; 2
- c26:	0e 94 b2 02 	call	0x564	; 0x564 <_ZN3romD1Ev>
-
-
-static ram rambanklist[] = {bank0,bank1,bank2,bank3,bank4};
-static Vram vrambanklist[]={};
-
-static rom bios = rom(&port,&addreg,0x7000);
- c2a:	8d ed       	ldi	r24, 0xDD	; 221
- c2c:	92 e0       	ldi	r25, 0x02	; 2
- c2e:	0e 94 b2 02 	call	0x564	; 0x564 <_ZN3romD1Ev>
-static Vram vbank0 = Vram(&port,&addreg,rwpin,vmempin,0x0u);	// video ram
-static Vram vbank1 = Vram(&port,&addreg,rwpin,vmempin,0x2000u);//instruction ram
-static Vram vbank2 = Vram(&port,&addreg,rwpin,vmempin,0x4000u);// custom char ram 
-
-
-static ram rambanklist[] = {bank0,bank1,bank2,bank3,bank4};
- c32:	cd e2       	ldi	r28, 0x2D	; 45
- c34:	d3 e0       	ldi	r29, 0x03	; 3
- c36:	2c 97       	sbiw	r28, 0x0c	; 12
- c38:	ce 01       	movw	r24, r28
- c3a:	0e 94 27 03 	call	0x64e	; 0x64e <_ZN3ramD1Ev>
- c3e:	82 e0       	ldi	r24, 0x02	; 2
- c40:	c1 3f       	cpi	r28, 0xF1	; 241
- c42:	d8 07       	cpc	r29, r24
- c44:	c1 f7       	brne	.-16     	; 0xc36 <_GLOBAL__sub_D_gpvariables+0x78>
-static ram bank3 = ram(&port,&addreg,rwpin,0x5000u);// second prog ram or extended main program ram 
-static ram bank4 = ram(&port,&addreg,rwpin,0x6000u);// stack ram
- 
-static Vram vbank0 = Vram(&port,&addreg,rwpin,vmempin,0x0u);	// video ram
-static Vram vbank1 = Vram(&port,&addreg,rwpin,vmempin,0x2000u);//instruction ram
-static Vram vbank2 = Vram(&port,&addreg,rwpin,vmempin,0x4000u);// custom char ram 
- c46:	8d e2       	ldi	r24, 0x2D	; 45
- c48:	93 e0       	ldi	r25, 0x03	; 3
- c4a:	0e 94 4f 03 	call	0x69e	; 0x69e <_ZN4VramD1Ev>
-static ram bank2 = ram(&port,&addreg,rwpin,0x4000u);// main prog ram 
-static ram bank3 = ram(&port,&addreg,rwpin,0x5000u);// second prog ram or extended main program ram 
-static ram bank4 = ram(&port,&addreg,rwpin,0x6000u);// stack ram
- 
-static Vram vbank0 = Vram(&port,&addreg,rwpin,vmempin,0x0u);	// video ram
-static Vram vbank1 = Vram(&port,&addreg,rwpin,vmempin,0x2000u);//instruction ram
- c4e:	8d e3       	ldi	r24, 0x3D	; 61
- c50:	93 e0       	ldi	r25, 0x03	; 3
- c52:	0e 94 4f 03 	call	0x69e	; 0x69e <_ZN4VramD1Ev>
-static ram bank1 = ram(&port,&addreg,rwpin,0x2000u);//os extended ram
-static ram bank2 = ram(&port,&addreg,rwpin,0x4000u);// main prog ram 
-static ram bank3 = ram(&port,&addreg,rwpin,0x5000u);// second prog ram or extended main program ram 
-static ram bank4 = ram(&port,&addreg,rwpin,0x6000u);// stack ram
- 
-static Vram vbank0 = Vram(&port,&addreg,rwpin,vmempin,0x0u);	// video ram
- c56:	8d e4       	ldi	r24, 0x4D	; 77
- c58:	93 e0       	ldi	r25, 0x03	; 3
- c5a:	0e 94 4f 03 	call	0x69e	; 0x69e <_ZN4VramD1Ev>
-static Serial serial =  Serial();
-static ram bank0 = ram(&port,&addreg,rwpin,0x0u);	// os ram 
-static ram bank1 = ram(&port,&addreg,rwpin,0x2000u);//os extended ram
-static ram bank2 = ram(&port,&addreg,rwpin,0x4000u);// main prog ram 
-static ram bank3 = ram(&port,&addreg,rwpin,0x5000u);// second prog ram or extended main program ram 
-static ram bank4 = ram(&port,&addreg,rwpin,0x6000u);// stack ram
- c5e:	8d e5       	ldi	r24, 0x5D	; 93
- c60:	93 e0       	ldi	r25, 0x03	; 3
- c62:	0e 94 27 03 	call	0x64e	; 0x64e <_ZN3ramD1Ev>
-static shiftreg csreg=shiftreg(37,36,35,&port);
-static Serial serial =  Serial();
-static ram bank0 = ram(&port,&addreg,rwpin,0x0u);	// os ram 
-static ram bank1 = ram(&port,&addreg,rwpin,0x2000u);//os extended ram
-static ram bank2 = ram(&port,&addreg,rwpin,0x4000u);// main prog ram 
-static ram bank3 = ram(&port,&addreg,rwpin,0x5000u);// second prog ram or extended main program ram 
- c66:	89 e6       	ldi	r24, 0x69	; 105
- c68:	93 e0       	ldi	r25, 0x03	; 3
- c6a:	0e 94 27 03 	call	0x64e	; 0x64e <_ZN3ramD1Ev>
-static shiftreg addreg=shiftreg(40,39,38,&port);
-static shiftreg csreg=shiftreg(37,36,35,&port);
-static Serial serial =  Serial();
-static ram bank0 = ram(&port,&addreg,rwpin,0x0u);	// os ram 
-static ram bank1 = ram(&port,&addreg,rwpin,0x2000u);//os extended ram
-static ram bank2 = ram(&port,&addreg,rwpin,0x4000u);// main prog ram 
- c6e:	85 e7       	ldi	r24, 0x75	; 117
- c70:	93 e0       	ldi	r25, 0x03	; 3
- c72:	0e 94 27 03 	call	0x64e	; 0x64e <_ZN3ramD1Ev>
-static portcontroller port=portcontroller();
-static shiftreg addreg=shiftreg(40,39,38,&port);
-static shiftreg csreg=shiftreg(37,36,35,&port);
-static Serial serial =  Serial();
-static ram bank0 = ram(&port,&addreg,rwpin,0x0u);	// os ram 
-static ram bank1 = ram(&port,&addreg,rwpin,0x2000u);//os extended ram
- c76:	81 e8       	ldi	r24, 0x81	; 129
- c78:	93 e0       	ldi	r25, 0x03	; 3
- c7a:	0e 94 27 03 	call	0x64e	; 0x64e <_ZN3ramD1Ev>
-
-static portcontroller port=portcontroller();
-static shiftreg addreg=shiftreg(40,39,38,&port);
-static shiftreg csreg=shiftreg(37,36,35,&port);
-static Serial serial =  Serial();
-static ram bank0 = ram(&port,&addreg,rwpin,0x0u);	// os ram 
- c7e:	8d e8       	ldi	r24, 0x8D	; 141
- c80:	93 e0       	ldi	r25, 0x03	; 3
- c82:	0e 94 27 03 	call	0x64e	; 0x64e <_ZN3ramD1Ev>
-static const int address_max_hex=0x1fff;
-
-static portcontroller port=portcontroller();
-static shiftreg addreg=shiftreg(40,39,38,&port);
-static shiftreg csreg=shiftreg(37,36,35,&port);
-static Serial serial =  Serial();
- c86:	89 e9       	ldi	r24, 0x99	; 153
- c88:	93 e0       	ldi	r25, 0x03	; 3
- c8a:	0e 94 60 00 	call	0xc0	; 0xc0 <_ZN6SerialD1Ev>
-*/
-static const int address_max_hex=0x1fff;
-
-static portcontroller port=portcontroller();
-static shiftreg addreg=shiftreg(40,39,38,&port);
-static shiftreg csreg=shiftreg(37,36,35,&port);
- c8e:	8a e9       	ldi	r24, 0x9A	; 154
- c90:	93 e0       	ldi	r25, 0x03	; 3
- c92:	0e 94 68 02 	call	0x4d0	; 0x4d0 <_ZN8shiftregD1Ev>
-	
-*/
-static const int address_max_hex=0x1fff;
-
-static portcontroller port=portcontroller();
-static shiftreg addreg=shiftreg(40,39,38,&port);
- c96:	87 ea       	ldi	r24, 0xA7	; 167
- c98:	93 e0       	ldi	r25, 0x03	; 3
- c9a:	0e 94 68 02 	call	0x4d0	; 0x4d0 <_ZN8shiftregD1Ev>
-	
-	
-*/
-static const int address_max_hex=0x1fff;
-
-static portcontroller port=portcontroller();
- c9e:	84 eb       	ldi	r24, 0xB4	; 180
- ca0:	93 e0       	ldi	r25, 0x03	; 3
- ca2:	0e 94 42 01 	call	0x284	; 0x284 <_ZN14portcontrollerD1Ev>
-				
-			}
-		storememory(0x0000,0xff);
-		}
-	}
- ca6:	df 91       	pop	r29
- ca8:	cf 91       	pop	r28
- caa:	08 95       	ret
-
-00000cac <__ashrdi3>:
- cac:	97 fb       	bst	r25, 7
- cae:	10 f8       	bld	r1, 0
-
-00000cb0 <__lshrdi3>:
- cb0:	16 94       	lsr	r1
- cb2:	00 08       	sbc	r0, r0
- cb4:	0f 93       	push	r16
- cb6:	08 30       	cpi	r16, 0x08	; 8
- cb8:	98 f0       	brcs	.+38     	; 0xce0 <__lshrdi3+0x30>
- cba:	08 50       	subi	r16, 0x08	; 8
- cbc:	23 2f       	mov	r18, r19
- cbe:	34 2f       	mov	r19, r20
- cc0:	45 2f       	mov	r20, r21
- cc2:	56 2f       	mov	r21, r22
- cc4:	67 2f       	mov	r22, r23
- cc6:	78 2f       	mov	r23, r24
- cc8:	89 2f       	mov	r24, r25
- cca:	90 2d       	mov	r25, r0
- ccc:	f4 cf       	rjmp	.-24     	; 0xcb6 <__lshrdi3+0x6>
- cce:	05 94       	asr	r0
- cd0:	97 95       	ror	r25
- cd2:	87 95       	ror	r24
- cd4:	77 95       	ror	r23
- cd6:	67 95       	ror	r22
- cd8:	57 95       	ror	r21
- cda:	47 95       	ror	r20
- cdc:	37 95       	ror	r19
- cde:	27 95       	ror	r18
- ce0:	0a 95       	dec	r16
- ce2:	aa f7       	brpl	.-22     	; 0xcce <__lshrdi3+0x1e>
- ce4:	0f 91       	pop	r16
- ce6:	08 95       	ret
-
-00000ce8 <__cmpdi2_s8>:
- ce8:	00 24       	eor	r0, r0
- cea:	a7 fd       	sbrc	r26, 7
- cec:	00 94       	com	r0
- cee:	2a 17       	cp	r18, r26
- cf0:	30 05       	cpc	r19, r0
- cf2:	40 05       	cpc	r20, r0
- cf4:	50 05       	cpc	r21, r0
- cf6:	60 05       	cpc	r22, r0
- cf8:	70 05       	cpc	r23, r0
- cfa:	80 05       	cpc	r24, r0
- cfc:	90 05       	cpc	r25, r0
- cfe:	08 95       	ret
-
-00000d00 <__tablejump2__>:
- d00:	ee 0f       	add	r30, r30
- d02:	ff 1f       	adc	r31, r31
- d04:	05 90       	lpm	r0, Z+
- d06:	f4 91       	lpm	r31, Z
- d08:	e0 2d       	mov	r30, r0
- d0a:	09 94       	ijmp
-
-00000d0c <__do_global_dtors>:
- d0c:	10 e0       	ldi	r17, 0x00	; 0
- d0e:	cf e3       	ldi	r28, 0x3F	; 63
- d10:	d0 e0       	ldi	r29, 0x00	; 0
- d12:	04 c0       	rjmp	.+8      	; 0xd1c <__do_global_dtors+0x10>
- d14:	fe 01       	movw	r30, r28
- d16:	0e 94 80 06 	call	0xd00	; 0xd00 <__tablejump2__>
- d1a:	21 96       	adiw	r28, 0x01	; 1
- d1c:	c0 34       	cpi	r28, 0x40	; 64
- d1e:	d1 07       	cpc	r29, r17
- d20:	c9 f7       	brne	.-14     	; 0xd14 <__do_global_dtors+0x8>
- d22:	f8 94       	cli
-
-00000d24 <__stop_program>:
- d24:	ff cf       	rjmp	.-2      	; 0xd24 <__stop_program>
+000009ca <__stop_program>:
+ 9ca:	ff cf       	rjmp	.-2      	; 0x9ca <__stop_program>

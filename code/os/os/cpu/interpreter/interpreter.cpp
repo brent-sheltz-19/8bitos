@@ -6,6 +6,7 @@
 */
 
 
+
 #include "interpreter.h"
 
 interpreter::interpreter()
@@ -14,8 +15,6 @@ interpreter::interpreter()
 	registery= indexreg(&registers[251],&registers[252]);
 	registerx= indexreg(&registers[249],&registers[250]);
 } //interpreter
-
-
 /*
 	increments register
 */
@@ -55,7 +54,7 @@ void interpreter::run()
 	addressptr=0;
 	while(!exitcode)
 	{
-		char command = Baseprogram()->read(addressptr);
+		char command = baseprogram->read(addressptr);
 		if (command==0)
 		{
 			// nop
@@ -65,13 +64,13 @@ void interpreter::run()
 		{
 			//inc register
 			addressptr+=1;
-			char  regtoinc = Baseprogram()->read(addressptr);
+			char  regtoinc = baseprogram->read(addressptr);
 			inc(regtoinc);
 		}
 		else if (command==2)
 		{
 			//inc memory
-			uint16_t addresstoinc = Baseprogram()->read(addressptr+1)<<8|Baseprogram()->read(addressptr+2);
+			uint16_t addresstoinc = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
 			inc(addresstoinc);
 			addressptr+=2;
 		}	
@@ -79,23 +78,22 @@ void interpreter::run()
 		{
 			//dec reg
 			addressptr+=1;
-			char  regtodec = Baseprogram()->read(addressptr);
+			char  regtodec = baseprogram->read(addressptr);
 			dec(regtodec);
-			addressptr++;
-			
+			addressptr++;	
 		}
 		else if (command==4)
 		{
 			//dec mem
-			uint16_t addresstodec = Baseprogram()->read(addressptr+1)<<8|Baseprogram()->read(addressptr+2);
+			uint16_t addresstodec = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
 			dec(addresstodec);
 			addressptr+=2;
 		}
 		else if (command==5)
 		{
 			//mov
-			uint8_t regto = Baseprogram()->read(addressptr+1);
-			uint8_t regfrom = Baseprogram()->read(addressptr+2);
+			uint8_t regto = baseprogram->read(addressptr+1);
+			uint8_t regfrom = baseprogram->read(addressptr+2);
 			mov(regto,regfrom);			
 		}
 		else if (command==6)
@@ -201,7 +199,7 @@ void interpreter::nop()
 }
 void interpreter::jmp(uint16_t address)
 {
-	
+	addressptr=address; 	
 }
 void interpreter::push(char reg)
 {
@@ -210,7 +208,6 @@ void interpreter::push(char reg)
 }
 void interpreter::pop(char reg)
 {
-	
 	stackram->read(stackptr);
 	stackptr++;
 }
@@ -262,16 +259,29 @@ void interpreter::syscall()
 			registers[3]=registers[1]/registers[2];
 			registers[4]=0;
 		}
-		
+	}
+	else if (registers[0])
+	{
+	}
+	else if (registers[0])
+	{
+	}
+	else if (registers[0])
+	{
+	}
+	else if (registers[0])
+	{
 	}
 	
-
-	
-	
 }
-
 // default destructor
 interpreter::~interpreter()
 {
-	
+		baseprogram=NULL;
+		dataram=NULL;
+		stackram=NULL;
+		
+		videoram=NULL;
+		videoinstructionram=NULL;
+		videocustomcharram=NULL;
 } //~interpreter 

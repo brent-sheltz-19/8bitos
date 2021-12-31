@@ -10,10 +10,11 @@
 
 #ifndef __EEPROM_H__
 #define __EEPROM_H__
+#include "rom.h"
 
-
-class eeprom
+class eeprom :public rom
 {
+
 //variables
 public:
 	
@@ -21,17 +22,17 @@ protected:
 	int offset;
 private:
 	uint8_t wepin;
-	portcontroller* portptr;
-	shiftreg* addrptr;
-	shiftreg* dataptr;
-	uint64_t address;
+//	portcontroller* portptr;
+//	shiftreg* addrptr;
+//	shiftreg* dataptr;
+//	uint64_t address;
 
 //functions
 public:
 	eeprom();
 	eeprom(portcontroller* portptr,shiftreg* addrptr,uint8_t wepin,uint64_t address2);
-	char read();
-	char read(int addr);
+//	char read();
+//	char read(int addr);
 	void write(char data);
 	void write(char data,uint16_t address);
 	void setaddress(uint16_t addr);

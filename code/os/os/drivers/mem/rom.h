@@ -19,11 +19,12 @@ class rom
 public:
 	
 protected:
-	uint64_t offset;
-private:
-	uint64_t address;
+	uint16_t offset;
+	uint16_t address;
 	portcontroller* portptr;
 	shiftreg* addrptr;
+private:
+	
 
 //functions
 public:

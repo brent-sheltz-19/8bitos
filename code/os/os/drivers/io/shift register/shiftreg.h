@@ -34,8 +34,8 @@ public:
 	void shiftout32(uint32_t data);
 	void shiftout64(uint64_t data);
 	
-	shiftreg( const shiftreg &c );
-	shiftreg& operator=( const shiftreg &c );
+	//shiftreg( const shiftreg &c );
+	//shiftreg& operator=( const shiftreg &c );
 
 	
 	~shiftreg();
