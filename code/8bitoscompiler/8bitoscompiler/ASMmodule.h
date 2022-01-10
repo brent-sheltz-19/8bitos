@@ -43,6 +43,12 @@ class ASMmodule
 		string pop = "pop";
 		string jmp = "jmp";
 		string syscall = "syscall";
+
+		string getStrings()
+		{
+			return new string{ nop,inc,dec, }
+		};
+
 	};
 public:
 	
@@ -69,14 +75,22 @@ void ASMmodule::assemble(string filename)
 }
 void ASMmodule::assemble(ifstream* file)
 {
-	streamsize size = file->gcount();
-	int i = 0;
-	while (i < size)
+	keyvaluepair<string, int> labels[10000] = {};
+
+	string s;
+	while (getline(*file,s))
 	{
-		string a = file->getline();
+		string parse[3] = {};
+		const char* a = s.c_str();
+		int start = 0;
+		for (int i = 0; i < s.size(); i++)
+		{
+			if (s.at(i) == ' ')
+			{
+				for()
+			}
+		}
 
-
-		i++;
 	}
 
 }

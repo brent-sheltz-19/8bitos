@@ -33,7 +33,7 @@
 	
 	
 */
-static const int address_max_hex=0x1fff;
+//static const int address_max_hex=0x1fff;
 static portcontroller port=portcontroller();
 static shiftreg addreg=shiftreg(40,39,38,&port);
 static shiftreg csreg=shiftreg(37,36,35,&port);
@@ -43,7 +43,6 @@ static ram bank1 = ram(&port,&addreg,rwpin,0x2000u);//main program
 static ram bank2 = ram(&port,&addreg,rwpin,0x4000u);// main prog ram 
 static ram bank3 = ram(&port,&addreg,rwpin,0x6000u);// second prog ram  
 static ram bank4 = ram(&port,&addreg,rwpin,0x8000u);// stack ram
-
 
 static rom bios = rom(&port,&addreg,0xA000u);
 static rom settings = rom(&port,&addreg,0xC000u);
@@ -58,11 +57,9 @@ static eeprom storage1 =eeprom(&port,&addreg,rwpin,0x1A000u);
 static eeprom storage2 =eeprom(&port,&addreg,rwpin,0x1C000u);
 static eeprom storage3 =eeprom(&port,&addreg,rwpin,0x1E000u);
 
- 
 static Vram vbank0 = Vram(&port,&addreg,rwpin,vmempin,0x0u);	// video ram
 static Vram vbank1 = Vram(&port,&addreg,rwpin,vmempin,0x2000u);//instruction ram
 static Vram vbank2 = Vram(&port,&addreg,rwpin,vmempin,0x4000u);// custom char ram 
-
 
 static ram rambanklist[] = {bank0,bank1,bank2,bank3,bank4};
 static Vram vrambanklist[]={};
@@ -72,10 +69,9 @@ static Vram vrambanklist[]={};
 static interrupts irqhandler= interrupts();
 static interpreter interpret= interpreter();
 
-void runprogram(int progstart)
+void runprogram()
 {
-	
-	
+	interpret.run();
 }
 void storememory(uint64_t address, char out)
 {
@@ -147,15 +143,28 @@ void readKeyboard(char* buffer,int buffsize)
 {
 	
 } 
+
 int main(void)
 {
 	
+	//set output	
 	port.writeddra(0xff);
 	port.writeddrc(0xff);
+	
+	//set input
+	port.writeddrb(0);
+	port.writeddrd(0);
+	
+	
+	//set interpreter memory
 	interpret.Dataram(&bank2);
 	interpret.Stackram(&bank4);
-	interpret.nop();
-    /* Replace with your application code */
+	interpret.Videoram(&vbank0);
+	interpret.Videoinstructionram(&vbank0);
+	interpret.Videocustomcharram(&vbank2);
+	
+	
+	/* Replace with your application code */
     while (1) 
     {
 		
@@ -164,18 +173,18 @@ int main(void)
 		interpret.cmp(9,5);
 		for(int i = 0;i<255;i++)
 		{
-		
-			interpret.ldi(i,65);
-			
+			interpret.ldi(i,65);	
 		}
 		interpret.ldi(0,10);
 		interpret.push(0);
+		interpret.tys();
+		interpret.txs();
+		
 		uint8_t pb = PINB;
-		pb&=0b11111100;
+		pb&=0b00000100;
 		if ((pb>>2)==0b00000001)
 		{
-			
-					
+							
 		}
 	}
 }

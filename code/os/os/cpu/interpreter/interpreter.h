@@ -42,6 +42,29 @@ class interpreter
 
 			return  (*high <<8)|*low;
 		}
+		uint8_t getLow()
+		{
+
+			return  *low;
+		}
+		uint8_t getHigh()
+		{
+
+			return *high ;
+		}
+		
+		
+		void setValue(uint16_t A)
+		{
+			*high=(A>>8);
+			*low = (char)A;
+		}
+		void setValue(char h,char l)
+		{
+			*high=h;
+			*low =l;
+		}
+
 	};	
 	struct cpuflags
 	{
@@ -49,7 +72,7 @@ class interpreter
 		char flag=0;
 		char getflag(bitflags k )
 		{
-			return (flag>>k);
+			return ((flag>>k)&1);
 			
 		}
 		void setflag(bitflags bitflag, bool on)
@@ -136,16 +159,17 @@ class interpreter
 	ram* Dataram() const { return dataram; }
 	void Dataram(ram* val) { dataram = val; }
 	ram* Stackram() const { return stackram; }
-	void Stackram(ram* val) { stackram = val; }
+	void Stackram(ram* val) { stackram = val; }	
 	Vram* Videoram() const { return videoram; }
 	void Videoram(Vram* val) { videoram = val; }
-	Vram* VideoinstruVideoinstructionram(Vram* val) { videoinstructionram = val; }
+	Vram* Videoinstructionram() const { return videoinstructionram; }
+	void Videoinstructionram(Vram* val) { videoinstructionram = val; }
 	Vram* Videocustomcharram() const { return videocustomcharram; }
 	void Videocustomcharram(Vram* val) { videocustomcharram = val; }
 protected:
 
 private:
-	bool progexit;
+	//bool progexit;
 
 	ram* baseprogram;
 	ram* dataram;
@@ -154,10 +178,6 @@ private:
 	Vram* videoram;
 	Vram* videoinstructionram;
 	Vram* videocustomcharram;
-	
-	uint8_t baseoffset=0;
-	uint8_t extendedprogoffset=0;
-	uint8_t dataramoffset=0;
 	
 	char registers[255];
 	uint16_t stackptr = 0x1fff;
@@ -217,12 +237,55 @@ public:
 	void tzx();
 	void tzy();
 	
-	void call();
+	//stack manipulation
+	void tsx();
+	void tsy();
+	void tsz();
 	
-	void syscall();
+	//branch 
+	void breq(uint16_t address);
+	void breqpcf(uint16_t offset);
+	void breqpcb(uint16_t offset);
+	
+	void brne(uint16_t address);
+	void brnepcf(uint16_t offset);
+	void brnepcb(uint16_t offset);
+	
+	void brge(uint16_t address);
+	void brgepcf(uint16_t offset);
+	void brgepcb(uint16_t offset);
+	
+	void brle(uint16_t address);
+	void brlepcf(uint16_t offset);
+	void brlepcb(uint16_t offset);
+	
+	void brg(uint16_t address);
+	void brgpcf(uint16_t offset);
+	void brgpcb(uint16_t offset);
+	
+	void brl(uint16_t address);
+	void brlpcf(uint16_t offset);
+	void brlpcb(uint16_t offset);
+		
+	void clr(char reg);
+	void clf(char flag);
+	
+	void swap(char reg);
+	
+	char syscall();
+	//stack action
+	uint8_t pop();
 	void pop(char reg);
 	void push(char reg);
+	void push(indexreg);
+	void pushi(uint8_t value);
+	
+	//prog flow
 	void jmp (uint16_t memptr);
+	void jmppcf (uint16_t offset);
+	void jmppcb (uint16_t offset);
+	void call(uint16_t);
+	
 	~interpreter();
 protected:
 private:

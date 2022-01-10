@@ -32,7 +32,7 @@ public:
 	Serial(shiftreg*);	
 	Serial(shiftreg* ,portcontroller*);
 	Serial(shiftreg* ,portcontroller*,char miso,char mosi);
-	void send(char* val,int,int reg);
+	void send(char* val,int len,int reg);
 	
 	//char recive
 	
