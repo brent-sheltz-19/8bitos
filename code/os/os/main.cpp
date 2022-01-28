@@ -143,7 +143,6 @@ void readKeyboard(char* buffer,int buffsize)
 {
 	
 } 
-
 int main(void)
 {
 	
@@ -169,6 +168,7 @@ int main(void)
     {
 		
 		interpret.inc((char)9);
+		interpret.swap(9);
 		interpret.ldi(5,10);
 		interpret.cmp(9,5);
 		for(int i = 0;i<255;i++)
@@ -184,7 +184,7 @@ int main(void)
 		pb&=0b00000100;
 		if ((pb>>2)==0b00000001)
 		{
-							
+			interpret.run();				
 		}
 	}
 }

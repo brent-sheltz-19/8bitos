@@ -68,7 +68,7 @@ class interpreter
 	};	
 	struct cpuflags
 	{
-		enum bitflags {zero, greater,less,equals,carry,sign,overflow};
+		enum bitflags {zero, greater,less,equals,carry,sign,underflow};
 		char flag=0;
 		char getflag(bitflags k )
 		{
@@ -138,7 +138,7 @@ class interpreter
 						flag&=!0b00100000;
 					}
 					break;
-				case overflow:
+				case underflow:
 					if (on)
 					{
 						flag|=0b01000000;
@@ -150,9 +150,11 @@ class interpreter
 					break;
 			}
 		}
-	};
-//variablesctionram() const { return videoinstructionram; }
-	
+		void clear()
+		{
+			flag=0;
+		}
+	};	
 	public:
 	ram* Baseprogram() const { return baseprogram; }
 	void Baseprogram(ram* val) { baseprogram = val; }
@@ -170,7 +172,6 @@ protected:
 
 private:
 	//bool progexit;
-
 	ram* baseprogram;
 	ram* dataram;
 	ram* stackram;
@@ -268,6 +269,7 @@ public:
 	void brlpcb(uint16_t offset);
 		
 	void clr(char reg);
+	
 	void clf(char flag);
 	
 	void swap(char reg);
@@ -285,7 +287,7 @@ public:
 	void jmppcf (uint16_t offset);
 	void jmppcb (uint16_t offset);
 	void call(uint16_t);
-	
+	void ret();
 	~interpreter();
 protected:
 private:

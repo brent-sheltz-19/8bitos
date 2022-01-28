@@ -12,7 +12,7 @@ public:
 	V getValue();
 	void setValue(V val);
 	K getKey();
-	void setKey(K key)
+	void setKey(K key);
 };
 
 template<typename K, typename V>
@@ -35,4 +35,16 @@ inline V keyvaluepair<K, V>::getValue()
 template<typename K, typename V>
 inline void keyvaluepair<K, V>::setValue(V val)
 {
+}
+
+template<typename K, typename V>
+inline K keyvaluepair<K, V>::getKey()
+{
+	return key;
+}
+
+template<typename K, typename V>
+inline void keyvaluepair<K, V>::setKey(K key)
+{
+	this->key = key;
 }
