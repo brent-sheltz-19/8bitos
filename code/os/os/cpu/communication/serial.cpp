@@ -20,10 +20,20 @@ Serial::Serial(shiftreg* c)
 Serial::Serial(shiftreg* c, portcontroller* a)
 {
 	csreg=c;
-	controller=a;
+	port=a;
 	//outvalue=a;
-} //serial
-void Serial::send(char* val,int len,int reg)
+}
+Serial::Serial(shiftreg* c, portcontroller* a,char i,char o, char cl)
+{
+	csreg=c;
+	port=a;
+	miso = i;
+	mosi = o;
+	clk = cl;
+	//outvalue=a;
+}
+ //serial
+void Serial::send(char* val,int len)
 {
 	for (int i = 0 ; i<len;i++)
 	{
@@ -32,24 +42,52 @@ void Serial::send(char* val,int len,int reg)
 		{
 			if ((a>>shift&1)==1)
 			{
-				controller->digitalwrite(mosi,true);
-				controller->digitalwrite(clk,true);
+				port->digitalwrite(mosi,true);
+				port->digitalwrite(clk,true);
 			}
 			else
 			{
-				controller->digitalwrite(mosi,false);
-				controller->digitalwrite(clk,true);
+				port->digitalwrite(mosi,false);
+				port->digitalwrite(clk,true);
 			}
-			controller->digitalwrite(clk,false);
+			port->digitalwrite(clk,false);
 				
 		}
 		
 	}
-	
-	
-	
-	
 }
+char Serial::sendandrecive1byte(char val)
+{
+	for (int shift = 0 ; shift<8;shift++)
+	{
+		if ((val>>shift&1)==1)
+		{
+			port->digitalwrite(mosi,true);
+			port->digitalwrite(clk,true);
+		}
+		else
+		{
+			port->digitalwrite(mosi,false);
+			port->digitalwrite(clk,true);
+		}
+		port->digitalwrite(clk,false);
+	}
+	
+			
+}
+void Serial::recive(char* buff, int length)
+{
+	int a = 0;
+	char n =0;
+	for (a = 0;a<length; a++)
+	{
+		for (n=0;n<8;n++)
+		{
+			
+		}
+	}	
+}
+
 // default destructor
 Serial::~Serial()
 {

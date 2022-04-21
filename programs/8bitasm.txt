@@ -1,0 +1,25 @@
+#asm
+
+
+main:
+	inc r234;
+	inc #1234;
+	inc r234;
+	inc #1234;
+
+	dec r234;
+	dec #1234;
+	
+	ldi r123,223
+	nop 
+	nop
+	ldi r45,89
+	
+	
+	mov r1,r234;
+	
+	syscall; 
+	
+	
+
+	jmp #1010;

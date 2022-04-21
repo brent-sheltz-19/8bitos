@@ -40,8 +40,8 @@ SUBDIRS :=  \
 ../drivers/ \
 ../drivers/io/ \
 ../drivers/io/lcd/ \
-../drivers/io/keyboard \
 ../drivers/io/GPU \
+../drivers/io/keyboard \
 ../drivers/io/port\ controller/ \
 ../drivers/io/shift\ register/ \
 ../drivers/mem/ \
@@ -54,6 +54,7 @@ C_SRCS +=  \
 ../cpu/interpreter/interpreter.cpp \
 ../cpu/interrupts/interrupts.cpp \
 ../drivers/io/GPU/GPU.cpp \
+../drivers/io/keyboard/keyboard.cpp \
 ../drivers/io/lcd/lcd.cpp \
 ../drivers/io/port\ controller/portcontroller.cpp \
 ../drivers/io/shift\ register/shiftreg.cpp \
@@ -75,6 +76,7 @@ cpu/communication/Serial.o \
 cpu/interpreter/interpreter.o \
 cpu/interrupts/interrupts.o \
 drivers/io/GPU/GPU.o \
+drivers/io/keyboard/keyboard.o \
 drivers/io/lcd/lcd.o \
 drivers/io/port\ controller/portcontroller.o \
 drivers/io/shift\ register/shiftreg.o \
@@ -89,6 +91,7 @@ cpu/communication/Serial.o \
 cpu/interpreter/interpreter.o \
 cpu/interrupts/interrupts.o \
 drivers/io/GPU/GPU.o \
+drivers/io/keyboard/keyboard.o \
 drivers/io/lcd/lcd.o \
 "drivers/io/port controller/portcontroller.o" \
 "drivers/io/shift register/shiftreg.o" \
@@ -103,6 +106,7 @@ cpu/communication/Serial.d \
 cpu/interpreter/interpreter.d \
 cpu/interrupts/interrupts.d \
 drivers/io/GPU/GPU.d \
+drivers/io/keyboard/keyboard.d \
 drivers/io/lcd/lcd.d \
 drivers/io/port\ controller/portcontroller.d \
 drivers/io/shift\ register/shiftreg.d \
@@ -117,6 +121,7 @@ cpu/communication/Serial.d \
 cpu/interpreter/interpreter.d \
 cpu/interrupts/interrupts.d \
 drivers/io/GPU/GPU.d \
+drivers/io/keyboard/keyboard.d \
 drivers/io/lcd/lcd.d \
 "drivers/io/port controller/portcontroller.d" \
 "drivers/io/shift register/shiftreg.d" \
@@ -162,6 +167,13 @@ cpu/interrupts/interrupts.o: ../cpu/interrupts/interrupts.cpp
 	
 
 drivers/io/GPU/GPU.o: ../drivers/io/GPU/GPU.cpp
+	@echo Building file: $<
+	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega644pa -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega644pa" -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+drivers/io/keyboard/keyboard.o: ../drivers/io/keyboard/keyboard.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega644pa -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega644pa" -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

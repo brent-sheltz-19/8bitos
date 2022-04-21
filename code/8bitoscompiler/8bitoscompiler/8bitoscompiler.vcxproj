@@ -142,7 +142,11 @@
     <ClInclude Include="ASMmodule.h" />
     <ClInclude Include="clikecode.h" />
     <ClInclude Include="File.h" />
+    <ClInclude Include="Instruction.h" />
     <ClInclude Include="keyvaluepair.h" />
+    <ClInclude Include="label.h" />
+    <ClInclude Include="linkedlist.h" />
+    <ClInclude Include="Node.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="keyvaluepair.cpp" />

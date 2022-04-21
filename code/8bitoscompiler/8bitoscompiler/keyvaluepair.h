@@ -7,7 +7,6 @@ private:
 	V val;
 public:
 	keyvaluepair();
-
 	keyvaluepair(K,V);
 	V getValue();
 	void setValue(V val);
@@ -16,35 +15,35 @@ public:
 };
 
 template<typename K, typename V>
-inline keyvaluepair<K, V>::keyvaluepair()
+ keyvaluepair<K, V>::keyvaluepair()
 {
-
 }
+
 template<typename K, typename V>
-inline keyvaluepair<K, V>::keyvaluepair(K key, V value)
+ keyvaluepair<K, V>::keyvaluepair(K key, V value)
 {
 	this->key = key;
 	this->val = value;
 }
 template<typename K, typename V>
-inline V keyvaluepair<K, V>::getValue()
+ V keyvaluepair<K, V>::getValue()
 {
 	return val;
 }
 
 template<typename K, typename V>
-inline void keyvaluepair<K, V>::setValue(V val)
+ void keyvaluepair<K, V>::setValue(V val)
 {
 }
 
 template<typename K, typename V>
-inline K keyvaluepair<K, V>::getKey()
+ K keyvaluepair<K, V>::getKey()
 {
 	return key;
 }
 
 template<typename K, typename V>
-inline void keyvaluepair<K, V>::setKey(K key)
+void keyvaluepair<K, V>::setKey(K key)
 {
 	this->key = key;
 }

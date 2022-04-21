@@ -205,6 +205,12 @@
     <Compile Include="drivers\io\GPU\GPU.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="drivers\io\keyboard\keyboard.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\io\keyboard\keyboard.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="drivers\io\lcd\lcd.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -259,8 +265,8 @@
     <Folder Include="drivers\" />
     <Folder Include="drivers\io\" />
     <Folder Include="drivers\io\lcd\" />
-    <Folder Include="drivers\io\keyboard" />
     <Folder Include="drivers\io\GPU" />
+    <Folder Include="drivers\io\keyboard" />
     <Folder Include="drivers\io\port controller\" />
     <Folder Include="drivers\io\shift register\" />
     <Folder Include="drivers\mem\" />

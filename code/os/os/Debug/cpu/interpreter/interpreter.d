@@ -28,7 +28,12 @@ cpu/interpreter/interpreter.d cpu/interpreter/interpreter.o: \
  ../cpu/interpreter/../../drivers/mem/volatile/../../io/port\ controller/portcontroller.h \
  ../cpu/interpreter/../../drivers/mem/volatile/../../io/shift\ register/shiftreg.h \
  ../cpu/interpreter/../../drivers/mem/volatile/Vram.h \
- ../cpu/interpreter/../../drivers/mem/volatile/ram.h
+ ../cpu/interpreter/../../drivers/mem/volatile/ram.h \
+ ../cpu/interpreter/../../drivers/io/keyboard/keyboard.h \
+ c:\users\brent\documents\github\8bitos\code\os\os\cpu\communication\serial.h \
+ c:\users\brent\documents\github\8bitos\code\os\os\drivers\io\shift\ register\shiftreg.h \
+ c:\users\brent\documents\github\8bitos\code\os\os\drivers\io\port\ controller\portcontroller.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h
 
 ../cpu/interpreter/interpreter.h:
 
@@ -89,3 +94,13 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../cpu/interpreter/../../drivers/mem/volatile/Vram.h:
 
 ../cpu/interpreter/../../drivers/mem/volatile/ram.h:
+
+../cpu/interpreter/../../drivers/io/keyboard/keyboard.h:
+
+c:\users\brent\documents\github\8bitos\code\os\os\cpu\communication\serial.h:
+
+c:\users\brent\documents\github\8bitos\code\os\os\drivers\io\shift\ register\shiftreg.h:
+
+c:\users\brent\documents\github\8bitos\code\os\os\drivers\io\port\ controller\portcontroller.h:
+
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:

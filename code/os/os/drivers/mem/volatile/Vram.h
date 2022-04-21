@@ -43,8 +43,6 @@ public:
 	void writeInstruction();
 	void writecustomchar (uint8_t* customchar );
 	//void writecustomchar (uint8_t[] );
-	Vram( const Vram &c );
-	Vram& operator=( const Vram &c );
 	~Vram();
 protected:
 private:

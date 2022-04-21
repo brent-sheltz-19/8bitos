@@ -1,0 +1,14 @@
+byte main()
+{
+	byte a = 0;
+	a= read();
+	out(a);
+	a++
+}
+
+
+
+
+
+
+

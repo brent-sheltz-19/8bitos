@@ -39,6 +39,8 @@ public:
 	void writeddrb(char);
 	void writeddrc(char);
 	void writeddrd(char);
+	
+	char digitalread(uint8_t pin);
 	/**
 	 * \brief 
 	 * 
@@ -52,6 +54,8 @@ public:
 	~portcontroller();
 protected:
 private:
+	
+
 	void digitalwritea(uint8_t pin, bool on);
 	void digitalwriteb(uint8_t pin, bool on);
 	void digitalwritec(uint8_t pin, bool on);

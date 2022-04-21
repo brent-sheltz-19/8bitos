@@ -152,6 +152,20 @@ string clikecode::compile(string filename)
 
             }
         }
+        //ofstream file2;
+        //file2.open(outname + ".asm", ios::out);
+        /*
+        for (int outer = 0; outer < 100000; outer++)
+        {
+            if (asmcode[outer] == NULL)
+            {
+                break;
+            }
+            for (int inner = 0; inner < 3; inner++)
+            {
+                file2 << asmcode[outer][inner];
+            }
+        }*/
     }    
     else
     {
@@ -177,6 +191,10 @@ string clikecode::getFirstLine(string filename)
                 return line;
             }
         }
+    }
+    else
+    {
+
     }
 }
 

@@ -17,6 +17,8 @@
 #include "../../drivers/mem/volatile/Vram.h"
 
 #include "../../drivers/mem/rom.h"
+
+#include "../../drivers/io/keyboard/keyboard.h"
 #ifndef __INTERPRETER_H__
 #define __INTERPRETER_H__
 
@@ -30,7 +32,7 @@ class interpreter
 		
 		indexreg()
 		{
-			low,high=0;
+			low=0,high=0;
 		}
 		indexreg(char* l, char* h)
 		{
@@ -156,21 +158,7 @@ class interpreter
 		}
 	};	
 	public:
-	ram* Baseprogram() const { return baseprogram; }
-	void Baseprogram(ram* val) { baseprogram = val; }
-	ram* Dataram() const { return dataram; }
-	void Dataram(ram* val) { dataram = val; }
-	ram* Stackram() const { return stackram; }
-	void Stackram(ram* val) { stackram = val; }	
-	Vram* Videoram() const { return videoram; }
-	void Videoram(Vram* val) { videoram = val; }
-	Vram* Videoinstructionram() const { return videoinstructionram; }
-	void Videoinstructionram(Vram* val) { videoinstructionram = val; }
-	Vram* Videocustomcharram() const { return videocustomcharram; }
-	void Videocustomcharram(Vram* val) { videocustomcharram = val; }
-protected:
 
-private:
 	//bool progexit;
 	ram* baseprogram;
 	ram* dataram;
@@ -179,6 +167,10 @@ private:
 	Vram* videoram;
 	Vram* videoinstructionram;
 	Vram* videocustomcharram;
+protected:
+
+private:
+
 	
 	char registers[255];
 	uint16_t stackptr = 0x1fff;
@@ -188,7 +180,7 @@ private:
 	indexreg registerx;
 	indexreg registery;
 	indexreg registerz;
-	
+	indexreg* indregs[3]={&registerx,&registery,&registerz};
 	cpuflags flag;
 //functions
 public:
@@ -196,21 +188,23 @@ public:
 	interpreter( const interpreter &c );
 	
 	
-	
-	void run();
+	char run();
 	void nop();
 	void inc(char reg);
 	void inc(uint16_t memptr);
 	void dec(char reg);
 	void dec(uint16_t memptr);
 	void mov(char regto, char regfrom);
+	
 	void ld(char regto, uint16_t memptr);//movi
 	void ldi(char regto,char val);//movi
+	void ldx(char regto);
+	void ldy(char regto);
+	void ldz(char regto);
 	
 	void stx(char regfrom);
 	void sty(char regfrom);
 	void stz(char regfrom);
-	
 	void std(uint16_t memptr, char regfrom);
 	
 	

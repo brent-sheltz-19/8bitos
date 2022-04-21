@@ -1,0 +1,8 @@
+01 inc register
+02 inc memory
+03 dec register
+04 dec memory
+05
+06
+07
+08

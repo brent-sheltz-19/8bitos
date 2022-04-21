@@ -1,4 +1,4 @@
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              /* 
+/*
 * interpreter.cpp
 *
 * Created: 5/8/2021 1:50:49 AM
@@ -11,9 +11,9 @@
 
 interpreter::interpreter()
 {
-	registerz= indexreg(&registers[253],&registers[254]);
-	registery= indexreg(&registers[251],&registers[252]);
-	registerx= indexreg(&registers[249],&registers[250]);
+	registerz= indexreg(&registers[254],&registers[255]);
+	registery= indexreg(&registers[252],&registers[253]);
+	registerx= indexreg(&registers[250],&registers[251]);
 } //interpreter
 /*
 	increments register
@@ -28,9 +28,9 @@ void interpreter::inc(char reg)
 */
 void interpreter::inc(uint16_t memptr)
 {
-	char val=Dataram()->read(memptr);
+	char val=dataram->read(memptr);
 	val++;
-	Dataram()->write(memptr,val);
+	dataram->write(memptr,val);
 }
 /*
 	decrements register
@@ -44,15 +44,15 @@ void interpreter::dec(char reg)
 */
 void interpreter::dec(uint16_t memptr)
 {
-	char val=Dataram()->read(memptr);
+	char val=dataram->read(memptr);
 	val--;
-	Dataram()->write(memptr,val);
+	dataram->write(memptr,val);
 
 }
 /*
 *	runs interpreter
 */
-void interpreter::run()
+char interpreter::run()
 {
 	bool exitcode=false;
 	addressptr=0;
@@ -62,7 +62,11 @@ void interpreter::run()
 		if (command==0)
 		{
 			// system call
-			syscall();
+			char val = syscall();
+			if(val =='b')
+			{
+				return 'b';
+			}
 		}
 		else if (command==1)
 		{
@@ -106,109 +110,124 @@ void interpreter::run()
 			uint8_t regto=baseprogram->read(addressptr+1);
 			uint16_t mem = baseprogram->read(addressptr+2)<<8|baseprogram->read(addressptr+3);
 			ld(regto,mem);
-			addressptr+=4;
+			addressptr+=3;
 		}
 		else if (command==7)
 		{
-			//store by using x as address
-			stx(addressptr+1);
-			addressptr++;
+			//ldi
+			uint8_t regto=baseprogram->read(addressptr+1);
+			uint8_t val = baseprogram->read(addressptr+2);
+			ldi(regto,val);
+			addressptr+=2;
 		}
 		else if (command==8)
 		{
-			//store by using y as address
-			sty(addressptr+1);
+			//store by using x as address
+			uint8_t reg = baseprogram->read(addressptr+1);
+			stx(reg);
 			addressptr++;
 		}
 		else if (command==9)
 		{
-			//store by using z as address
-			stz(addressptr+1);
+			
+			//store by using y as address
+			uint8_t reg = baseprogram->read(addressptr+1);
+			sty(reg);
 			addressptr++;
 		}
 		else if (command==10)
 		{
-			//store by direct address
-			uint16_t ad = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
-			uint8_t reg = baseprogram->read(addressptr+3);
-			std(ad,reg);
-			addressptr+=3;
+			//store by using z as address
+			uint8_t reg = baseprogram->read(addressptr+1);
+			stz(reg);
+			addressptr++;
 		}
 		else if (command==11)
 		{
 			//store by direct address
-			uint16_t ad = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
-			uint8_t reg = baseprogram->read(addressptr+3);
-			svd(ad,reg);
+			uint16_t ad = baseprogram->read(addressptr+2)<<8|baseprogram->read(addressptr+3);
+			uint8_t reg = baseprogram->read(addressptr+1);
+			std(ad,reg);
 			addressptr+=3;
 		}
 		else if (command==12)
 		{
-			//store video by using x as address
-			svx(addressptr+1);
-			addressptr++;
+			//store video by direct address
+			uint16_t ad = baseprogram->read(addressptr+2)<<8|baseprogram->read(addressptr+3);
+			uint8_t reg = baseprogram->read(addressptr+1);
+			svd(ad,reg);
+			addressptr+=3;
 		}
 		else if (command==13)
 		{
-			//store video by using y as address
-			svy(addressptr+1);
+			//store video by using x as address
+			uint8_t reg = baseprogram->read(addressptr+1);
+			svx(reg);
 			addressptr++;
 		}
 		else if (command==14)
 		{
-			//store video by using z as address
-			svz(addressptr+1);
+			//store video by using y as address
+			uint8_t reg = baseprogram->read(addressptr+1);
+			svy(reg);
 			addressptr++;
 		}
 		else if (command==15)
 		{
-			txs();
+			//store video by using z as address
+			uint8_t reg = baseprogram->read(addressptr+1);
+			svz(reg);
+			addressptr++;
 		}
 		else if (command==16)
 		{
-			txy();
+			txs();
 		}
 		else if (command==17)
 		{
-			txz();
+			txy();
 		}
 		else if (command==18)
 		{
-			tys();
+			txz();
 		}
 		else if (command==19)
 		{
-			tyx();
+			tys();
 		}
 		else if (command==20)
 		{
-			tyz();
+			tyx();
 		}
 		else if (command==21)
 		{
-			tzs();
+			tyz();
 		}
 		else if (command==22)
 		{
-			tzx();
+			tzs();
 		}
 		else if (command==23)
 		{
+			tzx();
+		}
+		else if (command==24)
+		{
 			tzy();
 		}		
-		else if (command==24)
+		else if (command==25)
 		{
 			tsx();
 		}
-		else if (command==25)
+		else if (command==26)
 		{
 			tsy();
 		}
-		else if (command==26)
+		else if (command==27)
 		{
 			tsz();
 		}
-		else if(command ==27)
+		else if(command ==28)
 		{
 			//cmp
 			char reg1 = baseprogram->read(addressptr+1);
@@ -216,171 +235,209 @@ void interpreter::run()
 			cmp(reg1,reg2);
 			addressptr+=2;	
 		}
-		else if(command ==28)
+		else if(command ==29)
 		{
-			//cmp
+			//cmpi
 			char reg1 = baseprogram->read(addressptr+1);
 			char val = baseprogram->read(addressptr+2);
 			cpi(reg1,val);
 			addressptr+=2;
 		}
-		else if(command ==29)
+		else if(command ==30)
 		{
 			ror(baseprogram->read(addressptr+1));
 			addressptr+=1;
 		}
-		else if(command ==30)
+		else if(command ==31)
 		{
 			rol(baseprogram->read(addressptr+1));
 			addressptr+=1;
 		}
-		else if(command ==31)
+		else if(command ==32)
 		{
 			uint16_t address =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
 			breq(address);
-			addressptr+=2;
 		
 		}
-		else if(command ==32)
+		else if(command ==33)
 		{
 			uint16_t offset =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
 			breqpcf(addressptr+offset);
-			addressptr+=2;
+			
 				
 		}
-		else if(command ==33)
+		else if(command ==34)
 		{
 			
 			uint16_t offset =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
 			breqpcb(addressptr-offset);
-			addressptr+=2;
-		}
-		else if(command ==34)
-		{
-			uint16_t address =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
-			brne(address);
-			addressptr+=2;
 			
 		}
 		else if(command ==35)
 		{
-			uint16_t offset =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
-			brnepcf(addressptr+offset);
-			addressptr+=2;
-			
+			uint16_t address =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+			brne(address);
 		}
 		else if(command ==36)
+		{
+			uint16_t offset =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+			brnepcf(addressptr+offset);
+		}
+		else if(command ==37)
 		{
 			
 			uint16_t offset =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
 			brnepcb(addressptr-offset);
-			addressptr+=2;
+			
 		}		
-		else if(command ==37)
+		else if(command ==38)
 		{
 			uint16_t address =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
 			brge(address);
-			addressptr+=2;
-			
-		}
-		else if(command ==38)
-		{
-			uint16_t offset =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
-			brgepcf(addressptr+offset);
-			addressptr+=2;
-			
 		}
 		else if(command ==39)
+		{
+			uint16_t offset =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+			brgepcf(addressptr+offset);			
+		}
+		else if(command ==40)
 		{
 			
 			uint16_t offset =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
 			brgepcb(addressptr-offset);
-			addressptr+=2;
-		}
-		else if(command ==40)
-		{
-			uint16_t address =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
-			brle(address);
-			addressptr+=2;
 			
 		}
 		else if(command ==41)
 		{
-			uint16_t offset =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
-			brlepcf(addressptr+offset);
-			addressptr+=2;
+			uint16_t address =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+			brle(address);
 			
 		}
 		else if(command ==42)
 		{
-			
 			uint16_t offset =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
-			brlepcb(addressptr-offset);
-			addressptr+=2;
+			brlepcf(addressptr+offset);
 		}
 		else if(command ==43)
 		{
-			uint16_t address =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
-			brg(address);
-			addressptr+=2;
+			
+			uint16_t offset =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+			brlepcb(addressptr-offset);
 			
 		}
 		else if(command ==44)
 		{
-			uint16_t offset =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
-			brgpcf(addressptr+offset);
-			addressptr+=2;
-			
+			uint16_t address =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+			brg(address);
 		}
 		else if(command ==45)
+		{
+			uint16_t offset =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+			brgpcf(addressptr+offset);		
+		}
+		else if(command ==46)
 		{
 			
 			uint16_t offset =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
 			brgpcb(addressptr-offset);
-			addressptr+=2;
-		}
-		else if(command ==46)
-		{
-			uint16_t address =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
-			brl(address);
-			addressptr+=2;
-			
 		}
 		else if(command ==47)
 		{
-			uint16_t offset =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
-			brlpcf(addressptr+offset);
-			addressptr+=2;
-			
+			uint16_t address =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+			brl(address);
 		}
 		else if(command ==48)
+		{
+			uint16_t offset =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+			brlpcf(addressptr+offset);
+		}
+		else if(command ==49)
 		{
 			
 			uint16_t offset =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
 			brlpcb(addressptr-offset);
-			addressptr+=2;
 		}
-		else if (command ==49)
+		else if (command ==50)
 		{
 			char reg = baseprogram->read(addressptr+1);
 			clr(reg);
 			addressptr++;
 		}
-		else if(command==50)
+		else if(command==51)
 		{
 			
 			char flag = baseprogram->read(addressptr+1);
 			clf(flag);
 			addressptr++;
 		}
-		else if(command==51)
+		else if(command==52)
 		{
 			
 			char reg = baseprogram->read(addressptr+1);
 			swap(reg);
 			addressptr++;
 		}
-
+		else if(command==53)
+		{
+			char reg = baseprogram->read(addressptr+1);
+			pop(reg);
+			addressptr++;	
+		}
+		else if(command==54)
+		{
+			char reg = baseprogram->read(addressptr+1);
+			push(reg);
+			addressptr++;
+		}
+		else if(command==55)
+		{
+			char ind = baseprogram->read(addressptr+1);
+			
+			push(indregs[ind]->getVal());
+			addressptr++;
+		}
+		else if(command==56)
+		{
+			char i = baseprogram->read(addressptr+1);
+			
+			pushi(i);
+			addressptr++;
+		}
+		else if(command==57)
+		{
+			char regto = baseprogram->read(addressptr+1);
+			ldx(regto);
+			addressptr++;
+		}
+		else if(command==58)
+		{
+			char regto = baseprogram->read(addressptr+1);
+			ldy(regto);
+			addressptr++;
+		}
+		else if(command==59)
+		{
+			char regto = baseprogram->read(addressptr+1);
+			ldz(regto);
+			addressptr++;
+		}
+		else if(command==60)
+		{
+			ret();
+		}
+		else if(command==61)
+		{
+			uint16_t addr =  baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+			jmp(addr);
+			addressptr+=2;
+		}	
+		else if (command==62)
+		{
+			
+			uint16_t address = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+			call(address);
+			addressptr+=2;
+		}
 
 
 
@@ -393,52 +450,67 @@ void interpreter::run()
 		}
 		addressptr++;
 	}
-	
+	return 'e';
 }
+/*
+ transfers registers
+*/
 void interpreter::mov(char regto, char regfrom)
 {
 	registers[regto]=registers[regfrom];
 }
 void interpreter::ld(char regto, uint16_t memptr)
 {
-	registers[regto]=Dataram()->read(memptr);
+	registers[regto]=dataram->read(memptr);
 }
 void interpreter::ldi(char regto,char val)
 {
 	registers[regto]=val;
 }
+void interpreter::ldx(char regto)
+{
+	ld(regto,registerx.getVal() );	
+}
+void interpreter::ldy(char regto)
+{
+	ld(regto,registery.getVal() );
+}
+void interpreter::ldz(char regto)
+{
+	ld(regto,registerz.getVal() );
+}
 //store to mem
 void interpreter::stx(char regfrom)
 {
-	Dataram()->write((uint16_t)*registerx.high<<8|*registerx.low,registers[regfrom]);
+	dataram->write((uint16_t)*registerx.high<<8|*registerx.low,registers[regfrom]);
 }
 void interpreter::sty(char regfrom)
 {
-	Dataram()->write((uint16_t)*registery.high<<8|*registery.low,registers[regfrom]);
+	dataram->write((uint16_t)*registery.high<<8|*registery.low,registers[regfrom]);
 }
 void interpreter::stz(char regfrom)
 {
-	Dataram()->write((uint16_t)*registerz.high<<8|*registerz.low,registers[regfrom]);
+	dataram->write((uint16_t)*registerz.high<<8|*registerz.low,registers[regfrom]);
 }
 void interpreter::std(uint16_t memptr, char regfrom)
 {
-	Dataram()->write(memptr,regfrom);
+	dataram->write(memptr,regfrom);
 }
-void interpreter::svd(uint16_t memptr, char regfrom)
+void interpreter::svd( uint16_t memptr,char regfrom)
 {
-	Videoram()->write(memptr,regfrom);
+	videoram->write(memptr,regfrom);
 }
 void interpreter::svx(char regfrom)
 {
-	Videoram()->write(registerx.getVal(),regfrom);
+	videoram->write(registerx.getVal(),regfrom);
 }
 void interpreter::svy(char regfrom)
 {
-	Videoram()->write(registery.getVal(),regfrom);
+	videoram->write(registery.getVal(),regfrom);
 }
 void interpreter::svz(char regfrom)
 {
-	Videoram()->write(registerz.getVal(),regfrom);
+	videoram->write(registerz.getVal(),regfrom);
 }
 
 //transfer 16 bit numbers
@@ -703,7 +775,7 @@ void interpreter::call(uint16_t addr)
 {
 	push(stackptr);
 	jmp(addr);
-	stackptr=pop()<<8|pop();
+	addressptr=pop()<<8|pop();
 }
 void interpreter::jmp(uint16_t address)
 {
@@ -736,7 +808,7 @@ uint8_t interpreter::pop()
 }
 void interpreter::pop(char reg)
 {
-	stackram->read(stackptr);
+	registers[reg]=stackram->read(stackptr);
 	stackptr++;
 }
 void interpreter::swap(char reg)
@@ -794,8 +866,18 @@ char interpreter::syscall()
 			registers[4]=0;                                                                                                                 
 		}
 	}
-	else if (registers[0])
+	else if (registers[0]==3)
 	{
+		/*
+			stdin
+				
+		*/
+		
+		
+		
+		return 'b';
+		
+		
 	}
 	else if (registers[0])
 	{
@@ -819,6 +901,10 @@ char interpreter::syscall()
 void interpreter::clf(char flags)
 {
 	flag.clear();
+}
+void interpreter::ret()
+{
+	
 }
 // default destructor
 interpreter::~interpreter()

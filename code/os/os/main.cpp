@@ -11,10 +11,12 @@
 #include <avr/cpufunc.h>
 #include <avr/interrupt.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include "drivers/io/port controller/portcontroller.h"
 #include "drivers/io/lcd/lcd.h"
 #include "drivers/io/shift register/shiftreg.h"
+#include "drivers/io/keyboard/keyboard.h"
 #include "drivers/mem/volatile/ram.h"
 #include "drivers/mem/volatile/Vram.h"
 #include "drivers/mem/rom.h"
@@ -22,25 +24,30 @@
 #include "cpu/interrupts/interrupts.h"
 #include "cpu/interpreter/interpreter.h"
 #include "cpu/communication/Serial.h"
+#include <stdlib.h>
 
 #define rwpin 1
 // 0 cpu ram 1 video ram
 #define vmempin 2
+
 /*
 	address lines max hex 1fff
-	4 chips per bank
+	1 chip per bank
 	a0-a12 adress a13-a15 
 	
 	
 */
+
+
+
 //static const int address_max_hex=0x1fff;
 static portcontroller port=portcontroller();
 static shiftreg addreg=shiftreg(40,39,38,&port);
 static shiftreg csreg=shiftreg(37,36,35,&port);
-static Serial serial= Serial(&csreg,&port);
+static Serial serial= Serial(&csreg,&port,3,34,33);
 static ram bank0 = ram(&port,&addreg,rwpin,0x0u);	// os ram 
-static ram bank1 = ram(&port,&addreg,rwpin,0x2000u);//main program 
-static ram bank2 = ram(&port,&addreg,rwpin,0x4000u);// main prog ram 
+static ram bank1 = ram(&port,&addreg,rwpin,0x2000u);//main program code
+static ram bank2 = ram(&port,&addreg,rwpin,0x4000u);// main data ram 
 static ram bank3 = ram(&port,&addreg,rwpin,0x6000u);// second prog ram  
 static ram bank4 = ram(&port,&addreg,rwpin,0x8000u);// stack ram
 
@@ -62,12 +69,14 @@ static Vram vbank1 = Vram(&port,&addreg,rwpin,vmempin,0x2000u);//instruction ram
 static Vram vbank2 = Vram(&port,&addreg,rwpin,vmempin,0x4000u);// custom char ram 
 
 static ram rambanklist[] = {bank0,bank1,bank2,bank3,bank4};
-static Vram vrambanklist[]={};
+static Vram vrambanklist[]={vbank0,vbank1,vbank2};
 
 
 
 static interrupts irqhandler= interrupts();
 static interpreter interpret= interpreter();
+static keyboard kb = keyboard();
+
 
 void runprogram()
 {
@@ -143,48 +152,40 @@ void readKeyboard(char* buffer,int buffsize)
 {
 	
 } 
-int main(void)
+
+static const char run[] = "run";
+int main()
 {
-	
+/* Replace with your application code */
+	char *in_str;
+	char retval;
 	//set output	
 	port.writeddra(0xff);
 	port.writeddrc(0xff);
 	
+
 	//set input
 	port.writeddrb(0);
 	port.writeddrd(0);
-	
-	
 	//set interpreter memory
-	interpret.Dataram(&bank2);
-	interpret.Stackram(&bank4);
-	interpret.Videoram(&vbank0);
-	interpret.Videoinstructionram(&vbank0);
-	interpret.Videocustomcharram(&vbank2);
-	
-	
-	/* Replace with your application code */
-    while (1) 
-    {
-		
-		interpret.inc((char)9);
-		interpret.swap(9);
-		interpret.ldi(5,10);
-		interpret.cmp(9,5);
-		for(int i = 0;i<255;i++)
-		{
-			interpret.ldi(i,65);	
-		}
-		interpret.ldi(0,10);
-		interpret.push(0);
-		interpret.tys();
-		interpret.txs();
-		
-		uint8_t pb = PINB;
-		pb&=0b00000100;
-		if ((pb>>2)==0b00000001)
-		{
-			interpret.run();				
-		}
+	interpret.dataram=&bank2;
+//	interpret.stackram=&bank4;
+//	interpret.videoram=&vbank0;
+//	interpret.videoinstructionram=&vbank1;
+//	interpret.videocustomcharram=&vbank2;
+	while (true) 
+    {		
+		 int size=10;
+		 in_str=(char*) calloc(5,sizeof(char));
+		 //in_str[i] =(char)32;
+		 in_str = "run";
+		 if(strcasecmp_P(in_str,run))
+		 {
+			 interpret.run();
+		 
+		 }
+		//in_str[0]='a';
+	     free(in_str);
 	}
+	return 0;        	
 }
