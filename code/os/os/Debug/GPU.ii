@@ -1,0 +1,1135 @@
+# 1 "../drivers/io/GPU/GPU.cpp"
+# 1 "C:\\Users\\Brent\\Documents\\GitHub\\8bitos\\code\\os\\os\\Debug//"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "../drivers/io/GPU/GPU.cpp"
+# 9 "../drivers/io/GPU/GPU.cpp"
+# 1 "../drivers/io/GPU/GPU.h" 1
+
+
+
+
+
+
+
+# 1 "../drivers/io/GPU/../../mem/volatile/Vram.h" 1
+
+
+
+
+
+
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\io.h" 1 3
+# 99 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\io.h" 3
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\sfr_defs.h" 1 3
+# 126 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\sfr_defs.h" 3
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\inttypes.h" 1 3
+# 37 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\inttypes.h" 3
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\lib\\gcc\\avr\\5.4.0\\include\\stdint.h" 1 3 4
+# 9 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\lib\\gcc\\avr\\5.4.0\\include\\stdint.h" 3 4
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdint.h" 1 3 4
+# 125 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdint.h" 3 4
+
+# 125 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdint.h" 3 4
+typedef signed int int8_t __attribute__((__mode__(__QI__)));
+typedef unsigned int uint8_t __attribute__((__mode__(__QI__)));
+typedef signed int int16_t __attribute__ ((__mode__ (__HI__)));
+typedef unsigned int uint16_t __attribute__ ((__mode__ (__HI__)));
+typedef signed int int32_t __attribute__ ((__mode__ (__SI__)));
+typedef unsigned int uint32_t __attribute__ ((__mode__ (__SI__)));
+
+typedef signed int int64_t __attribute__((__mode__(__DI__)));
+typedef unsigned int uint64_t __attribute__((__mode__(__DI__)));
+# 146 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdint.h" 3 4
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+# 163 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdint.h" 3 4
+typedef int8_t int_least8_t;
+
+
+
+
+typedef uint8_t uint_least8_t;
+
+
+
+
+typedef int16_t int_least16_t;
+
+
+
+
+typedef uint16_t uint_least16_t;
+
+
+
+
+typedef int32_t int_least32_t;
+
+
+
+
+typedef uint32_t uint_least32_t;
+
+
+
+
+
+
+
+typedef int64_t int_least64_t;
+
+
+
+
+
+
+typedef uint64_t uint_least64_t;
+# 217 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdint.h" 3 4
+typedef int8_t int_fast8_t;
+
+
+
+
+typedef uint8_t uint_fast8_t;
+
+
+
+
+typedef int16_t int_fast16_t;
+
+
+
+
+typedef uint16_t uint_fast16_t;
+
+
+
+
+typedef int32_t int_fast32_t;
+
+
+
+
+typedef uint32_t uint_fast32_t;
+
+
+
+
+
+
+
+typedef int64_t int_fast64_t;
+
+
+
+
+
+
+typedef uint64_t uint_fast64_t;
+# 277 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdint.h" 3 4
+typedef int64_t intmax_t;
+
+
+
+
+typedef uint64_t uintmax_t;
+# 10 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\lib\\gcc\\avr\\5.4.0\\include\\stdint.h" 2 3 4
+# 38 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\inttypes.h" 2 3
+# 77 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\inttypes.h" 3
+typedef int32_t int_farptr_t;
+
+
+
+typedef uint32_t uint_farptr_t;
+# 127 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\sfr_defs.h" 2 3
+# 100 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\io.h" 2 3
+# 212 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\io.h" 3
+# 1 "C:\\Program Files (x86)\\Atmel\\Studio\\7.0\\Packs\\atmel\\ATmega_DFP\\1.3.300\\include/avr/iom644pa.h" 1 3
+# 213 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\io.h" 2 3
+# 627 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\io.h" 3
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\portpins.h" 1 3
+# 628 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\io.h" 2 3
+
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\common.h" 1 3
+# 630 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\io.h" 2 3
+
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\version.h" 1 3
+# 632 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\io.h" 2 3
+
+
+
+
+
+
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\fuse.h" 1 3
+# 239 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\fuse.h" 3
+typedef struct
+{
+    unsigned char low;
+    unsigned char high;
+    unsigned char extended;
+} __fuse_t;
+# 639 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\io.h" 2 3
+
+
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\lock.h" 1 3
+# 642 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\io.h" 2 3
+# 8 "../drivers/io/GPU/../../mem/volatile/Vram.h" 2
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 1 3
+# 89 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\lib\\gcc\\avr\\5.4.0\\include\\stddef.h" 1 3 4
+# 216 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\lib\\gcc\\avr\\5.4.0\\include\\stddef.h" 3 4
+typedef unsigned int size_t;
+# 90 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 2 3
+# 116 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern "C" {
+# 1158 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern const void * memchr_P(const void *, int __val, size_t __len) __attribute__((__const__));
+# 1172 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern int memcmp_P(const void *, const void *, size_t) __attribute__((__pure__));
+
+
+
+
+
+
+extern void *memccpy_P(void *, const void *, int __val, size_t);
+# 1188 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern void *memcpy_P(void *, const void *, size_t);
+
+
+
+
+
+
+extern void *memmem_P(const void *, size_t, const void *, size_t) __attribute__((__pure__));
+# 1207 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern const void * memrchr_P(const void *, int __val, size_t __len) __attribute__((__const__));
+# 1217 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strcat_P(char *, const char *);
+# 1233 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern const char * strchr_P(const char *, int __val) __attribute__((__const__));
+# 1245 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern const char * strchrnul_P(const char *, int __val) __attribute__((__const__));
+# 1258 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern int strcmp_P(const char *, const char *) __attribute__((__pure__));
+# 1268 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strcpy_P(char *, const char *);
+# 1285 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern int strcasecmp_P(const char *, const char *) __attribute__((__pure__));
+
+
+
+
+
+
+extern char *strcasestr_P(const char *, const char *) __attribute__((__pure__));
+# 1305 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern size_t strcspn_P(const char *__s, const char * __reject) __attribute__((__pure__));
+# 1321 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern size_t strlcat_P (char *, const char *, size_t );
+# 1334 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern size_t strlcpy_P (char *, const char *, size_t );
+# 1346 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern size_t strnlen_P(const char *, size_t) __attribute__((__const__));
+# 1357 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern int strncmp_P(const char *, const char *, size_t) __attribute__((__pure__));
+# 1376 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern int strncasecmp_P(const char *, const char *, size_t) __attribute__((__pure__));
+# 1387 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strncat_P(char *, const char *, size_t);
+# 1401 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strncpy_P(char *, const char *, size_t);
+# 1416 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strpbrk_P(const char *__s, const char * __accept) __attribute__((__pure__));
+# 1427 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern const char * strrchr_P(const char *, int __val) __attribute__((__const__));
+# 1447 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strsep_P(char **__sp, const char * __delim);
+# 1460 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern size_t strspn_P(const char *__s, const char * __accept) __attribute__((__pure__));
+# 1474 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strstr_P(const char *, const char *) __attribute__((__pure__));
+# 1496 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strtok_P(char *__s, const char * __delim);
+# 1516 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strtok_rP(char *__s, const char * __delim, char **__last);
+# 1529 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern size_t strlen_PF(uint_farptr_t src) __attribute__((__const__));
+# 1545 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern size_t strnlen_PF(uint_farptr_t src, size_t len) __attribute__((__const__));
+# 1560 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern void *memcpy_PF(void *dest, uint_farptr_t src, size_t len);
+# 1575 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strcpy_PF(char *dest, uint_farptr_t src);
+# 1595 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strncpy_PF(char *dest, uint_farptr_t src, size_t len);
+# 1611 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strcat_PF(char *dest, uint_farptr_t src);
+# 1632 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern size_t strlcat_PF(char *dst, uint_farptr_t src, size_t siz);
+# 1649 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strncat_PF(char *dest, uint_farptr_t src, size_t len);
+# 1665 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern int strcmp_PF(const char *s1, uint_farptr_t s2) __attribute__((__pure__));
+# 1682 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern int strncmp_PF(const char *s1, uint_farptr_t s2, size_t n) __attribute__((__pure__));
+# 1698 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern int strcasecmp_PF(const char *s1, uint_farptr_t s2) __attribute__((__pure__));
+# 1716 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern int strncasecmp_PF(const char *s1, uint_farptr_t s2, size_t n) __attribute__((__pure__));
+# 1732 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strstr_PF(const char *s1, uint_farptr_t s2);
+# 1744 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern size_t strlcpy_PF(char *dst, uint_farptr_t src, size_t siz);
+# 1760 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern int memcmp_PF(const void *, uint_farptr_t, size_t) __attribute__((__pure__));
+# 1779 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern size_t __strlen_P(const char *) __attribute__((__const__));
+__attribute__((__always_inline__)) static __inline__ size_t strlen_P(const char * s);
+static __inline__ size_t strlen_P(const char *s) {
+  return __builtin_constant_p(__builtin_strlen(s))
+     ? __builtin_strlen(s) : __strlen_P(s);
+}
+
+
+
+}
+# 9 "../drivers/io/GPU/../../mem/volatile/Vram.h" 2
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\cpufunc.h" 1 3
+# 91 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\cpufunc.h" 3
+void ccp_write_io (uint8_t *__ioaddr, uint8_t __value);
+# 10 "../drivers/io/GPU/../../mem/volatile/Vram.h" 2
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\interrupt.h" 1 3
+# 11 "../drivers/io/GPU/../../mem/volatile/Vram.h" 2
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 1 3
+# 45 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\lib\\gcc\\avr\\5.4.0\\include\\stdarg.h" 1 3 4
+# 40 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\lib\\gcc\\avr\\5.4.0\\include\\stdarg.h" 3 4
+typedef __builtin_va_list __gnuc_va_list;
+# 98 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\lib\\gcc\\avr\\5.4.0\\include\\stdarg.h" 3 4
+typedef __gnuc_va_list va_list;
+# 46 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 2 3
+
+
+
+
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\lib\\gcc\\avr\\5.4.0\\include\\stddef.h" 1 3 4
+# 51 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 2 3
+# 244 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+struct __file {
+ char *buf;
+ unsigned char unget;
+ uint8_t flags;
+# 263 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+ int size;
+ int len;
+ int (*put)(char, struct __file *);
+ int (*get)(struct __file *);
+ void *udata;
+};
+# 277 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+typedef struct __file FILE;
+# 399 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern "C" {
+
+
+
+
+
+
+
+extern struct __file *__iob[];
+# 419 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern FILE *fdevopen(int (*__put)(char, FILE*), int (*__get)(FILE*));
+# 436 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern int fclose(FILE *__stream);
+# 610 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern int vfprintf(FILE *__stream, const char *__fmt, va_list __ap);
+
+
+
+
+
+extern int vfprintf_P(FILE *__stream, const char *__fmt, va_list __ap);
+
+
+
+
+
+
+extern int fputc(int __c, FILE *__stream);
+
+
+
+
+extern int putc(int __c, FILE *__stream);
+
+
+extern int putchar(int __c);
+# 651 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern int printf(const char *__fmt, ...);
+
+
+
+
+
+extern int printf_P(const char *__fmt, ...);
+
+
+
+
+
+
+
+extern int vprintf(const char *__fmt, va_list __ap);
+
+
+
+
+
+extern int sprintf(char *__s, const char *__fmt, ...);
+
+
+
+
+
+extern int sprintf_P(char *__s, const char *__fmt, ...);
+# 687 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern int snprintf(char *__s, size_t __n, const char *__fmt, ...);
+
+
+
+
+
+extern int snprintf_P(char *__s, size_t __n, const char *__fmt, ...);
+
+
+
+
+
+extern int vsprintf(char *__s, const char *__fmt, va_list ap);
+
+
+
+
+
+extern int vsprintf_P(char *__s, const char *__fmt, va_list ap);
+# 715 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern int vsnprintf(char *__s, size_t __n, const char *__fmt, va_list ap);
+
+
+
+
+
+extern int vsnprintf_P(char *__s, size_t __n, const char *__fmt, va_list ap);
+
+
+
+
+extern int fprintf(FILE *__stream, const char *__fmt, ...);
+
+
+
+
+
+extern int fprintf_P(FILE *__stream, const char *__fmt, ...);
+
+
+
+
+
+
+extern int fputs(const char *__str, FILE *__stream);
+
+
+
+
+extern int fputs_P(const char *__str, FILE *__stream);
+
+
+
+
+
+extern int puts(const char *__str);
+
+
+
+
+extern int puts_P(const char *__str);
+# 764 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern size_t fwrite(const void *__ptr, size_t __size, size_t __nmemb,
+         FILE *__stream);
+
+
+
+
+
+
+
+extern int fgetc(FILE *__stream);
+
+
+
+
+extern int getc(FILE *__stream);
+
+
+extern int getchar(void);
+# 812 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern int ungetc(int __c, FILE *__stream);
+# 824 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern char *fgets(char *__str, int __size, FILE *__stream);
+
+
+
+
+
+
+extern char *gets(char *__str);
+# 842 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern size_t fread(void *__ptr, size_t __size, size_t __nmemb,
+        FILE *__stream);
+
+
+
+
+extern void clearerr(FILE *__stream);
+# 859 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern int feof(FILE *__stream);
+# 870 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern int ferror(FILE *__stream);
+
+
+
+
+
+
+extern int vfscanf(FILE *__stream, const char *__fmt, va_list __ap);
+
+
+
+
+extern int vfscanf_P(FILE *__stream, const char *__fmt, va_list __ap);
+
+
+
+
+
+
+
+extern int fscanf(FILE *__stream, const char *__fmt, ...);
+
+
+
+
+extern int fscanf_P(FILE *__stream, const char *__fmt, ...);
+
+
+
+
+
+
+extern int scanf(const char *__fmt, ...);
+
+
+
+
+extern int scanf_P(const char *__fmt, ...);
+
+
+
+
+
+
+
+extern int vscanf(const char *__fmt, va_list __ap);
+
+
+
+
+
+
+
+extern int sscanf(const char *__buf, const char *__fmt, ...);
+
+
+
+
+extern int sscanf_P(const char *__buf, const char *__fmt, ...);
+# 940 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+static __inline__ int fflush(FILE *stream __attribute__((unused)))
+{
+ return 0;
+}
+
+
+
+
+
+
+__extension__ typedef long long fpos_t;
+extern int fgetpos(FILE *stream, fpos_t *pos);
+extern FILE *fopen(const char *path, const char *mode);
+extern FILE *freopen(const char *path, const char *mode, FILE *stream);
+extern FILE *fdopen(int, const char *);
+extern int fseek(FILE *stream, long offset, int whence);
+extern int fsetpos(FILE *stream, fpos_t *pos);
+extern long ftell(FILE *stream);
+extern int fileno(FILE *);
+extern void perror(const char *s);
+extern int remove(const char *pathname);
+extern int rename(const char *oldpath, const char *newpath);
+extern void rewind(FILE *stream);
+extern void setbuf(FILE *stream, char *buf);
+extern int setvbuf(FILE *stream, char *buf, int mode, size_t size);
+extern FILE *tmpfile(void);
+extern char *tmpnam (char *s);
+
+
+
+}
+# 12 "../drivers/io/GPU/../../mem/volatile/Vram.h" 2
+# 1 "../drivers/io/GPU/../../mem/volatile/ram.h" 1
+
+
+
+
+
+
+
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay.h" 1 3
+# 45 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay.h" 3
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay_basic.h" 1 3
+# 40 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay_basic.h" 3
+static __inline__ void _delay_loop_1(uint8_t __count) __attribute__((__always_inline__));
+static __inline__ void _delay_loop_2(uint16_t __count) __attribute__((__always_inline__));
+# 80 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay_basic.h" 3
+void
+_delay_loop_1(uint8_t __count)
+{
+ __asm__ volatile (
+  "1: dec %0" "\n\t"
+  "brne 1b"
+  : "=r" (__count)
+  : "0" (__count)
+ );
+}
+# 102 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay_basic.h" 3
+void
+_delay_loop_2(uint16_t __count)
+{
+ __asm__ volatile (
+  "1: sbiw %0,1" "\n\t"
+  "brne 1b"
+  : "=w" (__count)
+  : "0" (__count)
+ );
+}
+# 46 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay.h" 2 3
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 1 3
+# 121 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 3
+extern "C" {
+
+
+
+
+
+extern double cos(double __x) __attribute__((__const__));
+
+
+
+
+
+extern double sin(double __x) __attribute__((__const__));
+
+
+
+
+
+extern double tan(double __x) __attribute__((__const__));
+
+
+
+
+
+
+extern double fabs(double __x) __attribute__((__const__));
+
+
+
+
+
+
+extern double fmod(double __x, double __y) __attribute__((__const__));
+# 168 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 3
+extern double modf(double __x, double *__iptr);
+
+
+extern float modff (float __x, float *__iptr);
+
+
+
+
+extern double sqrt(double __x) __attribute__((__const__));
+
+
+extern float sqrtf (float) __attribute__((__const__));
+
+
+
+
+extern double cbrt(double __x) __attribute__((__const__));
+# 195 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 3
+extern double hypot (double __x, double __y) __attribute__((__const__));
+
+
+
+
+
+
+
+extern double square(double __x) __attribute__((__const__));
+
+
+
+
+
+
+extern double floor(double __x) __attribute__((__const__));
+
+
+
+
+
+
+extern double ceil(double __x) __attribute__((__const__));
+# 235 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 3
+extern double frexp(double __x, int *__pexp);
+
+
+
+
+
+
+
+extern double ldexp(double __x, int __exp) __attribute__((__const__));
+
+
+
+
+
+extern double exp(double __x) __attribute__((__const__));
+
+
+
+
+
+extern double cosh(double __x) __attribute__((__const__));
+
+
+
+
+
+extern double sinh(double __x) __attribute__((__const__));
+
+
+
+
+
+extern double tanh(double __x) __attribute__((__const__));
+
+
+
+
+
+
+
+extern double acos(double __x) __attribute__((__const__));
+
+
+
+
+
+
+
+extern double asin(double __x) __attribute__((__const__));
+
+
+
+
+
+
+extern double atan(double __x) __attribute__((__const__));
+# 299 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 3
+extern double atan2(double __y, double __x) __attribute__((__const__));
+
+
+
+
+
+extern double log(double __x) __attribute__((__const__));
+
+
+
+
+
+extern double log10(double __x) __attribute__((__const__));
+
+
+
+
+
+extern double pow(double __x, double __y) __attribute__((__const__));
+
+
+
+
+
+
+extern int isnan(double __x) __attribute__((__const__));
+# 334 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 3
+extern int isinf(double __x) __attribute__((__const__));
+
+
+
+
+
+
+__attribute__((__const__)) static inline int isfinite (double __x)
+{
+    unsigned char __exp;
+    __asm__ (
+ "mov	%0, %C1		\n\t"
+ "lsl	%0		\n\t"
+ "mov	%0, %D1		\n\t"
+ "rol	%0		"
+ : "=r" (__exp)
+ : "r" (__x) );
+    return __exp != 0xff;
+}
+
+
+
+
+
+
+__attribute__((__const__)) static inline double copysign (double __x, double __y)
+{
+    __asm__ (
+ "bst	%D2, 7	\n\t"
+ "bld	%D0, 7	"
+ : "=r" (__x)
+ : "0" (__x), "r" (__y) );
+    return __x;
+}
+# 377 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 3
+extern int signbit (double __x) __attribute__((__const__));
+
+
+
+
+
+
+extern double fdim (double __x, double __y) __attribute__((__const__));
+# 393 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 3
+extern double fma (double __x, double __y, double __z) __attribute__((__const__));
+
+
+
+
+
+
+
+extern double fmax (double __x, double __y) __attribute__((__const__));
+
+
+
+
+
+
+
+extern double fmin (double __x, double __y) __attribute__((__const__));
+
+
+
+
+
+
+extern double trunc (double __x) __attribute__((__const__));
+# 427 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 3
+extern double round (double __x) __attribute__((__const__));
+# 440 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 3
+extern long lround (double __x) __attribute__((__const__));
+# 454 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 3
+extern long lrint (double __x) __attribute__((__const__));
+
+
+
+}
+# 47 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay.h" 2 3
+# 86 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay.h" 3
+static __inline__ void _delay_us(double __us) __attribute__((__always_inline__));
+static __inline__ void _delay_ms(double __ms) __attribute__((__always_inline__));
+# 165 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay.h" 3
+void
+_delay_ms(double __ms)
+{
+ double __tmp ;
+
+
+
+ uint32_t __ticks_dc;
+ extern void __builtin_avr_delay_cycles(unsigned long);
+ __tmp = ((1000000UL) / 1e3) * __ms;
+# 184 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay.h" 3
+  __ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+
+
+ __builtin_avr_delay_cycles(__ticks_dc);
+# 210 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay.h" 3
+}
+# 254 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay.h" 3
+void
+_delay_us(double __us)
+{
+ double __tmp ;
+
+
+
+ uint32_t __ticks_dc;
+ extern void __builtin_avr_delay_cycles(unsigned long);
+ __tmp = ((1000000UL) / 1e6) * __us;
+# 273 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay.h" 3
+  __ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+
+
+ __builtin_avr_delay_cycles(__ticks_dc);
+# 299 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay.h" 3
+}
+# 9 "../drivers/io/GPU/../../mem/volatile/ram.h" 2
+# 1 "../drivers/io/GPU/../../mem/volatile/../../io/port controller/portcontroller.h" 1
+# 15 "../drivers/io/GPU/../../mem/volatile/../../io/port controller/portcontroller.h"
+
+# 15 "../drivers/io/GPU/../../mem/volatile/../../io/port controller/portcontroller.h"
+class portcontroller
+{
+
+public:
+protected:
+private:
+
+
+public:
+ portcontroller();
+ char readporta();
+ char readportb();
+ char readportc();
+ char readportd();
+ char readddra();
+ char readddrb();
+ char readddrc();
+ char readddrd();
+
+ void writeporta(char a);
+ void writeportb(char);
+ void writeportc(char);
+ void writeportd(char);
+ void writeddra(char);
+ void writeddrb(char);
+ void writeddrc(char);
+ void writeddrd(char);
+
+ char digitalread(uint8_t pin);
+# 52 "../drivers/io/GPU/../../mem/volatile/../../io/port controller/portcontroller.h"
+ void digitalwrite(uint8_t pin, bool on);
+
+ ~portcontroller();
+protected:
+private:
+
+
+ void digitalwritea(uint8_t pin, bool on);
+ void digitalwriteb(uint8_t pin, bool on);
+ void digitalwritec(uint8_t pin, bool on);
+ void digitalwrited(uint8_t pin, bool on);
+
+};
+# 10 "../drivers/io/GPU/../../mem/volatile/ram.h" 2
+# 1 "../drivers/io/GPU/../../mem/volatile/../../io/shift register/shiftreg.h" 1
+# 10 "../drivers/io/GPU/../../mem/volatile/../../io/shift register/shiftreg.h"
+# 1 "c:\\users\\brent\\documents\\github\\8bitos\\code\\os\\os\\drivers\\io\\port controller\\portcontroller.h" 1
+# 11 "../drivers/io/GPU/../../mem/volatile/../../io/shift register/shiftreg.h" 2
+
+
+
+
+class shiftreg
+{
+
+public:
+ uint8_t datapin;
+ uint8_t clockpin;
+ uint8_t latchclkpin;
+ uint64_t dataque;
+ portcontroller* port;
+protected:
+private:
+
+
+public:
+ shiftreg();
+ shiftreg(uint8_t data,uint8_t clk,uint8_t rclk,portcontroller* portcon);
+ void shiftout();
+ void shiftout8(uint8_t data);
+ void shiftout16(uint16_t data);
+ void shiftout32(uint32_t data);
+ void shiftout64(uint64_t data);
+
+
+
+
+
+ ~shiftreg();
+protected:
+private:
+
+};
+# 11 "../drivers/io/GPU/../../mem/volatile/ram.h" 2
+
+
+
+
+
+class ram
+{
+
+public:
+
+protected:
+ char offset;
+ uint8_t wepin;
+ portcontroller* portptr;
+ shiftreg* addrptr;
+ shiftreg* dataptr;
+
+ uint32_t addressbase;
+private:
+
+
+public:
+ ram();
+
+ ram(portcontroller* portptr,shiftreg* addrptr,uint8_t wepin,uint32_t addressbase);
+
+
+ char read();
+ char read(int addr);
+ void write(char data);
+ void write(uint8_t address,char data);
+ void write(uint16_t address,char data);
+ void write(uint64_t address,char data);
+
+ void setaddress(uint64_t addr);
+ uint16_t getaddr();
+ ~ram();
+
+ bool operator ==(ram right);
+ ram& operator=( const ram &c );
+protected:
+private:
+
+};
+# 13 "../drivers/io/GPU/../../mem/volatile/Vram.h" 2
+# 1 "../drivers/io/GPU/../../mem/volatile/../../io/port controller/portcontroller.h" 1
+# 14 "../drivers/io/GPU/../../mem/volatile/Vram.h" 2
+
+
+
+
+
+class Vram:public ram
+{
+
+public:
+
+protected:
+ uint8_t mempin;
+private:
+ 
+# 27 "../drivers/io/GPU/../../mem/volatile/Vram.h" 3
+__attribute__((__progmem__)) 
+# 27 "../drivers/io/GPU/../../mem/volatile/Vram.h"
+        static const uint16_t char_memory_base=0x00;
+ uint8_t char_memory_offset;
+ 
+# 29 "../drivers/io/GPU/../../mem/volatile/Vram.h" 3
+__attribute__((__progmem__)) 
+# 29 "../drivers/io/GPU/../../mem/volatile/Vram.h"
+        static const uint16_t instruction_memory_base=0x2000;
+ uint8_t instruction_memory_offset;
+ 
+# 31 "../drivers/io/GPU/../../mem/volatile/Vram.h" 3
+__attribute__((__progmem__)) 
+# 31 "../drivers/io/GPU/../../mem/volatile/Vram.h"
+        static const uint16_t custom_char_memory_base=0x3000;
+ uint8_t custom_char_memory_offset;
+
+
+
+public:
+ Vram(portcontroller* portptr,shiftreg* addrptr,uint8_t wepin,uint8_t mempin,uint64_t addressbase);
+
+ void writeData(uint16_t address,char value);
+
+ void writeData(uint16_t address,char* value,unsigned int size);
+ void cleardata();
+ void writeInstruction();
+ void writecustomchar (uint8_t* customchar );
+
+ ~Vram();
+protected:
+private:
+
+
+};
+# 9 "../drivers/io/GPU/GPU.h" 2
+
+
+
+
+
+
+class GPU
+{
+
+public:
+protected:
+private:
+
+
+public:
+ GPU();
+ ~GPU();
+protected:
+private:
+ GPU( const GPU &c );
+ GPU& operator=( const GPU &c );
+
+};
+# 10 "../drivers/io/GPU/GPU.cpp" 2
+
+
+GPU::GPU()
+{
+}
+
+
+GPU::~GPU()
+{
+}

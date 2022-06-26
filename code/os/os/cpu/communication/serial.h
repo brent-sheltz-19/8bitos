@@ -7,7 +7,7 @@
 #include "../../drivers/io/shift register/shiftreg.h"
 #include "../../drivers/io/port controller/portcontroller.h"
 #include <string.h>
-#include <io.h>
+
 #ifndef __SERIAL_H__
 #define __SERIAL_H__
 
@@ -19,7 +19,7 @@ public:
 	//int outvalue;
 	portcontroller* port;
 	shiftreg* csreg;
-	string e;
+	//char devices[128];
 	uint8_t cid;
 	uint8_t miso;
 	uint8_t mosi;
@@ -35,10 +35,11 @@ public:
 	Serial(shiftreg*);	
 	Serial(shiftreg* ,portcontroller*);
 	Serial(shiftreg* ,portcontroller*,char miso,char mosi,char clk);
-	void send(char* val,int len);
+	void send(char* val,int len,int cs);
 	char sendandrecive1byte(char val);
-	void recive(char* buff, int length);
+	void recive(char* buff, int length,int cs);
 	char recivebuff();
+	void checkfordevices();
 	
 	
 	//Serial( const Serial &c );

@@ -98,25 +98,34 @@ void portcontroller::digitalwrite(uint8_t pin, bool on)
 {
 	if (pin>0&&pin<=8)
 	{
-	digitalwritea(pin-1,on);	
+		digitalwritea(pin-1,on);	
 	} 
 	else if (pin>13&&pin<=21)
 	{
-	digitalwritea(pin-13,on);
+		digitalwritea(pin-13,on);
 	} 
 	else if (pin>21&&pin<=29)
 	{
-	digitalwritea(pin-21,on);
+		digitalwritea(pin-21,on);
 	}
 	else if (pin>32&&pin<=40)
 	{
-	digitalwritea(pin-32,on);
+		digitalwritea(pin-32,on);
 	}
 
 }
 
 void portcontroller::digitalwritea(uint8_t pin, bool on)
 {
+	if (on)
+	{
+		PORTA|=(1<<pin);
+	} 
+	else
+	{
+		PORTA&=~(1<<pin);		
+	}
+	/*
 	if(pin==1)
 	{
 		if (on)
@@ -206,10 +215,21 @@ void portcontroller::digitalwritea(uint8_t pin, bool on)
 			PORTA&=0b01111111;
 		}
 	}
+	*/
 }
 
 void portcontroller::digitalwriteb(uint8_t pin, bool on)
 {
+	if (on)
+	{
+		PORTB|=(1<<pin);
+	}
+	else
+	{
+		PORTB&=~(1<<pin);
+			
+	}
+		/*
 	if(pin==1)
 	{
 		if (on)
@@ -299,10 +319,20 @@ void portcontroller::digitalwriteb(uint8_t pin, bool on)
 			PORTB&=0b01111111;
 		}
 	}
+	*/
 }
 
 void portcontroller::digitalwritec(uint8_t pin, bool on)
 {
+	if (on)
+	{
+		PORTC|=(1<<pin);
+	}
+	else
+	{
+		PORTC&=~(1<<pin);
+			
+	}/*
 	if(pin==1)
 	{
 		if (on)
@@ -391,11 +421,20 @@ void portcontroller::digitalwritec(uint8_t pin, bool on)
 		{
 			PORTC&=0b01111111;
 		}
-	}
+	}*/
 }
 
 void portcontroller::digitalwrited(uint8_t pin, bool on)
 {
+	if (on)
+	{
+		PORTD|=(1<<pin);
+	}
+	else
+	{
+		PORTD&=~(1<<pin);
+			
+	}/*
 	if(pin==1)
 	{
 		if (on)
@@ -485,7 +524,7 @@ void portcontroller::digitalwrited(uint8_t pin, bool on)
 			PORTD&=0b01111111;
 		}
 	}
-
+*/
 }
 
 // default destructor

@@ -1,4 +1,5 @@
 #asm
+;variables
 .byte var1: 0
 .word videoptr: 0000
 .word longval: 3
@@ -7,6 +8,7 @@
 .byte counter: 0
 .ptr stringptr: 2345 #243
 
+;constants
 highstringptr = 23
 lowstringptr = 45
 constantthree = 3
@@ -48,10 +50,6 @@ cmptest:
 	ldi r66,9
 	brne cmptest
 	ret
-infromkeyboard:
-	
-
-ret
 println:
 	push r34
 	ldi r34,newline
@@ -88,18 +86,19 @@ exit:
 ret
 setup:
 	call printgreeting
+	setx(2255)
 	ldi r32,255
 	ldi r0,highstringptr
 	ldi r1,lowstringptr
 	
 	call infromkeyboard
-	ldi r2,stringptr
-	cpi r2, newlin
+	ld r2,stringptr
+	cpi r2, newline
 	
 	
 	
 main:
-	ldi r22,HIGH(counter)	
+	
 	inc r234;ss
 	inc #1234;
 	inc r234;

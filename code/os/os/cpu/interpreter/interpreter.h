@@ -70,7 +70,7 @@ class interpreter
 	};	
 	struct cpuflags
 	{
-		enum bitflags {zero, greater,less,equals,carry,sign,underflow};
+		enum bitflags {zero, greater,less,equals,carry,sign,underflow,error};
 		char flag=0;
 		char getflag(bitflags k )
 		{
@@ -150,6 +150,16 @@ class interpreter
 						flag&=!0b01000000;
 					}
 					break;
+				case error:
+					if (on)
+					{
+						flag|=0b10000000;
+					}
+					else
+					{
+						flag&=!0b10000000;
+					}
+					break;
 			}
 		}
 		void clear()
@@ -158,7 +168,10 @@ class interpreter
 		}
 	};	
 	public:
-
+	char registers[255];
+	indexreg registerx;
+	indexreg registery;
+	indexreg registerz;
 	//bool progexit;
 	ram* baseprogram;
 	ram* dataram;
@@ -172,23 +185,25 @@ protected:
 private:
 
 	
-	char registers[255];
-	uint16_t stackptr = 0x1fff;
+	
+	uint16_t stackptr ;
 	
 	uint16_t addressptr;
 	
-	indexreg registerx;
-	indexreg registery;
-	indexreg registerz;
+	
 	indexreg* indregs[3]={&registerx,&registery,&registerz};
 	cpuflags flag;
 //functions
 public:
 	interpreter();
 	interpreter( const interpreter &c );
+	void clearreg();
 	
 	
 	char run();
+
+~interpreter();
+private:	
 	void nop();
 	void inc(char reg);
 	void inc(uint16_t memptr);
@@ -282,9 +297,9 @@ public:
 	void jmppcb (uint16_t offset);
 	void call(uint16_t);
 	void ret();
-	~interpreter();
+	
 protected:
-private:
+
 	interpreter& operator=( const interpreter &c );
 }; //interpreter
 // default constructor

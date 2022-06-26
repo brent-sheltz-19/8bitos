@@ -1,0 +1,75 @@
+# 1 "../cpu/interrupts/interrupts.cpp"
+# 1 "C:\\Users\\Brent\\Documents\\GitHub\\8bitos\\code\\os\\os\\Debug//"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "../cpu/interrupts/interrupts.cpp"
+# 9 "../cpu/interrupts/interrupts.cpp"
+# 1 "../cpu/interrupts/interrupts.h" 1
+# 13 "../cpu/interrupts/interrupts.h"
+class interrupts
+{
+
+public:
+char irq;
+protected:
+char irqdata;
+private:
+
+
+public:
+ interrupts();
+ void handleinterrupt();
+ ~interrupts();
+
+ interrupts( const interrupts &c );
+ interrupts& operator=( const interrupts &c );
+
+protected:
+private:
+};
+# 10 "../cpu/interrupts/interrupts.cpp" 2
+
+
+interrupts::interrupts()
+{
+}
+
+void interrupts::handleinterrupt()
+{
+ register char irqprotected=irq;
+ if ((irqprotected&0b00000000)==0)
+ {
+  return;
+ }
+ else if((irqprotected&0b00000001)==1)
+ {
+
+ }
+ else if((irqprotected&0b00000010)==2)
+ {
+
+ }
+ else if ((irqprotected&0b00000100)==4)
+ {
+ }
+ else if ((irqprotected&0b00001000)==8)
+ {
+ }
+ else if ((irqprotected&0b00010000)==16)
+ {
+ }
+ else if ((irqprotected&0b00100000)==32)
+ {
+ }
+ else if ((irqprotected&0b01000000)==64)
+ {
+ }
+ else if ((irqprotected&0b10000000)==128)
+ {
+ }
+}
+
+
+interrupts::~interrupts()
+{
+}

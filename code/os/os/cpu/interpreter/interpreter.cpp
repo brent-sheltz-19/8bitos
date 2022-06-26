@@ -11,6 +11,9 @@
 
 interpreter::interpreter()
 {
+	stackptr = 0x1fff;
+	addressptr=0;
+	
 	registerz= indexreg(&registers[254],&registers[255]);
 	registery= indexreg(&registers[252],&registers[253]);
 	registerx= indexreg(&registers[250],&registers[251]);
@@ -20,7 +23,7 @@ interpreter::interpreter()
 */
 void interpreter::inc(char reg)
 {
-	registers[reg]=registers[reg]+1;
+	registers[(int)reg]=registers[(int)reg]+1;
 }
 /*
 	increments memory cell value
@@ -37,7 +40,7 @@ void interpreter::inc(uint16_t memptr)
 */
 void interpreter::dec(char reg)
 {
-	registers[reg]=registers[reg]-1;
+	registers[(int)reg]=registers[(int)reg]-1;
 }
 /*
 	decrements memory cell
@@ -55,7 +58,6 @@ void interpreter::dec(uint16_t memptr)
 char interpreter::run()
 {
 	bool exitcode=false;
-	addressptr=0;
 	while(!exitcode)
 	{
 		char command = baseprogram->read(addressptr);
@@ -67,6 +69,12 @@ char interpreter::run()
 			{
 				return 'b';
 			}
+			else if (val=='e')
+			{
+				exitcode = true;
+				
+			}
+			
 		}
 		else if (command==1)
 		{
@@ -393,7 +401,7 @@ char interpreter::run()
 		{
 			char ind = baseprogram->read(addressptr+1);
 			
-			push(indregs[ind]->getVal());
+			push(indregs[(int)ind]->getVal());
 			addressptr++;
 		}
 		else if(command==56)
@@ -450,6 +458,7 @@ char interpreter::run()
 		}
 		addressptr++;
 	}
+	addressptr=0;
 	return 'e';
 }
 /*
@@ -457,15 +466,15 @@ char interpreter::run()
 */
 void interpreter::mov(char regto, char regfrom)
 {
-	registers[regto]=registers[regfrom];
+	registers[(int)regto]=registers[(int)regfrom];
 }
 void interpreter::ld(char regto, uint16_t memptr)
 {
-	registers[regto]=dataram->read(memptr);
+	registers[(int)regto]=dataram->read(memptr);
 }
 void interpreter::ldi(char regto,char val)
 {
-	registers[regto]=val;
+	registers[(int)regto]=val;
 }
 void interpreter::ldx(char regto)
 {
@@ -482,15 +491,15 @@ void interpreter::ldz(char regto)
 //store to mem
 void interpreter::stx(char regfrom)
 {
-	dataram->write((uint16_t)*registerx.high<<8|*registerx.low,registers[regfrom]);
+	dataram->write((uint16_t)*registerx.high<<8|*registerx.low,registers[(int)regfrom]);
 }
 void interpreter::sty(char regfrom)
 {
-	dataram->write((uint16_t)*registery.high<<8|*registery.low,registers[regfrom]);
+	dataram->write((uint16_t)*registery.high<<8|*registery.low,registers[(int)regfrom]);
 }
 void interpreter::stz(char regfrom)
 {
-	dataram->write((uint16_t)*registerz.high<<8|*registerz.low,registers[regfrom]);
+	dataram->write((uint16_t)*registerz.high<<8|*registerz.low,registers[(int)regfrom]);
 }
 void interpreter::std(uint16_t memptr, char regfrom)
 {
@@ -584,7 +593,6 @@ void interpreter::cmp(char reg1 ,char reg2)
 	{
 		flag.setflag(cpuflags::less,true);
 	}
-	
 }
 void interpreter::cpi(char reg1 ,char val)
 {
@@ -607,12 +615,12 @@ void interpreter::cpi(char reg1 ,char val)
 void interpreter::ror(char reg1)
 {
 	
-	registers[reg1]=registers[reg1]>>1;
+	registers[(int)reg1]=registers[(int)reg1]>>1;
 }
 
 void interpreter::rol(char reg1)
 {
-	registers[reg1]=registers[reg1]<<1;
+	registers[(int)reg1]=registers[(int)reg1]<<1;
 }
 
 void interpreter::breq(uint16_t address)
@@ -764,7 +772,7 @@ void interpreter::brlpcb(uint16_t offset)
 
 void interpreter::clr(char reg)
 {
-	registers[reg]=0;
+	registers[(int)reg]=0;
 }
 
 void interpreter::nop()
@@ -792,7 +800,7 @@ void interpreter::jmppcb(uint16_t offset)
 
 void interpreter::push(char reg)
 {
-	stackram->write(stackptr,registers[reg]);
+	stackram->write(stackptr,registers[(int)reg]);
 	stackptr--;
 }
 void interpreter::pushi(uint8_t value)
@@ -808,12 +816,12 @@ uint8_t interpreter::pop()
 }
 void interpreter::pop(char reg)
 {
-	registers[reg]=stackram->read(stackptr);
+	registers[(int)reg]=stackram->read(stackptr);
 	stackptr++;
 }
 void interpreter::swap(char reg)
 {
-	registers[reg]=(registers[reg]<<4) | (registers[reg]>>4);	
+	registers[(int)reg]=(registers[(int)reg]<<4) | (registers[(int)reg]>>4);	
 }
 
 char interpreter::syscall()
@@ -826,6 +834,7 @@ char interpreter::syscall()
 	*/
 	if (registers[0]==0)
 	{
+		//sleep
 		int i = registers[1];
 		do 
 		{
@@ -879,14 +888,45 @@ char interpreter::syscall()
 		
 		
 	}
-	else if (registers[0])
+	else if (registers[0]==4)
 	{
+		/*
+			switch data ram bank  
+		*/
+		return 'b';
 	}
-	else if (registers[0])
+	else if (registers[0]==5)
 	{
+		//spu 
+		/*
+			if reg 1 is 1 
+				play tone reg 2
+			if reg 2 is 1 
+				play song from filename starting at X
+		*/
+		if (registers[1]==1)
+		{
+			
+		}
+		return 'b';
+		
+		
 	}
-	else if (registers[0])
+	else if (registers[0]==6)
 	{
+		//ssd
+		/*
+						
+		
+		
+		*/ 
+		if (registers[0]==1)
+		{
+			
+			
+		}
+		
+				  		
 	}
 
 
@@ -905,6 +945,13 @@ void interpreter::clf(char flags)
 void interpreter::ret()
 {
 	
+}
+void interpreter::clearreg()
+{
+	for (int i =0;i<sizeof(registers);i++)
+	{
+		registers[i]=0;
+	}
 }
 // default destructor
 interpreter::~interpreter()

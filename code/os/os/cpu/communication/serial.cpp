@@ -35,6 +35,7 @@ Serial::Serial(shiftreg* c, portcontroller* a,char i,char o, char cl)
  //serial
 void Serial::send(char* val,int len)
 {
+	
 	for (int i = 0 ; i<len;i++)
 	{
 		char a=*(val+i);
@@ -75,17 +76,34 @@ char Serial::sendandrecive1byte(char val)
 	
 			
 }
+//msb first
 void Serial::recive(char* buff, int length)
 {
 	int a = 0;
 	char n =0;
 	for (a = 0;a<length; a++)
 	{
+		char r = 0;
 		for (n=0;n<8;n++)
 		{
-			
+			portcontroller.digitalwrite(clk,true);
+			r|=portcontroller.digitalread(miso)<<n;
+			portcontroller.digitalwrite(clk,false);		
 		}
+		buff[a]=r;
 	}	
+}
+
+void Serial::checkfordevices()
+{
+	
+	for (int i = 0; i < 8 ; i++)
+	{
+		
+	}
+	
+	
+	
 }
 
 // default destructor

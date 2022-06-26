@@ -1,0 +1,2569 @@
+# 1 "../cpu/interpreter/interpreter.cpp"
+# 1 "C:\\Users\\Brent\\Documents\\GitHub\\8bitos\\code\\os\\os\\Debug//"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "../cpu/interpreter/interpreter.cpp"
+# 10 "../cpu/interpreter/interpreter.cpp"
+# 1 "../cpu/interpreter/interpreter.h" 1
+
+
+
+
+
+
+
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\io.h" 1 3
+# 99 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\io.h" 3
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\sfr_defs.h" 1 3
+# 126 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\sfr_defs.h" 3
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\inttypes.h" 1 3
+# 37 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\inttypes.h" 3
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\lib\\gcc\\avr\\5.4.0\\include\\stdint.h" 1 3 4
+# 9 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\lib\\gcc\\avr\\5.4.0\\include\\stdint.h" 3 4
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdint.h" 1 3 4
+# 125 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdint.h" 3 4
+
+# 125 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdint.h" 3 4
+typedef signed int int8_t __attribute__((__mode__(__QI__)));
+typedef unsigned int uint8_t __attribute__((__mode__(__QI__)));
+typedef signed int int16_t __attribute__ ((__mode__ (__HI__)));
+typedef unsigned int uint16_t __attribute__ ((__mode__ (__HI__)));
+typedef signed int int32_t __attribute__ ((__mode__ (__SI__)));
+typedef unsigned int uint32_t __attribute__ ((__mode__ (__SI__)));
+
+typedef signed int int64_t __attribute__((__mode__(__DI__)));
+typedef unsigned int uint64_t __attribute__((__mode__(__DI__)));
+# 146 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdint.h" 3 4
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+# 163 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdint.h" 3 4
+typedef int8_t int_least8_t;
+
+
+
+
+typedef uint8_t uint_least8_t;
+
+
+
+
+typedef int16_t int_least16_t;
+
+
+
+
+typedef uint16_t uint_least16_t;
+
+
+
+
+typedef int32_t int_least32_t;
+
+
+
+
+typedef uint32_t uint_least32_t;
+
+
+
+
+
+
+
+typedef int64_t int_least64_t;
+
+
+
+
+
+
+typedef uint64_t uint_least64_t;
+# 217 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdint.h" 3 4
+typedef int8_t int_fast8_t;
+
+
+
+
+typedef uint8_t uint_fast8_t;
+
+
+
+
+typedef int16_t int_fast16_t;
+
+
+
+
+typedef uint16_t uint_fast16_t;
+
+
+
+
+typedef int32_t int_fast32_t;
+
+
+
+
+typedef uint32_t uint_fast32_t;
+
+
+
+
+
+
+
+typedef int64_t int_fast64_t;
+
+
+
+
+
+
+typedef uint64_t uint_fast64_t;
+# 277 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdint.h" 3 4
+typedef int64_t intmax_t;
+
+
+
+
+typedef uint64_t uintmax_t;
+# 10 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\lib\\gcc\\avr\\5.4.0\\include\\stdint.h" 2 3 4
+# 38 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\inttypes.h" 2 3
+# 77 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\inttypes.h" 3
+typedef int32_t int_farptr_t;
+
+
+
+typedef uint32_t uint_farptr_t;
+# 127 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\sfr_defs.h" 2 3
+# 100 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\io.h" 2 3
+# 212 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\io.h" 3
+# 1 "C:\\Program Files (x86)\\Atmel\\Studio\\7.0\\Packs\\atmel\\ATmega_DFP\\1.3.300\\include/avr/iom644pa.h" 1 3
+# 213 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\io.h" 2 3
+# 627 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\io.h" 3
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\portpins.h" 1 3
+# 628 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\io.h" 2 3
+
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\common.h" 1 3
+# 630 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\io.h" 2 3
+
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\version.h" 1 3
+# 632 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\io.h" 2 3
+
+
+
+
+
+
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\fuse.h" 1 3
+# 239 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\fuse.h" 3
+typedef struct
+{
+    unsigned char low;
+    unsigned char high;
+    unsigned char extended;
+} __fuse_t;
+# 639 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\io.h" 2 3
+
+
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\lock.h" 1 3
+# 642 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\io.h" 2 3
+# 9 "../cpu/interpreter/interpreter.h" 2
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 1 3
+# 89 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\lib\\gcc\\avr\\5.4.0\\include\\stddef.h" 1 3 4
+# 216 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\lib\\gcc\\avr\\5.4.0\\include\\stddef.h" 3 4
+typedef unsigned int size_t;
+# 90 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 2 3
+# 116 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern "C" {
+# 1158 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern const void * memchr_P(const void *, int __val, size_t __len) __attribute__((__const__));
+# 1172 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern int memcmp_P(const void *, const void *, size_t) __attribute__((__pure__));
+
+
+
+
+
+
+extern void *memccpy_P(void *, const void *, int __val, size_t);
+# 1188 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern void *memcpy_P(void *, const void *, size_t);
+
+
+
+
+
+
+extern void *memmem_P(const void *, size_t, const void *, size_t) __attribute__((__pure__));
+# 1207 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern const void * memrchr_P(const void *, int __val, size_t __len) __attribute__((__const__));
+# 1217 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strcat_P(char *, const char *);
+# 1233 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern const char * strchr_P(const char *, int __val) __attribute__((__const__));
+# 1245 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern const char * strchrnul_P(const char *, int __val) __attribute__((__const__));
+# 1258 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern int strcmp_P(const char *, const char *) __attribute__((__pure__));
+# 1268 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strcpy_P(char *, const char *);
+# 1285 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern int strcasecmp_P(const char *, const char *) __attribute__((__pure__));
+
+
+
+
+
+
+extern char *strcasestr_P(const char *, const char *) __attribute__((__pure__));
+# 1305 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern size_t strcspn_P(const char *__s, const char * __reject) __attribute__((__pure__));
+# 1321 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern size_t strlcat_P (char *, const char *, size_t );
+# 1334 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern size_t strlcpy_P (char *, const char *, size_t );
+# 1346 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern size_t strnlen_P(const char *, size_t) __attribute__((__const__));
+# 1357 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern int strncmp_P(const char *, const char *, size_t) __attribute__((__pure__));
+# 1376 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern int strncasecmp_P(const char *, const char *, size_t) __attribute__((__pure__));
+# 1387 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strncat_P(char *, const char *, size_t);
+# 1401 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strncpy_P(char *, const char *, size_t);
+# 1416 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strpbrk_P(const char *__s, const char * __accept) __attribute__((__pure__));
+# 1427 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern const char * strrchr_P(const char *, int __val) __attribute__((__const__));
+# 1447 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strsep_P(char **__sp, const char * __delim);
+# 1460 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern size_t strspn_P(const char *__s, const char * __accept) __attribute__((__pure__));
+# 1474 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strstr_P(const char *, const char *) __attribute__((__pure__));
+# 1496 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strtok_P(char *__s, const char * __delim);
+# 1516 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strtok_rP(char *__s, const char * __delim, char **__last);
+# 1529 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern size_t strlen_PF(uint_farptr_t src) __attribute__((__const__));
+# 1545 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern size_t strnlen_PF(uint_farptr_t src, size_t len) __attribute__((__const__));
+# 1560 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern void *memcpy_PF(void *dest, uint_farptr_t src, size_t len);
+# 1575 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strcpy_PF(char *dest, uint_farptr_t src);
+# 1595 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strncpy_PF(char *dest, uint_farptr_t src, size_t len);
+# 1611 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strcat_PF(char *dest, uint_farptr_t src);
+# 1632 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern size_t strlcat_PF(char *dst, uint_farptr_t src, size_t siz);
+# 1649 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strncat_PF(char *dest, uint_farptr_t src, size_t len);
+# 1665 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern int strcmp_PF(const char *s1, uint_farptr_t s2) __attribute__((__pure__));
+# 1682 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern int strncmp_PF(const char *s1, uint_farptr_t s2, size_t n) __attribute__((__pure__));
+# 1698 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern int strcasecmp_PF(const char *s1, uint_farptr_t s2) __attribute__((__pure__));
+# 1716 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern int strncasecmp_PF(const char *s1, uint_farptr_t s2, size_t n) __attribute__((__pure__));
+# 1732 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern char *strstr_PF(const char *s1, uint_farptr_t s2);
+# 1744 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern size_t strlcpy_PF(char *dst, uint_farptr_t src, size_t siz);
+# 1760 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern int memcmp_PF(const void *, uint_farptr_t, size_t) __attribute__((__pure__));
+# 1779 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\pgmspace.h" 3
+extern size_t __strlen_P(const char *) __attribute__((__const__));
+__attribute__((__always_inline__)) static __inline__ size_t strlen_P(const char * s);
+static __inline__ size_t strlen_P(const char *s) {
+  return __builtin_constant_p(__builtin_strlen(s))
+     ? __builtin_strlen(s) : __strlen_P(s);
+}
+
+
+
+}
+# 10 "../cpu/interpreter/interpreter.h" 2
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\cpufunc.h" 1 3
+# 91 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\cpufunc.h" 3
+void ccp_write_io (uint8_t *__ioaddr, uint8_t __value);
+# 11 "../cpu/interpreter/interpreter.h" 2
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\avr\\interrupt.h" 1 3
+# 12 "../cpu/interpreter/interpreter.h" 2
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 1 3
+# 45 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\lib\\gcc\\avr\\5.4.0\\include\\stdarg.h" 1 3 4
+# 40 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\lib\\gcc\\avr\\5.4.0\\include\\stdarg.h" 3 4
+typedef __builtin_va_list __gnuc_va_list;
+# 98 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\lib\\gcc\\avr\\5.4.0\\include\\stdarg.h" 3 4
+typedef __gnuc_va_list va_list;
+# 46 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 2 3
+
+
+
+
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\lib\\gcc\\avr\\5.4.0\\include\\stddef.h" 1 3 4
+# 51 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 2 3
+# 244 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+struct __file {
+ char *buf;
+ unsigned char unget;
+ uint8_t flags;
+# 263 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+ int size;
+ int len;
+ int (*put)(char, struct __file *);
+ int (*get)(struct __file *);
+ void *udata;
+};
+# 277 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+typedef struct __file FILE;
+# 399 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern "C" {
+
+
+
+
+
+
+
+extern struct __file *__iob[];
+# 419 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern FILE *fdevopen(int (*__put)(char, FILE*), int (*__get)(FILE*));
+# 436 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern int fclose(FILE *__stream);
+# 610 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern int vfprintf(FILE *__stream, const char *__fmt, va_list __ap);
+
+
+
+
+
+extern int vfprintf_P(FILE *__stream, const char *__fmt, va_list __ap);
+
+
+
+
+
+
+extern int fputc(int __c, FILE *__stream);
+
+
+
+
+extern int putc(int __c, FILE *__stream);
+
+
+extern int putchar(int __c);
+# 651 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern int printf(const char *__fmt, ...);
+
+
+
+
+
+extern int printf_P(const char *__fmt, ...);
+
+
+
+
+
+
+
+extern int vprintf(const char *__fmt, va_list __ap);
+
+
+
+
+
+extern int sprintf(char *__s, const char *__fmt, ...);
+
+
+
+
+
+extern int sprintf_P(char *__s, const char *__fmt, ...);
+# 687 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern int snprintf(char *__s, size_t __n, const char *__fmt, ...);
+
+
+
+
+
+extern int snprintf_P(char *__s, size_t __n, const char *__fmt, ...);
+
+
+
+
+
+extern int vsprintf(char *__s, const char *__fmt, va_list ap);
+
+
+
+
+
+extern int vsprintf_P(char *__s, const char *__fmt, va_list ap);
+# 715 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern int vsnprintf(char *__s, size_t __n, const char *__fmt, va_list ap);
+
+
+
+
+
+extern int vsnprintf_P(char *__s, size_t __n, const char *__fmt, va_list ap);
+
+
+
+
+extern int fprintf(FILE *__stream, const char *__fmt, ...);
+
+
+
+
+
+extern int fprintf_P(FILE *__stream, const char *__fmt, ...);
+
+
+
+
+
+
+extern int fputs(const char *__str, FILE *__stream);
+
+
+
+
+extern int fputs_P(const char *__str, FILE *__stream);
+
+
+
+
+
+extern int puts(const char *__str);
+
+
+
+
+extern int puts_P(const char *__str);
+# 764 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern size_t fwrite(const void *__ptr, size_t __size, size_t __nmemb,
+         FILE *__stream);
+
+
+
+
+
+
+
+extern int fgetc(FILE *__stream);
+
+
+
+
+extern int getc(FILE *__stream);
+
+
+extern int getchar(void);
+# 812 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern int ungetc(int __c, FILE *__stream);
+# 824 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern char *fgets(char *__str, int __size, FILE *__stream);
+
+
+
+
+
+
+extern char *gets(char *__str);
+# 842 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern size_t fread(void *__ptr, size_t __size, size_t __nmemb,
+        FILE *__stream);
+
+
+
+
+extern void clearerr(FILE *__stream);
+# 859 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern int feof(FILE *__stream);
+# 870 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+extern int ferror(FILE *__stream);
+
+
+
+
+
+
+extern int vfscanf(FILE *__stream, const char *__fmt, va_list __ap);
+
+
+
+
+extern int vfscanf_P(FILE *__stream, const char *__fmt, va_list __ap);
+
+
+
+
+
+
+
+extern int fscanf(FILE *__stream, const char *__fmt, ...);
+
+
+
+
+extern int fscanf_P(FILE *__stream, const char *__fmt, ...);
+
+
+
+
+
+
+extern int scanf(const char *__fmt, ...);
+
+
+
+
+extern int scanf_P(const char *__fmt, ...);
+
+
+
+
+
+
+
+extern int vscanf(const char *__fmt, va_list __ap);
+
+
+
+
+
+
+
+extern int sscanf(const char *__buf, const char *__fmt, ...);
+
+
+
+
+extern int sscanf_P(const char *__buf, const char *__fmt, ...);
+# 940 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\stdio.h" 3
+static __inline__ int fflush(FILE *stream __attribute__((unused)))
+{
+ return 0;
+}
+
+
+
+
+
+
+__extension__ typedef long long fpos_t;
+extern int fgetpos(FILE *stream, fpos_t *pos);
+extern FILE *fopen(const char *path, const char *mode);
+extern FILE *freopen(const char *path, const char *mode, FILE *stream);
+extern FILE *fdopen(int, const char *);
+extern int fseek(FILE *stream, long offset, int whence);
+extern int fsetpos(FILE *stream, fpos_t *pos);
+extern long ftell(FILE *stream);
+extern int fileno(FILE *);
+extern void perror(const char *s);
+extern int remove(const char *pathname);
+extern int rename(const char *oldpath, const char *newpath);
+extern void rewind(FILE *stream);
+extern void setbuf(FILE *stream, char *buf);
+extern int setvbuf(FILE *stream, char *buf, int mode, size_t size);
+extern FILE *tmpfile(void);
+extern char *tmpnam (char *s);
+
+
+
+}
+# 13 "../cpu/interpreter/interpreter.h" 2
+
+# 1 "../cpu/interpreter/../../drivers/mem/rom.h" 1
+
+
+
+
+
+
+
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay.h" 1 3
+# 45 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay.h" 3
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay_basic.h" 1 3
+# 40 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay_basic.h" 3
+static __inline__ void _delay_loop_1(uint8_t __count) __attribute__((__always_inline__));
+static __inline__ void _delay_loop_2(uint16_t __count) __attribute__((__always_inline__));
+# 80 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay_basic.h" 3
+void
+_delay_loop_1(uint8_t __count)
+{
+ __asm__ volatile (
+  "1: dec %0" "\n\t"
+  "brne 1b"
+  : "=r" (__count)
+  : "0" (__count)
+ );
+}
+# 102 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay_basic.h" 3
+void
+_delay_loop_2(uint16_t __count)
+{
+ __asm__ volatile (
+  "1: sbiw %0,1" "\n\t"
+  "brne 1b"
+  : "=w" (__count)
+  : "0" (__count)
+ );
+}
+# 46 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay.h" 2 3
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 1 3
+# 121 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 3
+extern "C" {
+
+
+
+
+
+extern double cos(double __x) __attribute__((__const__));
+
+
+
+
+
+extern double sin(double __x) __attribute__((__const__));
+
+
+
+
+
+extern double tan(double __x) __attribute__((__const__));
+
+
+
+
+
+
+extern double fabs(double __x) __attribute__((__const__));
+
+
+
+
+
+
+extern double fmod(double __x, double __y) __attribute__((__const__));
+# 168 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 3
+extern double modf(double __x, double *__iptr);
+
+
+extern float modff (float __x, float *__iptr);
+
+
+
+
+extern double sqrt(double __x) __attribute__((__const__));
+
+
+extern float sqrtf (float) __attribute__((__const__));
+
+
+
+
+extern double cbrt(double __x) __attribute__((__const__));
+# 195 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 3
+extern double hypot (double __x, double __y) __attribute__((__const__));
+
+
+
+
+
+
+
+extern double square(double __x) __attribute__((__const__));
+
+
+
+
+
+
+extern double floor(double __x) __attribute__((__const__));
+
+
+
+
+
+
+extern double ceil(double __x) __attribute__((__const__));
+# 235 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 3
+extern double frexp(double __x, int *__pexp);
+
+
+
+
+
+
+
+extern double ldexp(double __x, int __exp) __attribute__((__const__));
+
+
+
+
+
+extern double exp(double __x) __attribute__((__const__));
+
+
+
+
+
+extern double cosh(double __x) __attribute__((__const__));
+
+
+
+
+
+extern double sinh(double __x) __attribute__((__const__));
+
+
+
+
+
+extern double tanh(double __x) __attribute__((__const__));
+
+
+
+
+
+
+
+extern double acos(double __x) __attribute__((__const__));
+
+
+
+
+
+
+
+extern double asin(double __x) __attribute__((__const__));
+
+
+
+
+
+
+extern double atan(double __x) __attribute__((__const__));
+# 299 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 3
+extern double atan2(double __y, double __x) __attribute__((__const__));
+
+
+
+
+
+extern double log(double __x) __attribute__((__const__));
+
+
+
+
+
+extern double log10(double __x) __attribute__((__const__));
+
+
+
+
+
+extern double pow(double __x, double __y) __attribute__((__const__));
+
+
+
+
+
+
+extern int isnan(double __x) __attribute__((__const__));
+# 334 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 3
+extern int isinf(double __x) __attribute__((__const__));
+
+
+
+
+
+
+__attribute__((__const__)) static inline int isfinite (double __x)
+{
+    unsigned char __exp;
+    __asm__ (
+ "mov	%0, %C1		\n\t"
+ "lsl	%0		\n\t"
+ "mov	%0, %D1		\n\t"
+ "rol	%0		"
+ : "=r" (__exp)
+ : "r" (__x) );
+    return __exp != 0xff;
+}
+
+
+
+
+
+
+__attribute__((__const__)) static inline double copysign (double __x, double __y)
+{
+    __asm__ (
+ "bst	%D2, 7	\n\t"
+ "bld	%D0, 7	"
+ : "=r" (__x)
+ : "0" (__x), "r" (__y) );
+    return __x;
+}
+# 377 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 3
+extern int signbit (double __x) __attribute__((__const__));
+
+
+
+
+
+
+extern double fdim (double __x, double __y) __attribute__((__const__));
+# 393 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 3
+extern double fma (double __x, double __y, double __z) __attribute__((__const__));
+
+
+
+
+
+
+
+extern double fmax (double __x, double __y) __attribute__((__const__));
+
+
+
+
+
+
+
+extern double fmin (double __x, double __y) __attribute__((__const__));
+
+
+
+
+
+
+extern double trunc (double __x) __attribute__((__const__));
+# 427 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 3
+extern double round (double __x) __attribute__((__const__));
+# 440 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 3
+extern long lround (double __x) __attribute__((__const__));
+# 454 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\math.h" 3
+extern long lrint (double __x) __attribute__((__const__));
+
+
+
+}
+# 47 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay.h" 2 3
+# 86 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay.h" 3
+static __inline__ void _delay_us(double __us) __attribute__((__always_inline__));
+static __inline__ void _delay_ms(double __ms) __attribute__((__always_inline__));
+# 165 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay.h" 3
+void
+_delay_ms(double __ms)
+{
+ double __tmp ;
+
+
+
+ uint32_t __ticks_dc;
+ extern void __builtin_avr_delay_cycles(unsigned long);
+ __tmp = ((1000000UL) / 1e3) * __ms;
+# 184 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay.h" 3
+  __ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+
+
+ __builtin_avr_delay_cycles(__ticks_dc);
+# 210 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay.h" 3
+}
+# 254 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay.h" 3
+void
+_delay_us(double __us)
+{
+ double __tmp ;
+
+
+
+ uint32_t __ticks_dc;
+ extern void __builtin_avr_delay_cycles(unsigned long);
+ __tmp = ((1000000UL) / 1e6) * __us;
+# 273 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay.h" 3
+  __ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+
+
+ __builtin_avr_delay_cycles(__ticks_dc);
+# 299 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\util\\delay.h" 3
+}
+# 9 "../cpu/interpreter/../../drivers/mem/rom.h" 2
+# 1 "../cpu/interpreter/../../drivers/mem/../io/port controller/portcontroller.h" 1
+# 15 "../cpu/interpreter/../../drivers/mem/../io/port controller/portcontroller.h"
+
+# 15 "../cpu/interpreter/../../drivers/mem/../io/port controller/portcontroller.h"
+class portcontroller
+{
+
+public:
+protected:
+private:
+
+
+public:
+ portcontroller();
+ char readporta();
+ char readportb();
+ char readportc();
+ char readportd();
+ char readddra();
+ char readddrb();
+ char readddrc();
+ char readddrd();
+
+ void writeporta(char a);
+ void writeportb(char);
+ void writeportc(char);
+ void writeportd(char);
+ void writeddra(char);
+ void writeddrb(char);
+ void writeddrc(char);
+ void writeddrd(char);
+
+ char digitalread(uint8_t pin);
+# 52 "../cpu/interpreter/../../drivers/mem/../io/port controller/portcontroller.h"
+ void digitalwrite(uint8_t pin, bool on);
+
+ ~portcontroller();
+protected:
+private:
+
+
+ void digitalwritea(uint8_t pin, bool on);
+ void digitalwriteb(uint8_t pin, bool on);
+ void digitalwritec(uint8_t pin, bool on);
+ void digitalwrited(uint8_t pin, bool on);
+
+};
+# 10 "../cpu/interpreter/../../drivers/mem/rom.h" 2
+# 1 "../cpu/interpreter/../../drivers/mem/../io/shift register/shiftreg.h" 1
+# 10 "../cpu/interpreter/../../drivers/mem/../io/shift register/shiftreg.h"
+# 1 "../cpu/interpreter/../../drivers/mem/../io/shift register/../port controller/portcontroller.h" 1
+# 11 "../cpu/interpreter/../../drivers/mem/../io/shift register/shiftreg.h" 2
+
+
+
+
+class shiftreg
+{
+
+public:
+ uint8_t datapin;
+ uint8_t clockpin;
+ uint8_t latchclkpin;
+ uint64_t dataque;
+ portcontroller* port;
+protected:
+private:
+
+
+public:
+ shiftreg();
+ shiftreg(uint8_t data,uint8_t clk,uint8_t rclk,portcontroller* portcon);
+ void shiftout();
+ void shiftout8(uint8_t data);
+ void shiftout16(uint16_t data);
+ void shiftout32(uint32_t data);
+ void shiftout64(uint64_t data);
+
+
+
+
+
+ ~shiftreg();
+protected:
+private:
+
+};
+# 11 "../cpu/interpreter/../../drivers/mem/rom.h" 2
+
+
+
+
+
+class rom
+{
+
+public:
+
+protected:
+ uint16_t offset;
+ uint16_t address;
+ portcontroller* portptr;
+ shiftreg* addrptr;
+private:
+
+
+
+public:
+ rom();
+ rom(portcontroller*,shiftreg*,uint64_t address2);
+ char read();
+ char read(int addr);
+ void setaddress(uint16_t addr);
+ uint16_t getaddr();
+ ~rom();
+ rom( const rom &c );
+ rom& operator=( const rom &c );
+protected:
+private:
+
+
+};
+# 15 "../cpu/interpreter/interpreter.h" 2
+
+# 1 "../cpu/interpreter/../../drivers/mem/volatile/ram.h" 1
+# 9 "../cpu/interpreter/../../drivers/mem/volatile/ram.h"
+# 1 "../cpu/interpreter/../../drivers/mem/volatile/../../io/port controller/portcontroller.h" 1
+# 10 "../cpu/interpreter/../../drivers/mem/volatile/ram.h" 2
+# 1 "../cpu/interpreter/../../drivers/mem/volatile/../../io/shift register/shiftreg.h" 1
+# 11 "../cpu/interpreter/../../drivers/mem/volatile/ram.h" 2
+
+
+
+
+
+class ram
+{
+
+public:
+
+protected:
+ char offset;
+ uint8_t wepin;
+ portcontroller* portptr;
+ shiftreg* addrptr;
+ shiftreg* dataptr;
+
+ uint32_t addressbase;
+private:
+
+
+public:
+ ram();
+
+ ram(portcontroller* portptr,shiftreg* addrptr,uint8_t wepin,uint32_t addressbase);
+
+
+ char read();
+ char read(int addr);
+ void write(char data);
+ void write(uint8_t address,char data);
+ void write(uint16_t address,char data);
+ void write(uint64_t address,char data);
+
+ void setaddress(uint64_t addr);
+ uint16_t getaddr();
+ ~ram();
+
+ bool operator ==(ram right);
+ ram& operator=( const ram &c );
+protected:
+private:
+
+};
+# 17 "../cpu/interpreter/interpreter.h" 2
+# 1 "../cpu/interpreter/../../drivers/mem/volatile/Vram.h" 1
+# 12 "../cpu/interpreter/../../drivers/mem/volatile/Vram.h"
+# 1 "../cpu/interpreter/../../drivers/mem/volatile/ram.h" 1
+# 9 "../cpu/interpreter/../../drivers/mem/volatile/ram.h"
+# 1 "../cpu/interpreter/../../drivers/mem/volatile/../../io/port controller/portcontroller.h" 1
+# 10 "../cpu/interpreter/../../drivers/mem/volatile/ram.h" 2
+# 13 "../cpu/interpreter/../../drivers/mem/volatile/Vram.h" 2
+# 1 "../cpu/interpreter/../../drivers/mem/volatile/../../io/port controller/portcontroller.h" 1
+# 14 "../cpu/interpreter/../../drivers/mem/volatile/Vram.h" 2
+
+
+
+
+
+class Vram:public ram
+{
+
+public:
+
+protected:
+ uint8_t mempin;
+private:
+ 
+# 27 "../cpu/interpreter/../../drivers/mem/volatile/Vram.h" 3
+__attribute__((__progmem__)) 
+# 27 "../cpu/interpreter/../../drivers/mem/volatile/Vram.h"
+        static const uint16_t char_memory_base=0x00;
+ uint8_t char_memory_offset;
+ 
+# 29 "../cpu/interpreter/../../drivers/mem/volatile/Vram.h" 3
+__attribute__((__progmem__)) 
+# 29 "../cpu/interpreter/../../drivers/mem/volatile/Vram.h"
+        static const uint16_t instruction_memory_base=0x2000;
+ uint8_t instruction_memory_offset;
+ 
+# 31 "../cpu/interpreter/../../drivers/mem/volatile/Vram.h" 3
+__attribute__((__progmem__)) 
+# 31 "../cpu/interpreter/../../drivers/mem/volatile/Vram.h"
+        static const uint16_t custom_char_memory_base=0x3000;
+ uint8_t custom_char_memory_offset;
+
+
+
+public:
+ Vram(portcontroller* portptr,shiftreg* addrptr,uint8_t wepin,uint8_t mempin,uint64_t addressbase);
+
+ void writeData(uint16_t address,char value);
+
+ void writeData(uint16_t address,char* value,unsigned int size);
+ void cleardata();
+ void writeInstruction();
+ void writecustomchar (uint8_t* customchar );
+
+ ~Vram();
+protected:
+private:
+
+
+};
+# 18 "../cpu/interpreter/interpreter.h" 2
+
+# 1 "../cpu/interpreter/../../drivers/mem/rom.h" 1
+# 9 "../cpu/interpreter/../../drivers/mem/rom.h"
+# 1 "../cpu/interpreter/../../drivers/mem/../io/port controller/portcontroller.h" 1
+# 10 "../cpu/interpreter/../../drivers/mem/rom.h" 2
+# 20 "../cpu/interpreter/interpreter.h" 2
+
+# 1 "../cpu/interpreter/../../drivers/io/keyboard/keyboard.h" 1
+
+
+
+
+
+
+# 1 "c:\\users\\brent\\documents\\github\\8bitos\\code\\os\\os\\cpu\\communication\\serial.h" 1
+
+
+
+
+
+
+# 1 "c:\\users\\brent\\documents\\github\\8bitos\\code\\os\\os\\drivers\\io\\shift register\\shiftreg.h" 1
+# 8 "c:\\users\\brent\\documents\\github\\8bitos\\code\\os\\os\\cpu\\communication\\serial.h" 2
+# 1 "c:\\users\\brent\\documents\\github\\8bitos\\code\\os\\os\\drivers\\io\\port controller\\portcontroller.h" 1
+# 9 "c:\\users\\brent\\documents\\github\\8bitos\\code\\os\\os\\cpu\\communication\\serial.h" 2
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 1 3
+# 46 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+# 1 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\lib\\gcc\\avr\\5.4.0\\include\\stddef.h" 1 3 4
+# 47 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 2 3
+# 58 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+
+# 58 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern "C" {
+# 125 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern int ffs(int __val) __attribute__((__const__));
+
+
+
+
+
+extern int ffsl(long __val) __attribute__((__const__));
+
+
+
+
+
+__extension__ extern int ffsll(long long __val) __attribute__((__const__));
+# 150 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern void *memccpy(void *, const void *, int, size_t);
+# 162 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern void *memchr(const void *, int, size_t) __attribute__((__pure__));
+# 180 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern int memcmp(const void *, const void *, size_t) __attribute__((__pure__));
+# 191 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern void *memcpy(void *, const void *, size_t);
+# 203 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern void *memmem(const void *, size_t, const void *, size_t) __attribute__((__pure__));
+# 213 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern void *memmove(void *, const void *, size_t);
+# 225 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern void *memrchr(const void *, int, size_t) __attribute__((__pure__));
+# 235 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern void *memset(void *, int, size_t);
+# 248 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern char *strcat(char *, const char *);
+# 262 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern char *strchr(const char *, int) __attribute__((__pure__));
+# 274 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern char *strchrnul(const char *, int) __attribute__((__pure__));
+# 287 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern int strcmp(const char *, const char *) __attribute__((__pure__));
+# 305 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern char *strcpy(char *, const char *);
+# 320 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern int strcasecmp(const char *, const char *) __attribute__((__pure__));
+# 333 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern char *strcasestr(const char *, const char *) __attribute__((__pure__));
+# 344 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern size_t strcspn(const char *__s, const char *__reject) __attribute__((__pure__));
+# 364 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern char *strdup(const char *s1);
+# 377 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern size_t strlcat(char *, const char *, size_t);
+# 388 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern size_t strlcpy(char *, const char *, size_t);
+# 399 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern size_t strlen(const char *) __attribute__((__pure__));
+# 411 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern char *strlwr(char *);
+# 422 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern char *strncat(char *, const char *, size_t);
+# 434 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern int strncmp(const char *, const char *, size_t) __attribute__((__pure__));
+# 449 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern char *strncpy(char *, const char *, size_t);
+# 464 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern int strncasecmp(const char *, const char *, size_t) __attribute__((__pure__));
+# 478 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern size_t strnlen(const char *, size_t) __attribute__((__pure__));
+# 491 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern char *strpbrk(const char *__s, const char *__accept) __attribute__((__pure__));
+# 505 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern char *strrchr(const char *, int) __attribute__((__pure__));
+# 515 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern char *strrev(char *);
+# 533 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern char *strsep(char **, const char *);
+# 544 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern size_t strspn(const char *__s, const char *__accept) __attribute__((__pure__));
+# 557 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern char *strstr(const char *, const char *) __attribute__((__pure__));
+# 576 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern char *strtok(char *, const char *);
+# 593 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern char *strtok_r(char *, const char *, char **);
+# 606 "c:\\program files (x86)\\atmel\\studio\\7.0\\toolchain\\avr8\\avr8-gnu-toolchain\\avr\\include\\string.h" 3
+extern char *strupr(char *);
+
+
+
+extern int strcoll(const char *s1, const char *s2);
+extern char *strerror(int errnum);
+extern size_t strxfrm(char *dest, const char *src, size_t n);
+
+
+
+}
+# 10 "c:\\users\\brent\\documents\\github\\8bitos\\code\\os\\os\\cpu\\communication\\serial.h" 2
+
+
+
+
+
+
+# 15 "c:\\users\\brent\\documents\\github\\8bitos\\code\\os\\os\\cpu\\communication\\serial.h"
+class Serial
+{
+
+public:
+
+ portcontroller* port;
+ shiftreg* csreg;
+
+ uint8_t cid;
+ uint8_t miso;
+ uint8_t mosi;
+ uint8_t clk;
+
+
+protected:
+private:
+
+
+public:
+ Serial();
+ Serial(shiftreg*);
+ Serial(shiftreg* ,portcontroller*);
+ Serial(shiftreg* ,portcontroller*,char miso,char mosi,char clk);
+ void send(char* val,int len);
+ char sendandrecive1byte(char val);
+ void recive(char* buff, int length);
+ char recivebuff();
+
+
+
+
+ ~Serial();
+protected:
+private:
+
+};
+# 8 "../cpu/interpreter/../../drivers/io/keyboard/keyboard.h" 2
+# 1 "../cpu/interpreter/../../drivers/io/keyboard/../port controller/portcontroller.h" 1
+# 9 "../cpu/interpreter/../../drivers/io/keyboard/keyboard.h" 2
+# 1 "../cpu/interpreter/../../drivers/io/keyboard/../shift register/shiftreg.h" 1
+# 10 "../cpu/interpreter/../../drivers/io/keyboard/keyboard.h" 2
+
+
+
+
+class keyboard
+{
+
+public:
+ uint32_t address;
+
+protected:
+
+private:
+portcontroller* port;
+ shiftreg* addrreg;
+ Serial* serial;
+
+public:
+keyboard();
+keyboard(uint32_t);
+void read(char* buff,uint32_t size);
+void read(char* buff);
+uint8_t getsize();
+~keyboard();
+protected:
+private:
+
+
+};
+# 22 "../cpu/interpreter/interpreter.h" 2
+
+
+
+
+class interpreter
+{
+ struct indexreg
+ {
+  char* low;
+  char* high;
+
+  indexreg()
+  {
+   low=0,high=0;
+  }
+  indexreg(char* l, char* h)
+  {
+   low=l;
+   high=h;
+  }
+  uint16_t getVal()
+  {
+
+   return (*high <<8)|*low;
+  }
+  uint8_t getLow()
+  {
+
+   return *low;
+  }
+  uint8_t getHigh()
+  {
+
+   return *high ;
+  }
+
+
+  void setValue(uint16_t A)
+  {
+   *high=(A>>8);
+   *low = (char)A;
+  }
+  void setValue(char h,char l)
+  {
+   *high=h;
+   *low =l;
+  }
+
+ };
+ struct cpuflags
+ {
+  enum bitflags {zero, greater,less,equals,carry,sign,underflow};
+  char flag=0;
+  char getflag(bitflags k )
+  {
+   return ((flag>>k)&1);
+
+  }
+  void setflag(bitflags bitflag, bool on)
+  {
+   switch (bitflag)
+   {
+    case zero:
+     if (on)
+     {
+      flag|=0b00000001;
+     }
+     else
+     {
+      flag&=0b11111110;
+     }
+     break;
+    case greater:
+     if (on)
+     {
+      flag|=0b00000010;
+     }
+     else
+     {
+      flag&=!0b00000010;
+     }
+     break;
+    case less:
+     if (on)
+     {
+      flag|=0b00000100;
+     }
+     else
+     {
+      flag&=!0b00000100;
+     }
+     break;
+    case equals:
+     if (on)
+     {
+      flag|=0b00001000;
+     }
+     else
+     {
+      flag&=!0b00001000;
+     }
+    case carry:
+     if (on)
+     {
+      flag|=0b00010000;
+     }
+     else
+     {
+      flag&=!0b00010000;
+     }
+     break;
+    case sign:
+     if (on)
+     {
+      flag|=0b00100000;
+     }
+     else
+     {
+      flag&=!0b00100000;
+     }
+     break;
+    case underflow:
+     if (on)
+     {
+      flag|=0b01000000;
+     }
+     else
+     {
+      flag&=!0b01000000;
+     }
+     break;
+   }
+  }
+  void clear()
+  {
+   flag=0;
+  }
+ };
+ public:
+ char registers[255];
+ indexreg registerx;
+ indexreg registery;
+ indexreg registerz;
+
+ ram* baseprogram;
+ ram* dataram;
+ ram* stackram;
+
+ Vram* videoram;
+ Vram* videoinstructionram;
+ Vram* videocustomcharram;
+protected:
+
+private:
+
+
+
+ uint16_t stackptr ;
+
+ uint16_t addressptr;
+
+
+ indexreg* indregs[3]={&registerx,&registery,&registerz};
+ cpuflags flag;
+
+public:
+ interpreter();
+ interpreter( const interpreter &c );
+
+
+ char run();
+
+~interpreter();
+private:
+ void nop();
+ void inc(char reg);
+ void inc(uint16_t memptr);
+ void dec(char reg);
+ void dec(uint16_t memptr);
+ void mov(char regto, char regfrom);
+
+ void ld(char regto, uint16_t memptr);
+ void ldi(char regto,char val);
+ void ldx(char regto);
+ void ldy(char regto);
+ void ldz(char regto);
+
+ void stx(char regfrom);
+ void sty(char regfrom);
+ void stz(char regfrom);
+ void std(uint16_t memptr, char regfrom);
+
+
+ void svd(uint16_t memptr, char regfrom);
+ void svx( char regfrom);
+ void svy( char regfrom);
+ void svz( char regfrom);
+
+
+
+
+ void cmp(char reg1 ,char reg2);
+ void cpi(char reg1,char val);
+ void ror(char reg1);
+ void rol(char reg1);
+ void txs();
+ void txy();
+ void txz();
+
+ void tys();
+ void tyx();
+ void tyz();
+
+ void tzs();
+ void tzx();
+ void tzy();
+
+
+ void tsx();
+ void tsy();
+ void tsz();
+
+
+ void breq(uint16_t address);
+ void breqpcf(uint16_t offset);
+ void breqpcb(uint16_t offset);
+
+ void brne(uint16_t address);
+ void brnepcf(uint16_t offset);
+ void brnepcb(uint16_t offset);
+
+ void brge(uint16_t address);
+ void brgepcf(uint16_t offset);
+ void brgepcb(uint16_t offset);
+
+ void brle(uint16_t address);
+ void brlepcf(uint16_t offset);
+ void brlepcb(uint16_t offset);
+
+ void brg(uint16_t address);
+ void brgpcf(uint16_t offset);
+ void brgpcb(uint16_t offset);
+
+ void brl(uint16_t address);
+ void brlpcf(uint16_t offset);
+ void brlpcb(uint16_t offset);
+
+ void clr(char reg);
+
+ void clf(char flag);
+
+ void swap(char reg);
+
+ char syscall();
+
+ uint8_t pop();
+ void pop(char reg);
+ void push(char reg);
+ void push(indexreg);
+ void pushi(uint8_t value);
+
+
+ void jmp (uint16_t memptr);
+ void jmppcf (uint16_t offset);
+ void jmppcb (uint16_t offset);
+ void call(uint16_t);
+ void ret();
+
+protected:
+
+ interpreter& operator=( const interpreter &c );
+};
+# 11 "../cpu/interpreter/interpreter.cpp" 2
+
+interpreter::interpreter()
+{
+ stackptr = 0x1fff;
+ addressptr=0;
+
+ registerz= indexreg(&registers[254],&registers[255]);
+ registery= indexreg(&registers[252],&registers[253]);
+ registerx= indexreg(&registers[250],&registers[251]);
+}
+
+
+
+void interpreter::inc(char reg)
+{
+ registers[(int)reg]=registers[(int)reg]+1;
+}
+
+
+
+
+void interpreter::inc(uint16_t memptr)
+{
+ char val=dataram->read(memptr);
+ val++;
+ dataram->write(memptr,val);
+}
+
+
+
+void interpreter::dec(char reg)
+{
+ registers[(int)reg]=registers[(int)reg]-1;
+}
+
+
+
+void interpreter::dec(uint16_t memptr)
+{
+ char val=dataram->read(memptr);
+ val--;
+ dataram->write(memptr,val);
+
+}
+
+
+
+char interpreter::run()
+{
+ bool exitcode=false;
+ while(!exitcode)
+ {
+  char command = baseprogram->read(addressptr);
+  if (command==0)
+  {
+
+   char val = syscall();
+   if(val =='b')
+   {
+    return 'b';
+   }
+   else if (val=='e')
+   {
+    exitcode = true;
+
+   }
+
+  }
+  else if (command==1)
+  {
+
+   addressptr+=1;
+   char regtoinc = baseprogram->read(addressptr);
+   inc(regtoinc);
+  }
+  else if (command==2)
+  {
+
+   uint16_t addresstoinc = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+   inc(addresstoinc);
+   addressptr+=2;
+  }
+  else if (command==3)
+  {
+
+   char regtodec = baseprogram->read(addressptr+1);
+   dec(regtodec);
+   addressptr++;
+  }
+  else if (command==4)
+  {
+
+   uint16_t addresstodec = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+   dec(addresstodec);
+   addressptr+=2;
+  }
+  else if (command==5)
+  {
+
+   uint8_t regto = baseprogram->read(addressptr+1);
+   uint8_t regfrom = baseprogram->read(addressptr+2);
+   mov(regto,regfrom);
+   addressptr+=2;
+  }
+  else if (command==6)
+  {
+
+   uint8_t regto=baseprogram->read(addressptr+1);
+   uint16_t mem = baseprogram->read(addressptr+2)<<8|baseprogram->read(addressptr+3);
+   ld(regto,mem);
+   addressptr+=3;
+  }
+  else if (command==7)
+  {
+
+   uint8_t regto=baseprogram->read(addressptr+1);
+   uint8_t val = baseprogram->read(addressptr+2);
+   ldi(regto,val);
+   addressptr+=2;
+  }
+  else if (command==8)
+  {
+
+   uint8_t reg = baseprogram->read(addressptr+1);
+   stx(reg);
+   addressptr++;
+  }
+  else if (command==9)
+  {
+
+
+   uint8_t reg = baseprogram->read(addressptr+1);
+   sty(reg);
+   addressptr++;
+  }
+  else if (command==10)
+  {
+
+   uint8_t reg = baseprogram->read(addressptr+1);
+   stz(reg);
+   addressptr++;
+  }
+  else if (command==11)
+  {
+
+   uint16_t ad = baseprogram->read(addressptr+2)<<8|baseprogram->read(addressptr+3);
+   uint8_t reg = baseprogram->read(addressptr+1);
+   std(ad,reg);
+   addressptr+=3;
+  }
+  else if (command==12)
+  {
+
+   uint16_t ad = baseprogram->read(addressptr+2)<<8|baseprogram->read(addressptr+3);
+   uint8_t reg = baseprogram->read(addressptr+1);
+   svd(ad,reg);
+   addressptr+=3;
+  }
+  else if (command==13)
+  {
+
+   uint8_t reg = baseprogram->read(addressptr+1);
+   svx(reg);
+   addressptr++;
+  }
+  else if (command==14)
+  {
+
+   uint8_t reg = baseprogram->read(addressptr+1);
+   svy(reg);
+   addressptr++;
+  }
+  else if (command==15)
+  {
+
+   uint8_t reg = baseprogram->read(addressptr+1);
+   svz(reg);
+   addressptr++;
+  }
+  else if (command==16)
+  {
+   txs();
+  }
+  else if (command==17)
+  {
+   txy();
+  }
+  else if (command==18)
+  {
+   txz();
+  }
+  else if (command==19)
+  {
+   tys();
+  }
+  else if (command==20)
+  {
+   tyx();
+  }
+  else if (command==21)
+  {
+   tyz();
+  }
+  else if (command==22)
+  {
+   tzs();
+  }
+  else if (command==23)
+  {
+   tzx();
+  }
+  else if (command==24)
+  {
+   tzy();
+  }
+  else if (command==25)
+  {
+   tsx();
+  }
+  else if (command==26)
+  {
+   tsy();
+  }
+  else if (command==27)
+  {
+   tsz();
+  }
+  else if(command ==28)
+  {
+
+   char reg1 = baseprogram->read(addressptr+1);
+   char reg2 = baseprogram->read(addressptr+2);
+   cmp(reg1,reg2);
+   addressptr+=2;
+  }
+  else if(command ==29)
+  {
+
+   char reg1 = baseprogram->read(addressptr+1);
+   char val = baseprogram->read(addressptr+2);
+   cpi(reg1,val);
+   addressptr+=2;
+  }
+  else if(command ==30)
+  {
+   ror(baseprogram->read(addressptr+1));
+   addressptr+=1;
+  }
+  else if(command ==31)
+  {
+   rol(baseprogram->read(addressptr+1));
+   addressptr+=1;
+  }
+  else if(command ==32)
+  {
+   uint16_t address = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+   breq(address);
+
+  }
+  else if(command ==33)
+  {
+   uint16_t offset = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+   breqpcf(addressptr+offset);
+
+
+  }
+  else if(command ==34)
+  {
+
+   uint16_t offset = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+   breqpcb(addressptr-offset);
+
+  }
+  else if(command ==35)
+  {
+   uint16_t address = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+   brne(address);
+  }
+  else if(command ==36)
+  {
+   uint16_t offset = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+   brnepcf(addressptr+offset);
+  }
+  else if(command ==37)
+  {
+
+   uint16_t offset = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+   brnepcb(addressptr-offset);
+
+  }
+  else if(command ==38)
+  {
+   uint16_t address = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+   brge(address);
+  }
+  else if(command ==39)
+  {
+   uint16_t offset = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+   brgepcf(addressptr+offset);
+  }
+  else if(command ==40)
+  {
+
+   uint16_t offset = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+   brgepcb(addressptr-offset);
+
+  }
+  else if(command ==41)
+  {
+   uint16_t address = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+   brle(address);
+
+  }
+  else if(command ==42)
+  {
+   uint16_t offset = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+   brlepcf(addressptr+offset);
+  }
+  else if(command ==43)
+  {
+
+   uint16_t offset = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+   brlepcb(addressptr-offset);
+
+  }
+  else if(command ==44)
+  {
+   uint16_t address = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+   brg(address);
+  }
+  else if(command ==45)
+  {
+   uint16_t offset = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+   brgpcf(addressptr+offset);
+  }
+  else if(command ==46)
+  {
+
+   uint16_t offset = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+   brgpcb(addressptr-offset);
+  }
+  else if(command ==47)
+  {
+   uint16_t address = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+   brl(address);
+  }
+  else if(command ==48)
+  {
+   uint16_t offset = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+   brlpcf(addressptr+offset);
+  }
+  else if(command ==49)
+  {
+
+   uint16_t offset = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+   brlpcb(addressptr-offset);
+  }
+  else if (command ==50)
+  {
+   char reg = baseprogram->read(addressptr+1);
+   clr(reg);
+   addressptr++;
+  }
+  else if(command==51)
+  {
+
+   char flag = baseprogram->read(addressptr+1);
+   clf(flag);
+   addressptr++;
+  }
+  else if(command==52)
+  {
+
+   char reg = baseprogram->read(addressptr+1);
+   swap(reg);
+   addressptr++;
+  }
+  else if(command==53)
+  {
+   char reg = baseprogram->read(addressptr+1);
+   pop(reg);
+   addressptr++;
+  }
+  else if(command==54)
+  {
+   char reg = baseprogram->read(addressptr+1);
+   push(reg);
+   addressptr++;
+  }
+  else if(command==55)
+  {
+   char ind = baseprogram->read(addressptr+1);
+
+   push(indregs[(int)ind]->getVal());
+   addressptr++;
+  }
+  else if(command==56)
+  {
+   char i = baseprogram->read(addressptr+1);
+
+   pushi(i);
+   addressptr++;
+  }
+  else if(command==57)
+  {
+   char regto = baseprogram->read(addressptr+1);
+   ldx(regto);
+   addressptr++;
+  }
+  else if(command==58)
+  {
+   char regto = baseprogram->read(addressptr+1);
+   ldy(regto);
+   addressptr++;
+  }
+  else if(command==59)
+  {
+   char regto = baseprogram->read(addressptr+1);
+   ldz(regto);
+   addressptr++;
+  }
+  else if(command==60)
+  {
+   ret();
+  }
+  else if(command==61)
+  {
+   uint16_t addr = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+   jmp(addr);
+   addressptr+=2;
+  }
+  else if (command==62)
+  {
+
+   uint16_t address = baseprogram->read(addressptr+1)<<8|baseprogram->read(addressptr+2);
+   call(address);
+   addressptr+=2;
+  }
+
+
+
+
+
+
+  else if (command==255)
+  {
+   nop();
+  }
+  addressptr++;
+ }
+ addressptr=0;
+ return 'e';
+}
+
+
+
+void interpreter::mov(char regto, char regfrom)
+{
+ registers[(int)regto]=registers[(int)regfrom];
+}
+void interpreter::ld(char regto, uint16_t memptr)
+{
+ registers[(int)regto]=dataram->read(memptr);
+}
+void interpreter::ldi(char regto,char val)
+{
+ registers[(int)regto]=val;
+}
+void interpreter::ldx(char regto)
+{
+ ld(regto,registerx.getVal() );
+}
+void interpreter::ldy(char regto)
+{
+ ld(regto,registery.getVal() );
+}
+void interpreter::ldz(char regto)
+{
+ ld(regto,registerz.getVal() );
+}
+
+void interpreter::stx(char regfrom)
+{
+ dataram->write((uint16_t)*registerx.high<<8|*registerx.low,registers[(int)regfrom]);
+}
+void interpreter::sty(char regfrom)
+{
+ dataram->write((uint16_t)*registery.high<<8|*registery.low,registers[(int)regfrom]);
+}
+void interpreter::stz(char regfrom)
+{
+ dataram->write((uint16_t)*registerz.high<<8|*registerz.low,registers[(int)regfrom]);
+}
+void interpreter::std(uint16_t memptr, char regfrom)
+{
+ dataram->write(memptr,regfrom);
+}
+void interpreter::svd( uint16_t memptr,char regfrom)
+{
+ videoram->write(memptr,regfrom);
+}
+void interpreter::svx(char regfrom)
+{
+ videoram->write(registerx.getVal(),regfrom);
+}
+void interpreter::svy(char regfrom)
+{
+ videoram->write(registery.getVal(),regfrom);
+}
+void interpreter::svz(char regfrom)
+{
+ videoram->write(registerz.getVal(),regfrom);
+}
+
+
+
+
+
+
+void interpreter::txs()
+ {
+ stackptr = registerx.getVal();
+ }
+void interpreter::txy()
+{
+ registery.setValue(registerx.getVal());
+}
+void interpreter::txz()
+{
+ registerz.setValue(registerx.getVal());
+}
+void interpreter::tys()
+{
+ stackptr = registery.getVal();
+}
+void interpreter::tyx()
+{
+ registerx.setValue(registery.getVal());
+}
+void interpreter::tyz()
+{
+ registerz.setValue(registery.getVal());
+}
+void interpreter::tzs()
+{
+ stackptr=registerz.getVal();
+}
+void interpreter::tzx()
+{
+ registerx.setValue(registerz.getVal());
+}
+void interpreter::tzy()
+{
+ registery.setValue(registerz.getVal());
+}
+void interpreter::tsx()
+{
+ registerx.setValue(stackptr);
+
+}
+void interpreter::tsy()
+{
+ registery.setValue(stackptr);
+
+}
+void interpreter::tsz()
+{
+ registerz.setValue(stackptr);
+
+}
+
+void interpreter::cmp(char reg1 ,char reg2)
+{
+ if (reg1==reg2)
+ {
+  flag.setflag(cpuflags::equals,true);
+ }
+ if(reg1>reg2)
+ {
+  flag.setflag(cpuflags::greater,true);
+ }
+ if(reg1<reg2)
+ {
+  flag.setflag(cpuflags::less,true);
+ }
+
+}
+void interpreter::cpi(char reg1 ,char val)
+{
+ if (reg1==val)
+ {
+  flag.setflag(cpuflags::equals,true);
+ }
+ if(reg1>val)
+ {
+  flag.setflag(cpuflags::greater,true);
+
+ }
+ if(reg1<val)
+ {
+  flag.setflag(cpuflags::less,true);
+ }
+
+}
+
+void interpreter::ror(char reg1)
+{
+
+ registers[(int)reg1]=registers[(int)reg1]>>1;
+}
+
+void interpreter::rol(char reg1)
+{
+ registers[(int)reg1]=registers[(int)reg1]<<1;
+}
+
+void interpreter::breq(uint16_t address)
+{
+ if (flag.getflag(cpuflags::equals)==1)
+ {
+  jmp(address);
+ }
+}
+
+void interpreter::breqpcf(uint16_t offset)
+{
+ if (flag.getflag(cpuflags::equals)==1)
+ {
+  jmp(addressptr+offset);
+ }
+}
+
+void interpreter::breqpcb(uint16_t offset)
+{
+ if (flag.getflag(cpuflags::equals)==1)
+ {
+  jmp(addressptr-offset);
+ }
+}
+
+void interpreter::brne(uint16_t address)
+{
+ if (flag.getflag(cpuflags::equals)==0&&(flag.getflag(cpuflags::greater)==1||flag.getflag(cpuflags::less)==1))
+ {
+  jmp(address);
+ }
+}
+
+void interpreter::brnepcf(uint16_t offset)
+{
+ if (flag.getflag(cpuflags::equals)==0&&(flag.getflag(cpuflags::greater)==1||flag.getflag(cpuflags::less)==1))
+ {
+  jmp(addressptr+offset);
+ }
+}
+
+void interpreter::brnepcb(uint16_t offset)
+{
+ if (flag.getflag(cpuflags::equals)==0&&(flag.getflag(cpuflags::greater)==1||flag.getflag(cpuflags::less)==1))
+ {
+  jmp(addressptr-offset);
+ }
+}
+
+void interpreter::brge(uint16_t address)
+{
+ if(flag.getflag(cpuflags::equals)||flag.getflag(cpuflags::greater))
+ {
+  jmp(address);
+ }
+
+}
+
+void interpreter::brgepcf(uint16_t offset)
+{
+ if(flag.getflag(cpuflags::equals)||flag.getflag(cpuflags::greater))
+ {
+  jmp(addressptr+offset);
+ }
+}
+
+void interpreter::brgepcb(uint16_t offset)
+{
+ if(flag.getflag(cpuflags::equals)||flag.getflag(cpuflags::greater))
+ {
+  jmp(addressptr-offset);
+ }
+}
+
+void interpreter::brle(uint16_t address)
+{
+ if(flag.getflag(cpuflags::equals)||flag.getflag(cpuflags::less))
+ {
+  jmp(address);
+ }
+}
+
+void interpreter::brlepcf(uint16_t offset)
+{
+ if(flag.getflag(cpuflags::equals)||flag.getflag(cpuflags::less))
+ {
+  jmp(addressptr+offset);
+ }
+}
+
+void interpreter::brlepcb(uint16_t offset)
+{
+ if(flag.getflag(cpuflags::equals)||flag.getflag(cpuflags::less))
+ {
+  jmp(addressptr-offset);
+ }
+}
+void interpreter::brg(uint16_t address)
+{
+ if(!flag.getflag(cpuflags::equals)&&flag.getflag(cpuflags::greater))
+ {
+  jmp(address);
+
+ }
+
+}
+
+void interpreter::brgpcf(uint16_t offset)
+{
+ if(!flag.getflag(cpuflags::equals)&&flag.getflag(cpuflags::greater))
+ {
+  jmp(addressptr+offset);
+
+ }
+}
+
+void interpreter::brgpcb(uint16_t offset)
+{
+ if(!flag.getflag(cpuflags::equals)&&flag.getflag(cpuflags::greater))
+ {
+  jmp(addressptr-offset);
+ }
+}
+
+void interpreter::brl(uint16_t address)
+{
+ if(!flag.getflag(cpuflags::equals)&&flag.getflag(cpuflags::less))
+ {
+  jmp(address);
+ }
+}
+
+void interpreter::brlpcf(uint16_t offset)
+{
+ if(!flag.getflag(cpuflags::equals)&&flag.getflag(cpuflags::less))
+ {
+  jmp(addressptr+offset);
+ }
+}
+
+void interpreter::brlpcb(uint16_t offset)
+{
+ if(!flag.getflag(cpuflags::equals)&&flag.getflag(cpuflags::less))
+ {
+  jmp(addressptr-offset);
+ }
+}
+
+void interpreter::clr(char reg)
+{
+ registers[(int)reg]=0;
+}
+
+void interpreter::nop()
+{
+ asm volatile("nop");
+}
+void interpreter::call(uint16_t addr)
+{
+ push(stackptr);
+ jmp(addr);
+ addressptr=pop()<<8|pop();
+}
+void interpreter::jmp(uint16_t address)
+{
+ addressptr=address;
+}
+void interpreter::jmppcf(uint16_t offset)
+{
+ addressptr+=offset;
+}
+void interpreter::jmppcb(uint16_t offset)
+{
+ addressptr-=offset;
+}
+
+void interpreter::push(char reg)
+{
+ stackram->write(stackptr,registers[(int)reg]);
+ stackptr--;
+}
+void interpreter::pushi(uint8_t value)
+{
+ stackram->write(stackptr,value);
+ stackptr--;
+}
+uint8_t interpreter::pop()
+{
+ uint8_t val = stackram->read(stackptr);
+ stackptr++;
+ return val;
+}
+void interpreter::pop(char reg)
+{
+ registers[(int)reg]=stackram->read(stackptr);
+ stackptr++;
+}
+void interpreter::swap(char reg)
+{
+ registers[(int)reg]=(registers[(int)reg]<<4) | (registers[(int)reg]>>4);
+}
+
+char interpreter::syscall()
+{
+
+
+
+
+
+
+ if (registers[0]==0)
+ {
+  int i = registers[1];
+  do
+  {
+   _delay_ms(1);
+   i--;
+  } while (i>0);
+ }
+
+
+
+ else if (registers[0]==1)
+ {
+
+  if (registers[1]==0||registers[2]==0)
+  {
+   registers[3]=1;
+  }
+  else
+  {
+   registers[3]=registers[1]*registers[2];
+  }
+ }
+ else if (registers[0]==2)
+ {
+
+
+
+
+
+  if(registers[2]==0)
+  {
+   registers[3]=0;
+   registers[4]=1;
+  }
+  else
+  {
+   registers[3]=registers[1]/registers[2];
+   registers[4]=0;
+  }
+ }
+ else if (registers[0]==3)
+ {
+
+
+
+
+
+
+
+  return 'b';
+
+
+ }
+ else if (registers[0]==4)
+ {
+
+
+
+  return 'b';
+ }
+ else if (registers[0])
+ {
+ }
+ else if (registers[0])
+ {
+ }
+
+
+
+ else if (registers[0]==255)
+ {
+  registers[1]=1;
+  return 'e';
+ }
+ return 0;
+}
+void interpreter::clf(char flags)
+{
+ flag.clear();
+}
+void interpreter::ret()
+{
+
+}
+
+interpreter::~interpreter()
+{
+  baseprogram=
+# 925 "../cpu/interpreter/interpreter.cpp" 3 4
+             __null
+# 925 "../cpu/interpreter/interpreter.cpp"
+                 ;
+  dataram=
+# 926 "../cpu/interpreter/interpreter.cpp" 3 4
+         __null
+# 926 "../cpu/interpreter/interpreter.cpp"
+             ;
+  stackram=
+# 927 "../cpu/interpreter/interpreter.cpp" 3 4
+          __null
+# 927 "../cpu/interpreter/interpreter.cpp"
+              ;
+
+  videoram=
+# 929 "../cpu/interpreter/interpreter.cpp" 3 4
+          __null
+# 929 "../cpu/interpreter/interpreter.cpp"
+              ;
+  videoinstructionram=
+# 930 "../cpu/interpreter/interpreter.cpp" 3 4
+                     __null
+# 930 "../cpu/interpreter/interpreter.cpp"
+                         ;
+  videocustomcharram=
+# 931 "../cpu/interpreter/interpreter.cpp" 3 4
+                    __null
+# 931 "../cpu/interpreter/interpreter.cpp"
+                        ;
+}

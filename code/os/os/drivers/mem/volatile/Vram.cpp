@@ -25,7 +25,7 @@ void Vram::writeData(uint16_t address,char value)
 void Vram::writeData(uint16_t address,char* value,unsigned int size)
 {
 	portptr->digitalwrite(mempin,true);
-	for(int i =0;i<size;i++)
+	for(unsigned int i =0;i<size;i++)
 	{
 		write(address,*(value+i));
 	}

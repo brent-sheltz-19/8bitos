@@ -66,7 +66,24 @@ def getfirstchar(char,str ):
         if str[i]==char:
             return i
     return -1
+def removechar(text):
+    lenoftext = len(text)
+    k = 0
+    while k < lenoftext:
+        # print(str(k)+ " len of text" + str(lenoftext))
+        if text[k].__eq__(''):
+            text.remove(text[k])
+        elif text[k].__contains__("\t"):
+            if text[k] == "\t":
+                text.remove(text[k])
+            else:
+                text[k]=text[k].replace("\t","")
+        else:
+            k += 1
+        lenoftext = len(text)
+def splitupline():
 
+    return
 class Instruction:
     instruction = ""
     data1 = ""
@@ -147,6 +164,7 @@ class Instruction:
             binaryCode.append(6)
             data= self.data1.split("r")
             param = self.data2
+            use
             try:
                 binaryCode.append(int(data[1]))
                 try:
@@ -165,6 +183,7 @@ class Instruction:
             param = self.data2
             constantkey:constantclass = constantclass()
             useconstant:bool = False
+
             for constant in constants:
                 if constant.name == param:
                     useconstant = True
@@ -254,7 +273,7 @@ class Instruction:
                     binaryCode.append(int(self.data2[0:2]))
                     binaryCode.append(int(self.data2[2:4]))
                 except:
-                    print("error in code"+"185")
+                    print("error in code")
                     exit(-1)
             except:
                 print("not a valid register")
@@ -444,6 +463,22 @@ class Instruction:
 
         return
 
+
+class Function:
+    functionname: string = ""
+    lines:Instruction = []
+    params=[]
+    functionbytes = []
+
+    def givefunctionbytes(self):
+        return self.functionbytes
+
+    def assemble(self):
+        for ins in lines:
+            self.functionbytes.append(ins.convert())
+
+    def setLines(self, instructions):
+        lines = instructions
 def main():
     global dataaddressallocation
     instructions =[]
@@ -465,21 +500,9 @@ def main():
     code = io.open(filename,"r")
     text = code.read()
     text=text.split("\n")
-    k = 0
-    lenoftext=len(text)
-    while k < lenoftext:
-        #print(str(k)+ " len of text" + str(lenoftext))
 
-        if text[k].__eq__(''):
-            text.remove( text[k])
-        elif text[k][0] == "\t":
-            if text[k] == "\t":
-                text.remove( text[k])
-            text[k] = text[k][1:]
-        else:
 
-            k+=1
-        lenoftext=len(text)
+    removechar(text)
     k=0
     while k < len(text):
         k+=1
@@ -500,6 +523,7 @@ def main():
         return
     for w in text:
         line = Instruction()
+
         wtext = w.split(" ")
         if w.__contains__(":"):
             if  w[0].__eq__("."):
@@ -608,6 +632,7 @@ def main():
             line.instruction=wtext[0]
             #print(wtext)
             dtext=wtext[1].split(",")
+
             if dtext.__len__()==1:
                 line.data1 = dtext[0]
             elif dtext.__len__()==2:
@@ -637,12 +662,9 @@ def main():
             rom = binaryCode + list([255] * (8192 - len(binaryCode)))
     for byte in rom:
         if byte > 255:
-          outfile.write( byte.to_bytes(2,"little"))
+            outfile.write( byte.to_bytes(2,"little"))
         else:
             outfile.write(byte.to_bytes(1, "little"))
-
-
-
     print(outfile.seek(0,os.SEEK_END))
 if __name__ == '__main__':
     main()

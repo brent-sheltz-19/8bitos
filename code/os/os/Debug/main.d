@@ -30,6 +30,8 @@ main.d main.o: .././main.cpp \
  .././drivers/io/keyboard/../../../cpu/communication/Serial.h \
  c:\users\brent\documents\github\8bitos\code\os\os\drivers\io\shift\ register\shiftreg.h \
  c:\users\brent\documents\github\8bitos\code\os\os\drivers\io\port\ controller\portcontroller.h \
+ .././drivers/io/keyboard/../port\ controller/portcontroller.h \
+ .././drivers/io/keyboard/../shift\ register/shiftreg.h \
  .././drivers/mem/volatile/ram.h \
  .././drivers/mem/volatile/../../io/port\ controller/portcontroller.h \
  .././drivers/mem/volatile/../../io/shift\ register/shiftreg.h \
@@ -51,9 +53,12 @@ main.d main.o: .././main.cpp \
  c:\users\brent\documents\github\8bitos\code\os\os\cpu\communication\serial.h \
  c:\users\brent\documents\github\8bitos\code\os\os\drivers\io\shift\ register\shiftreg.h \
  c:\users\brent\documents\github\8bitos\code\os\os\drivers\io\port\ controller\portcontroller.h \
+ .././cpu/interpreter/../../drivers/io/keyboard/../port\ controller/portcontroller.h \
+ .././cpu/interpreter/../../drivers/io/keyboard/../shift\ register/shiftreg.h \
  .././cpu/communication/Serial.h \
  .././cpu/communication/../../drivers/io/shift\ register/shiftreg.h \
- .././cpu/communication/../../drivers/io/port\ controller/portcontroller.h
+ .././cpu/communication/../../drivers/io/port\ controller/portcontroller.h \
+ .././constants.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -117,6 +122,10 @@ c:\users\brent\documents\github\8bitos\code\os\os\drivers\io\shift\ register\shi
 
 c:\users\brent\documents\github\8bitos\code\os\os\drivers\io\port\ controller\portcontroller.h:
 
+.././drivers/io/keyboard/../port\ controller/portcontroller.h:
+
+.././drivers/io/keyboard/../shift\ register/shiftreg.h:
+
 .././drivers/mem/volatile/ram.h:
 
 .././drivers/mem/volatile/../../io/port\ controller/portcontroller.h:
@@ -165,8 +174,14 @@ c:\users\brent\documents\github\8bitos\code\os\os\drivers\io\shift\ register\shi
 
 c:\users\brent\documents\github\8bitos\code\os\os\drivers\io\port\ controller\portcontroller.h:
 
+.././cpu/interpreter/../../drivers/io/keyboard/../port\ controller/portcontroller.h:
+
+.././cpu/interpreter/../../drivers/io/keyboard/../shift\ register/shiftreg.h:
+
 .././cpu/communication/Serial.h:
 
 .././cpu/communication/../../drivers/io/shift\ register/shiftreg.h:
 
 .././cpu/communication/../../drivers/io/port\ controller/portcontroller.h:
+
+.././constants.h:

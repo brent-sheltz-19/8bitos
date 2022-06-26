@@ -5,7 +5,8 @@
 * Author: Brent
 */
 #include "../../../cpu/communication/Serial.h"
-
+#include "../port controller/portcontroller.h"
+#include "../shift register/shiftreg.h"
 #ifndef __KEYBOARD_H__
 #define __KEYBOARD_H__
 
@@ -14,15 +15,21 @@ class keyboard
 {
 //variables
 public:
+	uint32_t dataaddress;
 	uint32_t address;
-
-protected:
+protected:  
+	
 private:
-
+	portcontroller* port;
+	shiftreg* addrreg;
+	Serial* serial;
 //functions
 public:
 keyboard();
 keyboard(uint32_t);
+void read(char* buff,uint32_t size);
+void read(char* buff);
+uint8_t getsize();
 ~keyboard();
 protected:
 private:

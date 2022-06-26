@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+constants.cpp
+
 cpu\communication\Serial.cpp
 
 cpu\interpreter\interpreter.cpp

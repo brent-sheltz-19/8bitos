@@ -20,6 +20,8 @@ drivers/io/keyboard/keyboard.d drivers/io/keyboard/keyboard.o: \
  c:\users\brent\documents\github\8bitos\code\os\os\drivers\io\port\ controller\portcontroller.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
+ ../drivers/io/keyboard/../port\ controller/portcontroller.h \
+ ../drivers/io/keyboard/../shift\ register/shiftreg.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h
 
 ../drivers/io/keyboard/keyboard.h:
@@ -63,5 +65,9 @@ c:\users\brent\documents\github\8bitos\code\os\os\drivers\io\port\ controller\po
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
+
+../drivers/io/keyboard/../port\ controller/portcontroller.h:
+
+../drivers/io/keyboard/../shift\ register/shiftreg.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h:

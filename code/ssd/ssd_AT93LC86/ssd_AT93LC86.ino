@@ -151,12 +151,34 @@ AT93LC86 chiparray[8]={
 
 
 };
+class messsage 
+{
+  public:
+    bool datamode;
+    int size;
+    char *message;
+  void mallocmessage()
+  {
+    message = (char*) calloc(size,sizeof(char));
+
+  }
+  void deallocmessage()
+  {
+    free(message);
+  }    
+
+
+};
 //chipnums chnums= *new chipnums();
 void miso()
 {
   
   
 }
+
+/*
+* checks if all chips are empty
+*/
 bool checkAllEmpty()
 {
     for(AT93LC86 c : chiparray)
@@ -172,19 +194,11 @@ bool checkAllEmpty()
     }
   return true ;
 }
-bool checkEmpty(uint8_t chip)
-{
-  AT93LC86 c=chiparray[chip];
-  for(int i = 0;i<UINT16_MAX;i++)
-  {
 
-    if(c.read(i)>0)
-    {
-      return false;
-    }
-  }
-  return true ;
-}
+/*
+* checks if chip is empty
+*/
+
 bool checkEmpty(char chipnum)
 {
   for(int i = 0;i<UINT16_MAX;i++)
@@ -205,6 +219,9 @@ struct fs
 
 char format(char num,String action )
 {
+  /*
+    format ssd to all zero
+  */
   if(action=="f")
   {
     for(AT93LC86 chip :chiparray)
@@ -229,6 +246,9 @@ char format(char num,String action )
   }
   else if(action == "e")
   {
+    /*  
+      erases chip
+    */
     AT93LC86 chip = chiparray[num];
     for(uint16_t i=0;i<UINT16_MAX;i++)
     {
@@ -236,8 +256,11 @@ char format(char num,String action )
     }
     return 't';    
   }
-  else if(action == "ea")
+  else if(action == "d")
   {
+    /*
+
+    */
     for(AT93LC86 chip :chiparray)
     {
       for(uint16_t i=0;i<UINT16_MAX;i++)
@@ -263,13 +286,23 @@ char format(char num,String action )
 }
 void setup() {
   // put your setup code here, to run once:
+  
+  // 
   for(int a= 0; a<sizeof(chiparray)/sizeof(chiparray[0]);a++)
   {  
     chiparray[a].setCnum((chipnums)a);
   }
   
 }
-
+/*
+    data stream 
+    1 byte - command mode or data mode 
+    2 byte - command or data size
+    n byte - data  
+    1 byte - magic end ea
+    
+    
+ */
 
 void loop() {
   // put your main code here, to run repeatedly:

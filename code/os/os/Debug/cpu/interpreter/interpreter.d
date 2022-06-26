@@ -33,7 +33,9 @@ cpu/interpreter/interpreter.d cpu/interpreter/interpreter.o: \
  c:\users\brent\documents\github\8bitos\code\os\os\cpu\communication\serial.h \
  c:\users\brent\documents\github\8bitos\code\os\os\drivers\io\shift\ register\shiftreg.h \
  c:\users\brent\documents\github\8bitos\code\os\os\drivers\io\port\ controller\portcontroller.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
+ ../cpu/interpreter/../../drivers/io/keyboard/../port\ controller/portcontroller.h \
+ ../cpu/interpreter/../../drivers/io/keyboard/../shift\ register/shiftreg.h
 
 ../cpu/interpreter/interpreter.h:
 
@@ -104,3 +106,7 @@ c:\users\brent\documents\github\8bitos\code\os\os\drivers\io\shift\ register\shi
 c:\users\brent\documents\github\8bitos\code\os\os\drivers\io\port\ controller\portcontroller.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
+
+../cpu/interpreter/../../drivers/io/keyboard/../port\ controller/portcontroller.h:
+
+../cpu/interpreter/../../drivers/io/keyboard/../shift\ register/shiftreg.h:
