@@ -1,9 +1,10 @@
 #include <arduino.h>
 #include <stdint.h>
 #include <SoftwareSerial.h>
-#define tablechip chiparray[0];
-#define recivepin 9;
-#define Enablepin 4;
+#define debug 1
+#define recivepin 9
+#define Enablepin 4
+
 enum chipnums
 {
   eight=0b01111111,seven=0b10111111,  
@@ -22,9 +23,9 @@ class csshiftregister
 	public:
 		csshiftregister()
 		{
-			datapin=NULL;
-			clkpin=NULL;
-			shiftpin=NULL;
+			datapin=0;
+			clkpin=0;
+			shiftpin=0;
 			dataque = 0 ;
 		}
 		csshiftregister(uint8_t dp,uint8_t clpin,uint8_t spin)
@@ -101,6 +102,10 @@ class AT93LC86
     void setCnum(chipnums c )
     {
       cnum=&c;
+    }
+    chipnums* getCnum()
+    {
+      return cnum;
     }  
     void write(uint16_t address, uint8_t data)
     {
@@ -134,7 +139,7 @@ class AT93LC86
 
 
 
-static csshiftregister csreg(6,7,8);
+static csshiftregister csreg(7,8,9);
 /*
   chip 0 :: map 
   chip 1-7 :: data
@@ -144,11 +149,14 @@ static csshiftregister csreg(6,7,8);
 
 */
 AT93LC86 chiparray[8]={
-  *new AT93LC86(2,3,4,5),*new AT93LC86(2,3,4,5),
-  *new AT93LC86(2,3,4,5),*new AT93LC86(2,3,4,5),
-  *new AT93LC86(2,3,4,5),*new AT93LC86(2,3,4,5),
-  *new AT93LC86(2,3,4,5),*new AT93LC86(2,3,4,5)
-
+  *new AT93LC86(3,4,5,6),
+  *new AT93LC86(3,4,5,6),
+  *new AT93LC86(3,4,5,6),
+  *new AT93LC86(3,4,5,6),
+  *new AT93LC86(3,4,5,6),
+  *new AT93LC86(3,4,5,6),
+  *new AT93LC86(3,4,5,6),
+  *new AT93LC86(3,4,5,6),
 
 };
 class messsage 
@@ -288,9 +296,17 @@ void setup() {
   // put your setup code here, to run once:
   
   // 
+  if(debug==1)
+  {
+    Serial.begin(9600);
+  }
   for(int a= 0; a<sizeof(chiparray)/sizeof(chiparray[0]);a++)
   {  
     chiparray[a].setCnum((chipnums)a);
+    if(debug==1)
+    {
+      Serial.print(*chiparray[a].getCnum());
+    }
   }
   
 }
@@ -306,6 +322,9 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  
+  if(debug)
+  {
+    
+  }
 
 }

@@ -1,9 +1,3 @@
-#include <arduino.h>
-#include <stdint.h>
-#include <SoftwareSerial.h>
-#define tablechip chiparray[0];
-#define recivepin 9;
-#define Enablepin 4;
 enum chipnums
 {
   eight=0b01111111,seven=0b10111111,  
@@ -70,15 +64,16 @@ class csshiftregister
 
 
 };
-class AT93LC86
+class At24LC1024
 { 
 
+    
     uint8_t dout,clk,org,pe;
     struct opcode
     { 
-      uint8_t write  = 0b01;
-      uint8_t read  = 0b10;
-      uint8_t erase  = 0b11;
+      uint8_t write;
+      uint8_t read;
+      uint8_t erase;
     };
     static opcode opcodes;
     csshiftregister* csreg;
@@ -86,11 +81,11 @@ class AT93LC86
     uint8_t data;
     chipnums* cnum;
     public:
-    AT93LC86()
+    At24LC1024()
     {
       
     }
-    AT93LC86(uint8_t dout,uint8_t clk,uint8_t org,uint8_t pe)
+    At24LC1024(uint8_t dout,uint8_t clk,uint8_t org,uint8_t pe)
     {
       this->dout=dout;
       this->clk=clk;
@@ -130,146 +125,19 @@ class AT93LC86
       shiftOut(dout,clk,MSBFIRST,address);
       return 0;//shiftin();
       }
-};
+  };
+
+
+
 static csshiftregister csreg(6,7,8);
-/*
-  chip 0 :: map 
-  chip 1-7 :: data
 
 
-
-
-*/
-AT93LC86 chiparray[8]={
-  *new AT93LC86(2,3,4,5),*new AT93LC86(2,3,4,5),
-  *new AT93LC86(2,3,4,5),*new AT93LC86(2,3,4,5),
-  *new AT93LC86(2,3,4,5),*new AT93LC86(2,3,4,5),
-  *new AT93LC86(2,3,4,5),*new AT93LC86(2,3,4,5)
-
-
-};
-//chipnums chnums= *new chipnums();
-void miso()
-{
-  
-  
-}
-bool checkAllEmpty()
-{
-    for(AT93LC86 c : chiparray)
-    {
-      for(int i = 0;i<UINT16_MAX;i++)
-      {
-
-       if(c.read(i)>0)
-       {
-         return false;
-       }
-      }
-    }
-  return true ;
-}
-bool checkEmpty(uint8_t chip)
-{
-  AT93LC86 c=chiparray[chip];
-  for(int i = 0;i<UINT16_MAX;i++)
-  {
-
-    if(c.read(i)>0)
-    {
-      return false;
-    }
-  }
-  return true ;
-}
-bool checkEmpty(char chipnum)
-{
-  for(int i = 0;i<UINT16_MAX;i++)
-  {
-    if(chiparray[chipnum].read(i)>0)
-    {
-      return false;
-    }
-  }
-  return true ;
-} 
-String errormsg="";
-struct fs
-{
-
-  
-};
-
-char format(char num,String action )
-{
-  if(action=="f")
-  {
-    for(AT93LC86 chip :chiparray)
-    {
-      for(uint16_t i=0;i<UINT16_MAX;i++)
-      {
-        chip.write(i,0u);
-      }
-      for(uint16_t i=0;i<UINT16_MAX;i++)
-      {
-        if(chip.read(i)!=0)
-        {
-          errormsg = "format failed";
-          return 'e';
-        }
-      }
-
-
-
-    }
-    return 't';
-  }
-  else if(action == "e")
-  {
-    AT93LC86 chip = chiparray[num];
-    for(uint16_t i=0;i<UINT16_MAX;i++)
-    {
-      chip.write(i,0u);
-    }
-    return 't';    
-  }
-  else if(action == "ea")
-  {
-    for(AT93LC86 chip :chiparray)
-    {
-      for(uint16_t i=0;i<UINT16_MAX;i++)
-      {
-        chip.write(i,0u);
-      }
-      for(uint16_t i=0;i<UINT16_MAX;i++)
-      {
-        if(chip.read(i)!=0)
-        {
-          errormsg = "erase failed";
-          return 'e';
-        }
-      }
-    }
-    return 't';    
-  }
-  else
-  {
-
-    return 'e';
-  }
-}
 void setup() {
   // put your setup code here, to run once:
-  for(int a= 0; a<sizeof(chiparray)/sizeof(chiparray[0]);a++)
-  {  
-    chiparray[a].setCnum((chipnums)a);
-  }
-  
-}
 
+}
 
 void loop() {
   // put your main code here, to run repeatedly:
-  
 
 }
