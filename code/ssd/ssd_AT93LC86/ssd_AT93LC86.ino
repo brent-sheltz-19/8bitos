@@ -1,6 +1,8 @@
 #include <arduino.h>
 #include <stdint.h>
 #include <SoftwareSerial.h>
+#include <Wire.h>
+
 #define debug 1
 #define recivepin 9
 #define Enablepin 4
@@ -48,6 +50,12 @@ class csshiftregister
       digitalWrite(shiftpin,HIGH);
       digitalWrite(shiftpin,LOW);
     }
+    void shiftout(uint8_t data)
+    {
+      shiftOut(this->datapin,this->shiftpin,MSBFIRST,data);
+      digitalWrite(shiftpin,HIGH);
+      digitalWrite(shiftpin,LOW);
+    }
 		inline void setDataPin(uint8_t dp)
 		{
 			datapin=dp;
@@ -71,20 +79,26 @@ class csshiftregister
 
 
 };
+class message_16
+{
+  uint16_t data;
+  uint16_t address;
+};
+class message_8
+{
+  uint8_t data;
+  uint16_t address;
+};
+
 class AT93LC86
 { 
-
+  
+    static const uint8_t writecom  = 0b01;
+    static const uint8_t readcom  = 0b10;
+    static const uint8_t erasecom  = 0b11;
     uint8_t dout,clk,org,pe;
-    struct opcode
-    { 
-      uint8_t write  = 0b01;
-      uint8_t read  = 0b10;
-      uint8_t erase  = 0b11;
-    };
-    static opcode opcodes;
+   
     csshiftregister* csreg;
-    uint16_t addr;
-    uint8_t data;
     chipnums* cnum;
     public:
     AT93LC86()
@@ -99,6 +113,34 @@ class AT93LC86
       this->pe =pe;
       
     }
+    void begin()
+    {
+      csreg->shiftout(*cnum);
+      sendstartbit();
+      digitalWrite(clk,LOW);
+      /*
+      ewen command 
+      */
+      digitalWrite(dout,LOW);
+      digitalWrite(clk,HIGH);
+      digitalWrite(clk,LOW);
+      digitalWrite(clk,HIGH);
+      digitalWrite(clk,LOW);
+      /*
+      ewen address
+      11xxxxxxxxx -set all high 
+      */
+      digitalWrite(dout,HIGH);
+      digitalWrite(clk,HIGH);
+      digitalWrite(clk,LOW);
+      digitalWrite(clk,HIGH);
+      digitalWrite(clk,LOW);
+      for(int i=0 ;i<7;i++)
+      {
+        digitalWrite(clk,HIGH);
+        digitalWrite(clk,LOW);
+      }
+    }
     void setCnum(chipnums c )
     {
       cnum=&c;
@@ -111,7 +153,8 @@ class AT93LC86
     {
       csreg->enqueDataQue(*cnum);
       csreg->shiftout();
-      shiftOut(dout,clk,MSBFIRST,opcodes.write);
+      sendstartbit();
+      shiftOut(dout,clk,MSBFIRST,writecom);
       shiftOut(dout,clk,MSBFIRST,address>>8);
       shiftOut(dout,clk,MSBFIRST,address);
       shiftOut(dout,clk,MSBFIRST,data);
@@ -120,7 +163,7 @@ class AT93LC86
     {
       csreg->enqueDataQue(*cnum);
       csreg->shiftout();
-      shiftOut(dout,clk,MSBFIRST,opcodes.write);
+      shiftOut(dout,clk,MSBFIRST,writecom);
       shiftOut(dout,clk,MSBFIRST,address>>8);
       shiftOut(dout,clk,MSBFIRST,address);
       shiftOut(dout,clk,MSBFIRST,data>>8);
@@ -130,11 +173,28 @@ class AT93LC86
     {
       csreg->enqueDataQue(*cnum);
       csreg->shiftout();
-      shiftOut(dout,clk,MSBFIRST,opcodes.read);
+      sendstartbit();
+      shiftOut(dout,clk,MSBFIRST,readcom);
       shiftOut(dout,clk,MSBFIRST,address>>8);
       shiftOut(dout,clk,MSBFIRST,address);
+      
       return 0;//shiftin();
-      }
+    }
+    private:
+    void sendstartbit()
+    {
+      
+      csreg->shiftout(*cnum);    
+      digitalWrite(dout,HIGH);
+      digitalWrite(clk,HIGH);
+
+    }
+    void setx8mode()
+    {
+
+    }
+
+
   };
 
 
@@ -303,12 +363,13 @@ void setup() {
   for(int a= 0; a<sizeof(chiparray)/sizeof(chiparray[0]);a++)
   {  
     chiparray[a].setCnum((chipnums)a);
+    chiparray[a].begin();
+    
     if(debug==1)
     {
       Serial.print(*chiparray[a].getCnum());
     }
   }
-  
 }
 /*
     data stream 
@@ -320,11 +381,39 @@ void setup() {
     
  */
 
-void loop() {
+void loop()
+{
   // put your main code here, to run repeatedly:
   if(debug)
   {
-    
+    uint16_t index  = 0;
+    Serial.println("enter command");
+    String a = Serial.readString();
+    if(a.equals("write 8"))
+    {
+      
+      uint16_t addrarray;
+      uint16_t temparray;
+      uint8_t dataarray;
+      Serial.println("enter address");
+      sscanf(Serial.readString().c_str(),"%i",&addrarray);
+      Serial.println("enter 8 bit");
+      sscanf(Serial.readString().c_str(),"%i",&temparray);
+      dataarray=(uint8_t)temparray;
+      chiparray[0].write(addrarray,dataarray);
+    }
+    else if(a.equals("write 16"))
+    {
+      
+      uint16_t addrarray;
+      uint16_t dataarray;
+      Serial.println("enter address");
+      sscanf(Serial.readString().c_str(),"%i",&addrarray);
+      Serial.println("enter 16 bit");
+      sscanf(Serial.readString().c_str(),"%i",&dataarray);
+      
+      chiparray[0].write(addrarray,dataarray);
+    }
   }
 
 }
