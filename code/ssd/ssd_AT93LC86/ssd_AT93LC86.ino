@@ -180,7 +180,7 @@ class AT93LC86
       
       return 0;//shiftin();
     }
-    private:
+  private:
     void sendstartbit()
     {
       
@@ -386,33 +386,57 @@ void loop()
   // put your main code here, to run repeatedly:
   if(debug)
   {
-    uint16_t index  = 0;
     Serial.println("enter command");
     String a = Serial.readString();
-    if(a.equals("write 8"))
+    while(!a.equals("end"))
     {
-      
-      uint16_t addrarray;
-      uint16_t temparray;
-      uint8_t dataarray;
-      Serial.println("enter address");
-      sscanf(Serial.readString().c_str(),"%i",&addrarray);
-      Serial.println("enter 8 bit");
-      sscanf(Serial.readString().c_str(),"%i",&temparray);
-      dataarray=(uint8_t)temparray;
-      chiparray[0].write(addrarray,dataarray);
-    }
-    else if(a.equals("write 16"))
-    {
-      
-      uint16_t addrarray;
-      uint16_t dataarray;
-      Serial.println("enter address");
-      sscanf(Serial.readString().c_str(),"%i",&addrarray);
-      Serial.println("enter 16 bit");
-      sscanf(Serial.readString().c_str(),"%i",&dataarray);
-      
-      chiparray[0].write(addrarray,dataarray);
+      if(a.equals("write 8"))
+      {
+        
+        uint16_t addrarray;
+        uint16_t temparray;
+        uint8_t dataarray;
+        Serial.println("enter address");
+        sscanf(Serial.readString().c_str(),"%i",&addrarray);
+        Serial.println("enter 8 bit");
+        sscanf(Serial.readString().c_str(),"%i",&temparray);
+        dataarray=(uint8_t)temparray;
+        chiparray[0].write(addrarray,dataarray);
+      }
+      else if(a.equals("write 16"))
+      {
+        
+        uint16_t addrarray;
+        uint16_t dataarray;
+        Serial.println("enter address");
+        sscanf(Serial.readString().c_str(),"%i",&addrarray);
+        Serial.println("enter 16 bit");
+        sscanf(Serial.readString().c_str(),"%i",&dataarray);
+        
+        chiparray[0].write(addrarray,dataarray);
+      }
+      else if(a.equals("read"))
+      {
+        
+        uint16_t index = 0;
+        uint8_t monitorpos=0;
+        Serial.println("enter address");
+        while(index<UINT16_MAX)
+        {
+          uint8_t a = chiparray[0].read(index);
+          if(monitorpos<16)
+          {
+            Serial.print(a);
+          }
+          else
+          {
+            Serial.println(a);
+          }
+          monitorpos++;
+          
+        }      
+      }
+      a=Serial.readString();
     }
   }
 
