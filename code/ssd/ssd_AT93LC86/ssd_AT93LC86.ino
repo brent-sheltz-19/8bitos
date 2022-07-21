@@ -7,6 +7,12 @@
 #define recivepin 9
 #define Enablepin 4
 
+#define datapin 3
+#define clockpin 4
+#define orgpin 5
+#define pepin 6 
+
+
 enum chipnums
 {
   eight=0b01111111,seven=0b10111111,  
@@ -209,14 +215,14 @@ static csshiftregister csreg(7,8,9);
 
 */
 AT93LC86 chiparray[8]={
-  *new AT93LC86(3,4,5,6),
-  *new AT93LC86(3,4,5,6),
-  *new AT93LC86(3,4,5,6),
-  *new AT93LC86(3,4,5,6),
-  *new AT93LC86(3,4,5,6),
-  *new AT93LC86(3,4,5,6),
-  *new AT93LC86(3,4,5,6),
-  *new AT93LC86(3,4,5,6),
+  *new AT93LC86(datapin,clockpin,orgpin,pepin),
+  *new AT93LC86(datapin,clockpin,orgpin,pepin),
+  *new AT93LC86(datapin,clockpin,orgpin,pepin),
+  *new AT93LC86(datapin,clockpin,orgpin,pepin),
+  *new AT93LC86(datapin,clockpin,orgpin,pepin),
+  *new AT93LC86(datapin,clockpin,orgpin,pepin),
+  *new AT93LC86(datapin,clockpin,orgpin,pepin),
+  *new AT93LC86(datapin,clockpin,orgpin,pepin),
 
 };
 class messsage 
