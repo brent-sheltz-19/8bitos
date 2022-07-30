@@ -78,7 +78,10 @@ static Vram* const  PROGMEM vrambanklist[]={&vbank0,&vbank1,&vbank2};
 static interrupts irqhandler= interrupts();
 static interpreter osinterpret= interpreter();
 static interpreter interpret= interpreter();
-static keyboard kb = keyboard();
+/*
+	reserved address and address+1
+*/		
+static keyboard kb = keyboard(0x1E001u);
 
 
 void runprogram()
@@ -110,8 +113,6 @@ void storememory(uint64_t address, char out)
 	
 	
 }
-
-
 char loadmainprogramfromrom(char prognum)
 {
 	ram* prog_ram;
@@ -213,7 +214,7 @@ int main()
 	
 	while (true) 
     {	
-		 int kbsize = kb.getsize() 	
+		 int kbsize = kb.getsize();	
 		 //in_str=(char*)calloc(20,sizeof(char));
 		 in_str=(char*)calloc(kb.getsize(),sizeof(char));
 		 
@@ -271,8 +272,9 @@ int main()
 					 //load file
 					 
 				 }
-				 else if(interpret.registers[0]==)
-			 
+				 else if(interpret.registers[0]==6)
+				 {
+				 }
 			 }
 			 else if (retval=='e')
 			 {
