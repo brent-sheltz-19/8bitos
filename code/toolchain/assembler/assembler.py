@@ -521,6 +521,13 @@ def main():
     else:
         print("assembly tag not found")
         return
+
+#    for w in text:
+#       if w.__contains__("#")
+
+
+
+
     for w in text:
         line = Instruction()
 
