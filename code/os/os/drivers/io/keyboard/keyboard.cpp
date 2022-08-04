@@ -21,7 +21,7 @@ keyboard::keyboard(uint32_t addr)
 void keyboard::read(char* buff)
 {
 	addrreg->shiftout32(address);
-	port->readportb();
+	buff[0]=port->readportb();
 	
 }
 void keyboard::read(char* buff,uint32_t size)

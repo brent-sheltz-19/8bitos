@@ -27,7 +27,7 @@
 #include "constants.h"
 
 #define rwpin 1
-// 0 cpu ram 1 video ram
+// if vmempin is 0 its using cpu ram else if 1 using  video ram
 #define vmempin 2
 
 /*
@@ -65,10 +65,13 @@ static rom cartridge2 =rom(&port,&addreg,0x1A000u);
 static rom program0 =rom(&port,&addreg,0x1C000u);
 static rom program1 =rom(&port,&addreg,0x1E000u);
 static rom basicrom =rom(&port,&addreg,0x1E000u);
+/*
+	0 
 
+*/
 static Vram vbank0 = Vram(&port,&addreg,rwpin,vmempin,0x0u);	// video ram
-static Vram vbank1 = Vram(&port,&addreg,rwpin,vmempin,0x2000u);//instruction ram
-static Vram vbank2 = Vram(&port,&addreg,rwpin,vmempin,0x4000u);// custom char ram 
+static Vram vbank1 = Vram(&port,&addreg,rwpin,vmempin,0x2000u);//video/text ram
+static Vram vbank2 = Vram(&port,&addreg,rwpin,vmempin,0x4000u);// text/instruction ram 
 
 static  ram* const PROGMEM rambanklist[] = {&bank0,&bank1,&bank2,&bank3,&bank4,&bank5,&bank6,&bank7,&bank8,&bank9,&bank10};
 static Vram* const  PROGMEM vrambanklist[]={&vbank0,&vbank1,&vbank2};
@@ -83,6 +86,7 @@ static interpreter interpret= interpreter();
 */		
 static keyboard kb = keyboard(0x1E001u);
 
+char idList[8]={};
 
 void runprogram()
 {
@@ -223,14 +227,13 @@ int main()
 		 char* command_str =(char*) malloc((spaceloc-in_str));
 		 for (int i =0;i<(spaceloc-in_str);i++)
 		 {
-			command_str[i]=in_str[i]; 
+			 command_str[i]=in_str[i];
 		 }
 		 
 		 if(strcmp_P(command_str,(PGM_P)&run)==0)
 		 {	 
 			 retval = interpret.run();
 		 }
-
 		 else if (strcmp_P(command_str,(PGM_P)&run2)==0)
 		 {
 			retval = interpret.run(); 

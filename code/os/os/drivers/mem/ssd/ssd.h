@@ -18,9 +18,11 @@ protected:
 Serial serial;
 private:
 
+
 //functions
 public:
 	ssd();
+	
 	~ssd();
 protected:
 private:

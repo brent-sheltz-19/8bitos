@@ -25,6 +25,14 @@
 
 class interpreter
 {
+	struct interpreterdata
+	{
+		uint8_t isOs:1;
+		uint8_t isActive:1;
+		uint8_t pid;			
+		
+		
+	};
 	struct indexreg  
 	{
 		char* low;
@@ -172,6 +180,7 @@ class interpreter
 	indexreg registerx;
 	indexreg registery;
 	indexreg registerz;
+	interpreterdata info;
 	//bool progexit;
 	ram* baseprogram;
 	ram* dataram;

@@ -7,3 +7,4 @@ const char PROGMEM cartridge[] ="cartridge";
 const char PROGMEM load[] ="load";
 const char PROGMEM loadcartridge1[] ="load cartridge 1";
 
+enum spiDeviceTypes{none,ssd,spu,microsd};

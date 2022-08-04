@@ -10,8 +10,7 @@
 
 #ifndef __SERIAL_H__
 #define __SERIAL_H__
-
-//spi
+#define reqid 1
 class Serial
 {
 //variables
@@ -22,12 +21,12 @@ public:
 	//char devices[128];
 	uint8_t cid;
 	uint8_t miso;
+	private:
 	uint8_t mosi;
 	uint8_t clk;
 	
 	
 protected:
-private:
 
 //functions
 public:
@@ -36,11 +35,15 @@ public:
 	Serial(shiftreg* ,portcontroller*);
 	Serial(shiftreg* ,portcontroller*,char miso,char mosi,char clk);
 	void send(char* val,int len,int cs);
+	void send(char val,int cs);
+	
 	char sendandrecive1byte(char val);
 	void recive(char* buff, int length,int cs);
+	char recive(int cs);
+	
 	char recivebuff();
 	void checkfordevices();
-	
+	char iddevice(int cs);
 	
 	//Serial( const Serial &c );
 	//Serial& operator=( const Serial &c );
