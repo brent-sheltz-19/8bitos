@@ -25,14 +25,16 @@
 
 class interpreter
 {
+	/*
 	struct interpreterdata
 	{
 		uint8_t isOs:1;
 		uint8_t isActive:1;
 		uint8_t pid;			
-		
+		uint64_t address;
 		
 	};
+	*/
 	struct indexreg  
 	{
 		char* low;
@@ -180,7 +182,7 @@ class interpreter
 	indexreg registerx;
 	indexreg registery;
 	indexreg registerz;
-	interpreterdata info;
+	//interpreterdata info;
 	//bool progexit;
 	ram* baseprogram;
 	ram* dataram;
@@ -196,15 +198,13 @@ private:
 	
 	
 	uint16_t stackptr ;
-	
 	uint16_t addressptr;
-	
-	
 	indexreg* indregs[3]={&registerx,&registery,&registerz};
 	cpuflags flag;
 //functions
 public:
 	interpreter();
+//	interpreter(interpreterdata info);
 	interpreter( const interpreter &c );
 	void clearreg();
 	

@@ -18,6 +18,7 @@ interpreter::interpreter()
 	registery= indexreg(&registers[252],&registers[253]);
 	registerx= indexreg(&registers[250],&registers[251]);
 } //interpreter
+
 /*
 	increments register
 */

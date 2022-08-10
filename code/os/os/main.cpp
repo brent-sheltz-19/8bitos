@@ -64,9 +64,11 @@ static rom cartridge1 =rom(&port,&addreg,0x18000u);
 static rom cartridge2 =rom(&port,&addreg,0x1A000u);
 static rom program0 =rom(&port,&addreg,0x1C000u);
 static rom program1 =rom(&port,&addreg,0x1E000u);
-static rom basicrom =rom(&port,&addreg,0x1E000u);
+static rom basicrom =rom(&port,&addreg,0x20000u);
+// end of ram 0x21FFF
 /*
-	0 
+	0-2048 video ram
+	2049-4097 text ram
 
 */
 static Vram vbank0 = Vram(&port,&addreg,rwpin,vmempin,0x0u);	// video ram
@@ -79,12 +81,13 @@ static Vram* const  PROGMEM vrambanklist[]={&vbank0,&vbank1,&vbank2};
 
 
 static interrupts irqhandler= interrupts();
-static interpreter osinterpret= interpreter();
+//static interpreter osinterpret= interpreter();
 static interpreter interpret= interpreter();
+
 /*
 	reserved address and address+1
 */		
-static keyboard kb = keyboard(0x1E001u);
+static keyboard kb = keyboard(0x22001u);
 
 char idList[8]={};
 
@@ -190,7 +193,10 @@ void readKeyboard(char* buffer,int buffsize)
 {
 	
 } 
-
+interpreter createProcess()
+{
+	
+}
 int main()
 {
 /* Replace with your application code */
