@@ -902,13 +902,13 @@ char interpreter::syscall()
 		/*
 			if reg 1 is 1 
 				play tone reg 2
-			if reg 2 is 1 
+			if reg 1 is 2 
 				play song from filename starting at X
+			if reg 1 is 3
+				pause
+			if reg 1 is 4
+				resume 
 		*/
-		if (registers[1]==1)
-		{
-			
-		}
 		return 'b';
 		
 		

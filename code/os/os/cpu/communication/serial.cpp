@@ -105,12 +105,12 @@ char Serial::recive(int cs)
 	}	
 	return r;
 }
-void Serial::checkfordevices()
-{
+//void Serial::checkfordevices(spiDeviceTypes* spiarray,int size)
+//{
 	
 	
 	
-}
+//}
 char Serial::iddevice(int cs)
 {
 	csreg->shiftout8(cs);

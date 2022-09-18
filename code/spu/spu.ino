@@ -37,6 +37,7 @@ class softwarespi
   }
   String stringIn()
   {
+
     
     while (digitalRead(signalpin)==true)
     {

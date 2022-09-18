@@ -1,3 +1,18 @@
+#include <arduino.h>
+#include <stdint.h>
+#include <SoftwareSerial.h>
+#include <Wire.h>
+
+#define debug 1
+#define recivepin 9
+#define Enablepin 4
+
+#define datapin 3
+#define clockpin 4
+#define orgpin 5
+#define pepin 6 
+
+
 enum chipnums
 {
   eight=0b01111111,seven=0b10111111,  
@@ -127,17 +142,124 @@ class At24LC1024
       }
   };
 
-
-
 static csshiftregister csreg(6,7,8);
+At24LC1024 chiparray[8]={
+  *new At24LC1024(datapin,clockpin,orgpin,pepin),
+  *new At24LC1024(datapin,clockpin,orgpin,pepin),
+  *new At24LC1024(datapin,clockpin,orgpin,pepin),
+  *new At24LC1024(datapin,clockpin,orgpin,pepin),
+  *new At24LC1024(datapin,clockpin,orgpin,pepin),
+  *new At24LC1024(datapin,clockpin,orgpin,pepin),
+  *new At24LC1024(datapin,clockpin,orgpin,pepin),
+  *new At24LC1024(datapin,clockpin,orgpin,pepin),
+};
+bool checkAllEmpty()
+{
+    for(AT93LC86 c : chiparray)
+    {
+      for(int i = 0;i<UINT16_MAX;i++)
+      {
+
+       if(c.read(i)>0)
+       {
+         return false;
+       }
+      }
+    }
+  return true ;
+}
+
+/*
+* checks if chip is empty
+*/
+
+bool checkEmpty(char chipnum)
+{
+  for(int i = 0;i<UINT16_MAX;i++)
+  {
+    if(chiparray[chipnum].read(i)>0)
+    {
+      return false;
+    }
+  }
+  return true ;
+} 
+char format(char num,String action )
+{
+  /*
+    format ssd to all zero
+  */
+  if(action=="f")
+  {
+    for(At24LC1024 chip :chiparray)
+    {
+      for(uint16_t i=0;i<UINT16_MAX;i++)
+      {
+        chip.write(i,0u);
+      }
+      for(uint16_t i=0;i<UINT16_MAX;i++)
+      {
+        if(chip.read(i)!=0)
+        {
+          errormsg = "format failed";
+          return 'e';
+        }
+      }
 
 
-void setup() {
+
+    }
+    return 't';
+  }
+  else if(action == "e")
+  {
+    /*  
+      erases chip
+    */
+    At24LC1024 chip = chiparray[num];
+    for(uint16_t i=0;i<UINT16_MAX;i++)
+    {
+      chip.write(i,0u);
+    }
+    return 't';    
+  }
+  else if(action == "d")
+  {
+    /*
+
+    */
+    for(At24LC1024 chip :chiparray)
+    {
+      for(uint16_t i=0;i<UINT16_MAX;i++)
+      {
+        chip.write(i,0u);
+      }
+      for(uint16_t i=0;i<UINT16_MAX;i++)
+      {
+        if(chip.read(i)!=0)
+        {
+          errormsg = "erase failed";
+          return 'e';
+        }
+      }
+    }
+    return 't';    
+  }
+  else
+  {
+
+    return 'e';
+  }
+}
+
+void setup() 
+{
   // put your setup code here, to run once:
 
 }
 
-void loop() {
+void loop() 
+{
   // put your main code here, to run repeatedly:
 
 }

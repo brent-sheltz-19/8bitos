@@ -413,7 +413,7 @@ void loop()
       {
         
         uint16_t addrarray;
-        uint16_t dataarray;
+  0      uint16_t dataarray;
         Serial.println("enter address");
         sscanf(Serial.readString().c_str(),"%i",&addrarray);
         Serial.println("enter 16 bit");

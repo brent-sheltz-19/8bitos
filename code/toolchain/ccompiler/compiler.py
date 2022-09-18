@@ -1,19 +1,24 @@
 flags =[]
 filename:string = ""
 outfilename = "a.out"
-
+assemblyfilename = "a.asm"
 
 def claprocessor():
-    count = 0
-    next= ""
     print(sys.argv)
+    i=0
     for stri in sys.argv:
-        if next.__eq__("1"):
-            outfilename = stri
-            next = ""
+        if stri.__eq__("-o"):
+            outfilename=sys.argv(i+1)
+        if stri.__eq__("-ASM") or stri.__eq__("-asm") :
+            outfilename = sys.argv(i + 1)
+
         if stri.__contains__(".c"):
             filename = stri
-        elif stri.__eq__("-o"):
-            next = "1"
 
+        i++
+    return
+def cpreprosscessor():
+
+    return
 if __name__ == '__main__':
+    claprocessor()

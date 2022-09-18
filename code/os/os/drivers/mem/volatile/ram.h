@@ -40,6 +40,7 @@ public:
 	void write(char data);
 	void write(uint8_t address,char data);
 	void write(uint16_t address,char data);
+	void write(uint32_t address,char data);
 	void write(uint64_t address,char data);
 	
 	void setaddress(uint64_t addr);

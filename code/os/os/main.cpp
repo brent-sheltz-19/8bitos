@@ -5,7 +5,6 @@
  * Author : Brent
  */ 
 
-#define F_CPU   8000000
 #include <avr/io.h>
 #include <avr/pgmspace.h>
 #include <avr/cpufunc.h>
@@ -25,7 +24,7 @@
 #include "cpu/interpreter/interpreter.h"
 #include "cpu/communication/Serial.h"
 #include "constants.h"
-
+#define F_CPU   8000000
 #define rwpin 1
 // if vmempin is 0 its using cpu ram else if 1 using  video ram
 #define vmempin 2
@@ -54,8 +53,8 @@ static ram bank4 = ram(&port,&addreg,rwpin,0x8000u);
 
 static ram bank5 = ram(&port,&addreg,rwpin,0xA000u);
 static ram bank6 = ram(&port,&addreg,rwpin,0xC000u);
-static ram bank7 = ram(&port,&addreg,rwpin,0x0E000u);
-static ram bank8 = ram(&port,&addreg,rwpin,0x10000u);
+static ram bank7 = ram(&port,&addreg,rwpin,0x0E000u);// driver ram
+static ram bank8 = ram(&port,&addreg,rwpin,0x10000u);// driver ram
 static ram bank9 = ram(&port,&addreg,rwpin,0x12000u);// os data
 static ram bank10 = ram(&port,&addreg,rwpin,0x14000u);// stack ram
 
@@ -65,6 +64,7 @@ static rom cartridge2 =rom(&port,&addreg,0x1A000u);
 static rom program0 =rom(&port,&addreg,0x1C000u);
 static rom program1 =rom(&port,&addreg,0x1E000u);
 static rom basicrom =rom(&port,&addreg,0x20000u);
+
 // end of ram 0x21FFF
 /*
 	0-2048 video ram
@@ -83,19 +83,19 @@ static Vram* const  PROGMEM vrambanklist[]={&vbank0,&vbank1,&vbank2};
 static interrupts irqhandler= interrupts();
 //static interpreter osinterpret= interpreter();
 static interpreter interpret= interpreter();
-
+char* directory ={};
 /*
 	reserved address and address+1
 */		
 static keyboard kb = keyboard(0x22001u);
 
-char idList[8]={};
+spiDeviceTypes idList[8]={};
 
 void runprogram()
 {
 	interpret.run();
 }
-void storememory(uint64_t address, char out)
+void storememory(uint32_t address, char out)
 {
 	if (address>=0x0 && address<0x2000)
 	{
@@ -113,12 +113,86 @@ void storememory(uint64_t address, char out)
 	{
 		bank3.write(address-0x6000,out);
 	}
-	else if(address>=0x6000 && address<0xA000)
+	else if(address>=0x8000 && address<0xA000)
 	{
 		bank4.write(address-0x8000,out);
 	}
+	else if(address>=0xA000 && address<0xC000)
+	{
+		bank5.write(address-0xA000,out);		
+	}
+	else if(address>=0xC000 && address<0xE000)
+	{
+		bank6.write(address-0xC000,out);
+	}
+	else if(address>=0xE000 && address<0x10000)
+	{
+		bank7.write(address-0xE000,out);	
+	}
+	else if(address>=0x10000 && address<0x12000)
+	{
+		bank8.write(address-0x10000,out);			
+	}
+	else if(address>=0x12000 && address<0x16000)
+	{
+		bank9.write(address-0x12000,out);
+	}
+	else if(address>=0x14000 && address<0x1000)
+	{
+		bank10.write(address-0x14000,out);
+	}
 	
-	
+}
+char readmemory(uint32_t address)
+{
+		if (address>=0x0 && address<0x2000)
+		{
+			return bank0.read(address);
+		}
+		else if (address>=0x2000 && address<0x4000)
+		{
+			return bank1.read(address-0x2000);
+		}
+		else if(address>=0x4000 && address<0x6000)
+		{
+			return bank2.read(address-0x4000);
+		}
+		else if(address>=0x6000 && address<0x8000)
+		{
+			return bank3.read(address-0x6000);
+		}
+		else if(address>=0x8000 && address<0xA000)
+		{ 
+			return bank4.read(address-0x8000);
+		}
+		else if(address>=0xA000 && address<0xC000)
+		{
+			return bank5.read(address-0xA000);
+		}
+		else if(address>=0xC000 && address<0xE000)
+		{
+			return bank6.read(address-0xC000);
+		}
+		else if(address>=0xE000 && address<0x10000)
+		{
+			return bank7.read(address-0xE000);
+		}
+		else if(address>=0x10000 && address<0x12000)
+		{
+			return bank8.read(address-0x10000);
+		}
+		else if(address>=0x12000 && address<0x16000)
+		{
+			return bank9.read(address-0x12000);
+		}
+		else if(address>=0x14000 && address<0x1000)
+		{
+			return bank10.read(address-0x14000);
+		}	
+}
+char readmemory(ram* bank,uint16_t address)
+{
+	bank->read(address);
 }
 char loadmainprogramfromrom(char prognum)
 {
@@ -204,8 +278,7 @@ int main()
 	char *in_str;
 	char retval='\0';
 	PORTA=0;
-	
-	
+//	serial;
 	
 	//set output	
 	port.writeddra(0xff);
@@ -278,8 +351,48 @@ int main()
 				 }
 				 else if(interpret.registers[0]==5)
 				 {
-					 //load file
-					 
+					 //spu 
+					/*
+						if reg 1 is 1 
+							play tone reg 2
+						if reg 1 is 2 
+							play song from filename starting at X
+						if reg 1 is 3
+							pause
+						if reg 1 is 4
+							resume 
+					*/
+					if (interpret.registers[1]=1)
+					{
+						
+					}
+					if (interpret.registers[1]=2)
+					{
+						char inchar=0xff;
+						char* songfilename;
+						int fileptr = interpret.registerx.getVal();
+						int size = 0;
+						int i;
+						while(inchar!=0)
+						{
+							inchar = readmemory(fileptr);
+							size++;
+						}
+						inchar=0xff;
+						songfilename = calloc(sizeof(char),size);
+						i=0
+						while(inchar!=0)
+						{
+							inchar = readmemory(fileptr);
+							songfilename[i]=inchar;
+							i++;
+						}
+						
+						free(songfilename);
+						
+					
+					}
+					
 				 }
 				 else if(interpret.registers[0]==6)
 				 {

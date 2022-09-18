@@ -83,6 +83,21 @@ void ram::write(uint16_t address,char data)
 	_delay_ms(1);
 	portptr->digitalwrite(wepin,true);
 }
+void ram::write(uint32_t address,char data)
+{
+	addrptr->shiftout32(address);
+	if(dataptr == NULL)
+	{
+		portptr->writeportc(data);
+	}
+	else
+	{
+		dataptr->shiftout8(data);
+	}
+	portptr->digitalwrite(wepin,false);
+	_delay_ms(1);
+	portptr->digitalwrite(wepin,true);
+}
 void ram::write(uint64_t address,char data)
 {
 	addrptr->shiftout64(address);
