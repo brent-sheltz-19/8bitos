@@ -5,6 +5,7 @@
 #include <string>
 
 using namespace std;
+
 #include "Component.h"
 class LWindow
 {
@@ -18,6 +19,7 @@ public:
 	
 private:
     vector<Component>* components;
+    vector<Button>* buttons;
     void render();
     //Window data
     SDL_Window* mWindow;
@@ -27,6 +29,7 @@ private:
     //Window dimensions
     int mWidth;
     int mHeight;
+	int ystart;
 
     //Window focus
     bool mMouseFocus;
@@ -64,9 +67,16 @@ inline void LWindow::render()
         //Clear screen
         SDL_SetRenderDrawColor(mRenderer, 0x00, 0x00, 0xFF, 0xFF);
         SDL_RenderClear(mRenderer);
+		SDL_rect blackborder;
+		blackborder.x=0;
+		blackborder.y=0;
+		blackborder.w=mWidth;
+		blackborder.h=mHeight;
+		SDL_SetRenderDrawColor(mRenderer, 0x00, 0x00, 0x00, 0xFF);
+		SDL_renderDrawRect(mRenderer,blackborder);
         for (unsigned int i = 0; i < components->size(); i++)
         {
-            components->at(i).render(mRenderer);
+           buttons->at(i).render(mRenderer);
 
         }
 
@@ -83,8 +93,8 @@ inline char LWindow::init(string title,int SCREEN_WIDTH,int SCREEN_HEIGHT)
         mMouseFocus = true;
         mKeyboardFocus = true;
         mWidth = SCREEN_WIDTH;
-        mHeight = SCREEN_HEIGHT;
-
+        mHeight = SCREEN_HEIGHT+buttons->at(0).rect.height;
+		ystart = buttons->at(0).rect.height;
         //Create renderer for window
         mRenderer = SDL_CreateRenderer(mWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
         if (mRenderer == NULL)
@@ -96,7 +106,7 @@ inline char LWindow::init(string title,int SCREEN_WIDTH,int SCREEN_HEIGHT)
         else
         {
             //Initialize renderer color
-            SDL_SetRenderDrawColor(mRenderer, 0xFF, 0xFF, 0xFF, 0xFF);
+            SDL_SetRenderDrawColor(mRenderer, 0x00, 0x00, 0xFF, 0xFF);
 
             //Grab window identifier
             mWindowID = SDL_GetWindowID(mWindow);
