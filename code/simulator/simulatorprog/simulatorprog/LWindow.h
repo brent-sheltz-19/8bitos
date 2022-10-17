@@ -7,6 +7,7 @@
 using namespace std;
 
 #include "Component.h"
+#include "Button.h"
 class LWindow
 {
 public:
@@ -15,12 +16,13 @@ public:
 	int getX();
 	int getY();
 	void setX(int);
-	void setY(int);
+	void setY(int); 
+    void setButtons(vector<Button>*);
+    void render();
 	
 private:
     vector<Component>* components;
     vector<Button>* buttons;
-    void render();
     //Window data
     SDL_Window* mWindow;
     SDL_Renderer* mRenderer;
@@ -60,6 +62,10 @@ inline void LWindow::setY(int y)
 {
     mHeight = y;
 }
+inline void LWindow::setButtons(vector<Button>* b)
+{
+    buttons = b;
+}
 inline void LWindow::render()
 {
     if (!mMinimized)
@@ -67,14 +73,15 @@ inline void LWindow::render()
         //Clear screen
         SDL_SetRenderDrawColor(mRenderer, 0x00, 0x00, 0xFF, 0xFF);
         SDL_RenderClear(mRenderer);
-		SDL_rect blackborder;
+		SDL_Rect blackborder;
 		blackborder.x=0;
 		blackborder.y=0;
 		blackborder.w=mWidth;
-		blackborder.h=mHeight;
+		blackborder.h= ystart;
+        SDL_RenderClear(mRenderer);
 		SDL_SetRenderDrawColor(mRenderer, 0x00, 0x00, 0x00, 0xFF);
-		SDL_renderDrawRect(mRenderer,blackborder);
-        for (unsigned int i = 0; i < components->size(); i++)
+		SDL_RenderFillRect(mRenderer,&blackborder);
+        for (unsigned int i = 0; i < buttons->size(); i++)
         {
            buttons->at(i).render(mRenderer);
 
@@ -87,14 +94,14 @@ inline void LWindow::render()
 inline char LWindow::init(string title,int SCREEN_WIDTH,int SCREEN_HEIGHT)
 {
     //Create window
-    mWindow = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
+    mWindow = SDL_CreateWindow(title.c_str(), SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT + buttons->at(0).rect.h, SDL_WINDOW_SHOWN | SDL_WINDOW_RESIZABLE);
     if (mWindow != NULL)
     {
         mMouseFocus = true;
         mKeyboardFocus = true;
         mWidth = SCREEN_WIDTH;
-        mHeight = SCREEN_HEIGHT+buttons->at(0).rect.height;
-		ystart = buttons->at(0).rect.height;
+        mHeight = SCREEN_HEIGHT;
+		ystart = buttons->at(0).rect.h;
         //Create renderer for window
         mRenderer = SDL_CreateRenderer(mWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
         if (mRenderer == NULL)

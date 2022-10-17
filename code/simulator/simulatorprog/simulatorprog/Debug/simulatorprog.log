@@ -1,6 +1,2 @@
 ﻿  main.cpp
-C:\Users\Brent\Documents\GitHub\8bitos\code\simulator\simulatorprog\simulatorprog\main.cpp(18,48): error C2243: 'type cast': conversion from 'Button *' to '_Ty' exists, but is inaccessible
-          with
-          [
-              _Ty=Component *
-          ]
+  simulatorprog.vcxproj -> D:\codeing projects\8bitos\code\simulator\simulatorprog\Debug\simulatorprog.exe

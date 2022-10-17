@@ -72,8 +72,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\Brent\Documents\GitHub\8bitos\code\simulator\simulatorprog\sdl2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Brent\Documents\GitHub\8bitos\code\simulator\simulatorprog\sdl2\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\codeing projects\8bitos\code\simulator\simulatorprog\sdl2\include;C:\Users\Brent\Documents\GitHub\8bitos\code\simulator\simulatorprog\sdl2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\codeing projects\8bitos\code\simulator\simulatorprog\sdl2\lib\x86;C:\Users\Brent\Documents\GitHub\8bitos\code\simulator\simulatorprog\sdl2\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
