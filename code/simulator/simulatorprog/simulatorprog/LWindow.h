@@ -8,6 +8,7 @@ using namespace std;
 
 #include "Component.h"
 #include "Button.h"
+#include "Ram.h"
 class LWindow
 {
 public:
@@ -19,10 +20,11 @@ public:
 	void setY(int); 
     void setButtons(vector<Button>*);
     void render();
-	
+    void Setram(Ram*);
 private:
     vector<Component>* components;
     vector<Button>* buttons;
+    Ram* vram;
     //Window data
     SDL_Window* mWindow;
     SDL_Renderer* mRenderer;
@@ -71,14 +73,13 @@ inline void LWindow::render()
     if (!mMinimized)
     {
         //Clear screen
-        SDL_SetRenderDrawColor(mRenderer, 0x00, 0x00, 0xFF, 0xFF);
         SDL_RenderClear(mRenderer);
 		SDL_Rect blackborder;
 		blackborder.x=0;
 		blackborder.y=0;
 		blackborder.w=mWidth;
 		blackborder.h= ystart;
-        SDL_RenderClear(mRenderer);
+
 		SDL_SetRenderDrawColor(mRenderer, 0x00, 0x00, 0x00, 0xFF);
 		SDL_RenderFillRect(mRenderer,&blackborder);
         for (unsigned int i = 0; i < buttons->size(); i++)
@@ -86,10 +87,54 @@ inline void LWindow::render()
            buttons->at(i).render(mRenderer);
 
         }
+        //SDL_RenderClear(mRenderer);
+        SDL_Rect pixel;
+        pixel.w = 1;
+        pixel.h = 1;
+        pixel.x = 0;
+        pixel.y = ystart;
+        SDL_Color color;
+        int y = 0;
+        while(pixel.y<mHeight)
+        {
+            
+            
+            uint8_t a = vram->read(y);
+            cout << "address " << y << " data " << a << endl;
+            if (y % 3==0)
+            {
+                color.r = a;
+            }
+            else if (y % 3 == 1)
+            {
+                color.g = a;
+            }
+            else if (y % 3 == 2)
+            {
+                color.b = a;
+                SDL_SetRenderDrawColor(mRenderer, color.r, color.g, color.b, 255);
+                SDL_RenderDrawRect(mRenderer, &pixel);
+                pixel.x++;
+            }
+            if (pixel.x==mWidth) 
+            {
+                pixel.x = 0;
+                pixel.y++;
+            }
+            //Update screen
+            y++;
+            cout << "pixel x " << pixel.x << "pixel y " << pixel.y << endl;
+            SDL_RenderPresent(mRenderer);
+        
+        }
 
         //Update screen
         SDL_RenderPresent(mRenderer);
     }
+}
+inline void LWindow::Setram(Ram* r)
+{
+    vram = r;
 }
 inline char LWindow::init(string title,int SCREEN_WIDTH,int SCREEN_HEIGHT)
 {

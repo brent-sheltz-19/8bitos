@@ -6,6 +6,9 @@
 #include "LWindow.h"
 #include "Component.h"
 #include "Button.h"
+#include "cpu.h"
+#include "ssd.h"
+
 const int windowwidth = 640;
 const int windowheight= 480;
 
@@ -13,6 +16,10 @@ using namespace std;
 
 int main(int argc, char** argv)
 { 
+	Ram mainram;
+	Ram vram = Ram((windowheight * windowwidth)*3);
+	cpu a;
+	cout << sizeof(a)<<endl;
 	int init_error_code = SDL_Init(SDL_INIT_EVENTS || SDL_INIT_VIDEO);
 	vector<Button> componentlist;
 	componentlist.push_back(Button(0, 0, 100, 50));
@@ -20,11 +27,16 @@ int main(int argc, char** argv)
 	LWindow mainwindow;
 	mainwindow.setButtons(&componentlist);
 	mainwindow.init("video output", windowwidth, windowheight);
+	mainwindow.Setram(&vram);
+	SDL_Event e;
 	while (true)
 	{
 		mainwindow.render();
-
-
+		SDL_PollEvent(&e);
+		if(e.type == SDL_QUIT)
+		{
+			break;
+		}
 
 	}
 	SDL_Quit();

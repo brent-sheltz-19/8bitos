@@ -1,13 +1,13 @@
 #pragma once
 #include "Component.h"
+
 class Button : public Component
 {
     
 public:
     SDL_Rect rect;
     Button(int x,int y,int w,int h );
-    void render(SDL_Renderer*) override;
-    
+    void render(SDL_Renderer*) override;    
     bool inRange(int,int);
 private: 
     SDL_Rect border;
@@ -28,12 +28,11 @@ inline Button::Button(int x, int y, int w, int h)
 void Button::render(SDL_Renderer* a)
 {
     SDL_SetRenderDrawColor(a, 0xFF, 0xFF, 0xFF, 0xFF);
-    SDL_RenderFillRect(a, &rect);
+    SDL_RenderFillRect(a,&rect);
     SDL_SetRenderDrawColor(a, 0xFF, 0x00, 0x00, 0xFF);
-    SDL_RenderDrawRect(a, &border);
+    SDL_RenderDrawRect(a,&border);
 	
 }
-
 inline bool Button::inRange(int xpos,int ypos)
 {
     if(rect.x<=xpos && xpos<=rect.w)
@@ -42,8 +41,6 @@ inline bool Button::inRange(int xpos,int ypos)
 		{
 			return true;
 		}
-	
 	}
-	
 	return false;
 }

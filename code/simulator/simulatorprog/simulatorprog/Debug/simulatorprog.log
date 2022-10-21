@@ -1,2 +1,3 @@
 ﻿  main.cpp
-  simulatorprog.vcxproj -> D:\codeing projects\8bitos\code\simulator\simulatorprog\Debug\simulatorprog.exe
+C:\Users\Owner\Documents\GitHub\8bitos\code\simulator\simulatorprog\simulatorprog\cpu.h(701,34): warning C4244: 'argument': conversion from 'uint16_t' to 'char', possible loss of data
+  simulatorprog.vcxproj -> C:\Users\Owner\Documents\GitHub\8bitos\code\simulator\simulatorprog\Debug\simulatorprog.exe
