@@ -204,6 +204,14 @@ class cpu
 public:
 	cpu();
 	char run();
+	Ram* getRam();
+	Ram* getvRam();
+	void setRam(Ram*);
+	void setvRam(Ram*);
+
+	void debuginfo();
+	uint8_t* getReg();
+	int sizeofram();
 	~cpu();
 private:
 	void nop();
@@ -314,7 +322,36 @@ cpu::cpu()
 	registerx = indexreg(&registers[248], &registers[249]);
 
 } //cpu
+inline int cpu::sizeofram()
+{
+	return sizeof(this->ram);
+}
+inline Ram* cpu::getRam()
+{
+	return ram;
+}
+inline Ram* cpu::getvRam()
+{
+	return videoram;
+}
+inline void cpu::debuginfo()
+{
+	
+}
+inline uint8_t* cpu::getReg()
+{
+	return &registers[0];
 
+}
+inline void cpu::setRam(Ram* a)
+{
+	ram = a;
+}
+inline void cpu::setvRam(Ram* a)
+{
+	
+	videoram = a;
+}
 /*
 	increments register
 */
@@ -704,7 +741,6 @@ char cpu::run()
 		else if (command == 56)
 		{
 			char i = ram->read(addressptr + 1);
-
 			pushi(i);
 			addressptr++;
 		}

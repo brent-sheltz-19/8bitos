@@ -3,33 +3,41 @@
 #include <SDL.h>
 #include <vector>
 #include <string>
-
+#include <thread>
 using namespace std;
 
 #include "Component.h"
 #include "Button.h"
 #include "Ram.h"
+#include "os.h"
 class LWindow
 {
 public:
     LWindow();
-	char init(string,int,int);
+    void handleevent(SDL_Event* e);
+    char init(string,int,int);
 	int getX();
 	int getY();
 	void setX(int);
 	void setY(int); 
     void setButtons(vector<Button>*);
+    vector<Button>* getButtons();
     void render();
     void Setram(Ram*);
+    void Setos(os*);
+    void setscaleing(int);
+    os* getActiveos();
 private:
     vector<Component>* components;
     vector<Button>* buttons;
     Ram* vram;
+    os* activeos;
+
     //Window data
     SDL_Window* mWindow;
     SDL_Renderer* mRenderer;
     int mWindowID;
-
+    int pixelmode;
     //Window dimensions
     int mWidth;
     int mHeight;
@@ -68,12 +76,22 @@ inline void LWindow::setButtons(vector<Button>* b)
 {
     buttons = b;
 }
+inline vector<Button>* LWindow::getButtons()
+{
+    return buttons ;
+}
+inline os* LWindow::getActiveos()
+{
+    return activeos;
+}
 inline void LWindow::render()
 {
+    SDL_Event e;
+    thread eventthread;
     if (!mMinimized)
     {
         //Clear screen
-        SDL_RenderClear(mRenderer);
+        //SDL_RenderClear(mRenderer);
 		SDL_Rect blackborder;
 		blackborder.x=0;
 		blackborder.y=0;
@@ -94,47 +112,157 @@ inline void LWindow::render()
         pixel.x = 0;
         pixel.y = ystart;
         SDL_Color color;
-        int y = 0;
-        while(pixel.y<mHeight)
+        if (pixelmode == 0||pixelmode==1)
         {
+            int y = 0; 
+            while(pixel.y<mHeight)
+            {
             
+
+                SDL_PollEvent(&e);
+                if (e.type > 0)
+                {
+                    handleevent(& e);
+                }
+                uint8_t a = vram->read(y);
+                //cout << "address " << y << " data " << a << endl;
+                if (y % 3==0)
+                {
+                    color.r = a;
+                }
+                else if (y % 3 == 1)
+                {
+                    color.g = a;
+                }
+                else if (y % 3 == 2)
+                {
+                    color.b = a;
+                    SDL_SetRenderDrawColor(mRenderer, color.r, color.g, color.b, 255);
+                    SDL_RenderDrawRect(mRenderer, &pixel);
+                    pixel.x++;
+                }
+                if (pixel.x==mWidth) 
+                {
+                    pixel.x = 0;
+                    pixel.y++;
+                }
+                y++;
             
-            uint8_t a = vram->read(y);
-            cout << "address " << y << " data " << a << endl;
-            if (y % 3==0)
-            {
-                color.r = a;
+                //cout << "pixel x " << pixel.x << "pixel y " << pixel.y << endl;
+            
+                //SDL_RenderPresent(mRenderer);
             }
-            else if (y % 3 == 1)
+        }
+        else if(pixelmode==2)
+        {
+            int y = 0;
+            while (pixel.y < mHeight)
             {
-                color.g = a;
+
+
+                SDL_PollEvent(&e);
+                if (e.type > 0)
+                {
+                    handleevent(&e);
+                }
+                uint8_t a = vram->read(y);
+                //cout << "address " << y << " data " << a << endl;
+                if (y % 3 == 0)
+                {
+                    color.r = a;
+                }
+                else if (y % 3 == 1)
+                {
+                    color.g = a;
+                }
+                else if (y % 3 == 2)
+                {
+                    color.b = a;
+                    SDL_SetRenderDrawColor(mRenderer, color.r, color.g, color.b, 255);
+                    SDL_RenderDrawRect(mRenderer, &pixel);
+                    pixel.x++;
+                    SDL_RenderDrawRect(mRenderer, &pixel);
+                    pixel.x++;
+                }
+                if (pixel.x == mWidth)
+                {
+                    pixel.x = 0;
+                    pixel.y+=2;
+                }
+                y++;
+
+                //cout << "pixel x " << pixel.x << "pixel y " << pixel.y << endl;
+
+                //SDL_RenderPresent(mRenderer);
             }
-            else if (y % 3 == 2)
-            {
-                color.b = a;
-                SDL_SetRenderDrawColor(mRenderer, color.r, color.g, color.b, 255);
-                SDL_RenderDrawRect(mRenderer, &pixel);
-                pixel.x++;
-            }
-            if (pixel.x==mWidth) 
-            {
-                pixel.x = 0;
-                pixel.y++;
-            }
-            //Update screen
-            y++;
-            cout << "pixel x " << pixel.x << "pixel y " << pixel.y << endl;
             SDL_RenderPresent(mRenderer);
-        
+
+        }
+        else if (pixelmode == 4)
+        {
+            int y = 0;
+            while (pixel.y < mHeight)
+            {
+
+
+                SDL_PollEvent(&e);
+                if (e.type > 0)
+                {
+                    handleevent(&e);
+                }
+                uint8_t a = vram->read(y);
+                //cout << "address " << y << " data " << a << endl;
+                if (y % 3 == 0)
+                {
+                    color.r = a;
+                }
+                else if (y % 3 == 1)
+                {
+                    color.g = a;
+                }
+                else if (y % 3 == 2)
+                {
+                    color.b = a;
+                    SDL_SetRenderDrawColor(mRenderer, color.r, color.g, color.b, 255);
+                    SDL_RenderDrawRect(mRenderer, &pixel);
+                    pixel.x++;
+                    SDL_RenderDrawRect(mRenderer, &pixel);
+                    pixel.x++;
+                    SDL_RenderDrawRect(mRenderer, &pixel);
+                    pixel.x++;
+                    SDL_RenderDrawRect(mRenderer, &pixel);
+                    pixel.x++;
+                }
+                if (pixel.x == mWidth)
+                {
+                    pixel.x = 0;
+                    pixel.y += 1;
+                }
+                y++;
+
+                //cout << "pixel x " << pixel.x << "pixel y " << pixel.y << endl;
+
+                //SDL_RenderPresent(mRenderer);
+            }
+            SDL_RenderPresent(mRenderer);
+
         }
 
-        //Update screen
         SDL_RenderPresent(mRenderer);
+
     }
 }
 inline void LWindow::Setram(Ram* r)
 {
     vram = r;
+}
+inline void LWindow::Setos(os* a)
+{
+    activeos = a;
+}
+inline void LWindow::setscaleing(int a)
+{
+    pixelmode = a;
 }
 inline char LWindow::init(string title,int SCREEN_WIDTH,int SCREEN_HEIGHT)
 {
@@ -177,4 +305,33 @@ inline char LWindow::init(string title,int SCREEN_WIDTH,int SCREEN_HEIGHT)
 
     }
     return 1;
+}
+void LWindow::handleevent(SDL_Event* e)
+{
+    int x, y;
+    SDL_GetMouseState(&x, &y);
+    if (e->type == SDL_MOUSEBUTTONDOWN)
+    {
+        for (unsigned int i = 0; i < getButtons()->size(); i++)
+        {
+            Button b = getButtons()->at(i);
+            
+            if (b.inRange(x, y))
+            {
+                string b;
+                switch (getButtons()->at(i).getAction())
+                {
+                case debug:
+                    activeos->debug();
+                    break;
+                case mount:
+                    activeos->mount();
+                    return;
+                default:
+                    break;
+                }
+            }
+        }
+    }
+    
 }

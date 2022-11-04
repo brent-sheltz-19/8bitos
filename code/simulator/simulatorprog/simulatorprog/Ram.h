@@ -1,10 +1,11 @@
 #pragma once
 #include <cstdint>
+#include <vector>
 class Ram
 {
-
-	uint8_t* memory;
-	int size;
+	long size;
+	std::vector<uint8_t> memory;
+	
 public:
 	Ram();
 	Ram(int size);
@@ -16,11 +17,12 @@ public:
 };
 Ram::Ram()
 {
-	memory = NULL;
+	//memory = NULL;
 }
 inline Ram::Ram(int size)
 {
-	memory = (uint8_t*)malloc(size);
+	//memory =vector();
+	memory.resize(size);
 	this->size = size;
 }
 inline void Ram::write(uint32_t add,uint8_t val)
@@ -29,6 +31,7 @@ inline void Ram::write(uint32_t add,uint8_t val)
 }
 inline uint8_t Ram::read(uint32_t add)
 {
+	if (add > size)return 0;
 	return uint8_t(memory[add]);
 }
 
