@@ -95,7 +95,6 @@ inline void ssd::load(uint32_t writeaddress)
 		//cout << datafile.tellg();
 		count++;
 	}
-
 }
 
 inline void ssd::setMemory(Ram* a)

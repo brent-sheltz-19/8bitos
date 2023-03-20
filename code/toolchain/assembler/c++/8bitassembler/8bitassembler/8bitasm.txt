@@ -1,0 +1,48 @@
+#asm
+.define byte var1 2
+.define word var2 1
+.define asciiz var3 'hi' 
+setup:
+	inc r0;
+	inc r1;
+	inc setup;
+	inc #2
+	ld r13,setup
+test:
+	inc test
+	inc test
+	inc test
+	inc test
+	inc test
+	inc test
+	inc test
+	inc test
+	inc test
+	inc test
+	inc test
+	inc test
+	inc test
+	inc test
+main:
+	inc test
+	inc r234;
+	inc #1234;
+	inc r235;
+	inc #1235;
+
+	dec r234;
+	dec #1234;
+	dec r235;
+	dec #1235;
+	
+	ldi r123,223
+	nop 
+	nop
+	ldi r45,89
+	
+	
+	mov r1,r234;
+	
+	syscall; 
+	
+	

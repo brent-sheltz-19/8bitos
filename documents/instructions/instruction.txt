@@ -1,4 +1,10 @@
+<<<<<<< HEAD
+high -> low byte order 
+
+01 inc register 
+=======
 01 inc register
+>>>>>>> parent of 7d88c7d (big update)
 02 inc memory
 03 dec register
 04 dec memory
