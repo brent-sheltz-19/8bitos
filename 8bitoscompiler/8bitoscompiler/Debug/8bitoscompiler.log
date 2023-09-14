@@ -1,0 +1,4 @@
+﻿  Main.cpp
+C:\Users\Brent\source\repos\8bitoscompiler\8bitoscompiler\Main.cpp(2,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Users\Brent\source\repos\8bitoscompiler\8bitoscompiler\clikecode.h(112,18): warning C4018: '<': signed/unsigned mismatch
+  8bitoscompiler.vcxproj -> C:\Users\Brent\source\repos\8bitoscompiler\Debug\8bitoscompiler.exe

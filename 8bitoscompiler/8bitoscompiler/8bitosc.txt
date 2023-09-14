@@ -1,0 +1,23 @@
+#c
+
+
+
+
+byte main()
+{
+
+	char a = 0;
+	a= read();
+	display.draw(a);
+	a++
+	display.decrement();
+	display.clear()
+
+}
+
+
+
+
+
+
+
