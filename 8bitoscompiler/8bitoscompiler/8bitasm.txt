@@ -1,8 +1,0 @@
-#asm
-
-
-
-main:
- lda 255;
- stccr 1;
-
