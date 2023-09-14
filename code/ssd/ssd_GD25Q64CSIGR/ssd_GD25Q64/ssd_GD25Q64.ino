@@ -84,13 +84,14 @@ char format()
 char read(char * filename,char length,char* buffer,char bufflength) 
 {
   File myFile;
-  myFile = fatfs.open("test.txt", FILE_READ);
+  myFile = fatfs.open(filename, FILE_READ);
   int i = 0 ;
   while (myFile.available()||i<bufflength) 
   {
     buffer[i]=myFile.read();
     i++;
   }
+  myfile.close();
   return 0;
 }
 

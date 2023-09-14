@@ -34,6 +34,8 @@ char activecard = 0;
 SdFat sd;
 shiftreg csport = shiftreg(2,3,4);
 char dataque[255];
+const char type = 's';
+string activedir="";
 void input()
 {
   
@@ -62,16 +64,29 @@ void loop()
         5 touch
         6 df
         7 du
+        8 get id
+
+
     */
     if(command == 1)
     {
+      string path;
       digitalWrite(holdpin,low);
+      bool parametersize
+      
       int size = shiftIn(recivepin, reciveclk, MSBFIRST);
       for(int a = 0 ; a < size; a++)
       {
-                 
+        char charachter = shiftIn(recivepin, reciveclk, MSBFIRST);
+        path.append(); 
       }
 
+    }
+
+
+    else if(command == 8)
+    {
+      
     }
 
   }

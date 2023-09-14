@@ -1,2 +1,14 @@
 ﻿  8bitassembler.cpp
+<<<<<<< HEAD
+C:\Users\Owner\Documents\GitHub\8bitos\code\toolchain\assembler\c++\8bitassembler\8bitassembler\assembler.h(156,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Owner\Documents\GitHub\8bitos\code\toolchain\assembler\c++\8bitassembler\8bitassembler\assembler.h(160,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Owner\Documents\GitHub\8bitos\code\toolchain\assembler\c++\8bitassembler\8bitassembler\assembler.h(207,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Owner\Documents\GitHub\8bitos\code\toolchain\assembler\c++\8bitassembler\8bitassembler\assembler.h(217,1): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Owner\Documents\GitHub\8bitos\code\toolchain\assembler\c++\8bitassembler\8bitassembler\assembler.h(224,8): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\Owner\Documents\GitHub\8bitos\code\toolchain\assembler\c++\8bitassembler\8bitassembler\assembler.h(332,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Owner\Documents\GitHub\8bitos\code\toolchain\assembler\c++\8bitassembler\8bitassembler\assembler.h(336,1): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\Owner\Documents\GitHub\8bitos\code\toolchain\assembler\c++\8bitassembler\8bitassembler\assembler.h(564,10): warning C4834: discarding return value of function with 'nodiscard' attribute
+C:\Users\Owner\Documents\GitHub\8bitos\code\toolchain\assembler\c++\8bitassembler\8bitassembler\assembler.h(589): warning C4715: 'assembler::getCommand': not all control paths return a value
+=======
+>>>>>>> parent of 7d88c7d (big update)
   8bitassembler.vcxproj -> C:\Users\Owner\Documents\GitHub\8bitos\code\toolchain\assembler\c++\8bitassembler\x64\Debug\8bitassembler.exe

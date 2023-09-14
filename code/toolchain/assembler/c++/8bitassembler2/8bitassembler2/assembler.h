@@ -49,8 +49,7 @@ class assembler
 	enum sisizes {k=1024, m= 1048576};
 	int maxfilesize;
 	int curraddress=0;
-	string errormessege;
-
+	
 	vector<defined> definelist;
 	vector<definedbyte> variables;
 	vector<constant> constantlist;
@@ -207,6 +206,8 @@ class assembler
 		return address;
 	}
 public:
+	string errormessege;
+
 	assembler()
 	{
 	}
@@ -247,39 +248,50 @@ public:
 			return 5;
 		}
 		bool codesegment = true;
+		int addressoffset = 0;
 		for (string line : linesraw)
 		{
 			if (line == "#asm")
 			{
 				continue;
 			}
-			if (line.find_first_of(".define"))
+			if (containSubstring(line,".define"))
 			{
-				stringlinkedlist* start= splitstring(line);
-				stringlinkedlist* ptr=start;
-				while (ptr != NULL)
+				vector<string>* start= splitstring(line,' ');
+				defined a;
+				int i = 0;
+				while (i<start->size())
 				{
-					
+					string s = start->back();
+					cout << s <<endl;
+					start->pop_back();
 				}
+
+				continue;
 			}
-			
+			if (line.find_first_of(".org"))
+			{
+				
+			}
 			line = stripstartingtab(line);
 			if (codesegment)
 			{
-				if (line.find('.') != string::npos)
-				{
-					errormessege = "data defined in code area";
-					return 5;
-				}
 				if (line._Equal(".data"))
 				{
 					codesegment = false;
 					continue;
 				}
-
+				if (line.find('.') != string::npos)
+				{
+					errormessege = "data defined in code area";
+					return 5;
+				}
+				stringtuple tup = stringtotuple(line);
+				uint16_t byte = getCommand(tup);
 			}
 			if (!codesegment)
 			{
+				//in data segment
 				if (line._Equal(".code"))
 				{
 					codesegment = true;
@@ -293,10 +305,7 @@ public:
 						return 6;
 					}
 				}
-
 			}
-
-			
 		}
 
 

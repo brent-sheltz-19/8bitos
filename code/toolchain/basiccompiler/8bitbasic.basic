@@ -1,0 +1,11 @@
+<<<<<<< HEAD
+a = 10
+loop1:
+	if a >= 0:
+ 		a -- 
+		goto loop1
+	else:
+		a = a-2
+		goto loop1
+=======
+>>>>>>> parent of 7d88c7d (big update)

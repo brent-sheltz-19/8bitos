@@ -77,21 +77,6 @@ struct defined {
 
 	string value;
 };
-struct stringlinkedlist
-{
-	string a;
-	stringlinkedlist* next;
-	void addend(stringlinkedlist* A)
-	{
-		stringlinkedlist* ptr = next;
-		while (ptr != NULL)
-		{
-			ptr = ptr->next;
-		}
-		ptr->next = A;
-	}
-
-};
 /*
 removes charachters from start to position
 
@@ -215,29 +200,29 @@ static string stripstartingtab(string a)
 	}
 	return a;
 }
-static stringlinkedlist* splitstring(string a, char delim)
+static vector<string>* splitstring( string a, char delim)
 {
-	stringlinkedlist list;
+	vector<string> list;
+
 	int i = 0;
-	while (i<a.length())
+	while (i < a.length())
 	{
-		if (a.at(i) == delim)
+		if (a.at(i) == delim||a.at(i)==' / n')
 		{
-			stringlinkedlist node;
 			string v;
 			for (int t = 0; t < i; t++)
 			{
-				v.append(a.at(t)+"");
+				v += a.at(0);
+				a=strip(a, 0);
 			}
-			node.a = v;
-			list.addend(&node);
-			i = 0;
+			list.push_back(v);
 		}
 		else
 		{
 			i++;
 		}
 	}
+	return &list;
 }
 static stringtuple stringtotuple(string a)
 {

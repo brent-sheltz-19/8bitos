@@ -1,4 +1,5 @@
 #asm
+.define pattern 0b01010101
 .code
 setup:
 	inc r0;
@@ -6,23 +7,7 @@ setup:
 	inc setup;
 	inc #2
 	ld r13,setup
-test:
-	inc test
-	inc test
-	inc test
-	inc test
-	inc test
-	inc test
-	inc test
-	inc test
-	inc test
-	inc test
-	inc test
-	inc test
-	inc test
-	inc test
 main:
-	inc test
 	inc r234;
 	inc #1234;
 	inc r235;
@@ -42,6 +27,7 @@ main:
 	mov r1,r234;
 	
 	syscall; 
+
 .data
 .define byte var1 2
 .define word var2 1

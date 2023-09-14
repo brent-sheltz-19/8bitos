@@ -21,6 +21,10 @@ int main(int argc, char** argv)
         }
     }
     int errorcode = a.assemble("8bitasm.txt", 64, 'k');
+    if (errorcode > 0)
+    {
+        cout << a.errormessege << endl;
+    }
     return errorcode;
 
 }
