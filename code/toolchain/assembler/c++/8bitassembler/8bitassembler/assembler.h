@@ -12,7 +12,6 @@ struct label
 };
 class assembler
 {
-<<<<<<< HEAD
 	enum sizes 
 	{
 		byte = 1,
@@ -68,13 +67,6 @@ public:
 		"brle","brlepcf","brlepcb","brg","brgpcf","brgpcb",
 		"brl","brlpcf","brlpcb","clr","clf","swap","pop","push",
 		"ldx","ldy","ldz","ret","jmp","call","cpm"
-
-
-
-
-
-
-
 		"nop"
 	};
 	string dotcommands[255] =
@@ -87,28 +79,22 @@ public:
 	{
 		"byte","word","dword","qword","ptr","asciiz"
 	};
-=======
 public:
 	enum bytecode { nop = 0 };
->>>>>>> parent of 7d88c7d (big update)
 	
 	string commands[4] = {"nop","b","c","f"};
 	string errormessege;
-<<<<<<< HEAD
 	vector<definedbyte> variables;
 	vector<constant> constantlist;
 	vector<ascii> asciiconstantlist;
 	vector < stringtuple > lines;
 	vector < string > linesraw;
-=======
 	vector<string> lines;
->>>>>>> parent of 7d88c7d (big update)
 	vector<label> labels;
 	assembler()
 	{
 		
 	}
-<<<<<<< HEAD
 	static bool isIn(vector<label>* a,string  b)
 	{
 		for (label l : *a)
@@ -225,8 +211,6 @@ public:
 		}
 	}
 	
-=======
->>>>>>> parent of 7d88c7d (big update)
 	void assemble(string infilepath)
 	{
 		assemble(infilepath, "a.out");
@@ -261,7 +245,6 @@ public:
 			}
 
 		}
-<<<<<<< HEAD
 		//determines if assembly file 
 		getline(in, line);
 		if (line != "#asm")
@@ -479,13 +462,6 @@ public:
 	}
 	uint16_t getCommand(string command)
 	{
-=======
-
-
-
->>>>>>> parent of 7d88c7d (big update)
-		
-
 	}
 	uint16_t getCommand(assembler p,string command)
 	{
