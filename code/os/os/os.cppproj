@@ -153,6 +153,30 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="cpu\interpreter\interpreter.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="cpu\interpreter\interpreter.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\io\keyboard\keyboard.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\io\keyboard\keyboard.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\io\memory\memory.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\io\memory\memory.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\io\memory\video_mem.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\io\memory\video_mem.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="drivers\io\port controller\portcontroller.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -165,18 +189,36 @@
     <Compile Include="drivers\io\shift register\shiftreg.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="drivers\memory\memory.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\memory\memory.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\memory\video_mem.cpp">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\memory\video_mem.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="drivers\serial\Serial.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.cpp">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="cpu" />
-    <Folder Include="cpu\communication" />
-    <Folder Include="cpu\interpreter" />
-    <Folder Include="drivers" />
-    <Folder Include="drivers\io" />
-    <Folder Include="drivers\io\shift register" />
-    <Folder Include="drivers\io\port controller" />
+    <Folder Include="cpu\" />
+    <Folder Include="cpu\interpreter\" />
+    <Folder Include="drivers\" />
+    <Folder Include="drivers\io\" />
+    <Folder Include="drivers\io\keyboard\" />
+    <Folder Include="drivers\io\memory\" />
+    <Folder Include="drivers\io\port controller\" />
+    <Folder Include="drivers\io\shift register\" />
+    <Folder Include="drivers\memory\" />
+    <Folder Include="drivers\serial\" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

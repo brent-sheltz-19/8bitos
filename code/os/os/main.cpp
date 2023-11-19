@@ -6,7 +6,6 @@
  */ 
 
 #include <avr/io.h>
-<<<<<<< HEAD
 #include "cpu/interpreter/interpreter.h"
 #include "drivers/io/port controller/portcontroller.h"
 #include "drivers/io/shift register/shiftreg.h"
@@ -60,16 +59,6 @@ int main(void)
 		{
 			
 		}
-		
-=======
-
-
-int main(void)
-{
-    /* Replace with your application code */
-    while (1) 
-    {
->>>>>>> parent of 7d88c7d (big update)
-    }
+	}
 }
 

@@ -18,7 +18,6 @@ const char* const PROGMEM OS = "OS:/";
 const char* const PROGMEM Data = "D:/";
 const char* const PROGMEM initname= "init.cfg";
 
-enum errornums {noerror,error1=1,error2,error3};
 struct error
 {
   char* errormsg;
@@ -53,6 +52,7 @@ class shiftreg
   }  
 
 };
+enum errornums {noerror,error1=1,error2,error3};
 char sdlist;
 shiftreg csreg;
 shiftreg datareg;

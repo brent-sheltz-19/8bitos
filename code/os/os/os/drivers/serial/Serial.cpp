@@ -23,6 +23,7 @@ Serial::Serial(shiftreg* c, portcontroller* a)
 	port=a;
 	//outvalue=a;
 }
+// init serial port
 Serial::Serial(shiftreg* c, portcontroller* a,char i,char o, char cl)
 {
 	csreg=c;
