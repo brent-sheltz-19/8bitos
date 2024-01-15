@@ -22,8 +22,15 @@ static Serial spi = Serial(&csreg,&port,30,31,serial_clk_pin);
 static interpreter interpreter_main = interpreter();
 static memory mainmemory = memory();
 static video_mem videomemory = video_mem();
+
 void loadbios()
 {
+	
+}
+void handlesyscall(interpreter a)
+{
+	uint8_t* params;
+	
 	
 }
 int main(void)
@@ -53,7 +60,7 @@ int main(void)
 		intrepreter_return = interpreter_main.run();
 		if (intrepreter_return == 'b')
 		{
-				
+			handlesyscall(interpreter_main);
 		} 
 		else if (intrepreter_return == 'e')
 		{

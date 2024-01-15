@@ -165,18 +165,6 @@
     <Compile Include="drivers\io\keyboard\keyboard.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="drivers\io\memory\memory.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="drivers\io\memory\memory.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="drivers\io\memory\video_mem.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="drivers\io\memory\video_mem.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="drivers\io\port controller\portcontroller.cpp">
       <SubType>compile</SubType>
     </Compile>
@@ -214,7 +202,6 @@
     <Folder Include="drivers\" />
     <Folder Include="drivers\io\" />
     <Folder Include="drivers\io\keyboard\" />
-    <Folder Include="drivers\io\memory\" />
     <Folder Include="drivers\io\port controller\" />
     <Folder Include="drivers\io\shift register\" />
     <Folder Include="drivers\memory\" />

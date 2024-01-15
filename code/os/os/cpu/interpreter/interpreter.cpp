@@ -1016,7 +1016,7 @@ char interpreter::syscall()
 	else if (registers[0]==4)
 	{
 		/*
-			switch data ram bank  
+			spi
 		*/
 		return 'b';
 	}

@@ -17,16 +17,7 @@
 
 class interpreter
 {
-	/*
-	struct interpreterdata
-	{
-		uint8_t isOs:1;
-		uint8_t isActive:1;
-		uint8_t pid;			
-		uint64_t address;
-		
-	};
-	*/
+
 	struct indexreg  
 	{
 		char* low;
@@ -79,87 +70,16 @@ class interpreter
 		}
 		void setflag(bitflags bitflag, bool on)
 		{
-			switch (bitflag)
+			if (bitflag)
 			{
-				case zero:
-					if (on)
-					{
-						flag|=0b00000001;
-					}
-					else
-					{
-						flag&=0b11111110;
-					}
-					break;
-				case greater:
-					if (on)
-					{
-						flag|=0b00000010;
-					}
-					else
-					{
-						flag&=!0b00000010;
-					}	
-					break;
-				case less:
-					if (on)
-					{
-						flag|=0b00000100;
-					}
-					else
-					{
-						flag&=!0b00000100;
-					}
-					break;
-				case equals:
-					if (on)
-					{
-						flag|=0b00001000;
-					}
-					else
-					{
-						flag&=!0b00001000;
-					}
-				case carry:
-					if (on)
-					{
-						flag|=0b00010000;
-					}
-					else
-					{
-						flag&=!0b00010000;
-					}
-					break;
-				case sign:	
-					if (on)
-					{
-						flag|=0b00100000;
-					}
-					else
-					{
-						flag&=!0b00100000;
-					}
-					break;
-				case underflow:
-					if (on)
-					{
-						flag|=0b01000000;
-					}
-					else
-					{
-						flag&=!0b01000000;
-					}
-					break;
-				case error:
-					if (on)
-					{
-						flag|=0b10000000;
-					}
-					else
-					{
-						flag&=!0b10000000;
-					}
-					break;
+				if (on)
+				{
+					flag |=(1<<bitflag);
+				} 
+				else
+				{
+					flag &=~(1<<bitflag);
+				}
 			}
 		}
 		void clear()

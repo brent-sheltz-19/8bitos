@@ -4,7 +4,8 @@
 * Created: 1/26/2023 1:32:13 PM
 * Author: Owner
 */
-
+#include "../io/port controller/portcontroller.h"
+#include "../io/shift register/shiftreg.h"
 
 #ifndef __VIDEO_MEM_H__
 #define __VIDEO_MEM_H__

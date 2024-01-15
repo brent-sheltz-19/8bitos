@@ -307,13 +307,6 @@ public:
 				}
 			}
 		}
-
-
-
-
-
-
-
 		if (bytes.size() > maxfilesize)
 		{
 
