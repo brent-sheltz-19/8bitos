@@ -23,5 +23,8 @@
     <ClInclude Include="assembler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\8bitassembler2\8bitassembler2\helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

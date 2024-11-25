@@ -10,24 +10,20 @@
 #include "drivers/io/port controller/portcontroller.h"
 #include "drivers/io/shift register/shiftreg.h"
 #include "drivers/memory/memory.h"
-#include "drivers/memory/video_memory.h"
+#include "drivers/memory/video_mem.h"
 #include "drivers/serial/Serial.h"
 #define bios_address_start ffff0000
-#define serial_clk_pin 4
-#define serial_miso_pin 30
+#define serial_miso_pin 6
+#define serial_miso_pin 7
+#define serial_clk_pin 8
 static portcontroller port = portcontroller();
 static shiftreg addreg=shiftreg(40,39,38,&port);
 static shiftreg csreg=shiftreg(37,36,35,&port);
-static Serial spi = Serial(&csreg,&port,30,31,serial_clk_pin);
+static Serial spi = Serial(&csreg,&port,serial_miso_pin,serial_miso_pin,serial_clk_pin);
 static interpreter interpreter_main = interpreter();
 static memory mainmemory = memory();
 static video_mem videomemory = video_mem();
-
-void loadbios()
-{
-	
-}
-void handlesyscall(interpreter a)
+void handlesyscall(interpreter* a)
 {
 	uint8_t* params;
 	
@@ -37,7 +33,7 @@ int main(void)
 {
 	char intrepreter_return=0;
 	port.writeddra(0xff);
-	port.writeddrb(0b00001000);	
+	port.writeddrb(0b10100000);	
 	port.writeddrc(0xff);
 	port.writeddrd(0x00);
     /* Replace with your application code */
@@ -55,12 +51,10 @@ int main(void)
 		PORTD = c;
 		PORTD = d;
 		*/
-		
-
 		intrepreter_return = interpreter_main.run();
 		if (intrepreter_return == 'b')
 		{
-			handlesyscall(interpreter_main);
+			handlesyscall(&interpreter_main);
 		} 
 		else if (intrepreter_return == 'e')
 		{

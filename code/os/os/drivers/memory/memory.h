@@ -31,8 +31,6 @@ public:
 	uint8_t read(uint32_t);
 	uint32_t read32(uint32_t);
 	~memory();
-protected:
-private:
 	memory( const memory &c );
 	memory& operator=( const memory &c );
 

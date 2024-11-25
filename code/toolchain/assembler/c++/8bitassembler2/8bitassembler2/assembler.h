@@ -6,6 +6,9 @@
 using namespace std;
 class assembler
 {
+	/*
+	* defines the commands binary values for the rom
+	*/
 	enum bytecode {
 		syscall, incr, incm, decr, decm, mov, ld, ldi, stx, sty, stz, std,
 		svd, svx, svy, svz, cmp, cpi, ror, rol, txs, txy, txz, tys, tyx, tyz,
@@ -241,81 +244,15 @@ public:
 			errormessege = "file not created";
 			return 4;
 		}
-		load();
-		if (linesraw[0] != "#asm")
-		{
-			errormessege = "no assembly tag found on first line";
-			return 5;
-		}
-		bool codesegment = true;
-		int addressoffset = 0;
-		for (string line : linesraw)
-		{
-			if (line == "#asm")
-			{
-				continue;
-			}
-			if (containSubstring(line,".define"))
-			{
-				vector<string>* start= splitstring(line,' ');
-				defined a;
-				int i = 0;
-				while (i<start->size())
-				{
-					string s = start->back();
-					cout << s <<endl;
-					start->pop_back();
-				}
-
-				continue;
-			}
-			if (line.find_first_of(".org"))
-			{
-				
-			}
-			line = stripstartingtab(line);
-			if (codesegment)
-			{
-				if (line._Equal(".data"))
-				{
-					codesegment = false;
-					continue;
-				}
-				if (line.find('.') != string::npos)
-				{
-					errormessege = "data defined in code area";
-					return 5;
-				}
-				stringtuple tup = stringtotuple(line);
-				uint16_t byte = getCommand(tup);
-			}
-			if (!codesegment)
-			{
-				//in data segment
-				if (line._Equal(".code"))
-				{
-					codesegment = true;
-					continue;
-				}
-				for (string a : commands)
-				{
-					if (containSubstring(line, a))
-					{
-						errormessege = "code defined in data area";
-						return 6;
-					}
-				}
-			}
-		}
-		if (bytes.size() > maxfilesize)
-		{
-
-
-		}
+		
 		return 0;
 	}
 
+private:
+	void convert()
+	{
 
+	}
 
 
 };

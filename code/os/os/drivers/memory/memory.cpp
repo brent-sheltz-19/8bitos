@@ -27,7 +27,6 @@ void memory::write(uint32_t address, uint8_t data)
 	portcon->writeportc(data);
 	portcon->digitalwrite(wepin,true);
 	portcon->digitalwrite(wepin,false);
-	
 }
 uint8_t memory::read(uint32_t address)
 {

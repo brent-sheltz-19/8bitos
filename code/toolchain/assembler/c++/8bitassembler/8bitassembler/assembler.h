@@ -3,13 +3,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
-
 using namespace std;
-struct label
-{
-	string labelname;
-	uint32_t address;
-};
 class assembler
 {
 	enum sizes 
@@ -23,6 +17,23 @@ class assembler
 	{
 		string labelname;
 		uint32_t address;
+	};
+	struct stringtuple
+	{
+		string a, b, c;
+		stringtuple(string a1, string b1, string c1)
+		{
+			a = a1;
+			b = b1;
+			c = c1;
+		}
+		stringtuple()
+		{
+			a = "";
+			b = "";
+			c = "";
+		}
+
 	};
 	struct definedbyte
 	{
@@ -44,7 +55,6 @@ class assembler
 
 	};
 public:
-	
 	enum bytecode {
 		syscall, incr, incm, decr, decm, mov, ld, ldi, stx, sty, stz, std,
 		svd, svx, svy, svz, cmp, cpi, ror, rol, txs, txy, txz, tys, tyx, tyz,
@@ -56,7 +66,6 @@ public:
 		
 		, nop=255
 	};
-
 	string commands[255] = 
 	{
 		"syscall","inc","dec","mov","ld","ldi","stx","sty","stz",
@@ -71,7 +80,7 @@ public:
 	};
 	string dotcommands[255] =
 	{
-		".define",".org",".var",".const",".code"
+		".define",".org",".var",".const",".code",".data"
 		
 
 	};
@@ -80,17 +89,14 @@ public:
 		"byte","word","dword","qword","ptr","asciiz"
 	};
 public:
-	enum bytecode { nop = 0 };
-	
-	string commands[4] = {"nop","b","c","f"};
 	string errormessege;
 	vector<definedbyte> variables;
 	vector<constant> constantlist;
 	vector<ascii> asciiconstantlist;
 	vector < stringtuple > lines;
 	vector < string > linesraw;
-	vector<string> lines;
-	vector<label> labels;
+	vector<label> labels; 
+	vector<uint8_t> binary;
 	assembler()
 	{
 		
@@ -116,7 +122,7 @@ public:
 			a = string(linecstr);
 		}
 		return a;
-	}
+	}	
 	static string strip(string a, int pos)
 	{
 		const char* linecstr = a.c_str();
@@ -209,17 +215,101 @@ public:
 		{
 			return false;
 		}
+	}	
+	uint16_t getCommand(string command)
+	{
+		errormessege = "";
+		if (command == commands[0])
+		{
+			return syscall;
+		}
+		else if (command == "mov")
+		{
+			return mov;
+		}
+		else if (command == "ld")
+		{
+			return ld;
+		}
+		else if (command == "ldi")
+		{
+			return ldi;
+		}
+		else if (command == "stx")
+		{
+			return stx;
+		}
+		else if (command == "sty")
+		{
+			return sty;
+		}
+		else if (command == "stz")
+		{
+			return stz;
+		}
+		else if (command == "std")
+		{
+			return std;
+		}
+		else if (command == "svd")
+		{
+			return svd;
+		}
+		else if (command == "svx")
+		{
+			return svx;
+		}
+		else if (command == "svy")
+		{
+			return svy;
+		}
+		else if (command == "svz")
+		{
+			return svz;
+		}
+
+		else
+		{
+			errormessege = "command not found";
+			return 0xFF00;
+		}
+
 	}
-	
+	uint16_t getCommand(stringtuple command)
+	{
+		
+			errormessege = "command not found";
+			return 0xFF00;
+		
+	}
+	void binarypushback(uint32_t val)
+	{
+		uint32_t t = val;
+		uint8_t* vp = (uint8_t*)&t;
+		uint8_t a1 = vp[0];
+		uint8_t b = vp[1];
+		uint8_t c = vp[2];
+		uint8_t d = vp[3];
+		binary.push_back(d);
+		binary.push_back(c);
+		binary.push_back(b);
+		binary.push_back(a1);
+	}
+	void load()
+	{
+
+	}
 	void assemble(string infilepath)
 	{
 		assemble(infilepath, "a.out");
 	}
-	void assemble(string infilepath,string outfilepath)
+	void assemble(string infilepath, string outfilepath)
 	{
 		//gets file
 		ifstream in;
 		ofstream out;
+		string line;
+		uint16_t byteaddress;
 		if (infilepath == "")
 		{
 			errormessege = "no file entered";
@@ -245,26 +335,27 @@ public:
 			}
 
 		}
+
 		//determines if assembly file 
-		getline(in, line);
+		std::getline(in, line);
 		if (line != "#asm")
 		{
 			cout << "not an assembly file" << endl;
 			return;
 		}
 		//reads all lines
-		while (getline(in,line))
-		{	
+		while (std::getline(in, line))
+		{
 			linesraw.push_back(line);
 		}
-		//determines size of progeam
+		//determines size of program
 		long progsize = 0;
 		for (string line : linesraw)
 		{
-			progsize += getBytesizeofline(commands,line);
+			progsize += getBytesizeofline(commands, line);
 		}
 		cout << progsize << endl;
-		for(string line :linesraw)
+		for (string line : linesraw)
 		{
 
 			if (line == "" || line == "\t")
@@ -360,11 +451,11 @@ public:
 		// gets binary command
 		for (stringtuple a : lines)
 		{
-			if (a.a.at(0)=='.')
+			if (a.a.at(0) == '.')
 			{
 				const char* f = strstr(line.c_str(), "asciiz");
 				const char* u = strstr(line.c_str(), "ASCIIZ");
-				if (f != NULL||u!=NULL)
+				if (f != NULL || u != NULL)
 				{
 					asciiconstantlist.push_back(makeascii(line));
 				}
@@ -374,12 +465,12 @@ public:
 				{
 					//list.push_back(makeascii(line));
 				}
-			
+
 			}
 			else
 			{
 				uint16_t bincom = getCommand(a);
-			
+
 				if ((bincom >> 8) == 0)
 				{
 					uint8_t binarycommand = (uint8_t)bincom;
@@ -442,43 +533,10 @@ public:
 		//writes binary
 		for (uint8_t bin : binary)
 		{
-			out.write((char*)&bin ,1);
+			out.write((char*)&bin, 1);
 		}
 		in.close();
 		out.close();
 	}
-	void binarypushback(uint32_t val)
-	{
-		uint32_t t = val;
-		uint8_t* vp = (uint8_t*)&t;
-		uint8_t a1 = vp[0];
-		uint8_t b = vp[1];
-		uint8_t c = vp[2];
-		uint8_t d = vp[3];
-		binary.push_back(d);
-		binary.push_back(c);
-		binary.push_back(b);
-		binary.push_back(a1);
-	}
-	uint16_t getCommand(string command)
-	{
-	}
-	uint16_t getCommand(assembler p,string command)
-	{
-		errormessege = "";
-		int pos=0;
-		if (command == commands[0])
-		{
-			return nop;
-		}
-		
-		else
-		{
-			errormessege = "command not found";
-			return 0xFF00;
-		}
-
-	}
-
 };
 

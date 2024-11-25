@@ -130,6 +130,7 @@
     <ClCompile Include="8bitassembler.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\8bitassembler2\8bitassembler2\helper.h" />
     <ClInclude Include="assembler.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

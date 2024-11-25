@@ -14,5 +14,7 @@ drivers\memory\memory.cpp
 
 drivers\memory\video_mem.cpp
 
+drivers\serial\Serial.cpp
+
 main.cpp
 

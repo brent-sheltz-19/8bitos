@@ -5,18 +5,54 @@
 #include <string>
 #include "assembler.h"
 using namespace std;
+static string inpath,outpath;
+static assembler a;
+static inline void println(string a)
+{
+    cout << a << endl;
+}
+
+static int showmenu()
+{
+    string in;
+    int ret;
+    loop:
+    println("1:enter file name to assemble");
+    println("2: enter output file name");
+    println("3:assemble");
+    cin >> in;
+    try
+    {
+        ret = atoi(in.c_str());
+        if (ret >3)
+        {
+            println("not a number selection");
+            goto loop;
+        }
+    }
+    catch (exception e)
+    {
+        println("not a number selection");
+        goto loop;
+    }
+    return ret;
+}
+static void handlemenu(int act)
+{
+
+}
+
 int main()
 {
-    string path;
-    cout << "enter file name to assemble\n";
-    cin >> path;
-    assembler a;
-    //cout << sizeof(a)<<endl;
-    //cout << sizeof(a.lines)<<endl;
-    //cout << sizeof(a.labels)<<endl;
-    //cout << sizeof(a.commands)<<endl;
+    
+    vector <string> files;
+
+    cin >> inpath;
+    a.assemble(inpath, outpath);
+    cout << sizeof(a)<<endl;
     //cout << sizeof(a.errormessege)<<endl;
     
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

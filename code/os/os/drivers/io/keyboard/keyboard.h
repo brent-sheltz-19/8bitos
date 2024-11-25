@@ -10,7 +10,7 @@
 #ifndef __KEYBOARD_H__
 #define __KEYBOARD_H__
 
-
+// defines how the 
 class keyboard
 {
 //variables0
@@ -22,7 +22,7 @@ protected:
 private:
 	portcontroller* port;
 	shiftreg* addrreg;
-	Serial* serial;
+//	Serial* serial;
 //functions
 public:
 keyboard();

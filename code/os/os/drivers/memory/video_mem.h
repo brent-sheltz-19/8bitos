@@ -26,8 +26,6 @@ private:
 public:
 	video_mem();
 	~video_mem();
-protected:
-private:
 	video_mem( const video_mem &c );
 	video_mem& operator=( const video_mem &c );
 

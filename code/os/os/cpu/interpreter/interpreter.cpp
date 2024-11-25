@@ -127,10 +127,12 @@ char interpreter::run()
 			char val = syscall();
 			if(val =='b')
 			{
+				// break
 				return 'b';
 			}
 			else if (val=='e')
 			{
+				
 				exitcode = true;
 				break;
 				
@@ -556,6 +558,9 @@ void interpreter::ld(char regto, uint32_t memptr)
 {
 	registers[(int)regto]=ram->read(memptr);
 }
+/*
+	stores a value into register
+*/
 void interpreter::ldi(char regto,char val)
 {
 	registers[(int)regto]=val;
@@ -663,6 +668,7 @@ void interpreter::tsz()
 	
 }
 //compare operators
+
 void interpreter::cmp(char reg1 ,char reg2)
 {
 	if (reg1==reg2)
