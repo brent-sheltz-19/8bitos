@@ -1,11 +1,13 @@
 
 high -> low byte order 
-
+00 syscall
 01 inc register 
 02 inc memory
 03 dec register
 04 dec memory
-05
-06
-07
-08
+05 mov [reg to], [ref from]
+06 ld [reg to], [mem from]
+07 stx [reg to store]
+08 sty [reg to store]
+09 stz [reg to store]
+0A std [
