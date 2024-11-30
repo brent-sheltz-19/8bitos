@@ -5,7 +5,7 @@
 
 #define debug 1
 #define recivepin 9
-#define Enablepin 4
+#define Enablepin 4bvb
 
 #define datapin 3
 #define clockpin 4
