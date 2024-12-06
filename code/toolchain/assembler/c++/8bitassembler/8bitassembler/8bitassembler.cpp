@@ -5,30 +5,74 @@
 #include <string>
 #include "assembler.h"
 using namespace std;
+static vector<string> infiles;
 static string inpath,outpath;
 static assembler a;
+static inline void clrscr()
+{
+    cout << "\033[2J\033[1;1H";
+}
 static inline void println(string a)
 {
     cout << a << endl;
 }
+static void handlemenu(int act)
+{
+    if (act == 1)
+    {
+        vector<string> files;
+        bool run = true;
+        while (run)
+        {
+            println("enter file name with extension or \"done\"");
 
-static int showmenu()
+
+        }
+
+
+
+    }
+    else if (act == 2)
+    {
+      
+
+    }
+    else if (act == 3)
+    {
+       system("dir *.txt"); 
+    }
+    else if (act == 4)
+    {
+
+    }
+}
+
+static int showMenu()
 {
     string in;
     int ret;
-    loop:
-    println("1:enter file name to assemble");
+loop:
+    //println("in:   ");
+    cout<<"output file:   "<<outpath<<endl;
+    println("1: enter files to assemble");
     println("2: enter output file name");
-    println("3:assemble");
+    println("3: show files");
+    println("4:assemble");
     cin >> in;
     try
     {
         ret = atoi(in.c_str());
-        if (ret >3)
+        if (ret<4 && ret >0)
+        {
+            handlemenu(ret);
+        }
+        else
         {
             println("not a number selection");
             goto loop;
         }
+
+
     }
     catch (exception e)
     {
@@ -37,17 +81,14 @@ static int showmenu()
     }
     return ret;
 }
-static void handlemenu(int act)
-{
-
-}
 
 int main()
 {
     
     vector <string> files;
 
-    cin >> inpath;
+    //cin >> inpath;
+    showMenu();
     a.assemble(inpath, outpath);
     cout << sizeof(a)<<endl;
     //cout << sizeof(a.errormessege)<<endl;

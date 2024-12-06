@@ -11,14 +11,13 @@
 #define holdpin 7
 #define reciveclk 9
 #define incomingmesssege 5
-uint32_t idlist[8];
-enum sdid {a=1,b=2,c=4,d=8,e=16,f=32,g=64,h=128};
+//uint32_t idlist[8];
+//enum sdid {a=1,b=2,c=4,d=8,e=16,f=32,g=64,h=128};
 
-char activecard = 0;
+//char activecard = 0;
 SdFs sd;
-
 //char dataque[255];
-const char type = 's';
+//const char type = 's';
 String activedir="";
 // reserved for spi 13,12,11,10
 class shiftreg

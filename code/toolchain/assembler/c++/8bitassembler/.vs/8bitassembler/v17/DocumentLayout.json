@@ -7,11 +7,11 @@
       "RelativeMoniker": "D:0:0:{D26FB5E4-1575-40B6-A12E-263752DF6CC0}|8bitassembler\\8bitassembler.vcxproj|solutionrelative:8bitassembler\\8bitassembler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D26FB5E4-1575-40B6-A12E-263752DF6CC0}|8bitassembler\\8bitassembler.vcxproj|D:\\codeing projects\\8bitos\\code\\toolchain\\assembler\\c\u002B\u002B\\8bitassembler2\\8bitassembler2\\helper.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D26FB5E4-1575-40B6-A12E-263752DF6CC0}|8bitassembler\\8bitassembler.vcxproj|D:\\codeing projects\\8bitos\\code\\toolchain\\assembler\\c\u002B\u002B\\8bitassembler\\8bitassembler\\assembler.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{D26FB5E4-1575-40B6-A12E-263752DF6CC0}|8bitassembler\\8bitassembler.vcxproj|solutionrelative:8bitassembler\\assembler.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D26FB5E4-1575-40B6-A12E-263752DF6CC0}|8bitassembler\\8bitassembler.vcxproj|D:\\codeing projects\\8bitos\\code\\toolchain\\assembler\\c\u002B\u002B\\8bitassembler2\\8bitassembler2\\helper.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -21,24 +21,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "helper.h",
-              "DocumentMoniker": "D:\\codeing projects\\8bitos\\code\\toolchain\\assembler\\c\u002B\u002B\\8bitassembler2\\8bitassembler2\\helper.h",
-              "RelativeDocumentMoniker": "..\\8bitassembler2\\8bitassembler2\\helper.h",
-              "ToolTip": "D:\\codeing projects\\8bitos\\code\\toolchain\\assembler\\c\u002B\u002B\\8bitassembler2\\8bitassembler2\\helper.h",
-              "RelativeToolTip": "..\\8bitassembler2\\8bitassembler2\\helper.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-08T02:09:47.288Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -47,7 +31,7 @@
               "RelativeDocumentMoniker": "8bitassembler\\8bitassembler.cpp",
               "ToolTip": "D:\\codeing projects\\8bitos\\code\\toolchain\\assembler\\c\u002B\u002B\\8bitassembler\\8bitassembler\\8bitassembler.cpp",
               "RelativeToolTip": "8bitassembler\\8bitassembler.cpp",
-              "ViewState": "AgIAADEAAAAAAAAAAAAAADEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-28T21:20:17.008Z",
               "EditorCaption": ""
@@ -55,12 +39,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "helper.h",
+              "DocumentMoniker": "D:\\codeing projects\\8bitos\\code\\toolchain\\assembler\\c\u002B\u002B\\8bitassembler2\\8bitassembler2\\helper.h",
+              "RelativeDocumentMoniker": "..\\8bitassembler2\\8bitassembler2\\helper.h",
+              "ToolTip": "D:\\codeing projects\\8bitos\\code\\toolchain\\assembler\\c\u002B\u002B\\8bitassembler2\\8bitassembler2\\helper.h",
+              "RelativeToolTip": "..\\8bitassembler2\\8bitassembler2\\helper.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-11-08T02:09:47.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "assembler.h",
               "DocumentMoniker": "D:\\codeing projects\\8bitos\\code\\toolchain\\assembler\\c\u002B\u002B\\8bitassembler\\8bitassembler\\assembler.h",
               "RelativeDocumentMoniker": "8bitassembler\\assembler.h",
               "ToolTip": "D:\\codeing projects\\8bitos\\code\\toolchain\\assembler\\c\u002B\u002B\\8bitassembler\\8bitassembler\\assembler.h",
               "RelativeToolTip": "8bitassembler\\assembler.h",
-              "ViewState": "AgIAACEBAAAAAAAAAADwvzQBAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAFYAAAAAAAAAAADwvzYBAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-28T21:20:16.667Z",
               "EditorCaption": ""
