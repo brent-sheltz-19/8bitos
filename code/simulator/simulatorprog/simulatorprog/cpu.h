@@ -212,6 +212,8 @@ public:
 	void debuginfo();
 	uint8_t* getReg();
 	int sizeofram();
+	int ramelements();
+	int ramcapacity();
 	~cpu();
 private:
 	void nop();
@@ -326,6 +328,14 @@ inline int cpu::sizeofram()
 {
 	return sizeof(this->ram);
 }
+int cpu::ramelements()
+{
+  return this->ram.size;
+} 
+int cpu::ramelements()
+{
+  return this->ram.capacity;
+} 
 inline Ram* cpu::getRam()
 {
 	return ram;
