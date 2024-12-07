@@ -19,7 +19,7 @@ Ram::Ram()
 {
 	//memory = NULL;
 }
-inline Ram::Ram(int size)
+inline Ram::Ram(long size)
 {
 	//memory =vector();
 	memory.resize(size);
