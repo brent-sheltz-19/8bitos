@@ -1,13 +1,19 @@
 // 8bitassembler.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
 
+#include "assembler.h"
+#include <filesystem>
 #include <iostream>
 #include <string>
-#include "assembler.h"
+#if defined(_WIN32)
+    #define windows true;
+#endif
 using namespace std;
+using namespace std::filesystem;
 static vector<string> infiles;
 static string inpath,outpath;
 static assembler a;
+static path cwd = current_path();
 static inline void clrscr()
 {
     cout << "\033[2J\033[1;1H";
@@ -17,15 +23,26 @@ static inline void println(string a)
     cout << a << endl;
 }
 static void handlemenu(int act)
-{
+{ 
+    vector<string> files;
+    int count = 0;
+    for (const auto& entry : directory_iterator(cwd))
+    {
+        string filename = entry.path().string();
+        string txt =  string() +filename[filename.length() - 3] + filename[filename.length() - 2] + filename[filename.length()-1];
+    
+    }
+
     if (act == 1)
     {
-        vector<string> files;
+        
         bool run = true;
         while (run)
-        {
+        { 
+           
             println("enter file name with extension or \"done\"");
 
+          
 
         }
 
@@ -85,8 +102,7 @@ loop:
 int main()
 {
     
-    vector <string> files;
-
+    //vector <string> files;
     //cin >> inpath;
     showMenu();
     a.assemble(inpath, outpath);
