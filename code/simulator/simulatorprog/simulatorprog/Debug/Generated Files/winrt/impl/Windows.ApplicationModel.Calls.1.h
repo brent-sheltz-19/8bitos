@@ -6,12 +6,47 @@
 #include "winrt/impl/Windows.ApplicationModel.Calls.0.h"
 WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Calls
 {
+    struct __declspec(empty_bases) IAcceptedVoipPhoneCallOptions :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IAcceptedVoipPhoneCallOptions>
+    {
+        IAcceptedVoipPhoneCallOptions(std::nullptr_t = nullptr) noexcept {}
+        IAcceptedVoipPhoneCallOptions(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IAcceptedVoipPhoneCallOptionsFactory :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IAcceptedVoipPhoneCallOptionsFactory>
+    {
+        IAcceptedVoipPhoneCallOptionsFactory(std::nullptr_t = nullptr) noexcept {}
+        IAcceptedVoipPhoneCallOptionsFactory(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IAppInitiatedVoipPhoneCallOptions :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IAppInitiatedVoipPhoneCallOptions>
+    {
+        IAppInitiatedVoipPhoneCallOptions(std::nullptr_t = nullptr) noexcept {}
+        IAppInitiatedVoipPhoneCallOptions(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IAppInitiatedVoipPhoneCallOptionsFactory :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IAppInitiatedVoipPhoneCallOptionsFactory>
+    {
+        IAppInitiatedVoipPhoneCallOptionsFactory(std::nullptr_t = nullptr) noexcept {}
+        IAppInitiatedVoipPhoneCallOptionsFactory(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) ICallAnswerEventArgs :
         winrt::Windows::Foundation::IInspectable,
         impl::consume_t<ICallAnswerEventArgs>
     {
         ICallAnswerEventArgs(std::nullptr_t = nullptr) noexcept {}
         ICallAnswerEventArgs(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) ICallAnswerEventArgs2 :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<ICallAnswerEventArgs2>
+    {
+        ICallAnswerEventArgs2(std::nullptr_t = nullptr) noexcept {}
+        ICallAnswerEventArgs2(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) ICallRejectEventArgs :
         winrt::Windows::Foundation::IInspectable,
@@ -26,6 +61,20 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Calls
     {
         ICallStateChangeEventArgs(std::nullptr_t = nullptr) noexcept {}
         ICallStateChangeEventArgs(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IIncomingVoipPhoneCallOptions :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IIncomingVoipPhoneCallOptions>
+    {
+        IIncomingVoipPhoneCallOptions(std::nullptr_t = nullptr) noexcept {}
+        IIncomingVoipPhoneCallOptions(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IIncomingVoipPhoneCallOptionsFactory :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IIncomingVoipPhoneCallOptionsFactory>
+    {
+        IIncomingVoipPhoneCallOptionsFactory(std::nullptr_t = nullptr) noexcept {}
+        IIncomingVoipPhoneCallOptionsFactory(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) ILockScreenCallEndCallDeferral :
         winrt::Windows::Foundation::IInspectable,
@@ -54,6 +103,27 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Calls
     {
         IMuteChangeEventArgs(std::nullptr_t = nullptr) noexcept {}
         IMuteChangeEventArgs(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IOutgoingVoipPhoneCallOptions :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IOutgoingVoipPhoneCallOptions>
+    {
+        IOutgoingVoipPhoneCallOptions(std::nullptr_t = nullptr) noexcept {}
+        IOutgoingVoipPhoneCallOptions(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IOutgoingVoipPhoneCallOptionsFactory :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IOutgoingVoipPhoneCallOptionsFactory>
+    {
+        IOutgoingVoipPhoneCallOptionsFactory(std::nullptr_t = nullptr) noexcept {}
+        IOutgoingVoipPhoneCallOptionsFactory(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IPhoneCall :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IPhoneCall>
+    {
+        IPhoneCall(std::nullptr_t = nullptr) noexcept {}
+        IPhoneCall(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) IPhoneCallBlockingStatics :
         winrt::Windows::Foundation::IInspectable,
@@ -125,6 +195,13 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Calls
         IPhoneCallHistoryStore(std::nullptr_t = nullptr) noexcept {}
         IPhoneCallHistoryStore(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) IPhoneCallInfo :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IPhoneCallInfo>
+    {
+        IPhoneCallInfo(std::nullptr_t = nullptr) noexcept {}
+        IPhoneCallInfo(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) IPhoneCallManagerStatics :
         winrt::Windows::Foundation::IInspectable,
         impl::consume_t<IPhoneCallManagerStatics>
@@ -138,6 +215,13 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Calls
     {
         IPhoneCallManagerStatics2(std::nullptr_t = nullptr) noexcept {}
         IPhoneCallManagerStatics2(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IPhoneCallStatics :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IPhoneCallStatics>
+    {
+        IPhoneCallStatics(std::nullptr_t = nullptr) noexcept {}
+        IPhoneCallStatics(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) IPhoneCallStore :
         winrt::Windows::Foundation::IInspectable,
@@ -160,6 +244,13 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Calls
         IPhoneCallVideoCapabilitiesManagerStatics(std::nullptr_t = nullptr) noexcept {}
         IPhoneCallVideoCapabilitiesManagerStatics(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) IPhoneCallsResult :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IPhoneCallsResult>
+    {
+        IPhoneCallsResult(std::nullptr_t = nullptr) noexcept {}
+        IPhoneCallsResult(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) IPhoneDialOptions :
         winrt::Windows::Foundation::IInspectable,
         impl::consume_t<IPhoneDialOptions>
@@ -181,6 +272,13 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Calls
         IPhoneLine2(std::nullptr_t = nullptr) noexcept {}
         IPhoneLine2(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) IPhoneLine3 :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IPhoneLine3>
+    {
+        IPhoneLine3(std::nullptr_t = nullptr) noexcept {}
+        IPhoneLine3(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) IPhoneLineCellularDetails :
         winrt::Windows::Foundation::IInspectable,
         impl::consume_t<IPhoneLineCellularDetails>
@@ -195,6 +293,13 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Calls
         IPhoneLineConfiguration(std::nullptr_t = nullptr) noexcept {}
         IPhoneLineConfiguration(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) IPhoneLineDialResult :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IPhoneLineDialResult>
+    {
+        IPhoneLineDialResult(std::nullptr_t = nullptr) noexcept {}
+        IPhoneLineDialResult(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) IPhoneLineStatics :
         winrt::Windows::Foundation::IInspectable,
         impl::consume_t<IPhoneLineStatics>
@@ -208,6 +313,13 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Calls
     {
         IPhoneLineTransportDevice(std::nullptr_t = nullptr) noexcept {}
         IPhoneLineTransportDevice(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IPhoneLineTransportDevice2 :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IPhoneLineTransportDevice2>
+    {
+        IPhoneLineTransportDevice2(std::nullptr_t = nullptr) noexcept {}
+        IPhoneLineTransportDevice2(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) IPhoneLineTransportDeviceStatics :
         winrt::Windows::Foundation::IInspectable,
@@ -272,12 +384,26 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Calls
         using impl::consume_t<IVoipCallCoordinator4, IVoipCallCoordinator4>::ReserveCallResourcesAsync;
         using impl::consume_t<IVoipCallCoordinator4, winrt::Windows::ApplicationModel::Calls::IVoipCallCoordinator>::ReserveCallResourcesAsync;
     };
+    struct __declspec(empty_bases) IVoipCallCoordinator5 :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IVoipCallCoordinator5>
+    {
+        IVoipCallCoordinator5(std::nullptr_t = nullptr) noexcept {}
+        IVoipCallCoordinator5(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) IVoipCallCoordinatorStatics :
         winrt::Windows::Foundation::IInspectable,
         impl::consume_t<IVoipCallCoordinatorStatics>
     {
         IVoipCallCoordinatorStatics(std::nullptr_t = nullptr) noexcept {}
         IVoipCallCoordinatorStatics(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IVoipCallCoordinatorStatics2 :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IVoipCallCoordinatorStatics2>
+    {
+        IVoipCallCoordinatorStatics2(std::nullptr_t = nullptr) noexcept {}
+        IVoipCallCoordinatorStatics2(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) IVoipPhoneCall :
         winrt::Windows::Foundation::IInspectable,
@@ -301,6 +427,13 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Calls
     {
         IVoipPhoneCall3(std::nullptr_t = nullptr) noexcept {}
         IVoipPhoneCall3(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IVoipPhoneCall4 :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IVoipPhoneCall4>
+    {
+        IVoipPhoneCall4(std::nullptr_t = nullptr) noexcept {}
+        IVoipPhoneCall4(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
 }
 #endif

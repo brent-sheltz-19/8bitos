@@ -99,13 +99,19 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Background
         static auto GetAccessStatus();
         static auto GetAccessStatus(param::hstring const& applicationId);
         static auto RequestAccessKindAsync(winrt::Windows::ApplicationModel::Background::BackgroundAccessRequestKind const& requestedAccess, param::hstring const& reason);
+        static auto RequestAccessKindForModernStandbyAsync(winrt::Windows::ApplicationModel::Background::BackgroundAccessRequestKind const& requestedAccess, param::hstring const& reason);
+        static auto GetAccessStatusForModernStandby();
+        static auto GetAccessStatusForModernStandby(param::hstring const& applicationId);
     };
     struct __declspec(empty_bases) BackgroundTaskBuilder : winrt::Windows::ApplicationModel::Background::IBackgroundTaskBuilder,
-        impl::require<BackgroundTaskBuilder, winrt::Windows::ApplicationModel::Background::IBackgroundTaskBuilder2, winrt::Windows::ApplicationModel::Background::IBackgroundTaskBuilder3, winrt::Windows::ApplicationModel::Background::IBackgroundTaskBuilder4, winrt::Windows::ApplicationModel::Background::IBackgroundTaskBuilder5>
+        impl::require<BackgroundTaskBuilder, winrt::Windows::ApplicationModel::Background::IBackgroundTaskBuilder2, winrt::Windows::ApplicationModel::Background::IBackgroundTaskBuilder3, winrt::Windows::ApplicationModel::Background::IBackgroundTaskBuilder4, winrt::Windows::ApplicationModel::Background::IBackgroundTaskBuilder5, winrt::Windows::ApplicationModel::Background::IBackgroundTaskBuilder6>
     {
         BackgroundTaskBuilder(std::nullptr_t) noexcept {}
         BackgroundTaskBuilder(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::ApplicationModel::Background::IBackgroundTaskBuilder(ptr, take_ownership_from_abi) {}
         BackgroundTaskBuilder();
+        using winrt::Windows::ApplicationModel::Background::IBackgroundTaskBuilder::Register;
+        using impl::consume_t<BackgroundTaskBuilder, winrt::Windows::ApplicationModel::Background::IBackgroundTaskBuilder6>::Register;
+        [[nodiscard]] static auto IsRunningTaskInStandbySupported();
     };
     struct __declspec(empty_bases) BackgroundTaskCompletedEventArgs : winrt::Windows::ApplicationModel::Background::IBackgroundTaskCompletedEventArgs
     {
@@ -123,7 +129,7 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Background
         BackgroundTaskProgressEventArgs(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::ApplicationModel::Background::IBackgroundTaskProgressEventArgs(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) BackgroundTaskRegistration : winrt::Windows::ApplicationModel::Background::IBackgroundTaskRegistration,
-        impl::require<BackgroundTaskRegistration, winrt::Windows::ApplicationModel::Background::IBackgroundTaskRegistration2, winrt::Windows::ApplicationModel::Background::IBackgroundTaskRegistration3>
+        impl::require<BackgroundTaskRegistration, winrt::Windows::ApplicationModel::Background::IBackgroundTaskRegistration2, winrt::Windows::ApplicationModel::Background::IBackgroundTaskRegistration3, winrt::Windows::ApplicationModel::Background::IBackgroundTaskRegistration4>
     {
         BackgroundTaskRegistration(std::nullptr_t) noexcept {}
         BackgroundTaskRegistration(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::ApplicationModel::Background::IBackgroundTaskRegistration(ptr, take_ownership_from_abi) {}
@@ -142,6 +148,9 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Background
     {
         BackgroundWorkCost() = delete;
         [[nodiscard]] static auto CurrentBackgroundWorkCost();
+        [[nodiscard]] static auto AppEnergyUseLevel();
+        [[nodiscard]] static auto AppEnergyUsePrediction();
+        [[nodiscard]] static auto AppLastThrottledInStandbyTimestamp();
     };
     struct __declspec(empty_bases) BluetoothLEAdvertisementPublisherTrigger : winrt::Windows::ApplicationModel::Background::IBluetoothLEAdvertisementPublisherTrigger,
         impl::require<BluetoothLEAdvertisementPublisherTrigger, winrt::Windows::ApplicationModel::Background::IBluetoothLEAdvertisementPublisherTrigger2>
@@ -457,6 +466,18 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Background
         UserNotificationChangedTrigger(std::nullptr_t) noexcept {}
         UserNotificationChangedTrigger(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::ApplicationModel::Background::IBackgroundTrigger(ptr, take_ownership_from_abi) {}
         explicit UserNotificationChangedTrigger(winrt::Windows::UI::Notifications::NotificationKinds const& notificationKinds);
+    };
+    struct __declspec(empty_bases) WiFiOnDemandHotspotConnectTrigger : winrt::Windows::ApplicationModel::Background::IBackgroundTrigger
+    {
+        WiFiOnDemandHotspotConnectTrigger(std::nullptr_t) noexcept {}
+        WiFiOnDemandHotspotConnectTrigger(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::ApplicationModel::Background::IBackgroundTrigger(ptr, take_ownership_from_abi) {}
+        WiFiOnDemandHotspotConnectTrigger();
+    };
+    struct __declspec(empty_bases) WiFiOnDemandHotspotUpdateMetadataTrigger : winrt::Windows::ApplicationModel::Background::IBackgroundTrigger
+    {
+        WiFiOnDemandHotspotUpdateMetadataTrigger(std::nullptr_t) noexcept {}
+        WiFiOnDemandHotspotUpdateMetadataTrigger(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::ApplicationModel::Background::IBackgroundTrigger(ptr, take_ownership_from_abi) {}
+        WiFiOnDemandHotspotUpdateMetadataTrigger();
     };
 }
 #endif

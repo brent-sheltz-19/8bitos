@@ -72,7 +72,7 @@ inline istream& ssd::read(int addr, char* a, int size)
 inline long ssd::sizeofimage()
 {
 	datafile.seekg(0, ios_base::end);
-	int size = datafile.tellg();
+	long size = datafile.tellg();
 	datafile.seekg(0);
 	return size;
 }

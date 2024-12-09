@@ -1,6 +1,1 @@
-﻿  main.cpp
-C:\Users\Owner\Documents\GitHub\8bitos\code\simulator\simulatorprog\simulatorprog\Ram.h(34,10): warning C4018: '>': signed/unsigned mismatch
-C:\Users\Owner\Documents\GitHub\8bitos\code\simulator\simulatorprog\simulatorprog\ssd.h(75,11): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
-C:\Users\Owner\Documents\GitHub\8bitos\code\simulator\simulatorprog\simulatorprog\ssd.h(85,9): warning C4553: '==': result of expression not used; did you intend '='?
-C:\Users\Owner\Documents\GitHub\8bitos\code\simulator\simulatorprog\simulatorprog\cpu.h(738,34): warning C4244: 'argument': conversion from 'uint16_t' to 'char', possible loss of data
-  simulatorprog.vcxproj -> C:\Users\Owner\Documents\GitHub\8bitos\code\simulator\simulatorprog\Debug\simulatorprog.exe
+﻿  simulatorprog.vcxproj -> D:\codeing projects\8bitos\code\simulator\simulatorprog\Debug\simulatorprog.exe

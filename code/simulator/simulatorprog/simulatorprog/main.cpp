@@ -21,18 +21,21 @@ void run(os* k)
 
 
 int main(int argc, char** argv)
-{ 
+{
 	string scale;
-	Ram vram = Ram((windowheight * windowwidth)*3);
+	Ram vram = Ram((windowheight * windowwidth) * 3);
 	Ram mainram = Ram(2000);
-
+	vector<Button> componentlist;
 	cpu a;
 	a.setRam(&mainram);
 	a.setvRam(&vram);
-	os oper=os(&a);
+	os oper = os(&a);
 	oper.debug();
 	int init_error_code = SDL_Init(SDL_INIT_EVENTS || SDL_INIT_VIDEO);
-	vector<Button> componentlist;
+	if (init_error_code > 0)
+	{
+
+	}
 	componentlist.push_back(Button(0, 0, 100, 50,debug));
 	componentlist.push_back(Button(100, 0, 100, 50, mount));
 	LWindow mainwindow;

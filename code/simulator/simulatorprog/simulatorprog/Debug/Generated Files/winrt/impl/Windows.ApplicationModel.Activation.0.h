@@ -147,6 +147,10 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Activation
         StartupTask = 1020,
         CommandLineLaunch = 1021,
         BarcodeScannerProvider = 1022,
+        PrintSupportJobUI = 1023,
+        PrintSupportSettingsUI = 1024,
+        PhoneCallActivation = 1025,
+        VpnForeground = 1026,
     };
     enum class ApplicationExecutionState : int32_t
     {
@@ -198,6 +202,7 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Activation
     struct ILaunchActivatedEventArgs2;
     struct ILockScreenActivatedEventArgs;
     struct ILockScreenCallActivatedEventArgs;
+    struct IPhoneCallActivatedEventArgs;
     struct IPickerReturnedActivatedEventArgs;
     struct IPrelaunchActivatedEventArgs;
     struct IPrint3DWorkflowActivatedEventArgs;
@@ -250,6 +255,7 @@ WINRT_EXPORT namespace winrt::Windows::ApplicationModel::Activation
     struct LockScreenActivatedEventArgs;
     struct LockScreenCallActivatedEventArgs;
     struct LockScreenComponentActivatedEventArgs;
+    struct PhoneCallActivatedEventArgs;
     struct PickerReturnedActivatedEventArgs;
     struct Print3DWorkflowActivatedEventArgs;
     struct PrintTaskSettingsActivatedEventArgs;
@@ -312,6 +318,7 @@ namespace winrt::impl
     template <> struct category<winrt::Windows::ApplicationModel::Activation::ILaunchActivatedEventArgs2>{ using type = interface_category; };
     template <> struct category<winrt::Windows::ApplicationModel::Activation::ILockScreenActivatedEventArgs>{ using type = interface_category; };
     template <> struct category<winrt::Windows::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs>{ using type = interface_category; };
+    template <> struct category<winrt::Windows::ApplicationModel::Activation::IPhoneCallActivatedEventArgs>{ using type = interface_category; };
     template <> struct category<winrt::Windows::ApplicationModel::Activation::IPickerReturnedActivatedEventArgs>{ using type = interface_category; };
     template <> struct category<winrt::Windows::ApplicationModel::Activation::IPrelaunchActivatedEventArgs>{ using type = interface_category; };
     template <> struct category<winrt::Windows::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs>{ using type = interface_category; };
@@ -364,6 +371,7 @@ namespace winrt::impl
     template <> struct category<winrt::Windows::ApplicationModel::Activation::LockScreenActivatedEventArgs>{ using type = class_category; };
     template <> struct category<winrt::Windows::ApplicationModel::Activation::LockScreenCallActivatedEventArgs>{ using type = class_category; };
     template <> struct category<winrt::Windows::ApplicationModel::Activation::LockScreenComponentActivatedEventArgs>{ using type = class_category; };
+    template <> struct category<winrt::Windows::ApplicationModel::Activation::PhoneCallActivatedEventArgs>{ using type = class_category; };
     template <> struct category<winrt::Windows::ApplicationModel::Activation::PickerReturnedActivatedEventArgs>{ using type = class_category; };
     template <> struct category<winrt::Windows::ApplicationModel::Activation::Print3DWorkflowActivatedEventArgs>{ using type = class_category; };
     template <> struct category<winrt::Windows::ApplicationModel::Activation::PrintTaskSettingsActivatedEventArgs>{ using type = class_category; };
@@ -414,6 +422,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Activation::LockScreenActivatedEventArgs> = L"Windows.ApplicationModel.Activation.LockScreenActivatedEventArgs";
     template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Activation::LockScreenCallActivatedEventArgs> = L"Windows.ApplicationModel.Activation.LockScreenCallActivatedEventArgs";
     template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Activation::LockScreenComponentActivatedEventArgs> = L"Windows.ApplicationModel.Activation.LockScreenComponentActivatedEventArgs";
+    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Activation::PhoneCallActivatedEventArgs> = L"Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs";
     template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Activation::PickerReturnedActivatedEventArgs> = L"Windows.ApplicationModel.Activation.PickerReturnedActivatedEventArgs";
     template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Activation::Print3DWorkflowActivatedEventArgs> = L"Windows.ApplicationModel.Activation.Print3DWorkflowActivatedEventArgs";
     template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Activation::PrintTaskSettingsActivatedEventArgs> = L"Windows.ApplicationModel.Activation.PrintTaskSettingsActivatedEventArgs";
@@ -475,6 +484,7 @@ namespace winrt::impl
     template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Activation::ILaunchActivatedEventArgs2> = L"Windows.ApplicationModel.Activation.ILaunchActivatedEventArgs2";
     template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Activation::ILockScreenActivatedEventArgs> = L"Windows.ApplicationModel.Activation.ILockScreenActivatedEventArgs";
     template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs> = L"Windows.ApplicationModel.Activation.ILockScreenCallActivatedEventArgs";
+    template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Activation::IPhoneCallActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IPhoneCallActivatedEventArgs";
     template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Activation::IPickerReturnedActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IPickerReturnedActivatedEventArgs";
     template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Activation::IPrelaunchActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IPrelaunchActivatedEventArgs";
     template <> inline constexpr auto& name_v<winrt::Windows::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs> = L"Windows.ApplicationModel.Activation.IPrint3DWorkflowActivatedEventArgs";
@@ -538,6 +548,7 @@ namespace winrt::impl
     template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Activation::ILaunchActivatedEventArgs2>{ 0x0FD37EBC,0x9DC9,0x46B5,{ 0x9A,0xCE,0xBD,0x95,0xD4,0x56,0x53,0x45 } }; // 0FD37EBC-9DC9-46B5-9ACE-BD95D4565345
     template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Activation::ILockScreenActivatedEventArgs>{ 0x3CA77966,0x6108,0x4A41,{ 0x82,0x20,0xEE,0x7D,0x13,0x3C,0x85,0x32 } }; // 3CA77966-6108-4A41-8220-EE7D133C8532
     template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs>{ 0x06F37FBE,0xB5F2,0x448B,{ 0xB1,0x3E,0xE3,0x28,0xAC,0x1C,0x51,0x6A } }; // 06F37FBE-B5F2-448B-B13E-E328AC1C516A
+    template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Activation::IPhoneCallActivatedEventArgs>{ 0x54615221,0xA3C1,0x4CED,{ 0xB6,0x2F,0x8C,0x60,0x52,0x36,0x19,0xAD } }; // 54615221-A3C1-4CED-B62F-8C60523619AD
     template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Activation::IPickerReturnedActivatedEventArgs>{ 0x360DEFB9,0xA9D3,0x4984,{ 0xA4,0xED,0x9E,0xC7,0x34,0x60,0x49,0x21 } }; // 360DEFB9-A9D3-4984-A4ED-9EC734604921
     template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Activation::IPrelaunchActivatedEventArgs>{ 0x0C44717B,0x19F7,0x48D6,{ 0xB0,0x46,0xCF,0x22,0x82,0x6E,0xAA,0x74 } }; // 0C44717B-19F7-48D6-B046-CF22826EAA74
     template <> inline constexpr guid guid_v<winrt::Windows::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs>{ 0x3F57E78B,0xF2AC,0x4619,{ 0x83,0x02,0xEF,0x85,0x5E,0x1C,0x9B,0x90 } }; // 3F57E78B-F2AC-4619-8302-EF855E1C9B90
@@ -590,6 +601,7 @@ namespace winrt::impl
     template <> struct default_interface<winrt::Windows::ApplicationModel::Activation::LockScreenActivatedEventArgs>{ using type = winrt::Windows::ApplicationModel::Activation::ILockScreenActivatedEventArgs; };
     template <> struct default_interface<winrt::Windows::ApplicationModel::Activation::LockScreenCallActivatedEventArgs>{ using type = winrt::Windows::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs; };
     template <> struct default_interface<winrt::Windows::ApplicationModel::Activation::LockScreenComponentActivatedEventArgs>{ using type = winrt::Windows::ApplicationModel::Activation::IActivatedEventArgs; };
+    template <> struct default_interface<winrt::Windows::ApplicationModel::Activation::PhoneCallActivatedEventArgs>{ using type = winrt::Windows::ApplicationModel::Activation::IPhoneCallActivatedEventArgs; };
     template <> struct default_interface<winrt::Windows::ApplicationModel::Activation::PickerReturnedActivatedEventArgs>{ using type = winrt::Windows::ApplicationModel::Activation::IPickerReturnedActivatedEventArgs; };
     template <> struct default_interface<winrt::Windows::ApplicationModel::Activation::Print3DWorkflowActivatedEventArgs>{ using type = winrt::Windows::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs; };
     template <> struct default_interface<winrt::Windows::ApplicationModel::Activation::PrintTaskSettingsActivatedEventArgs>{ using type = winrt::Windows::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs; };
@@ -923,6 +935,13 @@ namespace winrt::impl
         struct __declspec(novtable) type : inspectable_abi
         {
             virtual int32_t __stdcall get_CallUI(void**) noexcept = 0;
+        };
+    };
+    template <> struct abi<winrt::Windows::ApplicationModel::Activation::IPhoneCallActivatedEventArgs>
+    {
+        struct __declspec(novtable) type : inspectable_abi
+        {
+            virtual int32_t __stdcall get_LineId(winrt::guid*) noexcept = 0;
         };
     };
     template <> struct abi<winrt::Windows::ApplicationModel::Activation::IPickerReturnedActivatedEventArgs>
@@ -1480,6 +1499,15 @@ namespace winrt::impl
     template <> struct consume<winrt::Windows::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs>
     {
         template <typename D> using type = consume_Windows_ApplicationModel_Activation_ILockScreenCallActivatedEventArgs<D>;
+    };
+    template <typename D>
+    struct consume_Windows_ApplicationModel_Activation_IPhoneCallActivatedEventArgs
+    {
+        [[nodiscard]] auto LineId() const;
+    };
+    template <> struct consume<winrt::Windows::ApplicationModel::Activation::IPhoneCallActivatedEventArgs>
+    {
+        template <typename D> using type = consume_Windows_ApplicationModel_Activation_IPhoneCallActivatedEventArgs<D>;
     };
     template <typename D>
     struct consume_Windows_ApplicationModel_Activation_IPickerReturnedActivatedEventArgs

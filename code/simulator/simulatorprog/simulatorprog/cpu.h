@@ -330,11 +330,11 @@ inline int cpu::sizeofram()
 }
 int cpu::ramelements()
 {
-  return this->ram.size;
+  return ram->getSize();
 } 
-int cpu::ramelements()
+int cpu::ramcapacity()
 {
-  return this->ram.capacity;
+  return ram->getCapacity();
 } 
 inline Ram* cpu::getRam()
 {

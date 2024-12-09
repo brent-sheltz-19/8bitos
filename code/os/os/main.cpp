@@ -14,7 +14,7 @@
 #include "drivers/serial/Serial.h"
 #define bios_address_start ffff0000
 #define serial_miso_pin 6
-#define serial_miso_pin 7
+#define serial_mosi_pin 7
 #define serial_clk_pin 8
 static portcontroller port = portcontroller();
 static shiftreg addreg=shiftreg(40,39,38,&port);

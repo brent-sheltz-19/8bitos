@@ -1,3 +1,6 @@
 C:\Users\Owner\Documents\GitHub\8bitos\code\simulator\simulatorprog\simulatorprog\Debug\simulatorprog.vcxproj.MdMergeInputs.cache
 C:\Users\Owner\Documents\GitHub\8bitos\code\simulator\simulatorprog\simulatorprog\Debug\simulatorprog.vcxproj.cppwinrt_plat.cache
 C:\Users\Owner\Documents\GitHub\8bitos\code\simulator\simulatorprog\simulatorprog\Debug\simulatorprog.vcxproj.cppwinrt_comp.cache
+D:\codeing projects\8bitos\code\simulator\simulatorprog\simulatorprog\Debug\simulatorprog.vcxproj.MdMergeInputs.cache
+D:\codeing projects\8bitos\code\simulator\simulatorprog\simulatorprog\Debug\simulatorprog.vcxproj.cppwinrt_plat.cache
+D:\codeing projects\8bitos\code\simulator\simulatorprog\simulatorprog\Debug\simulatorprog.vcxproj.cppwinrt_comp.cache

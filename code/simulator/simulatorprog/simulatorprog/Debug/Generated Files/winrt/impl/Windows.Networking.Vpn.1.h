@@ -42,6 +42,20 @@ WINRT_EXPORT namespace winrt::Windows::Networking::Vpn
         IVpnChannel4(std::nullptr_t = nullptr) noexcept {}
         IVpnChannel4(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) IVpnChannel5 :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IVpnChannel5>
+    {
+        IVpnChannel5(std::nullptr_t = nullptr) noexcept {}
+        IVpnChannel5(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IVpnChannel6 :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IVpnChannel6>
+    {
+        IVpnChannel6(std::nullptr_t = nullptr) noexcept {}
+        IVpnChannel6(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) IVpnChannelActivityEventArgs :
         winrt::Windows::Foundation::IInspectable,
         impl::consume_t<IVpnChannelActivityEventArgs>
@@ -198,6 +212,20 @@ WINRT_EXPORT namespace winrt::Windows::Networking::Vpn
         IVpnDomainNameInfoFactory(std::nullptr_t = nullptr) noexcept {}
         IVpnDomainNameInfoFactory(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) IVpnForegroundActivatedEventArgs :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IVpnForegroundActivatedEventArgs>
+    {
+        IVpnForegroundActivatedEventArgs(std::nullptr_t = nullptr) noexcept {}
+        IVpnForegroundActivatedEventArgs(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IVpnForegroundActivationOperation :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IVpnForegroundActivationOperation>
+    {
+        IVpnForegroundActivationOperation(std::nullptr_t = nullptr) noexcept {}
+        IVpnForegroundActivationOperation(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) IVpnInterfaceId :
         winrt::Windows::Foundation::IInspectable,
         impl::consume_t<IVpnInterfaceId>
@@ -328,6 +356,13 @@ WINRT_EXPORT namespace winrt::Windows::Networking::Vpn
     {
         IVpnPlugInProfile2(std::nullptr_t = nullptr) noexcept {}
         IVpnPlugInProfile2(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IVpnPlugInReconnectTransport :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IVpnPlugInReconnectTransport>
+    {
+        IVpnPlugInReconnectTransport(std::nullptr_t = nullptr) noexcept {}
+        IVpnPlugInReconnectTransport(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) IVpnProfile :
         winrt::Windows::Foundation::IInspectable,

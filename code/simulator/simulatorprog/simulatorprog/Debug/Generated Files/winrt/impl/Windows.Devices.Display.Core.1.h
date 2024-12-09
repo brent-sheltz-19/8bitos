@@ -13,6 +13,13 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Display::Core
         IDisplayAdapter(std::nullptr_t = nullptr) noexcept {}
         IDisplayAdapter(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) IDisplayAdapter2 :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IDisplayAdapter2>
+    {
+        IDisplayAdapter2(std::nullptr_t = nullptr) noexcept {}
+        IDisplayAdapter2(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) IDisplayAdapterStatics :
         winrt::Windows::Foundation::IInspectable,
         impl::consume_t<IDisplayAdapterStatics>
@@ -27,6 +34,20 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Display::Core
         IDisplayDevice(std::nullptr_t = nullptr) noexcept {}
         IDisplayDevice(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) IDisplayDevice2 :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IDisplayDevice2>
+    {
+        IDisplayDevice2(std::nullptr_t = nullptr) noexcept {}
+        IDisplayDevice2(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IDisplayDeviceRenderAdapter :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IDisplayDeviceRenderAdapter>
+    {
+        IDisplayDeviceRenderAdapter(std::nullptr_t = nullptr) noexcept {}
+        IDisplayDeviceRenderAdapter(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) IDisplayFence :
         winrt::Windows::Foundation::IInspectable,
         impl::consume_t<IDisplayFence>
@@ -40,6 +61,20 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Display::Core
     {
         IDisplayManager(std::nullptr_t = nullptr) noexcept {}
         IDisplayManager(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IDisplayManager2 :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IDisplayManager2>
+    {
+        IDisplayManager2(std::nullptr_t = nullptr) noexcept {}
+        IDisplayManager2(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IDisplayManager3 :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IDisplayManager3>
+    {
+        IDisplayManager3(std::nullptr_t = nullptr) noexcept {}
+        IDisplayManager3(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) IDisplayManagerChangedEventArgs :
         winrt::Windows::Foundation::IInspectable,
@@ -90,12 +125,40 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Display::Core
         IDisplayModeInfo(std::nullptr_t = nullptr) noexcept {}
         IDisplayModeInfo(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) IDisplayModeInfo2 :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IDisplayModeInfo2>
+    {
+        IDisplayModeInfo2(std::nullptr_t = nullptr) noexcept {}
+        IDisplayModeInfo2(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IDisplayMuxDevice :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IDisplayMuxDevice>
+    {
+        IDisplayMuxDevice(std::nullptr_t = nullptr) noexcept {}
+        IDisplayMuxDevice(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IDisplayMuxDeviceStatics :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IDisplayMuxDeviceStatics>
+    {
+        IDisplayMuxDeviceStatics(std::nullptr_t = nullptr) noexcept {}
+        IDisplayMuxDeviceStatics(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) IDisplayPath :
         winrt::Windows::Foundation::IInspectable,
         impl::consume_t<IDisplayPath>
     {
         IDisplayPath(std::nullptr_t = nullptr) noexcept {}
         IDisplayPath(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IDisplayPath2 :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IDisplayPath2>
+    {
+        IDisplayPath2(std::nullptr_t = nullptr) noexcept {}
+        IDisplayPath2(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) IDisplayPrimaryDescription :
         winrt::Windows::Foundation::IInspectable,
@@ -132,6 +195,13 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Display::Core
         IDisplaySource(std::nullptr_t = nullptr) noexcept {}
         IDisplaySource(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) IDisplaySource2 :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IDisplaySource2>
+    {
+        IDisplaySource2(std::nullptr_t = nullptr) noexcept {}
+        IDisplaySource2(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) IDisplayState :
         winrt::Windows::Foundation::IInspectable,
         impl::consume_t<IDisplayState>
@@ -167,12 +237,33 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Display::Core
         IDisplayTask(std::nullptr_t = nullptr) noexcept {}
         IDisplayTask(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
+    struct __declspec(empty_bases) IDisplayTask2 :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IDisplayTask2>
+    {
+        IDisplayTask2(std::nullptr_t = nullptr) noexcept {}
+        IDisplayTask2(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
     struct __declspec(empty_bases) IDisplayTaskPool :
         winrt::Windows::Foundation::IInspectable,
         impl::consume_t<IDisplayTaskPool>
     {
         IDisplayTaskPool(std::nullptr_t = nullptr) noexcept {}
         IDisplayTaskPool(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IDisplayTaskPool2 :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IDisplayTaskPool2>
+    {
+        IDisplayTaskPool2(std::nullptr_t = nullptr) noexcept {}
+        IDisplayTaskPool2(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
+    };
+    struct __declspec(empty_bases) IDisplayTaskResult :
+        winrt::Windows::Foundation::IInspectable,
+        impl::consume_t<IDisplayTaskResult>
+    {
+        IDisplayTaskResult(std::nullptr_t = nullptr) noexcept {}
+        IDisplayTaskResult(void* ptr, take_ownership_from_abi_t) noexcept : winrt::Windows::Foundation::IInspectable(ptr, take_ownership_from_abi) {}
     };
     struct __declspec(empty_bases) IDisplayView :
         winrt::Windows::Foundation::IInspectable,

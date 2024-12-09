@@ -949,21 +949,21 @@ END GROUP
  .debug_info    0x000006cc     0x475d cpu/interpreter/interpreter.o
  .debug_info    0x00004e29      0x962 drivers/io/port controller/portcontroller.o
  .debug_info    0x0000578b      0xa28 drivers/io/shift register/shiftreg.o
- .debug_info    0x000061b3      0xac5 drivers/memory/memory.o
- .debug_info    0x00006c78      0x6b7 drivers/memory/video_mem.o
- .debug_info    0x0000732f      0xb3f drivers/serial/Serial.o
- .debug_info    0x00007e6e     0x1af2 main.o
+ .debug_info    0x000061b3      0xac4 drivers/memory/memory.o
+ .debug_info    0x00006c77      0x6b7 drivers/memory/video_mem.o
+ .debug_info    0x0000732e      0xb3f drivers/serial/Serial.o
+ .debug_info    0x00007e6d     0x1af3 main.o
 
-.debug_abbrev   0x00000000     0x16fd
+.debug_abbrev   0x00000000     0x1713
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x66e D:/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega644pa/avr5/crtatmega644pa.o
  .debug_abbrev  0x0000066e      0x4a0 cpu/interpreter/interpreter.o
  .debug_abbrev  0x00000b0e      0x1c1 drivers/io/port controller/portcontroller.o
  .debug_abbrev  0x00000ccf      0x20b drivers/io/shift register/shiftreg.o
- .debug_abbrev  0x00000eda      0x1d6 drivers/memory/memory.o
- .debug_abbrev  0x000010b0      0x168 drivers/memory/video_mem.o
- .debug_abbrev  0x00001218      0x1d3 drivers/serial/Serial.o
- .debug_abbrev  0x000013eb      0x312 main.o
+ .debug_abbrev  0x00000eda      0x1ec drivers/memory/memory.o
+ .debug_abbrev  0x000010c6      0x168 drivers/memory/video_mem.o
+ .debug_abbrev  0x0000122e      0x1d3 drivers/serial/Serial.o
+ .debug_abbrev  0x00001401      0x312 main.o
 
 .debug_line     0x00000000     0x2487
  *(.debug_line .debug_line.* .debug_line_end)

@@ -17,17 +17,17 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   6 .debug_info   00009960  00000000  00000000  00002644  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 000016fd  00000000  00000000  0000bfa4  2**0
+  7 .debug_abbrev 00001713  00000000  00000000  0000bfa4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00002487  00000000  00000000  0000d6a1  2**0
+  8 .debug_line   00002487  00000000  00000000  0000d6b7  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000be8  00000000  00000000  0000fb28  2**2
+  9 .debug_frame  00000be8  00000000  00000000  0000fb40  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00001bd0  00000000  00000000  00010710  2**0
+ 10 .debug_str    00001bd0  00000000  00000000  00010728  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    00004283  00000000  00000000  000122e0  2**0
+ 11 .debug_loc    00004283  00000000  00000000  000122f8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000598  00000000  00000000  00016563  2**0
+ 12 .debug_ranges 00000598  00000000  00000000  0001657b  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -3912,7 +3912,6 @@ void memory::write(uint32_t address, uint8_t data)
     1e5c:	88 81       	ld	r24, Y
     1e5e:	99 81       	ldd	r25, Y+1	; 0x01
     1e60:	0e 94 91 0e 	call	0x1d22	; 0x1d22 <_ZN14portcontroller12digitalwriteEhb>
-	
 }
     1e64:	df 91       	pop	r29
     1e66:	cf 91       	pop	r28
@@ -4110,8 +4109,8 @@ int main(void)
     1f80:	80 e5       	ldi	r24, 0x50	; 80
     1f82:	92 e0       	ldi	r25, 0x02	; 2
     1f84:	0e 94 70 0e 	call	0x1ce0	; 0x1ce0 <_ZN14portcontroller9writeddraEc>
-	port.writeddrb(0b00001000);	
-    1f88:	68 e0       	ldi	r22, 0x08	; 8
+	port.writeddrb(0b10100000);	
+    1f88:	60 ea       	ldi	r22, 0xA0	; 160
     1f8a:	80 e5       	ldi	r24, 0x50	; 80
     1f8c:	92 e0       	ldi	r25, 0x02	; 2
     1f8e:	0e 94 72 0e 	call	0x1ce4	; 0x1ce4 <_ZN14portcontroller9writeddrbEc>
@@ -4148,9 +4147,9 @@ int main(void)
     1fb4:	1f 93       	push	r17
 #include "drivers/serial/Serial.h"
 #define bios_address_start ffff0000
-#define serial_clk_pin 4
 #define serial_miso_pin 6
 #define serial_miso_pin 7
+#define serial_clk_pin 8
 static portcontroller port = portcontroller();
     1fb6:	80 e5       	ldi	r24, 0x50	; 80
     1fb8:	92 e0       	ldi	r25, 0x02	; 2
@@ -4174,7 +4173,7 @@ static shiftreg csreg=shiftreg(37,36,35,&port);
 static Serial spi = Serial(&csreg,&port,serial_miso_pin,serial_miso_pin,serial_clk_pin);
     1fde:	68 94       	set
     1fe0:	ee 24       	eor	r14, r14
-    1fe2:	e2 f8       	bld	r14, 2
+    1fe2:	e3 f8       	bld	r14, 3
     1fe4:	07 e0       	ldi	r16, 0x07	; 7
     1fe6:	27 e0       	ldi	r18, 0x07	; 7
     1fe8:	40 e5       	ldi	r20, 0x50	; 80
@@ -4226,7 +4225,7 @@ static memory mainmemory = memory();
     2020:	89 e0       	ldi	r24, 0x09	; 9
     2022:	91 e0       	ldi	r25, 0x01	; 1
     2024:	0e 94 ba 0f 	call	0x1f74	; 0x1f74 <_ZN6memoryD1Ev>
-#define serial_miso_pin 7
+#define serial_clk_pin 8
 static portcontroller port = portcontroller();
 static shiftreg addreg=shiftreg(40,39,38,&port);
 static shiftreg csreg=shiftreg(37,36,35,&port);
@@ -4235,8 +4234,8 @@ static interpreter interpreter_main = interpreter();
     2028:	82 e1       	ldi	r24, 0x12	; 18
     202a:	91 e0       	ldi	r25, 0x01	; 1
     202c:	0e 94 6a 0e 	call	0x1cd4	; 0x1cd4 <_ZN11interpreterD1Ev>
-#define serial_miso_pin 6
 #define serial_miso_pin 7
+#define serial_clk_pin 8
 static portcontroller port = portcontroller();
 static shiftreg addreg=shiftreg(40,39,38,&port);
 static shiftreg csreg=shiftreg(37,36,35,&port);
@@ -4244,9 +4243,9 @@ static Serial spi = Serial(&csreg,&port,serial_miso_pin,serial_miso_pin,serial_c
     2030:	8e e2       	ldi	r24, 0x2E	; 46
     2032:	92 e0       	ldi	r25, 0x02	; 2
     2034:	0e 94 be 0f 	call	0x1f7c	; 0x1f7c <_ZN6SerialD1Ev>
-#define serial_clk_pin 4
 #define serial_miso_pin 6
 #define serial_miso_pin 7
+#define serial_clk_pin 8
 static portcontroller port = portcontroller();
 static shiftreg addreg=shiftreg(40,39,38,&port);
 static shiftreg csreg=shiftreg(37,36,35,&port);
@@ -4254,9 +4253,9 @@ static shiftreg csreg=shiftreg(37,36,35,&port);
     203a:	92 e0       	ldi	r25, 0x02	; 2
     203c:	0e 94 16 0f 	call	0x1e2c	; 0x1e2c <_ZN8shiftregD1Ev>
 #define bios_address_start ffff0000
-#define serial_clk_pin 4
 #define serial_miso_pin 6
 #define serial_miso_pin 7
+#define serial_clk_pin 8
 static portcontroller port = portcontroller();
 static shiftreg addreg=shiftreg(40,39,38,&port);
     2040:	83 e4       	ldi	r24, 0x43	; 67
@@ -4264,9 +4263,9 @@ static shiftreg addreg=shiftreg(40,39,38,&port);
     2044:	0e 94 16 0f 	call	0x1e2c	; 0x1e2c <_ZN8shiftregD1Ev>
 #include "drivers/serial/Serial.h"
 #define bios_address_start ffff0000
-#define serial_clk_pin 4
 #define serial_miso_pin 6
 #define serial_miso_pin 7
+#define serial_clk_pin 8
 static portcontroller port = portcontroller();
     2048:	80 e5       	ldi	r24, 0x50	; 80
     204a:	92 e0       	ldi	r25, 0x02	; 2

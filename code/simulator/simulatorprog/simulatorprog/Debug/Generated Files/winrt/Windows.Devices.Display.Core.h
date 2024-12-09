@@ -65,6 +65,18 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayAdapter)->get_Properties(&value));
         return winrt::Windows::Foundation::Collections::IMapView<winrt::guid, winrt::Windows::Foundation::IInspectable>{ value, take_ownership_from_abi };
     }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayAdapter2<D>::IsIndirectDisplayDevice() const
+    {
+        bool value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayAdapter2)->get_IsIndirectDisplayDevice(&value));
+        return value;
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayAdapter2<D>::PreferredRenderAdapter() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayAdapter2)->get_PreferredRenderAdapter(&value));
+        return winrt::Windows::Devices::Display::Core::DisplayAdapter{ value, take_ownership_from_abi };
+    }
     template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayAdapterStatics<D>::FromId(winrt::Windows::Graphics::DisplayAdapterId const& id) const
     {
         void* result{};
@@ -110,6 +122,18 @@ namespace winrt::impl
         bool result{};
         check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayDevice)->IsCapabilitySupported(static_cast<int32_t>(capability), &result));
         return result;
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayDevice2<D>::CreateSimpleScanoutWithDirtyRectsAndOptions(winrt::Windows::Devices::Display::Core::DisplaySource const& source, winrt::Windows::Devices::Display::Core::DisplaySurface const& surface, uint32_t subresourceIndex, uint32_t syncInterval, param::iterable<winrt::Windows::Graphics::RectInt32> const& dirtyRects, winrt::Windows::Devices::Display::Core::DisplayScanoutOptions const& options) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayDevice2)->CreateSimpleScanoutWithDirtyRectsAndOptions(*(void**)(&source), *(void**)(&surface), subresourceIndex, syncInterval, *(void**)(&dirtyRects), static_cast<uint32_t>(options), &result));
+        return winrt::Windows::Devices::Display::Core::DisplayScanout{ result, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayDeviceRenderAdapter<D>::RenderAdapterId() const
+    {
+        winrt::Windows::Graphics::DisplayAdapterId value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayDeviceRenderAdapter)->get_RenderAdapterId(put_abi(value)));
+        return value;
     }
     template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayManager<D>::GetCurrentTargets() const
     {
@@ -226,6 +250,18 @@ namespace winrt::impl
     template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayManager<D>::Stop() const
     {
         check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayManager)->Stop());
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayManager2<D>::TryReadCurrentStateForModeQuery() const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayManager2)->TryReadCurrentStateForModeQuery(&result));
+        return winrt::Windows::Devices::Display::Core::DisplayManagerResultWithState{ result, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayManager3<D>::CreateDisplayDeviceForIndirectAdapter(winrt::Windows::Devices::Display::Core::DisplayAdapter const& indirectAdapter, winrt::Windows::Devices::Display::Core::DisplayAdapter const& renderAdapter) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayManager3)->CreateDisplayDeviceForIndirectAdapter(*(void**)(&indirectAdapter), *(void**)(&renderAdapter), &result));
+        return winrt::Windows::Devices::Display::Core::DisplayDevice{ result, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayManagerChangedEventArgs<D>::Handled() const
     {
@@ -369,6 +405,86 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayModeInfo)->get_Properties(&value));
         return winrt::Windows::Foundation::Collections::IMapView<winrt::guid, winrt::Windows::Foundation::IInspectable>{ value, take_ownership_from_abi };
     }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayModeInfo2<D>::PhysicalPresentationRate() const
+    {
+        winrt::Windows::Devices::Display::Core::DisplayPresentationRate value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayModeInfo2)->get_PhysicalPresentationRate(put_abi(value)));
+        return value;
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayMuxDevice<D>::Id() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayMuxDevice)->get_Id(&value));
+        return hstring{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayMuxDevice<D>::IsActive() const
+    {
+        bool value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayMuxDevice)->get_IsActive(&value));
+        return value;
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayMuxDevice<D>::GetAvailableMuxTargets() const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayMuxDevice)->GetAvailableMuxTargets(&result));
+        return winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Devices::Display::Core::DisplayTarget>{ result, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayMuxDevice<D>::CurrentTarget() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayMuxDevice)->get_CurrentTarget(&value));
+        return winrt::Windows::Devices::Display::Core::DisplayTarget{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayMuxDevice<D>::PreferredTarget() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayMuxDevice)->get_PreferredTarget(&value));
+        return winrt::Windows::Devices::Display::Core::DisplayTarget{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayMuxDevice<D>::IsAutomaticTargetSwitchingEnabled() const
+    {
+        bool value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayMuxDevice)->get_IsAutomaticTargetSwitchingEnabled(&value));
+        return value;
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayMuxDevice<D>::SetPreferredTarget(winrt::Windows::Devices::Display::Core::DisplayTarget const& target) const
+    {
+        void* operation{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayMuxDevice)->SetPreferredTarget(*(void**)(&target), &operation));
+        return winrt::Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayMuxDevice<D>::SetAutomaticTargetSwitching() const
+    {
+        void* operation{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayMuxDevice)->SetAutomaticTargetSwitching(&operation));
+        return winrt::Windows::Foundation::IAsyncAction{ operation, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayMuxDevice<D>::Changed(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Display::Core::DisplayMuxDevice, winrt::Windows::Foundation::IInspectable> const& handler) const
+    {
+        winrt::event_token token{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayMuxDevice)->add_Changed(*(void**)(&handler), put_abi(token)));
+        return token;
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayMuxDevice<D>::Changed(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Display::Core::DisplayMuxDevice, winrt::Windows::Foundation::IInspectable> const& handler) const
+    {
+        return impl::make_event_revoker<D, Changed_revoker>(this, Changed(handler));
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayMuxDevice<D>::Changed(winrt::event_token const& token) const noexcept
+    {
+        WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayMuxDevice)->remove_Changed(impl::bind_in(token));
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayMuxDeviceStatics<D>::GetDeviceSelector() const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayMuxDeviceStatics)->GetDeviceSelector(&result));
+        return hstring{ result, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayMuxDeviceStatics<D>::FromIdAsync(param::hstring const& deviceInterfaceId) const
+    {
+        void* operation{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayMuxDeviceStatics)->FromIdAsync(*(void**)(&deviceInterfaceId), &operation));
+        return winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Display::Core::DisplayMuxDevice>{ operation, take_ownership_from_abi };
+    }
     template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayPath<D>::View() const
     {
         void* value{};
@@ -493,6 +609,16 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayPath)->get_Properties(&value));
         return winrt::Windows::Foundation::Collections::IMap<winrt::guid, winrt::Windows::Foundation::IInspectable>{ value, take_ownership_from_abi };
     }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayPath2<D>::PhysicalPresentationRate() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayPath2)->get_PhysicalPresentationRate(&value));
+        return winrt::Windows::Foundation::IReference<winrt::Windows::Devices::Display::Core::DisplayPresentationRate>{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayPath2<D>::PhysicalPresentationRate(winrt::Windows::Foundation::IReference<winrt::Windows::Devices::Display::Core::DisplayPresentationRate> const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayPath2)->put_PhysicalPresentationRate(*(void**)(&value)));
+    }
     template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayPrimaryDescription<D>::Width() const
     {
         uint32_t value{};
@@ -564,6 +690,26 @@ namespace winrt::impl
         void* result{};
         check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplaySource)->GetMetadata(impl::bind_in(Key), &result));
         return winrt::Windows::Storage::Streams::IBuffer{ result, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplaySource2<D>::Status() const
+    {
+        winrt::Windows::Devices::Display::Core::DisplaySourceStatus value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplaySource2)->get_Status(reinterpret_cast<int32_t*>(&value)));
+        return value;
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplaySource2<D>::StatusChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Display::Core::DisplaySource, winrt::Windows::Foundation::IInspectable> const& handler) const
+    {
+        winrt::event_token token{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplaySource2)->add_StatusChanged(*(void**)(&handler), put_abi(token)));
+        return token;
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplaySource2<D>::StatusChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Display::Core::DisplaySource, winrt::Windows::Foundation::IInspectable> const& handler) const
+    {
+        return impl::make_event_revoker<D, StatusChanged_revoker>(this, StatusChanged(handler));
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplaySource2<D>::StatusChanged(winrt::event_token const& token) const noexcept
+    {
+        WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplaySource2)->remove_StatusChanged(impl::bind_in(token));
     }
     template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayState<D>::IsReadOnly() const
     {
@@ -751,6 +897,10 @@ namespace winrt::impl
     {
         check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayTask)->SetWait(*(void**)(&readyFence), readyFenceValue));
     }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayTask2<D>::SetSignal(winrt::Windows::Devices::Display::Core::DisplayTaskSignalKind const& signalKind, winrt::Windows::Devices::Display::Core::DisplayFence const& fence) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayTask2)->SetSignal(static_cast<int32_t>(signalKind), *(void**)(&fence)));
+    }
     template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayTaskPool<D>::CreateTask() const
     {
         void* result{};
@@ -760,6 +910,30 @@ namespace winrt::impl
     template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayTaskPool<D>::ExecuteTask(winrt::Windows::Devices::Display::Core::DisplayTask const& task) const
     {
         check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayTaskPool)->ExecuteTask(*(void**)(&task)));
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayTaskPool2<D>::TryExecuteTask(winrt::Windows::Devices::Display::Core::DisplayTask const& task) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayTaskPool2)->TryExecuteTask(*(void**)(&task), &result));
+        return winrt::Windows::Devices::Display::Core::DisplayTaskResult{ result, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayTaskResult<D>::PresentStatus() const
+    {
+        winrt::Windows::Devices::Display::Core::DisplayPresentStatus value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayTaskResult)->get_PresentStatus(reinterpret_cast<int32_t*>(&value)));
+        return value;
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayTaskResult<D>::PresentId() const
+    {
+        uint64_t value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayTaskResult)->get_PresentId(&value));
+        return value;
+    }
+    template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayTaskResult<D>::SourceStatus() const
+    {
+        winrt::Windows::Devices::Display::Core::DisplaySourceStatus value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::Devices::Display::Core::IDisplayTaskResult)->get_SourceStatus(reinterpret_cast<int32_t*>(&value)));
+        return value;
     }
     template <typename D> auto consume_Windows_Devices_Display_Core_IDisplayView<D>::Paths() const
     {
@@ -902,6 +1076,27 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
+    struct produce<D, winrt::Windows::Devices::Display::Core::IDisplayAdapter2> : produce_base<D, winrt::Windows::Devices::Display::Core::IDisplayAdapter2>
+    {
+        int32_t __stdcall get_IsIndirectDisplayDevice(bool* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<bool>(this->shim().IsIndirectDisplayDevice());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_PreferredRenderAdapter(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::Devices::Display::Core::DisplayAdapter>(this->shim().PreferredRenderAdapter());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
     struct produce<D, winrt::Windows::Devices::Display::Core::IDisplayAdapterStatics> : produce_base<D, winrt::Windows::Devices::Display::Core::IDisplayAdapterStatics>
     {
         int32_t __stdcall FromId(struct struct_Windows_Graphics_DisplayAdapterId id, void** result) noexcept final try
@@ -969,6 +1164,34 @@ namespace winrt::impl
         {
             typename D::abi_guard guard(this->shim());
             *result = detach_from<bool>(this->shim().IsCapabilitySupported(*reinterpret_cast<winrt::Windows::Devices::Display::Core::DisplayDeviceCapability const*>(&capability)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, winrt::Windows::Devices::Display::Core::IDisplayDevice2> : produce_base<D, winrt::Windows::Devices::Display::Core::IDisplayDevice2>
+    {
+        int32_t __stdcall CreateSimpleScanoutWithDirtyRectsAndOptions(void* source, void* surface, uint32_t subresourceIndex, uint32_t syncInterval, void* dirtyRects, uint32_t options, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<winrt::Windows::Devices::Display::Core::DisplayScanout>(this->shim().CreateSimpleScanoutWithDirtyRectsAndOptions(*reinterpret_cast<winrt::Windows::Devices::Display::Core::DisplaySource const*>(&source), *reinterpret_cast<winrt::Windows::Devices::Display::Core::DisplaySurface const*>(&surface), subresourceIndex, syncInterval, *reinterpret_cast<winrt::Windows::Foundation::Collections::IIterable<winrt::Windows::Graphics::RectInt32> const*>(&dirtyRects), *reinterpret_cast<winrt::Windows::Devices::Display::Core::DisplayScanoutOptions const*>(&options)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, winrt::Windows::Devices::Display::Core::IDisplayDeviceRenderAdapter> : produce_base<D, winrt::Windows::Devices::Display::Core::IDisplayDeviceRenderAdapter>
+    {
+        int32_t __stdcall get_RenderAdapterId(struct struct_Windows_Graphics_DisplayAdapterId* value) noexcept final try
+        {
+            zero_abi<winrt::Windows::Graphics::DisplayAdapterId>(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::Graphics::DisplayAdapterId>(this->shim().RenderAdapterId());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1121,6 +1344,34 @@ namespace winrt::impl
         {
             typename D::abi_guard guard(this->shim());
             this->shim().Stop();
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, winrt::Windows::Devices::Display::Core::IDisplayManager2> : produce_base<D, winrt::Windows::Devices::Display::Core::IDisplayManager2>
+    {
+        int32_t __stdcall TryReadCurrentStateForModeQuery(void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<winrt::Windows::Devices::Display::Core::DisplayManagerResultWithState>(this->shim().TryReadCurrentStateForModeQuery());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, winrt::Windows::Devices::Display::Core::IDisplayManager3> : produce_base<D, winrt::Windows::Devices::Display::Core::IDisplayManager3>
+    {
+        int32_t __stdcall CreateDisplayDeviceForIndirectAdapter(void* indirectAdapter, void* renderAdapter, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<winrt::Windows::Devices::Display::Core::DisplayDevice>(this->shim().CreateDisplayDeviceForIndirectAdapter(*reinterpret_cast<winrt::Windows::Devices::Display::Core::DisplayAdapter const*>(&indirectAdapter), *reinterpret_cast<winrt::Windows::Devices::Display::Core::DisplayAdapter const*>(&renderAdapter)));
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -1356,6 +1607,124 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
+    struct produce<D, winrt::Windows::Devices::Display::Core::IDisplayModeInfo2> : produce_base<D, winrt::Windows::Devices::Display::Core::IDisplayModeInfo2>
+    {
+        int32_t __stdcall get_PhysicalPresentationRate(struct struct_Windows_Devices_Display_Core_DisplayPresentationRate* value) noexcept final try
+        {
+            zero_abi<winrt::Windows::Devices::Display::Core::DisplayPresentationRate>(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::Devices::Display::Core::DisplayPresentationRate>(this->shim().PhysicalPresentationRate());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, winrt::Windows::Devices::Display::Core::IDisplayMuxDevice> : produce_base<D, winrt::Windows::Devices::Display::Core::IDisplayMuxDevice>
+    {
+        int32_t __stdcall get_Id(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<hstring>(this->shim().Id());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_IsActive(bool* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<bool>(this->shim().IsActive());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall GetAvailableMuxTargets(void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<winrt::Windows::Foundation::Collections::IVectorView<winrt::Windows::Devices::Display::Core::DisplayTarget>>(this->shim().GetAvailableMuxTargets());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_CurrentTarget(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::Devices::Display::Core::DisplayTarget>(this->shim().CurrentTarget());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_PreferredTarget(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::Devices::Display::Core::DisplayTarget>(this->shim().PreferredTarget());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_IsAutomaticTargetSwitchingEnabled(bool* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<bool>(this->shim().IsAutomaticTargetSwitchingEnabled());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall SetPreferredTarget(void* target, void** operation) noexcept final try
+        {
+            clear_abi(operation);
+            typename D::abi_guard guard(this->shim());
+            *operation = detach_from<winrt::Windows::Foundation::IAsyncAction>(this->shim().SetPreferredTarget(*reinterpret_cast<winrt::Windows::Devices::Display::Core::DisplayTarget const*>(&target)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall SetAutomaticTargetSwitching(void** operation) noexcept final try
+        {
+            clear_abi(operation);
+            typename D::abi_guard guard(this->shim());
+            *operation = detach_from<winrt::Windows::Foundation::IAsyncAction>(this->shim().SetAutomaticTargetSwitching());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall add_Changed(void* handler, winrt::event_token* token) noexcept final try
+        {
+            zero_abi<winrt::event_token>(token);
+            typename D::abi_guard guard(this->shim());
+            *token = detach_from<winrt::event_token>(this->shim().Changed(*reinterpret_cast<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Display::Core::DisplayMuxDevice, winrt::Windows::Foundation::IInspectable> const*>(&handler)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall remove_Changed(winrt::event_token token) noexcept final
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().Changed(*reinterpret_cast<winrt::event_token const*>(&token));
+            return 0;
+        }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, winrt::Windows::Devices::Display::Core::IDisplayMuxDeviceStatics> : produce_base<D, winrt::Windows::Devices::Display::Core::IDisplayMuxDeviceStatics>
+    {
+        int32_t __stdcall GetDeviceSelector(void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<hstring>(this->shim().GetDeviceSelector());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall FromIdAsync(void* deviceInterfaceId, void** operation) noexcept final try
+        {
+            clear_abi(operation);
+            typename D::abi_guard guard(this->shim());
+            *operation = detach_from<winrt::Windows::Foundation::IAsyncOperation<winrt::Windows::Devices::Display::Core::DisplayMuxDevice>>(this->shim().FromIdAsync(*reinterpret_cast<hstring const*>(&deviceInterfaceId)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
     struct produce<D, winrt::Windows::Devices::Display::Core::IDisplayPath> : produce_base<D, winrt::Windows::Devices::Display::Core::IDisplayPath>
     {
         int32_t __stdcall get_View(void** value) noexcept final try
@@ -1539,6 +1908,27 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
+    struct produce<D, winrt::Windows::Devices::Display::Core::IDisplayPath2> : produce_base<D, winrt::Windows::Devices::Display::Core::IDisplayPath2>
+    {
+        int32_t __stdcall get_PhysicalPresentationRate(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::Foundation::IReference<winrt::Windows::Devices::Display::Core::DisplayPresentationRate>>(this->shim().PhysicalPresentationRate());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_PhysicalPresentationRate(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().PhysicalPresentationRate(*reinterpret_cast<winrt::Windows::Foundation::IReference<winrt::Windows::Devices::Display::Core::DisplayPresentationRate> const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
     struct produce<D, winrt::Windows::Devices::Display::Core::IDisplayPrimaryDescription> : produce_base<D, winrt::Windows::Devices::Display::Core::IDisplayPrimaryDescription>
     {
         int32_t __stdcall get_Width(uint32_t* value) noexcept final try
@@ -1655,6 +2045,33 @@ namespace winrt::impl
             return 0;
         }
         catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, winrt::Windows::Devices::Display::Core::IDisplaySource2> : produce_base<D, winrt::Windows::Devices::Display::Core::IDisplaySource2>
+    {
+        int32_t __stdcall get_Status(int32_t* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::Devices::Display::Core::DisplaySourceStatus>(this->shim().Status());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall add_StatusChanged(void* handler, winrt::event_token* token) noexcept final try
+        {
+            zero_abi<winrt::event_token>(token);
+            typename D::abi_guard guard(this->shim());
+            *token = detach_from<winrt::event_token>(this->shim().StatusChanged(*reinterpret_cast<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::Devices::Display::Core::DisplaySource, winrt::Windows::Foundation::IInspectable> const*>(&handler)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall remove_StatusChanged(winrt::event_token token) noexcept final
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().StatusChanged(*reinterpret_cast<winrt::event_token const*>(&token));
+            return 0;
+        }
     };
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
@@ -1929,6 +2346,19 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
+    struct produce<D, winrt::Windows::Devices::Display::Core::IDisplayTask2> : produce_base<D, winrt::Windows::Devices::Display::Core::IDisplayTask2>
+    {
+        int32_t __stdcall SetSignal(int32_t signalKind, void* fence) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().SetSignal(*reinterpret_cast<winrt::Windows::Devices::Display::Core::DisplayTaskSignalKind const*>(&signalKind), *reinterpret_cast<winrt::Windows::Devices::Display::Core::DisplayFence const*>(&fence));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
     struct produce<D, winrt::Windows::Devices::Display::Core::IDisplayTaskPool> : produce_base<D, winrt::Windows::Devices::Display::Core::IDisplayTaskPool>
     {
         int32_t __stdcall CreateTask(void** result) noexcept final try
@@ -1943,6 +2373,47 @@ namespace winrt::impl
         {
             typename D::abi_guard guard(this->shim());
             this->shim().ExecuteTask(*reinterpret_cast<winrt::Windows::Devices::Display::Core::DisplayTask const*>(&task));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, winrt::Windows::Devices::Display::Core::IDisplayTaskPool2> : produce_base<D, winrt::Windows::Devices::Display::Core::IDisplayTaskPool2>
+    {
+        int32_t __stdcall TryExecuteTask(void* task, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<winrt::Windows::Devices::Display::Core::DisplayTaskResult>(this->shim().TryExecuteTask(*reinterpret_cast<winrt::Windows::Devices::Display::Core::DisplayTask const*>(&task)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, winrt::Windows::Devices::Display::Core::IDisplayTaskResult> : produce_base<D, winrt::Windows::Devices::Display::Core::IDisplayTaskResult>
+    {
+        int32_t __stdcall get_PresentStatus(int32_t* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::Devices::Display::Core::DisplayPresentStatus>(this->shim().PresentStatus());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_PresentId(uint64_t* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<uint64_t>(this->shim().PresentId());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_SourceStatus(int32_t* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::Devices::Display::Core::DisplaySourceStatus>(this->shim().SourceStatus());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -2165,6 +2636,37 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Display::Core
         left = left ^ right;
         return left;
     }
+    constexpr auto operator|(DisplayScanoutOptions const left, DisplayScanoutOptions const right) noexcept
+    {
+        return static_cast<DisplayScanoutOptions>(impl::to_underlying_type(left) | impl::to_underlying_type(right));
+    }
+    constexpr auto operator|=(DisplayScanoutOptions& left, DisplayScanoutOptions const right) noexcept
+    {
+        left = left | right;
+        return left;
+    }
+    constexpr auto operator&(DisplayScanoutOptions const left, DisplayScanoutOptions const right) noexcept
+    {
+        return static_cast<DisplayScanoutOptions>(impl::to_underlying_type(left) & impl::to_underlying_type(right));
+    }
+    constexpr auto operator&=(DisplayScanoutOptions& left, DisplayScanoutOptions const right) noexcept
+    {
+        left = left & right;
+        return left;
+    }
+    constexpr auto operator~(DisplayScanoutOptions const value) noexcept
+    {
+        return static_cast<DisplayScanoutOptions>(~impl::to_underlying_type(value));
+    }
+    constexpr auto operator^(DisplayScanoutOptions const left, DisplayScanoutOptions const right) noexcept
+    {
+        return static_cast<DisplayScanoutOptions>(impl::to_underlying_type(left) ^ impl::to_underlying_type(right));
+    }
+    constexpr auto operator^=(DisplayScanoutOptions& left, DisplayScanoutOptions const right) noexcept
+    {
+        left = left ^ right;
+        return left;
+    }
     constexpr auto operator|(DisplayStateApplyOptions const left, DisplayStateApplyOptions const right) noexcept
     {
         return static_cast<DisplayStateApplyOptions>(impl::to_underlying_type(left) | impl::to_underlying_type(right));
@@ -2235,6 +2737,14 @@ WINRT_EXPORT namespace winrt::Windows::Devices::Display::Core
     {
         return impl::call_factory<DisplayManager, IDisplayManagerStatics>([&](IDisplayManagerStatics const& f) { return f.Create(options); });
     }
+    inline auto DisplayMuxDevice::GetDeviceSelector()
+    {
+        return impl::call_factory_cast<hstring(*)(IDisplayMuxDeviceStatics const&), DisplayMuxDevice, IDisplayMuxDeviceStatics>([](IDisplayMuxDeviceStatics const& f) { return f.GetDeviceSelector(); });
+    }
+    inline auto DisplayMuxDevice::FromIdAsync(param::hstring const& deviceInterfaceId)
+    {
+        return impl::call_factory<DisplayMuxDevice, IDisplayMuxDeviceStatics>([&](IDisplayMuxDeviceStatics const& f) { return f.FromIdAsync(deviceInterfaceId); });
+    }
     inline DisplayPrimaryDescription::DisplayPrimaryDescription(uint32_t width, uint32_t height, winrt::Windows::Graphics::DirectX::DirectXPixelFormat const& pixelFormat, winrt::Windows::Graphics::DirectX::DirectXColorSpace const& colorSpace, bool isStereo, winrt::Windows::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription const& multisampleDescription) :
         DisplayPrimaryDescription(impl::call_factory<DisplayPrimaryDescription, IDisplayPrimaryDescriptionFactory>([&](IDisplayPrimaryDescriptionFactory const& f) { return f.CreateInstance(width, height, pixelFormat, colorSpace, isStereo, multisampleDescription); }))
     {
@@ -2256,10 +2766,15 @@ namespace std
 {
 #ifndef WINRT_LEAN_AND_MEAN
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayAdapter> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayAdapter2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayAdapterStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayDevice> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayDevice2> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayDeviceRenderAdapter> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayFence> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayManager> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayManager2> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayManager3> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayManagerChangedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayManagerDisabledEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayManagerEnabledEventArgs> : winrt::impl::hash_base {};
@@ -2267,18 +2782,26 @@ namespace std
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayManagerResultWithState> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayManagerStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayModeInfo> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayModeInfo2> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayMuxDevice> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayMuxDeviceStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayPath> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayPath2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayPrimaryDescription> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayPrimaryDescriptionFactory> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayPrimaryDescriptionStatics> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayScanout> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplaySource> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplaySource2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayState> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayStateOperationResult> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplaySurface> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayTarget> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayTask> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayTask2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayTaskPool> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayTaskPool2> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayTaskResult> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayView> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayWireFormat> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::IDisplayWireFormatFactory> : winrt::impl::hash_base {};
@@ -2293,6 +2816,7 @@ namespace std
     template<> struct hash<winrt::Windows::Devices::Display::Core::DisplayManagerPathsFailedOrInvalidatedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::DisplayManagerResultWithState> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::DisplayModeInfo> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Devices::Display::Core::DisplayMuxDevice> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::DisplayPath> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::DisplayPrimaryDescription> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::DisplayScanout> : winrt::impl::hash_base {};
@@ -2303,6 +2827,7 @@ namespace std
     template<> struct hash<winrt::Windows::Devices::Display::Core::DisplayTarget> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::DisplayTask> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::DisplayTaskPool> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::Devices::Display::Core::DisplayTaskResult> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::DisplayView> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::Devices::Display::Core::DisplayWireFormat> : winrt::impl::hash_base {};
 #endif

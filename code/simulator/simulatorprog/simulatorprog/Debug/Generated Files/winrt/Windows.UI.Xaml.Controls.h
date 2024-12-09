@@ -1864,6 +1864,246 @@ namespace winrt::impl
     {
         check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView)->SetYearDecadeDisplayDimensions(columns, rows));
     }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::SelectedDisabledBorderBrush() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_SelectedDisabledBorderBrush(&value));
+        return winrt::Windows::UI::Xaml::Media::Brush{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::SelectedDisabledBorderBrush(winrt::Windows::UI::Xaml::Media::Brush const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_SelectedDisabledBorderBrush(*(void**)(&value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::TodaySelectedInnerBorderBrush() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_TodaySelectedInnerBorderBrush(&value));
+        return winrt::Windows::UI::Xaml::Media::Brush{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::TodaySelectedInnerBorderBrush(winrt::Windows::UI::Xaml::Media::Brush const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_TodaySelectedInnerBorderBrush(*(void**)(&value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::BlackoutStrikethroughBrush() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_BlackoutStrikethroughBrush(&value));
+        return winrt::Windows::UI::Xaml::Media::Brush{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::BlackoutStrikethroughBrush(winrt::Windows::UI::Xaml::Media::Brush const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_BlackoutStrikethroughBrush(*(void**)(&value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::BlackoutBackground() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_BlackoutBackground(&value));
+        return winrt::Windows::UI::Xaml::Media::Brush{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::BlackoutBackground(winrt::Windows::UI::Xaml::Media::Brush const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_BlackoutBackground(*(void**)(&value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::CalendarItemHoverBackground() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_CalendarItemHoverBackground(&value));
+        return winrt::Windows::UI::Xaml::Media::Brush{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::CalendarItemHoverBackground(winrt::Windows::UI::Xaml::Media::Brush const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_CalendarItemHoverBackground(*(void**)(&value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::CalendarItemPressedBackground() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_CalendarItemPressedBackground(&value));
+        return winrt::Windows::UI::Xaml::Media::Brush{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::CalendarItemPressedBackground(winrt::Windows::UI::Xaml::Media::Brush const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_CalendarItemPressedBackground(*(void**)(&value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::CalendarItemDisabledBackground() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_CalendarItemDisabledBackground(&value));
+        return winrt::Windows::UI::Xaml::Media::Brush{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::CalendarItemDisabledBackground(winrt::Windows::UI::Xaml::Media::Brush const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_CalendarItemDisabledBackground(*(void**)(&value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::TodayBackground() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_TodayBackground(&value));
+        return winrt::Windows::UI::Xaml::Media::Brush{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::TodayBackground(winrt::Windows::UI::Xaml::Media::Brush const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_TodayBackground(*(void**)(&value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::TodayBlackoutBackground() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_TodayBlackoutBackground(&value));
+        return winrt::Windows::UI::Xaml::Media::Brush{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::TodayBlackoutBackground(winrt::Windows::UI::Xaml::Media::Brush const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_TodayBlackoutBackground(*(void**)(&value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::TodayHoverBackground() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_TodayHoverBackground(&value));
+        return winrt::Windows::UI::Xaml::Media::Brush{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::TodayHoverBackground(winrt::Windows::UI::Xaml::Media::Brush const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_TodayHoverBackground(*(void**)(&value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::TodayPressedBackground() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_TodayPressedBackground(&value));
+        return winrt::Windows::UI::Xaml::Media::Brush{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::TodayPressedBackground(winrt::Windows::UI::Xaml::Media::Brush const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_TodayPressedBackground(*(void**)(&value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::TodayDisabledBackground() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_TodayDisabledBackground(&value));
+        return winrt::Windows::UI::Xaml::Media::Brush{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::TodayDisabledBackground(winrt::Windows::UI::Xaml::Media::Brush const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_TodayDisabledBackground(*(void**)(&value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::TodayBlackoutForeground() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_TodayBlackoutForeground(&value));
+        return winrt::Windows::UI::Xaml::Media::Brush{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::TodayBlackoutForeground(winrt::Windows::UI::Xaml::Media::Brush const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_TodayBlackoutForeground(*(void**)(&value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::SelectedHoverForeground() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_SelectedHoverForeground(&value));
+        return winrt::Windows::UI::Xaml::Media::Brush{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::SelectedHoverForeground(winrt::Windows::UI::Xaml::Media::Brush const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_SelectedHoverForeground(*(void**)(&value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::SelectedPressedForeground() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_SelectedPressedForeground(&value));
+        return winrt::Windows::UI::Xaml::Media::Brush{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::SelectedPressedForeground(winrt::Windows::UI::Xaml::Media::Brush const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_SelectedPressedForeground(*(void**)(&value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::SelectedDisabledForeground() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_SelectedDisabledForeground(&value));
+        return winrt::Windows::UI::Xaml::Media::Brush{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::SelectedDisabledForeground(winrt::Windows::UI::Xaml::Media::Brush const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_SelectedDisabledForeground(*(void**)(&value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::OutOfScopeHoverForeground() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_OutOfScopeHoverForeground(&value));
+        return winrt::Windows::UI::Xaml::Media::Brush{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::OutOfScopeHoverForeground(winrt::Windows::UI::Xaml::Media::Brush const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_OutOfScopeHoverForeground(*(void**)(&value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::OutOfScopePressedForeground() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_OutOfScopePressedForeground(&value));
+        return winrt::Windows::UI::Xaml::Media::Brush{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::OutOfScopePressedForeground(winrt::Windows::UI::Xaml::Media::Brush const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_OutOfScopePressedForeground(*(void**)(&value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::DisabledForeground() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_DisabledForeground(&value));
+        return winrt::Windows::UI::Xaml::Media::Brush{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::DisabledForeground(winrt::Windows::UI::Xaml::Media::Brush const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_DisabledForeground(*(void**)(&value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::DayItemMargin() const
+    {
+        winrt::Windows::UI::Xaml::Thickness value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_DayItemMargin(put_abi(value)));
+        return value;
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::DayItemMargin(winrt::Windows::UI::Xaml::Thickness const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_DayItemMargin(impl::bind_in(value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::MonthYearItemMargin() const
+    {
+        winrt::Windows::UI::Xaml::Thickness value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_MonthYearItemMargin(put_abi(value)));
+        return value;
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::MonthYearItemMargin(winrt::Windows::UI::Xaml::Thickness const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_MonthYearItemMargin(impl::bind_in(value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::FirstOfMonthLabelMargin() const
+    {
+        winrt::Windows::UI::Xaml::Thickness value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_FirstOfMonthLabelMargin(put_abi(value)));
+        return value;
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::FirstOfMonthLabelMargin(winrt::Windows::UI::Xaml::Thickness const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_FirstOfMonthLabelMargin(impl::bind_in(value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::FirstOfYearDecadeLabelMargin() const
+    {
+        winrt::Windows::UI::Xaml::Thickness value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_FirstOfYearDecadeLabelMargin(put_abi(value)));
+        return value;
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::FirstOfYearDecadeLabelMargin(winrt::Windows::UI::Xaml::Thickness const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_FirstOfYearDecadeLabelMargin(impl::bind_in(value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::CalendarItemCornerRadius() const
+    {
+        winrt::Windows::UI::Xaml::CornerRadius value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->get_CalendarItemCornerRadius(put_abi(value)));
+        return value;
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarView2<D>::CalendarItemCornerRadius(winrt::Windows::UI::Xaml::CornerRadius const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarView2)->put_CalendarItemCornerRadius(impl::bind_in(value)));
+    }
     template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewDayItem<D>::IsBlackout() const
     {
         bool value{};
@@ -2250,6 +2490,150 @@ namespace winrt::impl
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics)->get_CalendarViewDayItemStyleProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::SelectedDisabledBorderBrushProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_SelectedDisabledBorderBrushProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::TodaySelectedInnerBorderBrushProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_TodaySelectedInnerBorderBrushProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::BlackoutStrikethroughBrushProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_BlackoutStrikethroughBrushProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::BlackoutBackgroundProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_BlackoutBackgroundProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::CalendarItemHoverBackgroundProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_CalendarItemHoverBackgroundProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::CalendarItemPressedBackgroundProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_CalendarItemPressedBackgroundProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::CalendarItemDisabledBackgroundProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_CalendarItemDisabledBackgroundProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::TodayBackgroundProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_TodayBackgroundProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::TodayBlackoutBackgroundProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_TodayBlackoutBackgroundProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::TodayHoverBackgroundProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_TodayHoverBackgroundProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::TodayPressedBackgroundProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_TodayPressedBackgroundProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::TodayDisabledBackgroundProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_TodayDisabledBackgroundProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::TodayBlackoutForegroundProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_TodayBlackoutForegroundProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::SelectedHoverForegroundProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_SelectedHoverForegroundProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::SelectedPressedForegroundProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_SelectedPressedForegroundProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::SelectedDisabledForegroundProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_SelectedDisabledForegroundProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::OutOfScopeHoverForegroundProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_OutOfScopeHoverForegroundProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::OutOfScopePressedForegroundProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_OutOfScopePressedForegroundProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::DisabledForegroundProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_DisabledForegroundProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::DayItemMarginProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_DayItemMarginProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::MonthYearItemMarginProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_MonthYearItemMarginProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::FirstOfMonthLabelMarginProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_FirstOfMonthLabelMarginProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::FirstOfYearDecadeLabelMarginProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_FirstOfYearDecadeLabelMarginProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_ICalendarViewStatics2<D>::CalendarItemCornerRadiusProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2)->get_CalendarItemCornerRadiusProperty(&value));
         return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_UI_Xaml_Controls_ICandidateWindowBoundsChangedEventArgs<D>::Bounds() const
@@ -6674,6 +7058,80 @@ namespace winrt::impl
         check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::IHandwritingView)->TryOpen(&result));
         return result;
     }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_IHandwritingView2<D>::IsSwitchToKeyboardEnabled() const
+    {
+        bool value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::IHandwritingView2)->get_IsSwitchToKeyboardEnabled(&value));
+        return value;
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_IHandwritingView2<D>::IsSwitchToKeyboardEnabled(bool value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::IHandwritingView2)->put_IsSwitchToKeyboardEnabled(value));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_IHandwritingView2<D>::IsCommandBarOpen() const
+    {
+        bool value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::IHandwritingView2)->get_IsCommandBarOpen(&value));
+        return value;
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_IHandwritingView2<D>::IsCommandBarOpen(bool value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::IHandwritingView2)->put_IsCommandBarOpen(value));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_IHandwritingView2<D>::InputDeviceTypes() const
+    {
+        winrt::Windows::UI::Core::CoreInputDeviceTypes value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::IHandwritingView2)->get_InputDeviceTypes(reinterpret_cast<uint32_t*>(&value)));
+        return value;
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_IHandwritingView2<D>::InputDeviceTypes(winrt::Windows::UI::Core::CoreInputDeviceTypes const& value) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::IHandwritingView2)->put_InputDeviceTypes(static_cast<uint32_t>(value)));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_IHandwritingView2<D>::CandidatesChanged(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::Xaml::Controls::HandwritingView, winrt::Windows::UI::Xaml::Controls::HandwritingViewCandidatesChangedEventArgs> const& handler) const
+    {
+        winrt::event_token token{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::IHandwritingView2)->add_CandidatesChanged(*(void**)(&handler), put_abi(token)));
+        return token;
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_IHandwritingView2<D>::CandidatesChanged(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::Xaml::Controls::HandwritingView, winrt::Windows::UI::Xaml::Controls::HandwritingViewCandidatesChangedEventArgs> const& handler) const
+    {
+        return impl::make_event_revoker<D, CandidatesChanged_revoker>(this, CandidatesChanged(handler));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_IHandwritingView2<D>::CandidatesChanged(winrt::event_token const& token) const noexcept
+    {
+        WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::IHandwritingView2)->remove_CandidatesChanged(impl::bind_in(token));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_IHandwritingView2<D>::TextSubmitted(winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::Xaml::Controls::HandwritingView, winrt::Windows::UI::Xaml::Controls::HandwritingViewTextSubmittedEventArgs> const& handler) const
+    {
+        winrt::event_token token{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::IHandwritingView2)->add_TextSubmitted(*(void**)(&handler), put_abi(token)));
+        return token;
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_IHandwritingView2<D>::TextSubmitted(auto_revoke_t, winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::Xaml::Controls::HandwritingView, winrt::Windows::UI::Xaml::Controls::HandwritingViewTextSubmittedEventArgs> const& handler) const
+    {
+        return impl::make_event_revoker<D, TextSubmitted_revoker>(this, TextSubmitted(handler));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_IHandwritingView2<D>::TextSubmitted(winrt::event_token const& token) const noexcept
+    {
+        WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::IHandwritingView2)->remove_TextSubmitted(impl::bind_in(token));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_IHandwritingView2<D>::GetCandidates(uint32_t candidatesSessionId) const
+    {
+        void* result{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::IHandwritingView2)->GetCandidates(candidatesSessionId, &result));
+        return winrt::Windows::Foundation::Collections::IVectorView<hstring>{ result, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_IHandwritingView2<D>::SelectCandidate(uint32_t candidatesSessionId, uint32_t selectedCandidateIndex) const
+    {
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::IHandwritingView2)->SelectCandidate(candidatesSessionId, selectedCandidateIndex));
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_IHandwritingViewCandidatesChangedEventArgs<D>::CandidatesSessionId() const
+    {
+        uint32_t value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::IHandwritingViewCandidatesChangedEventArgs)->get_CandidatesSessionId(&value));
+        return value;
+    }
     template <typename D> auto consume_Windows_UI_Xaml_Controls_IHandwritingViewFactory<D>::CreateInstance(winrt::Windows::Foundation::IInspectable const& baseInterface, winrt::Windows::Foundation::IInspectable& innerInterface) const
     {
         void* value{};
@@ -6702,6 +7160,18 @@ namespace winrt::impl
     {
         void* value{};
         check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::IHandwritingViewStatics)->get_AreCandidatesEnabledProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_IHandwritingViewStatics2<D>::IsSwitchToKeyboardEnabledProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::IHandwritingViewStatics2)->get_IsSwitchToKeyboardEnabledProperty(&value));
+        return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
+    }
+    template <typename D> auto consume_Windows_UI_Xaml_Controls_IHandwritingViewStatics2<D>::IsCommandBarOpenProperty() const
+    {
+        void* value{};
+        check_hresult(WINRT_IMPL_SHIM(winrt::Windows::UI::Xaml::Controls::IHandwritingViewStatics2)->get_IsCommandBarOpenProperty(&value));
         return winrt::Windows::UI::Xaml::DependencyProperty{ value, take_ownership_from_abi };
     }
     template <typename D> auto consume_Windows_UI_Xaml_Controls_IHub<D>::Header() const
@@ -25418,6 +25888,372 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
+    struct produce<D, winrt::Windows::UI::Xaml::Controls::ICalendarView2> : produce_base<D, winrt::Windows::UI::Xaml::Controls::ICalendarView2>
+    {
+        int32_t __stdcall get_SelectedDisabledBorderBrush(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Media::Brush>(this->shim().SelectedDisabledBorderBrush());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_SelectedDisabledBorderBrush(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().SelectedDisabledBorderBrush(*reinterpret_cast<winrt::Windows::UI::Xaml::Media::Brush const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_TodaySelectedInnerBorderBrush(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Media::Brush>(this->shim().TodaySelectedInnerBorderBrush());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_TodaySelectedInnerBorderBrush(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().TodaySelectedInnerBorderBrush(*reinterpret_cast<winrt::Windows::UI::Xaml::Media::Brush const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_BlackoutStrikethroughBrush(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Media::Brush>(this->shim().BlackoutStrikethroughBrush());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_BlackoutStrikethroughBrush(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().BlackoutStrikethroughBrush(*reinterpret_cast<winrt::Windows::UI::Xaml::Media::Brush const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_BlackoutBackground(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Media::Brush>(this->shim().BlackoutBackground());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_BlackoutBackground(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().BlackoutBackground(*reinterpret_cast<winrt::Windows::UI::Xaml::Media::Brush const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_CalendarItemHoverBackground(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Media::Brush>(this->shim().CalendarItemHoverBackground());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_CalendarItemHoverBackground(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().CalendarItemHoverBackground(*reinterpret_cast<winrt::Windows::UI::Xaml::Media::Brush const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_CalendarItemPressedBackground(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Media::Brush>(this->shim().CalendarItemPressedBackground());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_CalendarItemPressedBackground(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().CalendarItemPressedBackground(*reinterpret_cast<winrt::Windows::UI::Xaml::Media::Brush const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_CalendarItemDisabledBackground(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Media::Brush>(this->shim().CalendarItemDisabledBackground());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_CalendarItemDisabledBackground(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().CalendarItemDisabledBackground(*reinterpret_cast<winrt::Windows::UI::Xaml::Media::Brush const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_TodayBackground(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Media::Brush>(this->shim().TodayBackground());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_TodayBackground(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().TodayBackground(*reinterpret_cast<winrt::Windows::UI::Xaml::Media::Brush const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_TodayBlackoutBackground(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Media::Brush>(this->shim().TodayBlackoutBackground());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_TodayBlackoutBackground(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().TodayBlackoutBackground(*reinterpret_cast<winrt::Windows::UI::Xaml::Media::Brush const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_TodayHoverBackground(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Media::Brush>(this->shim().TodayHoverBackground());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_TodayHoverBackground(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().TodayHoverBackground(*reinterpret_cast<winrt::Windows::UI::Xaml::Media::Brush const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_TodayPressedBackground(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Media::Brush>(this->shim().TodayPressedBackground());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_TodayPressedBackground(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().TodayPressedBackground(*reinterpret_cast<winrt::Windows::UI::Xaml::Media::Brush const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_TodayDisabledBackground(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Media::Brush>(this->shim().TodayDisabledBackground());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_TodayDisabledBackground(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().TodayDisabledBackground(*reinterpret_cast<winrt::Windows::UI::Xaml::Media::Brush const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_TodayBlackoutForeground(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Media::Brush>(this->shim().TodayBlackoutForeground());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_TodayBlackoutForeground(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().TodayBlackoutForeground(*reinterpret_cast<winrt::Windows::UI::Xaml::Media::Brush const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_SelectedHoverForeground(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Media::Brush>(this->shim().SelectedHoverForeground());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_SelectedHoverForeground(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().SelectedHoverForeground(*reinterpret_cast<winrt::Windows::UI::Xaml::Media::Brush const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_SelectedPressedForeground(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Media::Brush>(this->shim().SelectedPressedForeground());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_SelectedPressedForeground(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().SelectedPressedForeground(*reinterpret_cast<winrt::Windows::UI::Xaml::Media::Brush const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_SelectedDisabledForeground(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Media::Brush>(this->shim().SelectedDisabledForeground());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_SelectedDisabledForeground(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().SelectedDisabledForeground(*reinterpret_cast<winrt::Windows::UI::Xaml::Media::Brush const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_OutOfScopeHoverForeground(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Media::Brush>(this->shim().OutOfScopeHoverForeground());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_OutOfScopeHoverForeground(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().OutOfScopeHoverForeground(*reinterpret_cast<winrt::Windows::UI::Xaml::Media::Brush const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_OutOfScopePressedForeground(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Media::Brush>(this->shim().OutOfScopePressedForeground());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_OutOfScopePressedForeground(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().OutOfScopePressedForeground(*reinterpret_cast<winrt::Windows::UI::Xaml::Media::Brush const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_DisabledForeground(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Media::Brush>(this->shim().DisabledForeground());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_DisabledForeground(void* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().DisabledForeground(*reinterpret_cast<winrt::Windows::UI::Xaml::Media::Brush const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_DayItemMargin(struct struct_Windows_UI_Xaml_Thickness* value) noexcept final try
+        {
+            zero_abi<winrt::Windows::UI::Xaml::Thickness>(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Thickness>(this->shim().DayItemMargin());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_DayItemMargin(struct struct_Windows_UI_Xaml_Thickness value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().DayItemMargin(*reinterpret_cast<winrt::Windows::UI::Xaml::Thickness const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_MonthYearItemMargin(struct struct_Windows_UI_Xaml_Thickness* value) noexcept final try
+        {
+            zero_abi<winrt::Windows::UI::Xaml::Thickness>(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Thickness>(this->shim().MonthYearItemMargin());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_MonthYearItemMargin(struct struct_Windows_UI_Xaml_Thickness value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().MonthYearItemMargin(*reinterpret_cast<winrt::Windows::UI::Xaml::Thickness const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_FirstOfMonthLabelMargin(struct struct_Windows_UI_Xaml_Thickness* value) noexcept final try
+        {
+            zero_abi<winrt::Windows::UI::Xaml::Thickness>(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Thickness>(this->shim().FirstOfMonthLabelMargin());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_FirstOfMonthLabelMargin(struct struct_Windows_UI_Xaml_Thickness value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().FirstOfMonthLabelMargin(*reinterpret_cast<winrt::Windows::UI::Xaml::Thickness const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_FirstOfYearDecadeLabelMargin(struct struct_Windows_UI_Xaml_Thickness* value) noexcept final try
+        {
+            zero_abi<winrt::Windows::UI::Xaml::Thickness>(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::Thickness>(this->shim().FirstOfYearDecadeLabelMargin());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_FirstOfYearDecadeLabelMargin(struct struct_Windows_UI_Xaml_Thickness value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().FirstOfYearDecadeLabelMargin(*reinterpret_cast<winrt::Windows::UI::Xaml::Thickness const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_CalendarItemCornerRadius(struct struct_Windows_UI_Xaml_CornerRadius* value) noexcept final try
+        {
+            zero_abi<winrt::Windows::UI::Xaml::CornerRadius>(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::CornerRadius>(this->shim().CalendarItemCornerRadius());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_CalendarItemCornerRadius(struct struct_Windows_UI_Xaml_CornerRadius value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().CalendarItemCornerRadius(*reinterpret_cast<winrt::Windows::UI::Xaml::CornerRadius const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
     struct produce<D, winrt::Windows::UI::Xaml::Controls::ICalendarViewDayItem> : produce_base<D, winrt::Windows::UI::Xaml::Controls::ICalendarViewDayItem>
     {
         int32_t __stdcall get_IsBlackout(bool* value) noexcept final try
@@ -25980,6 +26816,204 @@ namespace winrt::impl
             clear_abi(value);
             typename D::abi_guard guard(this->shim());
             *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().CalendarViewDayItemStyleProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2> : produce_base<D, winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2>
+    {
+        int32_t __stdcall get_SelectedDisabledBorderBrushProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().SelectedDisabledBorderBrushProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_TodaySelectedInnerBorderBrushProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().TodaySelectedInnerBorderBrushProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_BlackoutStrikethroughBrushProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().BlackoutStrikethroughBrushProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_BlackoutBackgroundProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().BlackoutBackgroundProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_CalendarItemHoverBackgroundProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().CalendarItemHoverBackgroundProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_CalendarItemPressedBackgroundProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().CalendarItemPressedBackgroundProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_CalendarItemDisabledBackgroundProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().CalendarItemDisabledBackgroundProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_TodayBackgroundProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().TodayBackgroundProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_TodayBlackoutBackgroundProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().TodayBlackoutBackgroundProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_TodayHoverBackgroundProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().TodayHoverBackgroundProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_TodayPressedBackgroundProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().TodayPressedBackgroundProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_TodayDisabledBackgroundProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().TodayDisabledBackgroundProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_TodayBlackoutForegroundProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().TodayBlackoutForegroundProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_SelectedHoverForegroundProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().SelectedHoverForegroundProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_SelectedPressedForegroundProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().SelectedPressedForegroundProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_SelectedDisabledForegroundProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().SelectedDisabledForegroundProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_OutOfScopeHoverForegroundProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().OutOfScopeHoverForegroundProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_OutOfScopePressedForegroundProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().OutOfScopePressedForegroundProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_DisabledForegroundProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().DisabledForegroundProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_DayItemMarginProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().DayItemMarginProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_MonthYearItemMarginProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().MonthYearItemMarginProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_FirstOfMonthLabelMarginProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().FirstOfMonthLabelMarginProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_FirstOfYearDecadeLabelMarginProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().FirstOfYearDecadeLabelMarginProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_CalendarItemCornerRadiusProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().CalendarItemCornerRadiusProperty());
             return 0;
         }
         catch (...) { return to_hresult(); }
@@ -33264,6 +34298,110 @@ namespace winrt::impl
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
     template <typename D>
+    struct produce<D, winrt::Windows::UI::Xaml::Controls::IHandwritingView2> : produce_base<D, winrt::Windows::UI::Xaml::Controls::IHandwritingView2>
+    {
+        int32_t __stdcall get_IsSwitchToKeyboardEnabled(bool* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<bool>(this->shim().IsSwitchToKeyboardEnabled());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_IsSwitchToKeyboardEnabled(bool value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().IsSwitchToKeyboardEnabled(value);
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_IsCommandBarOpen(bool* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<bool>(this->shim().IsCommandBarOpen());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_IsCommandBarOpen(bool value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().IsCommandBarOpen(value);
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_InputDeviceTypes(uint32_t* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Core::CoreInputDeviceTypes>(this->shim().InputDeviceTypes());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall put_InputDeviceTypes(uint32_t value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().InputDeviceTypes(*reinterpret_cast<winrt::Windows::UI::Core::CoreInputDeviceTypes const*>(&value));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall add_CandidatesChanged(void* handler, winrt::event_token* token) noexcept final try
+        {
+            zero_abi<winrt::event_token>(token);
+            typename D::abi_guard guard(this->shim());
+            *token = detach_from<winrt::event_token>(this->shim().CandidatesChanged(*reinterpret_cast<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::Xaml::Controls::HandwritingView, winrt::Windows::UI::Xaml::Controls::HandwritingViewCandidatesChangedEventArgs> const*>(&handler)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall remove_CandidatesChanged(winrt::event_token token) noexcept final
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().CandidatesChanged(*reinterpret_cast<winrt::event_token const*>(&token));
+            return 0;
+        }
+        int32_t __stdcall add_TextSubmitted(void* handler, winrt::event_token* token) noexcept final try
+        {
+            zero_abi<winrt::event_token>(token);
+            typename D::abi_guard guard(this->shim());
+            *token = detach_from<winrt::event_token>(this->shim().TextSubmitted(*reinterpret_cast<winrt::Windows::Foundation::TypedEventHandler<winrt::Windows::UI::Xaml::Controls::HandwritingView, winrt::Windows::UI::Xaml::Controls::HandwritingViewTextSubmittedEventArgs> const*>(&handler)));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall remove_TextSubmitted(winrt::event_token token) noexcept final
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().TextSubmitted(*reinterpret_cast<winrt::event_token const*>(&token));
+            return 0;
+        }
+        int32_t __stdcall GetCandidates(uint32_t candidatesSessionId, void** result) noexcept final try
+        {
+            clear_abi(result);
+            typename D::abi_guard guard(this->shim());
+            *result = detach_from<winrt::Windows::Foundation::Collections::IVectorView<hstring>>(this->shim().GetCandidates(candidatesSessionId));
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall SelectCandidate(uint32_t candidatesSessionId, uint32_t selectedCandidateIndex) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            this->shim().SelectCandidate(candidatesSessionId, selectedCandidateIndex);
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, winrt::Windows::UI::Xaml::Controls::IHandwritingViewCandidatesChangedEventArgs> : produce_base<D, winrt::Windows::UI::Xaml::Controls::IHandwritingViewCandidatesChangedEventArgs>
+    {
+        int32_t __stdcall get_CandidatesSessionId(uint32_t* value) noexcept final try
+        {
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<uint32_t>(this->shim().CandidatesSessionId());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
     struct produce<D, winrt::Windows::UI::Xaml::Controls::IHandwritingViewFactory> : produce_base<D, winrt::Windows::UI::Xaml::Controls::IHandwritingViewFactory>
     {
         int32_t __stdcall CreateInstance(void* baseInterface, void** innerInterface, void** value) noexcept final try
@@ -33315,6 +34453,34 @@ namespace winrt::impl
             return 0;
         }
         catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, winrt::Windows::UI::Xaml::Controls::IHandwritingViewStatics2> : produce_base<D, winrt::Windows::UI::Xaml::Controls::IHandwritingViewStatics2>
+    {
+        int32_t __stdcall get_IsSwitchToKeyboardEnabledProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().IsSwitchToKeyboardEnabledProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+        int32_t __stdcall get_IsCommandBarOpenProperty(void** value) noexcept final try
+        {
+            clear_abi(value);
+            typename D::abi_guard guard(this->shim());
+            *value = detach_from<winrt::Windows::UI::Xaml::DependencyProperty>(this->shim().IsCommandBarOpenProperty());
+            return 0;
+        }
+        catch (...) { return to_hresult(); }
+    };
+#endif
+#ifndef WINRT_LEAN_AND_MEAN
+    template <typename D>
+    struct produce<D, winrt::Windows::UI::Xaml::Controls::IHandwritingViewTextSubmittedEventArgs> : produce_base<D, winrt::Windows::UI::Xaml::Controls::IHandwritingViewTextSubmittedEventArgs>
+    {
     };
 #endif
 #ifndef WINRT_LEAN_AND_MEAN
@@ -59124,6 +60290,102 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Controls
     {
         return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics const&), CalendarView, ICalendarViewStatics>([](ICalendarViewStatics const& f) { return f.CalendarViewDayItemStyleProperty(); });
     }
+    inline auto CalendarView::SelectedDisabledBorderBrushProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.SelectedDisabledBorderBrushProperty(); });
+    }
+    inline auto CalendarView::TodaySelectedInnerBorderBrushProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.TodaySelectedInnerBorderBrushProperty(); });
+    }
+    inline auto CalendarView::BlackoutStrikethroughBrushProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.BlackoutStrikethroughBrushProperty(); });
+    }
+    inline auto CalendarView::BlackoutBackgroundProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.BlackoutBackgroundProperty(); });
+    }
+    inline auto CalendarView::CalendarItemHoverBackgroundProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.CalendarItemHoverBackgroundProperty(); });
+    }
+    inline auto CalendarView::CalendarItemPressedBackgroundProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.CalendarItemPressedBackgroundProperty(); });
+    }
+    inline auto CalendarView::CalendarItemDisabledBackgroundProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.CalendarItemDisabledBackgroundProperty(); });
+    }
+    inline auto CalendarView::TodayBackgroundProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.TodayBackgroundProperty(); });
+    }
+    inline auto CalendarView::TodayBlackoutBackgroundProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.TodayBlackoutBackgroundProperty(); });
+    }
+    inline auto CalendarView::TodayHoverBackgroundProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.TodayHoverBackgroundProperty(); });
+    }
+    inline auto CalendarView::TodayPressedBackgroundProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.TodayPressedBackgroundProperty(); });
+    }
+    inline auto CalendarView::TodayDisabledBackgroundProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.TodayDisabledBackgroundProperty(); });
+    }
+    inline auto CalendarView::TodayBlackoutForegroundProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.TodayBlackoutForegroundProperty(); });
+    }
+    inline auto CalendarView::SelectedHoverForegroundProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.SelectedHoverForegroundProperty(); });
+    }
+    inline auto CalendarView::SelectedPressedForegroundProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.SelectedPressedForegroundProperty(); });
+    }
+    inline auto CalendarView::SelectedDisabledForegroundProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.SelectedDisabledForegroundProperty(); });
+    }
+    inline auto CalendarView::OutOfScopeHoverForegroundProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.OutOfScopeHoverForegroundProperty(); });
+    }
+    inline auto CalendarView::OutOfScopePressedForegroundProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.OutOfScopePressedForegroundProperty(); });
+    }
+    inline auto CalendarView::DisabledForegroundProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.DisabledForegroundProperty(); });
+    }
+    inline auto CalendarView::DayItemMarginProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.DayItemMarginProperty(); });
+    }
+    inline auto CalendarView::MonthYearItemMarginProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.MonthYearItemMarginProperty(); });
+    }
+    inline auto CalendarView::FirstOfMonthLabelMarginProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.FirstOfMonthLabelMarginProperty(); });
+    }
+    inline auto CalendarView::FirstOfYearDecadeLabelMarginProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.FirstOfYearDecadeLabelMarginProperty(); });
+    }
+    inline auto CalendarView::CalendarItemCornerRadiusProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(ICalendarViewStatics2 const&), CalendarView, ICalendarViewStatics2>([](ICalendarViewStatics2 const& f) { return f.CalendarItemCornerRadiusProperty(); });
+    }
     inline CalendarViewDayItem::CalendarViewDayItem()
     {
         winrt::Windows::Foundation::IInspectable baseInterface, innerInterface;
@@ -60194,6 +61456,14 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Controls
     inline auto HandwritingView::AreCandidatesEnabledProperty()
     {
         return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(IHandwritingViewStatics const&), HandwritingView, IHandwritingViewStatics>([](IHandwritingViewStatics const& f) { return f.AreCandidatesEnabledProperty(); });
+    }
+    inline auto HandwritingView::IsSwitchToKeyboardEnabledProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(IHandwritingViewStatics2 const&), HandwritingView, IHandwritingViewStatics2>([](IHandwritingViewStatics2 const& f) { return f.IsSwitchToKeyboardEnabledProperty(); });
+    }
+    inline auto HandwritingView::IsCommandBarOpenProperty()
+    {
+        return impl::call_factory_cast<winrt::Windows::UI::Xaml::DependencyProperty(*)(IHandwritingViewStatics2 const&), HandwritingView, IHandwritingViewStatics2>([](IHandwritingViewStatics2 const& f) { return f.IsCommandBarOpenProperty(); });
     }
     inline Hub::Hub()
     {
@@ -64640,7 +65910,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Controls
     template <typename D, typename... Interfaces>
     struct CalendarViewT :
         implements<D, winrt::Windows::UI::Xaml::Controls::IControlOverrides, winrt::Windows::UI::Xaml::Controls::IControlOverrides6, winrt::Windows::UI::Xaml::IFrameworkElementOverrides, winrt::Windows::UI::Xaml::IFrameworkElementOverrides2, winrt::Windows::UI::Xaml::IUIElementOverrides, winrt::Windows::UI::Xaml::IUIElementOverrides7, winrt::Windows::UI::Xaml::IUIElementOverrides8, winrt::Windows::UI::Xaml::IUIElementOverrides9, composing, Interfaces...>,
-        impl::require<D, winrt::Windows::UI::Xaml::Controls::ICalendarView, winrt::Windows::UI::Xaml::Controls::IControl, winrt::Windows::UI::Xaml::Controls::IControl2, winrt::Windows::UI::Xaml::Controls::IControl3, winrt::Windows::UI::Xaml::Controls::IControl4, winrt::Windows::UI::Xaml::Controls::IControl5, winrt::Windows::UI::Xaml::Controls::IControl7, winrt::Windows::UI::Xaml::Controls::IControlProtected, winrt::Windows::UI::Xaml::IFrameworkElement, winrt::Windows::UI::Xaml::IFrameworkElement2, winrt::Windows::UI::Xaml::IFrameworkElement3, winrt::Windows::UI::Xaml::IFrameworkElement4, winrt::Windows::UI::Xaml::IFrameworkElement6, winrt::Windows::UI::Xaml::IFrameworkElement7, winrt::Windows::UI::Xaml::IFrameworkElementProtected7, winrt::Windows::UI::Xaml::IUIElement, winrt::Windows::UI::Xaml::IUIElement2, winrt::Windows::UI::Xaml::IUIElement3, winrt::Windows::UI::Xaml::IUIElement4, winrt::Windows::UI::Xaml::IUIElement5, winrt::Windows::UI::Xaml::IUIElement7, winrt::Windows::UI::Xaml::IUIElement8, winrt::Windows::UI::Xaml::IUIElement9, winrt::Windows::UI::Xaml::IUIElement10, winrt::Windows::UI::Composition::IAnimationObject, winrt::Windows::UI::Composition::IVisualElement, winrt::Windows::UI::Xaml::IDependencyObject, winrt::Windows::UI::Xaml::IDependencyObject2>,
+        impl::require<D, winrt::Windows::UI::Xaml::Controls::ICalendarView, winrt::Windows::UI::Xaml::Controls::ICalendarView2, winrt::Windows::UI::Xaml::Controls::IControl, winrt::Windows::UI::Xaml::Controls::IControl2, winrt::Windows::UI::Xaml::Controls::IControl3, winrt::Windows::UI::Xaml::Controls::IControl4, winrt::Windows::UI::Xaml::Controls::IControl5, winrt::Windows::UI::Xaml::Controls::IControl7, winrt::Windows::UI::Xaml::Controls::IControlProtected, winrt::Windows::UI::Xaml::IFrameworkElement, winrt::Windows::UI::Xaml::IFrameworkElement2, winrt::Windows::UI::Xaml::IFrameworkElement3, winrt::Windows::UI::Xaml::IFrameworkElement4, winrt::Windows::UI::Xaml::IFrameworkElement6, winrt::Windows::UI::Xaml::IFrameworkElement7, winrt::Windows::UI::Xaml::IFrameworkElementProtected7, winrt::Windows::UI::Xaml::IUIElement, winrt::Windows::UI::Xaml::IUIElement2, winrt::Windows::UI::Xaml::IUIElement3, winrt::Windows::UI::Xaml::IUIElement4, winrt::Windows::UI::Xaml::IUIElement5, winrt::Windows::UI::Xaml::IUIElement7, winrt::Windows::UI::Xaml::IUIElement8, winrt::Windows::UI::Xaml::IUIElement9, winrt::Windows::UI::Xaml::IUIElement10, winrt::Windows::UI::Composition::IAnimationObject, winrt::Windows::UI::Composition::IVisualElement, winrt::Windows::UI::Xaml::IDependencyObject, winrt::Windows::UI::Xaml::IDependencyObject2>,
         impl::base<D, CalendarView, winrt::Windows::UI::Xaml::Controls::Control, winrt::Windows::UI::Xaml::FrameworkElement, winrt::Windows::UI::Xaml::UIElement, winrt::Windows::UI::Xaml::DependencyObject>,
         winrt::Windows::UI::Xaml::Controls::IControlOverridesT<D>, winrt::Windows::UI::Xaml::Controls::IControlOverrides6T<D>, winrt::Windows::UI::Xaml::IFrameworkElementOverridesT<D>, winrt::Windows::UI::Xaml::IFrameworkElementOverrides2T<D>, winrt::Windows::UI::Xaml::IUIElementOverridesT<D>, winrt::Windows::UI::Xaml::IUIElementOverrides7T<D>, winrt::Windows::UI::Xaml::IUIElementOverrides8T<D>, winrt::Windows::UI::Xaml::IUIElementOverrides9T<D>
     {
@@ -65105,7 +66375,7 @@ WINRT_EXPORT namespace winrt::Windows::UI::Xaml::Controls
     template <typename D, typename... Interfaces>
     struct HandwritingViewT :
         implements<D, winrt::Windows::UI::Xaml::Controls::IControlOverrides, winrt::Windows::UI::Xaml::Controls::IControlOverrides6, winrt::Windows::UI::Xaml::IFrameworkElementOverrides, winrt::Windows::UI::Xaml::IFrameworkElementOverrides2, winrt::Windows::UI::Xaml::IUIElementOverrides, winrt::Windows::UI::Xaml::IUIElementOverrides7, winrt::Windows::UI::Xaml::IUIElementOverrides8, winrt::Windows::UI::Xaml::IUIElementOverrides9, composing, Interfaces...>,
-        impl::require<D, winrt::Windows::UI::Xaml::Controls::IHandwritingView, winrt::Windows::UI::Xaml::Controls::IControl, winrt::Windows::UI::Xaml::Controls::IControl2, winrt::Windows::UI::Xaml::Controls::IControl3, winrt::Windows::UI::Xaml::Controls::IControl4, winrt::Windows::UI::Xaml::Controls::IControl5, winrt::Windows::UI::Xaml::Controls::IControl7, winrt::Windows::UI::Xaml::Controls::IControlProtected, winrt::Windows::UI::Xaml::IFrameworkElement, winrt::Windows::UI::Xaml::IFrameworkElement2, winrt::Windows::UI::Xaml::IFrameworkElement3, winrt::Windows::UI::Xaml::IFrameworkElement4, winrt::Windows::UI::Xaml::IFrameworkElement6, winrt::Windows::UI::Xaml::IFrameworkElement7, winrt::Windows::UI::Xaml::IFrameworkElementProtected7, winrt::Windows::UI::Xaml::IUIElement, winrt::Windows::UI::Xaml::IUIElement2, winrt::Windows::UI::Xaml::IUIElement3, winrt::Windows::UI::Xaml::IUIElement4, winrt::Windows::UI::Xaml::IUIElement5, winrt::Windows::UI::Xaml::IUIElement7, winrt::Windows::UI::Xaml::IUIElement8, winrt::Windows::UI::Xaml::IUIElement9, winrt::Windows::UI::Xaml::IUIElement10, winrt::Windows::UI::Composition::IAnimationObject, winrt::Windows::UI::Composition::IVisualElement, winrt::Windows::UI::Xaml::IDependencyObject, winrt::Windows::UI::Xaml::IDependencyObject2>,
+        impl::require<D, winrt::Windows::UI::Xaml::Controls::IHandwritingView, winrt::Windows::UI::Xaml::Controls::IHandwritingView2, winrt::Windows::UI::Xaml::Controls::IControl, winrt::Windows::UI::Xaml::Controls::IControl2, winrt::Windows::UI::Xaml::Controls::IControl3, winrt::Windows::UI::Xaml::Controls::IControl4, winrt::Windows::UI::Xaml::Controls::IControl5, winrt::Windows::UI::Xaml::Controls::IControl7, winrt::Windows::UI::Xaml::Controls::IControlProtected, winrt::Windows::UI::Xaml::IFrameworkElement, winrt::Windows::UI::Xaml::IFrameworkElement2, winrt::Windows::UI::Xaml::IFrameworkElement3, winrt::Windows::UI::Xaml::IFrameworkElement4, winrt::Windows::UI::Xaml::IFrameworkElement6, winrt::Windows::UI::Xaml::IFrameworkElement7, winrt::Windows::UI::Xaml::IFrameworkElementProtected7, winrt::Windows::UI::Xaml::IUIElement, winrt::Windows::UI::Xaml::IUIElement2, winrt::Windows::UI::Xaml::IUIElement3, winrt::Windows::UI::Xaml::IUIElement4, winrt::Windows::UI::Xaml::IUIElement5, winrt::Windows::UI::Xaml::IUIElement7, winrt::Windows::UI::Xaml::IUIElement8, winrt::Windows::UI::Xaml::IUIElement9, winrt::Windows::UI::Xaml::IUIElement10, winrt::Windows::UI::Composition::IAnimationObject, winrt::Windows::UI::Composition::IVisualElement, winrt::Windows::UI::Xaml::IDependencyObject, winrt::Windows::UI::Xaml::IDependencyObject2>,
         impl::base<D, HandwritingView, winrt::Windows::UI::Xaml::Controls::Control, winrt::Windows::UI::Xaml::FrameworkElement, winrt::Windows::UI::Xaml::UIElement, winrt::Windows::UI::Xaml::DependencyObject>,
         winrt::Windows::UI::Xaml::Controls::IControlOverridesT<D>, winrt::Windows::UI::Xaml::Controls::IControlOverrides6T<D>, winrt::Windows::UI::Xaml::IFrameworkElementOverridesT<D>, winrt::Windows::UI::Xaml::IFrameworkElementOverrides2T<D>, winrt::Windows::UI::Xaml::IUIElementOverridesT<D>, winrt::Windows::UI::Xaml::IUIElementOverrides7T<D>, winrt::Windows::UI::Xaml::IUIElementOverrides8T<D>, winrt::Windows::UI::Xaml::IUIElementOverrides9T<D>
     {
@@ -66421,6 +67691,7 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::ICalendarDatePickerStatics2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::ICalendarDatePickerStatics3> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::ICalendarView> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Xaml::Controls::ICalendarView2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::ICalendarViewDayItem> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::ICalendarViewDayItemChangingEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::ICalendarViewDayItemFactory> : winrt::impl::hash_base {};
@@ -66428,6 +67699,7 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::ICalendarViewFactory> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::ICalendarViewSelectedDatesChangedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Xaml::Controls::ICalendarViewStatics2> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::ICandidateWindowBoundsChangedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::ICanvas> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::ICanvasFactory> : winrt::impl::hash_base {};
@@ -66616,8 +67888,12 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::IHandwritingPanelClosedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::IHandwritingPanelOpenedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::IHandwritingView> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Xaml::Controls::IHandwritingView2> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Xaml::Controls::IHandwritingViewCandidatesChangedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::IHandwritingViewFactory> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::IHandwritingViewStatics> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Xaml::Controls::IHandwritingViewStatics2> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Xaml::Controls::IHandwritingViewTextSubmittedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::IHub> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::IHubFactory> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::IHubSection> : winrt::impl::hash_base {};
@@ -67277,6 +68553,8 @@ namespace std
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::HandwritingPanelClosedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::HandwritingPanelOpenedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::HandwritingView> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Xaml::Controls::HandwritingViewCandidatesChangedEventArgs> : winrt::impl::hash_base {};
+    template<> struct hash<winrt::Windows::UI::Xaml::Controls::HandwritingViewTextSubmittedEventArgs> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::Hub> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::HubSection> : winrt::impl::hash_base {};
     template<> struct hash<winrt::Windows::UI::Xaml::Controls::HubSectionCollection> : winrt::impl::hash_base {};
