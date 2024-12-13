@@ -6,7 +6,7 @@
 .word longval2: 65523
 .word longval3: 65535
 .byte counter: 0
-.ptr stringptr: 2345 #243
+.ptr stringptr: 2345 
 
 ;constants
 highstringptr = 23
@@ -94,11 +94,7 @@ setup:
 	call infromkeyboard
 	ld r2,stringptr
 	cpi r2, newline
-	
-	
-	
-main:
-	
+main:	
 	inc r234;ss
 	inc #1234;
 	inc r234;
