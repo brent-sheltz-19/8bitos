@@ -3,9 +3,7 @@ flags =[]
 filename:str = ''
 additionalfiles:str = []
 fileout = ""
-class instruction:
-    def __init__(self,line=''):
-        self.line =line
+lines=[]
 def claprocessor():
     global filename
     setnext=0
@@ -24,7 +22,21 @@ def claprocessor():
         if setnext == 2:
             fileout = stri
     return 0
+def load():
+        
+
+    return 0;
+
 def main():
+    load()
+
+
+
+
+
+
+
+
     
 
     return
