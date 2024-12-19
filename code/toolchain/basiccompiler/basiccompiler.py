@@ -31,9 +31,12 @@ def load():
     for i in range(0,len(linest)):
         if i > len(linest):
             break
+
+        linest[i]=linest[i].strip('\t\n')
         
-        if linest[i] is not '':
-            lines.append(linest[i].strip('\t\n'))
+       
+        if linest[i] != '':
+            lines.append(linest[i])
             
     
     print(lines)
