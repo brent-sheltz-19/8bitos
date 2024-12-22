@@ -29,53 +29,53 @@ class csshiftregister
 {
 	uint8_t datapin,clkpin,shiftpin,dataque;
 	public:
-		csshiftregister()
-		{
-			datapin=NULL;
-			clkpin=NULL;
-			shiftpin=NULL;
-			dataque = 0 ;
-		}
-		csshiftregister(uint8_t dp,uint8_t clpin,uint8_t spin)
-		{
-			datapin=dp;
-			clkpin=clpin;
-			shiftpin=spin;
-			dataque = 0 ;				
-		}	
-		csshiftregister(uint8_t dp,uint8_t clpin,uint8_t spin,uint8_t data)
-		{
-			datapin=dp;
-			clkpin=clpin;
-			shiftpin=spin;
-			dataque = data ;
-		}
-    void shiftout()
-    {
-      shiftOut(this->datapin,this->shiftpin,MSBFIRST,dataque);
-      digitalWrite(shiftpin,HIGH);
-      digitalWrite(shiftpin,LOW);
-    }
-		inline void setDataPin(uint8_t dp)
-		{
-			datapin=dp;
-		}			
-		inline void setClkPin(uint8_t clpin)
-		{
-			clkpin=clpin;
-		}
-		inline void setShiftPin(uint8_t spin)
-		{
-			shiftpin=spin;
-		}
-		inline void enqueDataQue(chipnums cnums)
-		{
-			dataque|=cnums;
-		}
-		inline void clearDataQue()
-		{
-			dataque&=0;
-		}
+	csshiftregister()
+	{
+		datapin=NULL;
+		clkpin=NULL;
+		shiftpin=NULL;
+		dataque = 0 ;
+	}
+	csshiftregister(uint8_t dp,uint8_t clpin,uint8_t spin)
+	{
+		datapin=dp;
+		clkpin=clpin;
+		shiftpin=spin;
+		dataque = 0 ;				
+	}	
+	csshiftregister(uint8_t dp,uint8_t clpin,uint8_t spin,uint8_t data)
+	{
+		datapin=dp;
+		clkpin=clpin;
+		shiftpin=spin;
+		dataque = data ;
+	}
+	void shiftout()
+	{
+	shiftOut(this->datapin,this->clkpin,MSBFIRST,dataque);
+	digitalWrite(shiftpin,HIGH);
+	digitalWrite(shiftpin,LOW);
+	}
+	inline void setDataPin(uint8_t dp)
+	{
+	datapin=dp;
+	}			
+	inline void setClkPin(uint8_t clpin)
+	{
+	clkpin=clpin;
+	}
+	inline void setShiftPin(uint8_t spin)
+	{
+	shiftpin=spin;
+	}
+	inline void enqueDataQue(chipnums cnums)
+	{
+	dataque|=cnums;
+	}
+	inline void clearDataQue()
+	{
+	dataque&=0;
+	}
 
 
 };
