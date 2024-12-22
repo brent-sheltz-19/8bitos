@@ -44,13 +44,13 @@ class csshiftregister
 		}
     void shiftout()
     {
-      shiftOut(this->datapin,this->shiftpin,MSBFIRST,dataque);
+      shiftOut(this->datapin,this->clkpin,MSBFIRST,dataque);
       digitalWrite(shiftpin,HIGH);
       digitalWrite(shiftpin,LOW);
     }
     void shiftout(uint8_t data)
     {
-      shiftOut(this->datapin,this->shiftpin,MSBFIRST,data);
+      shiftOut(this->datapin,this->clkpin,MSBFIRST,data);
       digitalWrite(shiftpin,HIGH);
       digitalWrite(shiftpin,LOW);
     }
