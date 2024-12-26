@@ -663,10 +663,14 @@ def main():
             binaryCode.insert(0,00)
         binaryCode.insert(0,val)
     if formatsize.__eq__("")==False:
-        if formatsize.__eq__("2M")||formatsize.__eq__("2m"):
-            rom= binaryCode+list([255]*(262,144-len(binaryCode)))
+        if formatsize.__eq__("8M")||formatsize.__eq__("8m"):
+            rom= binaryCode+list([255]*(8388608-len(binaryCode)))
+        if formatsize.__eq__("4M")||formatsize.__eq__("4m"):
+            rom= binaryCode+list([255]*(4194304-len(binaryCode)))
+        elif formatsize.__eq__("2M")||formatsize.__eq__("2m"):
+            rom= binaryCode+list([255]*(2097152-len(binaryCode)))
         elif formatsize.__eq__("1M")||formatsize.__eq__("1m"):
-            rom= binaryCode+list([255]*(131072-len(binaryCode)))
+            rom= binaryCode+list([255]*(1048576-len(binaryCode)))
         elif formatsize.__eq__("64k"):
             rom= binaryCode+list([255]*(65536-len(binaryCode)))
         elif formatsize.__eq__("32k"):
