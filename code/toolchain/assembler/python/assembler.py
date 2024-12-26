@@ -12,7 +12,7 @@ class Dataclass:
     address = ""
     value = ""
     def gethigh(self):
-        return
+        return 0
 variables =[]
 def isVariable(var):
     for l in range(0,len(variables)):
