@@ -663,10 +663,25 @@ def main():
             binaryCode.insert(0,00)
         binaryCode.insert(0,val)
     if formatsize.__eq__("")==False:
-        if formatsize.__eq__("64k"):
+        if formatsize.__eq__("2M")||formatsize.__eq__("2m"):
+            rom= binaryCode+list([255]*(262,144-len(binaryCode)))
+        elif formatsize.__eq__("1M")||formatsize.__eq__("1m"):
+            rom= binaryCode+list([255]*(131072-len(binaryCode)))
+        elif formatsize.__eq__("64k"):
             rom= binaryCode+list([255]*(65536-len(binaryCode)))
+        elif formatsize.__eq__("32k"):
+            rom = binaryCode + list([255] * (32768 - len(binaryCode)))
+        elif formatsize.__eq__("16k"):
+            rom = binaryCode + list([255] * (16384 - len(binaryCode)))
         elif formatsize.__eq__("8k"):
             rom = binaryCode + list([255] * (8192 - len(binaryCode)))
+        elif formatsize.__eq__("4k"):
+            rom= binaryCode+list([255]*(4096-len(binaryCode)))
+        elif formatsize.__eq__("2k"):
+            rom= binaryCode+list([255]*(2048-len(binaryCode)))
+        elif formatsize.__eq__("1k"):
+            rom= binaryCode+list([255]*(1024-len(binaryCode)))
+        
     for byte in rom:
         if byte > 255:
             outfile.write( byte.to_bytes(2,"little"))
