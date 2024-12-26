@@ -663,25 +663,25 @@ def main():
             binaryCode.insert(0,00)
         binaryCode.insert(0,val)
     if formatsize.__eq__("")==False:
-        if formatsize.__eq__("8M")||formatsize.__eq__("8m"):
+        if formatsize.__eq__("8M") or formatsize.__eq__("8m"):
             rom= binaryCode+list([255]*(8388608-len(binaryCode)))
-        if formatsize.__eq__("4M")||formatsize.__eq__("4m"):
+        if formatsize.__eq__("4M") or formatsize.__eq__("4m"):
             rom= binaryCode+list([255]*(4194304-len(binaryCode)))
-        elif formatsize.__eq__("2M")||formatsize.__eq__("2m"):
+        elif formatsize.__eq__("2M") or formatsize.__eq__("2m"):
             rom= binaryCode+list([255]*(2097152-len(binaryCode)))
         elif formatsize.__eq__("1M")||formatsize.__eq__("1m"):
             rom= binaryCode+list([255]*(1048576-len(binaryCode)))
-        elif formatsize.__eq__("64k"):
+        elif formatsize.__eq__("64K") or formatsize.__eq__("64k") :
             rom= binaryCode+list([255]*(65536-len(binaryCode)))
-        elif formatsize.__eq__("32k"):
+        elif formatsize.__eq__("32K") or formatsize.__eq__("32k"):
             rom = binaryCode + list([255] * (32768 - len(binaryCode)))
-        elif formatsize.__eq__("16k"):
+        elif formatsize.__eq__("16K") or formatsize.__eq__("16k"):
             rom = binaryCode + list([255] * (16384 - len(binaryCode)))
-        elif formatsize.__eq__("8k"):
+        elif formatsize.__eq__("8K") or formatsize.__eq__("8k"):
             rom = binaryCode + list([255] * (8192 - len(binaryCode)))
-        elif formatsize.__eq__("4k"):
+        elif formatsize.__eq__("4K") or formatsize.__eq__("4k"):
             rom= binaryCode+list([255]*(4096-len(binaryCode)))
-        elif formatsize.__eq__("2k"):
+        elif formatsize.__eq__("2K") or formatsize.__eq__("2k"):
             rom= binaryCode+list([255]*(2048-len(binaryCode)))
         elif formatsize.__eq__("1k"):
             rom= binaryCode+list([255]*(1024-len(binaryCode)))
