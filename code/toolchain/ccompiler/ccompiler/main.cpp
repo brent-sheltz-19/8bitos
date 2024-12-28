@@ -18,6 +18,7 @@ Code, Compile, Run and Debug online from anywhere in world.
 #include <unordered_map>
 #include <vector>
 #include <regex>
+#include "lexer.hpp"
 
 class SimplePreprocessor {
 public:
@@ -142,18 +143,20 @@ bool is_keyword(const std::string& str) {
 		{"else", true}
 
 	};
+	
 	return keywords.find(str) != keywords.end();
 }
 
-int main() {
-	std::string infile;
-	std::string outfilename="a";
+int main(int argc,char* argv[]) {
+    Lexer lexer = Lexer();
+	std::string infile = "main.8bc";
+	std::string outfilename="a.p";
 	SimplePreprocessor preprocessor;
     // The input C++ file and output file
-    preprocessor.process("input.txt", "output.i");
+    preprocessor.process(infile, outfilename);
     std::cout << "Preprocessing complete!" << std::endl;
     
-
+    lexer.tokenize(infile);
 
 
 
