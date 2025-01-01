@@ -1,15 +1,26 @@
 #include <LiquidCrystal_74HC595.h>
-
-// LiquidCrystal_74HC595(uint8_t ds, uint8_t shcp, uint8_t stcp,
+#define DS 3
+#define SHCP 4
+#define STCP 5
+#define STCP1 STCP+1
+#define STCP2 TCP+2
+#define STCP3 TCP+3
+#define STCP4 TCP+4
+#define RS 1
+#define E 3
+#define D4 4
+#define D5 5
+#define D6 6
+#define D7 7
 uint8_t rspin = 8;
 uint8_t rwpin = 9;
 uint8_t incommingmessage=10;
 const PROGMEM uint8_t pins[11]={0,1,2,3,4,5,6,7,8,9,10};
 // first 3 params are shift register
-LiquidCrystal_74HC595 disp1 = LiquidCrystal_74HC595(3,4,5, 1, 3, 4, 5, 6, 7);
-LiquidCrystal_74HC595 disp2 = LiquidCrystal_74HC595(3,4,6, 1, 3, 4, 5, 6, 7);
-LiquidCrystal_74HC595 disp3 = LiquidCrystal_74HC595(3,4,7, 1, 3, 4, 5, 6, 7);
-LiquidCrystal_74HC595 disp4 = LiquidCrystal_74HC595(3,4,8, 1, 3, 4, 5, 6, 7);
+LiquidCrystal_74HC595 disp1 = LiquidCrystal_74HC595(DS,SHCP,STCP, 1, 3, 4, 5, 6, 7);
+LiquidCrystal_74HC595 disp2 = LiquidCrystal_74HC595(DS,SHCP,STCP+1, 1, 3, 4, 5, 6, 7);
+LiquidCrystal_74HC595 disp3 = LiquidCrystal_74HC595(DS,SHCP,STCP+2, 1, 3, 4, 5, 6, 7);
+LiquidCrystal_74HC595 disp4 = LiquidCrystal_74HC595(DS,SHCP,8, 1, 3, 4, 5, 6, 7);
 LiquidCrystal_74HC595* disparry[4]={&disp1,&disp2,&disp3,&disp4};
 int row, colum;
 class shiftregister_74hc595
@@ -38,7 +49,7 @@ class shiftregister_74hc595
 
     }
 };
-shiftregister_74hc595 addresreg = shiftregister_74hc595(1,2,9);
+shiftregister_74hc595 addresreg = shiftregister_74hc59(1,2,9);
 struct addresses 
 {
   uint8_t dataoffset=0;
