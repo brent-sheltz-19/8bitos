@@ -98,14 +98,11 @@ void writedisp(String out)
       colum=0;
       if(row==0)
       {
-
-      
-      disp1.setCursor(0,1);
-      disp2.setCursor(0,1);
-      disp3.setCursor(0,1);
-      disp4.setCursor(0,1);
-      
-      row++;
+        disp1.setCursor(0,1);
+        disp2.setCursor(0,1);
+        disp3.setCursor(0,1);
+        disp4.setCursor(0,1);
+        row++;
       }
       else
       {
@@ -135,6 +132,10 @@ void writedisp(String out)
     {
       disp1.print(a);
       colum++;
+    }
+    if(colum>64)
+    {
+      colum = 0;
     }
   }
 }
