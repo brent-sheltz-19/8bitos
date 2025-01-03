@@ -24,6 +24,12 @@ inline void gpu::generateImage()
 	int x=0, y=0;
 	for (int i = 0; i < vram->getSize(); i++)
 	{
-		if(i%)
+		
+		if(i%width)
+		{
+			
+
+		}
+			
 	}
 }
