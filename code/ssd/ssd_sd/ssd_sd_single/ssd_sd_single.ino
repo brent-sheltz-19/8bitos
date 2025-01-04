@@ -35,7 +35,7 @@ class shiftreg
     shiftOut(datapin,serialpin,MSBFIRST,data);
   }
 };
-shiftreg csport = shiftreg(2,3,4);
+//shiftreg csport = shiftreg(2,3,4);
 void input()
 {
   
@@ -53,11 +53,8 @@ void setup() {
   // put your setup code here, to run once:
   int a =0;
   int b=0;
-  for(int i =1; a <8;i=i+i)
+  if (sd.begin()==1)
   {
-    csport.shiftout8(i);
-    if (sd.begin()==1)
-    {
       cid_t cid;
       sd.card()->readCID(&cid);
       //idlist[b]= cid.psn();
@@ -67,8 +64,7 @@ void setup() {
     {
       //idlist[b]= NULL;
     }
-    a++;
-  }
+  
 }
 
 void loop() 
