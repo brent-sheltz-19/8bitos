@@ -20,12 +20,13 @@ static portcontroller port = portcontroller();
 static shiftreg addreg=shiftreg(40,39,38,&port);
 static shiftreg csreg=shiftreg(37,36,35,&port);
 static Serial spi = Serial(&csreg,&port,serial_miso_pin,serial_miso_pin,serial_clk_pin);
-static interpreter interpreter_main = interpreter();
-static memory mainmemory = memory();
-static video_mem videomemory = video_mem();
+static memory mainmemory = memory(&port,&addreg);
+static memory videomemory = memory(&port,&addreg);
+static interpreter interpreter_main = interpreter(&mainmemory,&videomemory);
 void handlesyscall(interpreter* a)
 {
 	uint8_t* params;
+	
 	
 	
 }

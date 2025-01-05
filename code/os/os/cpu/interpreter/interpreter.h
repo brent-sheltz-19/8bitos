@@ -128,8 +128,8 @@ private:
 	void dec(uint32_t memptr);
 	void mov(char regto, char regfrom);
 	
-	void ld(char regto, uint32_t memptr);//movi
-	void ldi(char regto,char val);//movi
+	void ld(char regto, uint32_t memptr);
+	void ldi(char regto,char val);
 	void ldx(char regto);
 	void ldy(char regto);
 	void ldz(char regto);
