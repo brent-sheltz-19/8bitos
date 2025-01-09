@@ -40,10 +40,6 @@ void input()
 {
   
 }
-bool changeSD(sdid id)
-{
-  return true;
-}
 void checkchard()
 {
 
