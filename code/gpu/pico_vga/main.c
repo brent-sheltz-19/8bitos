@@ -19,9 +19,104 @@
  *
  */
 
+// VGA timing constants
+#define H_ACTIVE   655    // (active + frontporch - 1) - one cycle delay for mov
+#define V_ACTIVE   479    // (active - 1)
+#define RGB_ACTIVE 319    // (horizontal active)/2 - 1
+// #define RGB_ACTIVE 639 // change to this if 1 pixel/byte
+
+// Length of the pixel array, and number of DMA transfers
+#define TXCOUNT 153600 // Total pixels/2 (since we have 2 pixels per byte)
+
+// Pixel color array that is DMA's to the PIO machines and
+// a pointer to the ADDRESS of this color array.
+// Note that this array is automatically initialized to all 0's (black)
+unsigned char vga_data_array[TXCOUNT];
+char * address_pointer = &vga_data_array[0] ;
+
+// Bit masks for drawPixel routine
+#define TOPMASK 0b00001111
+#define BOTTOMMASK 0b11110000
+
+// For drawLine
+#define swap(a, b) { short t = a; a = b; b = t; }
+
+// For writing text
+#define tabspace 4 // number of spaces for a tab
+
+// For accessing the font library
+#define pgm_read_byte(addr) (*(const unsigned char *)(addr))
+
+// For drawing characters
+unsigned short cursor_y, cursor_x, textsize ;
+char textcolor, textbgcolor, wrap;
+
+
 // Screen width/height
 #define _width 640
 #define _height 480
+#define screen_size_pixels 640*480
+
+
+
+// A function for drawing a pixel with a specified color.
+// Note that because information is passed to the PIO state machines through
+// a DMA channel, we only need to modify the contents of the array and the
+// pixels will be automatically updated on the screen.
+void drawPixel(short x, short y, char color) {
+    // Range checks (640x480 display)
+    if (x > 639) x = 639 ;
+    if (x < 0) x = 0 ;
+    if (y < 0) y = 0 ;
+    if (y > 479) y = 479 ;
+    //if((x > 639) | (x < 0) | (y > 479) | (y < 0) ) return;
+
+    // Which pixel is it?
+    int pixel = ((640 * y) + x) ;
+
+    // Is this pixel stored in the first 4 bits
+    // of the vga data array index, or the second
+    // 4 bits? Check, then mask.
+    if (pixel & 1) {
+        vga_data_array[pixel>>1] = (vga_data_array[pixel>>1] & TOPMASK) | (color << 4) ;
+    }
+    else {
+        vga_data_array[pixel>>1] = (vga_data_array[pixel>>1] & BOTTOMMASK) | (color) ;
+    }
+}
+
+
+
+
+// added 10/11/2023 brl4
+// Draw a character
+void drawCharBig(short x, short y, unsigned char c, char color, char bg) {
+  char i, j ;
+  unsigned char line; 
+  for (i=0; i<15; i++ ) {   
+    line = pgm_read_byte(bigFont+((int)c*16)+i);
+    for ( j = 0; j<8; j++) {
+      if (line & 0x80) {
+        drawPixel(x+j, y+i, color);
+      } else if (bg!=color){
+        drawPixel(x+j, y+i, bg);
+      }
+      line <<= 1;
+    }
+  }
+}
+
+inline void writeStringBig(char* str){
+/* Print text onto screen
+ * Call tft_setCursor(), tft_setTextColorBig()
+ *  as necessary before printing
+ */
+    while (*str){
+      char c = *str++;
+        drawCharBig(cursor_x, cursor_y, c, textcolor, textbgcolor);
+        cursor_x += 8 ;
+    }
+}
 
 void initVGA() {
         // Choose which PIO instance to use (there are two instances, each with 4 state machines)
