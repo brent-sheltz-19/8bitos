@@ -122,6 +122,20 @@ void initVGA() {
 
 
 
+int main()
+{
+
+    // Initialize stdio
+    stdio_init_all();
+
+    // Initialize the VGA screen
+    initVGA() ;
+    
+
+
+}
+
+
 
 
 
