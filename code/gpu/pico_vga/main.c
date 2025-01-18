@@ -4,7 +4,14 @@
 #include "vsync.pio.h"
 #include "rgb.pio.h"
 
-
+ - GPIO 16 ---> VGA Hsync 
+   - GPIO 17 ---> VGA Vsync 
+   - GPIO 18 ---> VGA Green lo-bit --> 470 ohm resistor --> VGA_Green
+   - GPIO 19 ---> VGA Green hi_bit --> 330 ohm resistor --> VGA_Green
+   - GPIO 20 ---> 330 ohm resistor ---> VGA-Blue 
+   - GPIO 21 ---> 330 ohm resistor ---> VGA-Red 
+   - RP2040 GND ---> VGA-GND
+ *
 
 // Screen width/height
 #define _width 640
