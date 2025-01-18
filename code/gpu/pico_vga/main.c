@@ -3,7 +3,7 @@
 #include "hsync.pio.h"
 #include "vsync.pio.h"
 #include "rgb.pio.h"
-
+/*
  - GPIO 16 ---> VGA Hsync 
    - GPIO 17 ---> VGA Vsync 
    - GPIO 18 ---> VGA Green lo-bit --> 470 ohm resistor --> VGA_Green
@@ -12,6 +12,12 @@
    - GPIO 21 ---> 330 ohm resistor ---> VGA-Red 
    - RP2040 GND ---> VGA-GND
  *
+* RESOURCES USED
+ *  - PIO state machines 0, 1, and 2 on PIO instance 0
+ *  - DMA channels obtained by claim mechanism
+ *  - 153.6 kBytes of RAM (for pixel color data)
+ *
+ */
 
 // Screen width/height
 #define _width 640
