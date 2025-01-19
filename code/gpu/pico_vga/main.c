@@ -1,10 +1,23 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string.h>
+
+#include "pico/stdlib.h"
+#include "pico/multicore.h"
+
+#include "hardware/pwm.h"
+#include "hardware/irq.h"
+
 // Our assembled programs:
 // Each gets the name <pio_filename.pio.h>
 #include "hsync.pio.h"
 #include "vsync.pio.h"
 #include "rgb.pio.h"
 /*
- - GPIO 16 ---> VGA Hsync 
+   - GPIO 14 ---> 165 data in
+   - GPIO 15 ---> 165 clk
+   - GPIO 16 ---> VGA Hsync 
    - GPIO 17 ---> VGA Vsync 
    - GPIO 18 ---> VGA Green lo-bit --> 470 ohm resistor --> VGA_Green
    - GPIO 19 ---> VGA Green hi_bit --> 330 ohm resistor --> VGA_Green
@@ -215,6 +228,8 @@ void initVGA() {
     dma_start_channel_mask((1u << rgb_chan_0)) ;
 }
 
+void core1_entry() {
+}
 
 
 int main()
@@ -222,11 +237,18 @@ int main()
 
     // Initialize stdio
     stdio_init_all();
-
+    
+    gpio_init (14);
+    for(int i =14; i<=21;i++)
+    {
+      gpio_init (uint gpio);
+       
+     }
     // Initialize the VGA screen
     initVGA() ;
-    
-
+    // Launch core 1
+    //multicore_launch_core1(core1_entry) ;
+   
 
 }
 
