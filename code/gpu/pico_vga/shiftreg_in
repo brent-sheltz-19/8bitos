@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cstdint>
+#include "pico/stdlib.h"
+
 class shiftreg_in
 {
   public:
@@ -9,10 +11,15 @@ class shiftreg_in
     this->datain = datain;
     this->clk = clk;
   }
+  void pulse()
+  {
+    
+  }
   char read()
   {
-
-    return0;
+    uint8_t ret;
+    gpio_get(datain);
+    
   }
 
 
