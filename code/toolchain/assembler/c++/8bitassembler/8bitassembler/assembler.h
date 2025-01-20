@@ -1,7 +1,10 @@
 #pragma once
+#include <filesystem>
 #include <iostream>
 #include <fstream>
 #include <string>
+
+#include <cstring>
 #include <vector>
 using namespace std;
 class assembler
@@ -197,7 +200,7 @@ public:
 	}
 	static constant makeconst(string line)
 	{
-		
+	    //return NULL;	
 	}
 	static ascii makeascii(string line)
 	{
@@ -539,4 +542,3 @@ public:
 		out.close();
 	}
 };
-
