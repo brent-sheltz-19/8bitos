@@ -31,7 +31,13 @@ static inline void println(string a)
 static void handlemenu(int act)
 { 
     //vector<string> files;
-    
+    auto print_Files = []() 
+    { 
+       for(string a :infiles)
+       {
+           println(a);
+       }
+    };
     
     int count = 0;
     for (const auto& entry : directory_iterator(cwd))
@@ -60,7 +66,13 @@ static void handlemenu(int act)
             }
         }
     }
-    else if (act == 2)
+    else if (act==2)
+    {
+        print_Files();
+        
+        
+    }
+    else if (act == 3)
     {
       bool run = true;
         while (run)
@@ -80,13 +92,13 @@ static void handlemenu(int act)
         }
 
     }
-    else if (act == 3)
+    else if (act == 4)
     {
+        string a;
        //printdir();
-       for(string a :infiles)
-       {
-           println(a);
-       }
+       print_Files();
+       cout<<"press enter"<<endl;
+       cin>>a;
     }
 }
 
@@ -99,22 +111,23 @@ loop:
     clrscr();
     cout<<"output file:   "<<outpath<<endl;
     println("1:enter files to assemble");
-    println("2:enter output file name");
-    println("3:show files");
-    println("4:assemble");
-    println("5:exit");
+    println("2:remove file from list");
+    println("3:enter output file name");
+    println("4:show files");
+    println("5:assemble");
+    println("6:exit");
     
     cin >> in;
     try
     {
         ret = atoi(in.c_str());
-        if (ret<5 && ret >0)
+        if (ret<=6 && ret >0)
         {
-            if(ret==5)
+            if(ret==6)
             {
                 exit(0);
             }
-            else if(ret==4)
+            else if(ret==5)
             {
                 return;
             }
