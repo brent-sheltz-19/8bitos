@@ -237,13 +237,17 @@ int main()
 
     // Initialize stdio
     stdio_init_all();
-    
+
+
     gpio_init (14);
+    gpio_set_dir(gpio, GPIO_IN);
     for(int i =14; i<=21;i++)
     {
       gpio_init (uint gpio);
-       
+      gpio_set_dir(gpio, GPIO_OUT);
      }
+    
+
     // Initialize the VGA screen
     initVGA() ;
     // Launch core 1
