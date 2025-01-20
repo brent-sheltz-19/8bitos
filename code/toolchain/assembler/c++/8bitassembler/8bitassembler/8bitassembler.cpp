@@ -5,13 +5,19 @@
 #include <filesystem>
 #include <iostream>
 #include <string>
-#if defined(_WIN32)
-    #define windows true;
+#ifdef _WIN32
+    #define printdir() (system("dir *.txt"))
+
+#elif  __linux__
+       #define printdir()(system("ls -l *.txt"))
+#else
+    #error 
 #endif
 using namespace std;
 using namespace std::filesystem;
 static vector<string> infiles;
-static string inpath,outpath;
+static string inpath;
+static string outpath="a.bin";
 static assembler a;
 static path cwd = current_path();
 static inline void clrscr()
@@ -24,7 +30,9 @@ static inline void println(string a)
 }
 static void handlemenu(int act)
 { 
-    vector<string> files;
+    //vector<string> files;
+    
+    
     int count = 0;
     for (const auto& entry : directory_iterator(cwd))
     {
@@ -32,56 +40,90 @@ static void handlemenu(int act)
         string txt =  string() +filename[filename.length() - 3] + filename[filename.length() - 2] + filename[filename.length()-1];
     
     }
-
     if (act == 1)
     {
         
         bool run = true;
         while (run)
         { 
-           
+            string in;
             println("enter file name with extension or \"done\"");
-
-          
-
+            cin>>in;
+            cout<<in<<endl;
+            if(in.compare("done")!=NULL)
+            {
+                infiles.push_back(in); 
+            }
+            if(in.compare("done")==0)
+            {
+                return;
+            }
         }
-
-
-
     }
     else if (act == 2)
     {
-      
+      bool run = true;
+        while (run)
+        { 
+            string in;
+            println("enter file name with extension or \"done\"");
+            cin>>in;
+            cout<<in<<endl;
+            if(in.compare("done")!=NULL)
+            {
+                outpath=in; 
+            }
+            if(in.compare("done")==0)
+            {
+                return;
+            }
+        }
 
     }
     else if (act == 3)
     {
-       system("dir *.txt"); 
-    }
-    else if (act == 4)
-    {
-
+       //printdir();
+       for(string a :infiles)
+       {
+           println(a);
+       }
     }
 }
 
-static int showMenu()
+static void showMenu()
 {
     string in;
     int ret;
 loop:
     //println("in:   ");
+    clrscr();
     cout<<"output file:   "<<outpath<<endl;
-    println("1: enter files to assemble");
-    println("2: enter output file name");
-    println("3: show files");
+    println("1:enter files to assemble");
+    println("2:enter output file name");
+    println("3:show files");
     println("4:assemble");
+    println("5:exit");
+    
     cin >> in;
     try
     {
         ret = atoi(in.c_str());
-        if (ret<4 && ret >0)
+        if (ret<5 && ret >0)
         {
-            handlemenu(ret);
+            if(ret==5)
+            {
+                exit(0);
+            }
+            else if(ret==4)
+            {
+                return;
+            }
+            else
+            {
+                handlemenu(ret);
+                goto loop;
+            }
+            
         }
         else
         {
@@ -96,7 +138,7 @@ loop:
         println("not a number selection");
         goto loop;
     }
-    return ret;
+    return ;
 }
 
 int main()
