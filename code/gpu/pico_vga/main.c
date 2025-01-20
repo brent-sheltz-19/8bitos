@@ -240,7 +240,7 @@ int main()
 
 
     gpio_init (14);
-    gpio_set_dir(gpio, GPIO_IN);
+    gpio_set_dir(14, GPIO_IN);
     for(int i =14; i<=21;i++)
     {
       gpio_init (uint gpio);
