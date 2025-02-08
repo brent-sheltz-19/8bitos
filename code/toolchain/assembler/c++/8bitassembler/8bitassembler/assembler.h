@@ -7,6 +7,79 @@
 #include <cstring>
 #include <vector>
 using namespace std;
+enum SymbolType { label, constant, variable, ptr, asciiz, function };
+enum sizes { zero = 0, byte = 1, word = 2, dword = 4, qword = 8 };
+struct Symbol {
+    std::string name;  // Symbol name (e.g., variable name, label)
+    SymbolType type;   // Type of symbol (e.g., VARIABLE, CONSTANT)
+    sizes size;
+    /*
+        label 32 bit address
+        CONSTANT - actual value
+        ptr - 32 bit address
+        variable- size of value
+
+    */
+    string value;  // Value associated with the symbol (e.g., memory address,
+                   // constant value)
+
+    // Constructor
+    Symbol(std::string& n, SymbolType t, string v)
+        : name(n), type(t), value(v) {}
+    Symbol() {
+        name = "";
+
+        value = "";
+    }
+    string enumtoString() {
+        switch (type) {
+            case label:
+                return "label";
+            case constant:
+                return "constant";
+            case variable:
+                return "variable";
+            case ptr:
+                return "pointer";
+            case asciiz:
+                return "asciiz";
+
+            default:
+                return "Unknown";
+        }
+    }
+
+    string toString() { return (name + " " + enumtoString() + " " + value); }
+};
+class SymbolTable {
+   public:
+    string add(std::string& n, SymbolType t, string v) {
+        string error;
+        if (table.find(n) != table.end()) {
+            error = "Symbol " + n + " already exists!";
+            return error;
+        } else {
+            table[n] = Symbol(n, t, v);
+            return "";
+        }
+    }
+    void add() {}
+    // Look up a symbol by name
+    Symbol* getSymbol(const std::string& name) {
+        auto it = table.find(name);
+        if (it != table.end()) {
+            return &(it->second);
+        }
+        return nullptr;  // Symbol not found
+    }
+
+   private:
+    unordered_map<std::string, Symbol> table;
+};
+
+
+
+
 class assembler
 {
 	enum sizes 
